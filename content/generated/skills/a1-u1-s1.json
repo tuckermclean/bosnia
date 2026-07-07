@@ -1,0 +1,169 @@
+{
+  "id": "a1-u1-s1",
+  "order": 1,
+  "title": "Pozdravi",
+  "titleEn": "Greetings",
+  "grammarTip": "Bosnian distinguishes informal address (ti) from formal or plural address (vi): 'Kako si?' (asking one person you're informal with) vs 'Kako ste?' (formal, or speaking to more than one person). The word 'molim' does double duty — it means 'please' when asking for something, and 'you're welcome' when replying to 'hvala'.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "zdravo",
+      "en": "hello",
+      "audioHash": "34bd5a655bd14e6720a487601f00c3abe2dc1c749952db20ae234f375d62c4f3"
+    },
+    {
+      "bs": "dobar dan",
+      "en": "good day / hello",
+      "audioHash": "ced7afd4f6b7c4130914e21f9199ce2159d891ea10d3e8adf4b5d3b24c05e33d"
+    },
+    {
+      "bs": "dobro jutro",
+      "en": "good morning",
+      "audioHash": "20770fa9d3947734750fe6e311053d23568d6174b28361eb17315ad92833eafd"
+    },
+    {
+      "bs": "dobro veče",
+      "en": "good evening",
+      "audioHash": "639017b25a1b455014025c6e9126b53cf50629c46b6aa713fc66eeba2cbaf873"
+    },
+    {
+      "bs": "laku noć",
+      "en": "good night",
+      "audioHash": "de38dc6959515c3fa725041d2b912b4e1a329f9586666419ff1177590d02c226"
+    },
+    {
+      "bs": "doviđenja",
+      "en": "goodbye",
+      "audioHash": "e1ca96c9f80426bfc69f68cefb507007627e1656a9a43a3a13fcbb8025216f4f"
+    },
+    {
+      "bs": "ćao",
+      "en": "bye / hi (informal)",
+      "audioHash": "adcd7b7db76ac361687eada5f70e11955bc50ccc3962d7a54fa5779b832f5361"
+    },
+    {
+      "bs": "kako si",
+      "en": "how are you (informal)",
+      "audioHash": "d3c67665337937f2bc0090840996bcdbd5b90e3889f4b514332be44c8f2b5ef4"
+    },
+    {
+      "bs": "kako ste",
+      "en": "how are you (formal / plural)",
+      "audioHash": "f2eb18df8d2e8d5d111599a46b3b9b752842b98352262cce21918d02f265c9c4"
+    },
+    {
+      "bs": "hvala",
+      "en": "thank you",
+      "audioHash": "34af1566d4916e0c41d767f68740f25776101cf3ebc4e827654d605ae1f6e946"
+    },
+    {
+      "bs": "molim",
+      "en": "please / you're welcome",
+      "audioHash": "fb8435dba4b61930ef3f29cac604bfa166bc0090be55e50df463331d02edfc25"
+    },
+    {
+      "bs": "izvini",
+      "en": "sorry, excuse me (informal)",
+      "audioHash": "b3cb127f0620b6fc97cb9b3a23536915f819b39d600316f3d0266e7149425223"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a1-u1-s1-l1",
+      "order": 1,
+      "title": "Osnovni pozdravi",
+      "exercises": [
+        {
+          "id": "a1-u1-s1-l1-e1",
+          "prompt": "Kako se kaže 'hello' na bosanskom?",
+          "promptEn": "How do you say 'hello' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "zdravo",
+          "choices": [
+            "zdravo",
+            "hvala",
+            "doviđenja",
+            "molim"
+          ]
+        },
+        {
+          "id": "a1-u1-s1-l1-e2",
+          "prompt": "Šta znači riječ 'hvala'?",
+          "promptEn": "What does the word 'hvala' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "thank you",
+          "choices": [
+            "thank you",
+            "goodbye",
+            "please",
+            "sorry"
+          ]
+        },
+        {
+          "id": "a1-u1-s1-l1-e3",
+          "prompt": "Sastavi frazu: 'Good evening'",
+          "promptEn": "Build the phrase: 'Good evening'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "dobro veče",
+          "choices": [
+            "dobro",
+            "veče",
+            "jutro",
+            "noć",
+            "dan"
+          ]
+        },
+        {
+          "id": "a1-u1-s1-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "zdravo",
+              "en": "hello"
+            },
+            {
+              "bs": "hvala",
+              "en": "thank you"
+            },
+            {
+              "bs": "doviđenja",
+              "en": "goodbye"
+            },
+            {
+              "bs": "molim",
+              "en": "please"
+            }
+          ]
+        },
+        {
+          "id": "a1-u1-s1-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Good morning",
+          "choices": [
+            "Good morning",
+            "Good night",
+            "Good evening",
+            "Goodbye"
+          ],
+          "targetPhrase": "Dobro jutro",
+          "audioHash": "8052348482148a494da4b01ca968edacfe44239254a679220fe663523387d921"
+        },
+        {
+          "id": "a1-u1-s1-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Laku noć",
+          "audioHash": "70b255aadc633e597f9d1ed727c939244df6652f7b901d4172e594381fcec300"
+        }
+      ]
+    }
+  ]
+}

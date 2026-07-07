@@ -1,0 +1,159 @@
+{
+  "id": "a1-u1-s3",
+  "order": 3,
+  "title": "Brojevi 1-10",
+  "titleEn": "Numbers 1-10",
+  "grammarTip": "Bosnian numbers change the case of the noun that follows: 'jedan' (one) agrees in gender with the noun; 2-4 take the noun in genitive singular ('dva stola' - two tables); 5 and above take the noun in genitive plural ('pet stolova' - five tables).",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "jedan",
+      "en": "one",
+      "audioHash": "9ca08aae27377cd348d5bb9c0b15b3bb8c141a2fee2ac9093fb9fa2bec140634"
+    },
+    {
+      "bs": "dva",
+      "en": "two",
+      "audioHash": "d8249252811e9615fa6598643d821fdd3fe70cdd3f7d14a5c60c98b3cfea41f7"
+    },
+    {
+      "bs": "tri",
+      "en": "three",
+      "audioHash": "c51b53195c4ab527ad0bf51ca3d9d3ba26855e5a643f52beb259b722e18f06d8"
+    },
+    {
+      "bs": "četiri",
+      "en": "four",
+      "audioHash": "49932b0b3f0f79762797c5b6db612aa3c928703e65c9bd836b19611c5152dee0"
+    },
+    {
+      "bs": "pet",
+      "en": "five",
+      "audioHash": "45908a9b2ba1d933a50b836d59db4b1f57e531965ca6b7899ef3fefd8feb8e18"
+    },
+    {
+      "bs": "šest",
+      "en": "six",
+      "audioHash": "b6d3fa0a0f590a196bf5696899c821f19fcb316f2ceb4b5f295e940d98122c98"
+    },
+    {
+      "bs": "sedam",
+      "en": "seven",
+      "audioHash": "4bbad2bacdbfe4fed30746cf410655341dafb6635b4e1c550966c46599fae859"
+    },
+    {
+      "bs": "osam",
+      "en": "eight",
+      "audioHash": "139789239469121e0632e6b52a6c293365ab3d444a4d21eeb6fb5dd391093f96"
+    },
+    {
+      "bs": "devet",
+      "en": "nine",
+      "audioHash": "60c8732e2aaa37259d435a2b01f49ba06e29cc34500708610087b7e449e6b086"
+    },
+    {
+      "bs": "deset",
+      "en": "ten",
+      "audioHash": "221c145bd97f69ace6732cf0dd82bc8c818f16e2ab40625d0e3b77f83e43e9fc"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a1-u1-s3-l1",
+      "order": 1,
+      "title": "Brojanje od 1 do 10",
+      "exercises": [
+        {
+          "id": "a1-u1-s3-l1-e1",
+          "prompt": "Kako se kaže broj '7' na bosanskom?",
+          "promptEn": "How do you say the number '7' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "sedam",
+          "choices": [
+            "sedam",
+            "šest",
+            "osam",
+            "devet"
+          ]
+        },
+        {
+          "id": "a1-u1-s3-l1-e2",
+          "prompt": "Šta znači 'četiri'?",
+          "promptEn": "What does 'četiri' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "four",
+          "choices": [
+            "four",
+            "three",
+            "five",
+            "six"
+          ]
+        },
+        {
+          "id": "a1-u1-s3-l1-e3",
+          "prompt": "Sastavi: 'I am five years old'",
+          "promptEn": "Build the phrase: 'I am five years old'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "Imam pet godina",
+          "choices": [
+            "Imam",
+            "pet",
+            "godina",
+            "deset",
+            "sam"
+          ]
+        },
+        {
+          "id": "a1-u1-s3-l1-e4",
+          "prompt": "Spoji brojeve s engleskim prijevodom.",
+          "promptEn": "Match the numbers with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "jedan",
+              "en": "one"
+            },
+            {
+              "bs": "tri",
+              "en": "three"
+            },
+            {
+              "bs": "šest",
+              "en": "six"
+            },
+            {
+              "bs": "deset",
+              "en": "ten"
+            }
+          ]
+        },
+        {
+          "id": "a1-u1-s3-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Eight",
+          "choices": [
+            "Eight",
+            "Two",
+            "Nine",
+            "Six"
+          ],
+          "targetPhrase": "Osam",
+          "audioHash": "ddb7720d44e7700fb461567dfdd0dde40e3412d69e2e2fc07ea7c54a28945362"
+        },
+        {
+          "id": "a1-u1-s3-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Devet",
+          "audioHash": "2c5a0e052aab63a6bfe65a79976e0edf186e55a1c911cc29c76b6f65067b39e6"
+        }
+      ]
+    }
+  ]
+}

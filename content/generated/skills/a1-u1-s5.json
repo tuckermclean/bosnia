@@ -1,0 +1,164 @@
+{
+  "id": "a1-u1-s5",
+  "order": 5,
+  "title": "Porodica",
+  "titleEn": "Family",
+  "grammarTip": "Possessive pronouns agree in gender with the noun they modify: 'moj brat' (my brother, masculine), 'moja sestra' (my sister, feminine), 'moje dijete' (my child, neuter). Third-person possessives change too: 'njegov brat' (his brother), 'njena sestra' (her sister).",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "majka",
+      "en": "mother",
+      "audioHash": "df660aed19ce8ce96fbda7b46dba63814bb5ed2a54c9ccc0b2b3d86bc8482cf1"
+    },
+    {
+      "bs": "otac",
+      "en": "father",
+      "audioHash": "7088f7db9029cc83c4a1c900d269278446a1b5295f4e3c2ee7da3e8baad9cb30"
+    },
+    {
+      "bs": "sestra",
+      "en": "sister",
+      "audioHash": "a70abe4697c35ca34bbf7f9459e35327d3bfb88042c81e62459e64f8fa024218"
+    },
+    {
+      "bs": "brat",
+      "en": "brother",
+      "audioHash": "9bba67a06ca61264afb74d118bcf02c6566e10028882927cebe46d54374230aa"
+    },
+    {
+      "bs": "baka",
+      "en": "grandmother",
+      "audioHash": "3ed4151240ff961aff662dbb10540c6d1006f5d6164a7c5b1265e2176ed06035"
+    },
+    {
+      "bs": "djed",
+      "en": "grandfather",
+      "audioHash": "77724d02a44fefef2cf8e4c182e807a80a2ce6e44396bd1d0e29bf7a35bde7ad"
+    },
+    {
+      "bs": "sin",
+      "en": "son",
+      "audioHash": "3da987b41df6d0bc0eacc5447200b1aea5c85c84af8fa40629ad21c1db9b3919"
+    },
+    {
+      "bs": "kćerka",
+      "en": "daughter",
+      "audioHash": "fa403bc91d04b2aa525f7ed435f26c6f716f0ebd9e2551d8f2c894e417384f06"
+    },
+    {
+      "bs": "muž",
+      "en": "husband",
+      "audioHash": "626d6cff0493a7e4e2c72c20ec6c26800e26d5e3ff83936f32671a42e2ae4cde"
+    },
+    {
+      "bs": "žena",
+      "en": "wife",
+      "audioHash": "962cdae9dbd8ef0187d7e5e5610ec1b2d5ad00838213959f17ae52b3d5dad78d"
+    },
+    {
+      "bs": "dijete",
+      "en": "child",
+      "audioHash": "8c51417584ee815cff206e1fb93565fd48c8dd23fa52c34a68cd7313aafcf50f"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a1-u1-s5-l1",
+      "order": 1,
+      "title": "Moja porodica",
+      "exercises": [
+        {
+          "id": "a1-u1-s5-l1-e1",
+          "prompt": "Kako se kaže 'mother' na bosanskom?",
+          "promptEn": "How do you say 'mother' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "majka",
+          "choices": [
+            "majka",
+            "otac",
+            "sestra",
+            "baka"
+          ]
+        },
+        {
+          "id": "a1-u1-s5-l1-e2",
+          "prompt": "Šta znači 'brat'?",
+          "promptEn": "What does 'brat' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "brother",
+          "choices": [
+            "brother",
+            "father",
+            "son",
+            "husband"
+          ]
+        },
+        {
+          "id": "a1-u1-s5-l1-e3",
+          "prompt": "Sastavi: 'my sister'",
+          "promptEn": "Build the phrase: 'my sister'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "moja sestra",
+          "choices": [
+            "moja",
+            "sestra",
+            "moj",
+            "brat",
+            "otac"
+          ]
+        },
+        {
+          "id": "a1-u1-s5-l1-e4",
+          "prompt": "Spoji članove porodice s engleskim prijevodom.",
+          "promptEn": "Match the family members with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "majka",
+              "en": "mother"
+            },
+            {
+              "bs": "otac",
+              "en": "father"
+            },
+            {
+              "bs": "sin",
+              "en": "son"
+            },
+            {
+              "bs": "kćerka",
+              "en": "daughter"
+            }
+          ]
+        },
+        {
+          "id": "a1-u1-s5-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Grandmother",
+          "choices": [
+            "Grandmother",
+            "Grandfather",
+            "Mother",
+            "Wife"
+          ],
+          "targetPhrase": "Baka",
+          "audioHash": "2936d298f1894c25c2806a16282f28123c22e5ec48b5246da0b6366f6f4bafa9"
+        },
+        {
+          "id": "a1-u1-s5-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Moja porodica",
+          "audioHash": "ad2a98bd5d03e91cc36b75a89590290878cb3fccf054635926e4b5eac4c83cf4"
+        }
+      ]
+    }
+  ]
+}

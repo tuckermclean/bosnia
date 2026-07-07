@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "Ljiljan",
+    "slug": "ljiljan",
+    "scheme": "ljiljan",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "backgroundColor": "#0A2F5C",
+    "splash": {
+      "backgroundColor": "#0A2F5C"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ljiljan.app",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Ljiljan uses your microphone so you can practice pronunciation and talk with your voice tutor."
+      }
+    },
+    "android": {
+      "package": "com.ljiljan.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0A2F5C",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": ["RECORD_AUDIO", "MODIFY_AUDIO_SETTINGS"]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-splash-screen",
+      "expo-secure-store",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Ljiljan uses your microphone so you can practice pronunciation and talk with your voice tutor."
+        }
+      ]
+    ],
+    "extra": {
+      "apiBaseUrl": "http://localhost:3000",
+      "router": {}
+    }
+  }
+}

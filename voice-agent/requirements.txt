@@ -1,0 +1,41 @@
+# Ljiljan voice-agent worker -- LiveKit Agents pipeline dependencies.
+#
+# Install into the existing venv (python3.11, pip only -- no uv):
+#
+#   cd voice-agent
+#   .venv/bin/pip install -r requirements.txt
+#
+# Versions are pinned to what was verified to install and import cleanly
+# together (2026-07-07). Bump deliberately, not opportunistically.
+
+livekit-agents==1.6.4
+
+# Silero VAD -- endpointing + barge-in detection.
+# NOTE: livekit-plugins-silero is deprecated upstream in favor of
+# AgentSession's bundled default VAD / `livekit.agents.inference.VAD`, but is
+# kept here as an explicit dependency because the architecture calls for
+# Silero VAD by name and explicit > implicit for a pinned worker service.
+livekit-plugins-silero==1.6.4
+
+# Groq -- default STT (whisper-large-v3-turbo, language=bs) and default LLM
+# (llama-3.3-70b-versatile). See agent.py build_stt()/build_llm().
+livekit-plugins-groq==1.6.4
+
+# OpenAI -- alternate LLM provider (LLM_PROVIDER=openai). Also a transitive
+# base class dependency of livekit-plugins-groq (Groq's LLM/STT subclass the
+# OpenAI-compatible plugin classes), so this is required either way.
+livekit-plugins-openai==1.6.4
+
+# Azure Neural TTS -- bs-BA (Vesna/Goran), the authentic native Bosnian voice.
+# Fixed provider for TTS; not swappable behind the same seam as STT/LLM.
+livekit-plugins-azure==1.6.4
+
+# Used by turn_logger.py for optional, best-effort delivery to the backend's
+# tutor_turns endpoint. Already a transitive dependency (via the openai
+# package) but pinned directly here since we import it directly.
+httpx>=0.27,<1
+
+# --- Optional swap-in providers (NOT installed by default) -----------------
+# Uncomment and `pip install -r requirements.txt` again if you switch
+# STT_PROVIDER=deepgram in your environment (see agent.py build_stt()):
+# livekit-plugins-deepgram==1.6.4

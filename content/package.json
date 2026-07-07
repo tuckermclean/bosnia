@@ -1,0 +1,29 @@
+{
+  "name": "@bosanski/content",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Curriculum generation pipeline for the Bosanski app: CEFR blueprint, per-skill content generation, validation, bs-BA TTS, and native-speaker review tooling.",
+  "scripts": {
+    "blueprint": "tsx src/blueprint.ts",
+    "generate": "tsx src/generate.ts",
+    "validate": "tsx src/validate.ts",
+    "audio": "tsx src/synthesize-audio.ts",
+    "export-review": "tsx src/export-review.ts",
+    "apply-review": "tsx src/apply-review.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.110.0",
+    "openai": "^6.45.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0",
+    "tsx": "^4.23.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "bosanski",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bosanski — a mobile app for learning Bosnian (Duolingo-style, with pronunciation grading and a real-time voice tutor)",
+  "workspaces": [
+    "backend",
+    "content"
+  ],
+  "scripts": {
+    "test": "npm run test --workspace backend",
+    "backend": "npm run dev --workspace backend",
+    "content": "npm run --workspace content"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

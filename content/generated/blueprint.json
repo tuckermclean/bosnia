@@ -1,0 +1,58 @@
+{
+  "language": "bs",
+  "levels": [
+    "A1"
+  ],
+  "units": [
+    {
+      "id": "a1-u1",
+      "level": "A1",
+      "order": 1,
+      "title": "Osnove",
+      "titleEn": "Basics",
+      "theme": "Everyday greetings, self-introduction, numbers, colors, and family vocabulary for absolute beginners.",
+      "skills": [
+        {
+          "id": "a1-u1-s1",
+          "order": 1,
+          "title": "Pozdravi",
+          "titleEn": "Greetings",
+          "grammarFocus": "Bosnian distinguishes informal address (ti) from formal or plural address (vi): 'Kako si?' (asking one person you're informal with) vs 'Kako ste?' (formal, or speaking to more than one person).",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "a1-u1-s2",
+          "order": 2,
+          "title": "Predstavljanje",
+          "titleEn": "Introductions",
+          "grammarFocus": "Present tense of 'biti' (to be): ja sam, ti si, on/ona/ono je, mi smo, vi ste, oni/one su.",
+          "targetVocabCount": 11
+        },
+        {
+          "id": "a1-u1-s3",
+          "order": 3,
+          "title": "Brojevi 1-10",
+          "titleEn": "Numbers 1-10",
+          "grammarFocus": "Bosnian numbers change the case of the noun that follows: 'jedan' (one) agrees in gender with the noun; 2-4 take the noun in genitive singular ('dva stola' - two tables); 5 and above take the noun in genitive plural ('pet stolova' - five tables).",
+          "targetVocabCount": 10
+        },
+        {
+          "id": "a1-u1-s4",
+          "order": 4,
+          "title": "Boje",
+          "titleEn": "Colors",
+          "grammarFocus": "Bosnian adjectives — including colors — agree in gender with the noun they describe: 'crven auto' (red car, masculine), 'crvena jabuka' (red apple, feminine), 'crveno cvijeće' (red flowers, neuter).",
+          "targetVocabCount": 10
+        },
+        {
+          "id": "a1-u1-s5",
+          "order": 5,
+          "title": "Porodica",
+          "titleEn": "Family",
+          "grammarFocus": "Possessive pronouns agree in gender with the noun they modify: 'moj brat' (my brother, masculine), 'moja sestra' (my sister, feminine), 'moje dijete' (my child, neuter).",
+          "targetVocabCount": 11
+        }
+      ]
+    }
+  ]
+}

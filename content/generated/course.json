@@ -1,0 +1,830 @@
+{
+  "language": "bs",
+  "units": [
+    {
+      "id": "a1-u1",
+      "level": "A1",
+      "order": 1,
+      "title": "Osnove",
+      "titleEn": "Basics",
+      "theme": "Everyday greetings, self-introduction, numbers, colors, and family vocabulary for absolute beginners.",
+      "skills": [
+        {
+          "id": "a1-u1-s1",
+          "order": 1,
+          "title": "Pozdravi",
+          "titleEn": "Greetings",
+          "grammarTip": "Bosnian distinguishes informal address (ti) from formal or plural address (vi): 'Kako si?' (asking one person you're informal with) vs 'Kako ste?' (formal, or speaking to more than one person). The word 'molim' does double duty — it means 'please' when asking for something, and 'you're welcome' when replying to 'hvala'.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "zdravo",
+              "en": "hello",
+              "audioHash": "34bd5a655bd14e6720a487601f00c3abe2dc1c749952db20ae234f375d62c4f3"
+            },
+            {
+              "bs": "dobar dan",
+              "en": "good day / hello",
+              "audioHash": "ced7afd4f6b7c4130914e21f9199ce2159d891ea10d3e8adf4b5d3b24c05e33d"
+            },
+            {
+              "bs": "dobro jutro",
+              "en": "good morning",
+              "audioHash": "20770fa9d3947734750fe6e311053d23568d6174b28361eb17315ad92833eafd"
+            },
+            {
+              "bs": "dobro veče",
+              "en": "good evening",
+              "audioHash": "639017b25a1b455014025c6e9126b53cf50629c46b6aa713fc66eeba2cbaf873"
+            },
+            {
+              "bs": "laku noć",
+              "en": "good night",
+              "audioHash": "de38dc6959515c3fa725041d2b912b4e1a329f9586666419ff1177590d02c226"
+            },
+            {
+              "bs": "doviđenja",
+              "en": "goodbye",
+              "audioHash": "e1ca96c9f80426bfc69f68cefb507007627e1656a9a43a3a13fcbb8025216f4f"
+            },
+            {
+              "bs": "ćao",
+              "en": "bye / hi (informal)",
+              "audioHash": "adcd7b7db76ac361687eada5f70e11955bc50ccc3962d7a54fa5779b832f5361"
+            },
+            {
+              "bs": "kako si",
+              "en": "how are you (informal)",
+              "audioHash": "d3c67665337937f2bc0090840996bcdbd5b90e3889f4b514332be44c8f2b5ef4"
+            },
+            {
+              "bs": "kako ste",
+              "en": "how are you (formal / plural)",
+              "audioHash": "f2eb18df8d2e8d5d111599a46b3b9b752842b98352262cce21918d02f265c9c4"
+            },
+            {
+              "bs": "hvala",
+              "en": "thank you",
+              "audioHash": "34af1566d4916e0c41d767f68740f25776101cf3ebc4e827654d605ae1f6e946"
+            },
+            {
+              "bs": "molim",
+              "en": "please / you're welcome",
+              "audioHash": "fb8435dba4b61930ef3f29cac604bfa166bc0090be55e50df463331d02edfc25"
+            },
+            {
+              "bs": "izvini",
+              "en": "sorry, excuse me (informal)",
+              "audioHash": "b3cb127f0620b6fc97cb9b3a23536915f819b39d600316f3d0266e7149425223"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a1-u1-s1-l1",
+              "order": 1,
+              "title": "Osnovni pozdravi",
+              "exercises": [
+                {
+                  "id": "a1-u1-s1-l1-e1",
+                  "prompt": "Kako se kaže 'hello' na bosanskom?",
+                  "promptEn": "How do you say 'hello' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "zdravo",
+                  "choices": [
+                    "zdravo",
+                    "hvala",
+                    "doviđenja",
+                    "molim"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s1-l1-e2",
+                  "prompt": "Šta znači riječ 'hvala'?",
+                  "promptEn": "What does the word 'hvala' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "thank you",
+                  "choices": [
+                    "thank you",
+                    "goodbye",
+                    "please",
+                    "sorry"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s1-l1-e3",
+                  "prompt": "Sastavi frazu: 'Good evening'",
+                  "promptEn": "Build the phrase: 'Good evening'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "dobro veče",
+                  "choices": [
+                    "dobro",
+                    "veče",
+                    "jutro",
+                    "noć",
+                    "dan"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s1-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "zdravo",
+                      "en": "hello"
+                    },
+                    {
+                      "bs": "hvala",
+                      "en": "thank you"
+                    },
+                    {
+                      "bs": "doviđenja",
+                      "en": "goodbye"
+                    },
+                    {
+                      "bs": "molim",
+                      "en": "please"
+                    }
+                  ]
+                },
+                {
+                  "id": "a1-u1-s1-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Good morning",
+                  "choices": [
+                    "Good morning",
+                    "Good night",
+                    "Good evening",
+                    "Goodbye"
+                  ],
+                  "targetPhrase": "Dobro jutro",
+                  "audioHash": "8052348482148a494da4b01ca968edacfe44239254a679220fe663523387d921"
+                },
+                {
+                  "id": "a1-u1-s1-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Laku noć",
+                  "audioHash": "70b255aadc633e597f9d1ed727c939244df6652f7b901d4172e594381fcec300"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a1-u1-s2",
+          "order": 2,
+          "title": "Predstavljanje",
+          "titleEn": "Introductions",
+          "grammarTip": "Present tense of 'biti' (to be): ja sam, ti si, on/ona/ono je, mi smo, vi ste, oni/one su. Bosnian also uses reflexive verbs with 'se' — 'zvati se' (to be called): 'Kako se zoveš?' / 'Zovem se...'. Keep the informal/formal split in mind: 'zoveš' (ti) vs 'zovete' (vi).",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "Ja sam...",
+              "en": "I am...",
+              "audioHash": "f9fc7c780237a1f0fbbd7f257f3e9dd674a4f1fed2bb5f1b0ba629236466478a"
+            },
+            {
+              "bs": "Kako se zoveš?",
+              "en": "What's your name? (informal)",
+              "audioHash": "7850e1c57a7419eafd737ac3bef43ee4fef53fe5b366b425cff1d1c589f19a31"
+            },
+            {
+              "bs": "Kako se zovete?",
+              "en": "What's your name? (formal)",
+              "audioHash": "587ab34836cc6680131691f3b081513c8da4098337acbf44e751c59231d199bd"
+            },
+            {
+              "bs": "Zovem se...",
+              "en": "My name is...",
+              "audioHash": "fdc57b8306c889e1ac7a84cfbf962c9e830bbc7d88088678df5cfb64619b3413"
+            },
+            {
+              "bs": "Drago mi je",
+              "en": "Nice to meet you",
+              "audioHash": "a3d03d9cde6bd0806523e388707bafeb85adc34f17729f2abd7d2aa85bf63094"
+            },
+            {
+              "bs": "Odakle si?",
+              "en": "Where are you from? (informal)",
+              "audioHash": "4e69bc9ce584cb1625f7953e991211f058c955d57dd5f55bcbfabc3a0de6efbe"
+            },
+            {
+              "bs": "Ja sam iz...",
+              "en": "I am from...",
+              "audioHash": "2d95be36ad02d0027bf1c9f705391d045538db3f0fadd93a8f6fdce39016e188"
+            },
+            {
+              "bs": "Koliko imaš godina?",
+              "en": "How old are you? (informal)",
+              "audioHash": "9cf85d7bbd08d8c791482487074a747a40da078e3dd9e7f0ca2e7e2db71d612b"
+            },
+            {
+              "bs": "Imam ... godina",
+              "en": "I am ... years old",
+              "audioHash": "1cd56029bdfb850d6b0250449acfc091a39144e7b76766314879dbfd23d16498"
+            },
+            {
+              "bs": "prijatelj",
+              "en": "friend (male)",
+              "audioHash": "ccbc10dc34d82c1dc3915d5737a4e5c4de0aa8ae63e9abe710ae28f8332dde11"
+            },
+            {
+              "bs": "prijateljica",
+              "en": "friend (female)",
+              "audioHash": "d82f777dae70ef07b6aee5406de50fffe9cfd11df8d7544873f47b6d6d39852d"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a1-u1-s2-l1",
+              "order": 1,
+              "title": "Upoznavanje",
+              "exercises": [
+                {
+                  "id": "a1-u1-s2-l1-e1",
+                  "prompt": "Kako se kaže 'Nice to meet you'?",
+                  "promptEn": "How do you say 'Nice to meet you'?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "Drago mi je",
+                  "choices": [
+                    "Drago mi je",
+                    "Zovem se",
+                    "Odakle si",
+                    "Kako si"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s2-l1-e2",
+                  "prompt": "Šta znači 'Odakle si?'",
+                  "promptEn": "What does 'Odakle si?' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "Where are you from?",
+                  "choices": [
+                    "Where are you from?",
+                    "How old are you?",
+                    "What is your name?",
+                    "How are you?"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s2-l1-e3",
+                  "prompt": "Sastavi rečenicu: 'My name is Amar'",
+                  "promptEn": "Build the sentence: 'My name is Amar'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "Zovem se Amar",
+                  "choices": [
+                    "Zovem",
+                    "se",
+                    "Amar",
+                    "sam",
+                    "Ja"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s2-l1-e4",
+                  "prompt": "Spoji bosanske fraze s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian phrases with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "Zovem se...",
+                      "en": "My name is..."
+                    },
+                    {
+                      "bs": "Drago mi je",
+                      "en": "Nice to meet you"
+                    },
+                    {
+                      "bs": "Odakle si?",
+                      "en": "Where are you from?"
+                    },
+                    {
+                      "bs": "Koliko imaš godina?",
+                      "en": "How old are you?"
+                    }
+                  ]
+                },
+                {
+                  "id": "a1-u1-s2-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "What's your name?",
+                  "choices": [
+                    "What's your name?",
+                    "How are you?",
+                    "Where are you from?",
+                    "Goodbye"
+                  ],
+                  "targetPhrase": "Kako se zoveš?",
+                  "audioHash": "7850e1c57a7419eafd737ac3bef43ee4fef53fe5b366b425cff1d1c589f19a31"
+                },
+                {
+                  "id": "a1-u1-s2-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Drago mi je",
+                  "audioHash": "a3d03d9cde6bd0806523e388707bafeb85adc34f17729f2abd7d2aa85bf63094"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a1-u1-s3",
+          "order": 3,
+          "title": "Brojevi 1-10",
+          "titleEn": "Numbers 1-10",
+          "grammarTip": "Bosnian numbers change the case of the noun that follows: 'jedan' (one) agrees in gender with the noun; 2-4 take the noun in genitive singular ('dva stola' - two tables); 5 and above take the noun in genitive plural ('pet stolova' - five tables).",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "jedan",
+              "en": "one",
+              "audioHash": "9ca08aae27377cd348d5bb9c0b15b3bb8c141a2fee2ac9093fb9fa2bec140634"
+            },
+            {
+              "bs": "dva",
+              "en": "two",
+              "audioHash": "d8249252811e9615fa6598643d821fdd3fe70cdd3f7d14a5c60c98b3cfea41f7"
+            },
+            {
+              "bs": "tri",
+              "en": "three",
+              "audioHash": "c51b53195c4ab527ad0bf51ca3d9d3ba26855e5a643f52beb259b722e18f06d8"
+            },
+            {
+              "bs": "četiri",
+              "en": "four",
+              "audioHash": "49932b0b3f0f79762797c5b6db612aa3c928703e65c9bd836b19611c5152dee0"
+            },
+            {
+              "bs": "pet",
+              "en": "five",
+              "audioHash": "45908a9b2ba1d933a50b836d59db4b1f57e531965ca6b7899ef3fefd8feb8e18"
+            },
+            {
+              "bs": "šest",
+              "en": "six",
+              "audioHash": "b6d3fa0a0f590a196bf5696899c821f19fcb316f2ceb4b5f295e940d98122c98"
+            },
+            {
+              "bs": "sedam",
+              "en": "seven",
+              "audioHash": "4bbad2bacdbfe4fed30746cf410655341dafb6635b4e1c550966c46599fae859"
+            },
+            {
+              "bs": "osam",
+              "en": "eight",
+              "audioHash": "139789239469121e0632e6b52a6c293365ab3d444a4d21eeb6fb5dd391093f96"
+            },
+            {
+              "bs": "devet",
+              "en": "nine",
+              "audioHash": "60c8732e2aaa37259d435a2b01f49ba06e29cc34500708610087b7e449e6b086"
+            },
+            {
+              "bs": "deset",
+              "en": "ten",
+              "audioHash": "221c145bd97f69ace6732cf0dd82bc8c818f16e2ab40625d0e3b77f83e43e9fc"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a1-u1-s3-l1",
+              "order": 1,
+              "title": "Brojanje od 1 do 10",
+              "exercises": [
+                {
+                  "id": "a1-u1-s3-l1-e1",
+                  "prompt": "Kako se kaže broj '7' na bosanskom?",
+                  "promptEn": "How do you say the number '7' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "sedam",
+                  "choices": [
+                    "sedam",
+                    "šest",
+                    "osam",
+                    "devet"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s3-l1-e2",
+                  "prompt": "Šta znači 'četiri'?",
+                  "promptEn": "What does 'četiri' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "four",
+                  "choices": [
+                    "four",
+                    "three",
+                    "five",
+                    "six"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s3-l1-e3",
+                  "prompt": "Sastavi: 'I am five years old'",
+                  "promptEn": "Build the phrase: 'I am five years old'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "Imam pet godina",
+                  "choices": [
+                    "Imam",
+                    "pet",
+                    "godina",
+                    "deset",
+                    "sam"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s3-l1-e4",
+                  "prompt": "Spoji brojeve s engleskim prijevodom.",
+                  "promptEn": "Match the numbers with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "jedan",
+                      "en": "one"
+                    },
+                    {
+                      "bs": "tri",
+                      "en": "three"
+                    },
+                    {
+                      "bs": "šest",
+                      "en": "six"
+                    },
+                    {
+                      "bs": "deset",
+                      "en": "ten"
+                    }
+                  ]
+                },
+                {
+                  "id": "a1-u1-s3-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Eight",
+                  "choices": [
+                    "Eight",
+                    "Two",
+                    "Nine",
+                    "Six"
+                  ],
+                  "targetPhrase": "Osam",
+                  "audioHash": "ddb7720d44e7700fb461567dfdd0dde40e3412d69e2e2fc07ea7c54a28945362"
+                },
+                {
+                  "id": "a1-u1-s3-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Devet",
+                  "audioHash": "2c5a0e052aab63a6bfe65a79976e0edf186e55a1c911cc29c76b6f65067b39e6"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a1-u1-s4",
+          "order": 4,
+          "title": "Boje",
+          "titleEn": "Colors",
+          "grammarTip": "Bosnian adjectives — including colors — agree in gender with the noun they describe: 'crven auto' (red car, masculine), 'crvena jabuka' (red apple, feminine), 'crveno cvijeće' (red flowers, neuter). The dictionary form shown here is the masculine singular.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "crven",
+              "en": "red",
+              "audioHash": "1bdce56b64c94e917c0eaae1147b5eeb5d98147c5c3520fa42c6a003e0cbc377"
+            },
+            {
+              "bs": "plav",
+              "en": "blue",
+              "audioHash": "a56ee6eaa36aa84f49b2fc1dd45afc281aa96b4e04c4d23af55812e9e2881671"
+            },
+            {
+              "bs": "zelen",
+              "en": "green",
+              "audioHash": "1ee42d2041c3d59a19d4d5fbff3dcb7b78b321ec7ea66aecd426ede78d195da3"
+            },
+            {
+              "bs": "žut",
+              "en": "yellow",
+              "audioHash": "57744881c54a047cb3953cac702b9265f5130d2482a7fb95286d25a9dc18582e"
+            },
+            {
+              "bs": "crn",
+              "en": "black",
+              "audioHash": "64480b3c277016aa571708f392653684ce26eae06df14795924d1809f3d3ed47"
+            },
+            {
+              "bs": "bijel",
+              "en": "white",
+              "audioHash": "ba36a1ea5725c9eb529d9870961894ccf9d20f8b6cb4abb308e5c155cf976192"
+            },
+            {
+              "bs": "narandžast",
+              "en": "orange",
+              "audioHash": "df2aee0a533f74458420f88a1d6b6c4c3f40def7c09904830b9c9ae20ac4ac7d"
+            },
+            {
+              "bs": "ljubičast",
+              "en": "purple",
+              "audioHash": "6e6486b53b64d3590d91789fbbc1f4e4ed4b4dd7e52f882c1a00de8298464460"
+            },
+            {
+              "bs": "smeđ",
+              "en": "brown",
+              "audioHash": "deb073c9049ad3fd60f8bf508b3f872281cf78529c71b5cfebf0389ab3df1ac4"
+            },
+            {
+              "bs": "ružičast",
+              "en": "pink",
+              "audioHash": "18df2e5531e3be66d7d96b903a35641749d530b4ac31e5e859904c50657e93df"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a1-u1-s4-l1",
+              "order": 1,
+              "title": "Osnovne boje",
+              "exercises": [
+                {
+                  "id": "a1-u1-s4-l1-e1",
+                  "prompt": "Kako se kaže 'blue' na bosanskom?",
+                  "promptEn": "How do you say 'blue' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "plav",
+                  "choices": [
+                    "plav",
+                    "zelen",
+                    "žut",
+                    "crn"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s4-l1-e2",
+                  "prompt": "Šta znači 'žut'?",
+                  "promptEn": "What does 'žut' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "yellow",
+                  "choices": [
+                    "yellow",
+                    "green",
+                    "orange",
+                    "purple"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s4-l1-e3",
+                  "prompt": "Sastavi: 'red and blue'",
+                  "promptEn": "Build the phrase: 'red and blue'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "crven i plav",
+                  "choices": [
+                    "crven",
+                    "i",
+                    "plav",
+                    "žut",
+                    "crn"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s4-l1-e4",
+                  "prompt": "Spoji boje s engleskim prijevodom.",
+                  "promptEn": "Match the colors with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "crven",
+                      "en": "red"
+                    },
+                    {
+                      "bs": "zelen",
+                      "en": "green"
+                    },
+                    {
+                      "bs": "crn",
+                      "en": "black"
+                    },
+                    {
+                      "bs": "bijel",
+                      "en": "white"
+                    }
+                  ]
+                },
+                {
+                  "id": "a1-u1-s4-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Orange",
+                  "choices": [
+                    "Orange",
+                    "Purple",
+                    "Brown",
+                    "Pink"
+                  ],
+                  "targetPhrase": "Narandžast",
+                  "audioHash": "a43383f0255a71afab455936b694a898559fc1ea63efc89b79e7bb5d29467883"
+                },
+                {
+                  "id": "a1-u1-s4-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Ljubičast",
+                  "audioHash": "fe4ef2094a0f8bd5fdc0f0cedf8eb2569020581bb131fc4d6c22a980931ef345"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a1-u1-s5",
+          "order": 5,
+          "title": "Porodica",
+          "titleEn": "Family",
+          "grammarTip": "Possessive pronouns agree in gender with the noun they modify: 'moj brat' (my brother, masculine), 'moja sestra' (my sister, feminine), 'moje dijete' (my child, neuter). Third-person possessives change too: 'njegov brat' (his brother), 'njena sestra' (her sister).",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "majka",
+              "en": "mother",
+              "audioHash": "df660aed19ce8ce96fbda7b46dba63814bb5ed2a54c9ccc0b2b3d86bc8482cf1"
+            },
+            {
+              "bs": "otac",
+              "en": "father",
+              "audioHash": "7088f7db9029cc83c4a1c900d269278446a1b5295f4e3c2ee7da3e8baad9cb30"
+            },
+            {
+              "bs": "sestra",
+              "en": "sister",
+              "audioHash": "a70abe4697c35ca34bbf7f9459e35327d3bfb88042c81e62459e64f8fa024218"
+            },
+            {
+              "bs": "brat",
+              "en": "brother",
+              "audioHash": "9bba67a06ca61264afb74d118bcf02c6566e10028882927cebe46d54374230aa"
+            },
+            {
+              "bs": "baka",
+              "en": "grandmother",
+              "audioHash": "3ed4151240ff961aff662dbb10540c6d1006f5d6164a7c5b1265e2176ed06035"
+            },
+            {
+              "bs": "djed",
+              "en": "grandfather",
+              "audioHash": "77724d02a44fefef2cf8e4c182e807a80a2ce6e44396bd1d0e29bf7a35bde7ad"
+            },
+            {
+              "bs": "sin",
+              "en": "son",
+              "audioHash": "3da987b41df6d0bc0eacc5447200b1aea5c85c84af8fa40629ad21c1db9b3919"
+            },
+            {
+              "bs": "kćerka",
+              "en": "daughter",
+              "audioHash": "fa403bc91d04b2aa525f7ed435f26c6f716f0ebd9e2551d8f2c894e417384f06"
+            },
+            {
+              "bs": "muž",
+              "en": "husband",
+              "audioHash": "626d6cff0493a7e4e2c72c20ec6c26800e26d5e3ff83936f32671a42e2ae4cde"
+            },
+            {
+              "bs": "žena",
+              "en": "wife",
+              "audioHash": "962cdae9dbd8ef0187d7e5e5610ec1b2d5ad00838213959f17ae52b3d5dad78d"
+            },
+            {
+              "bs": "dijete",
+              "en": "child",
+              "audioHash": "8c51417584ee815cff206e1fb93565fd48c8dd23fa52c34a68cd7313aafcf50f"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a1-u1-s5-l1",
+              "order": 1,
+              "title": "Moja porodica",
+              "exercises": [
+                {
+                  "id": "a1-u1-s5-l1-e1",
+                  "prompt": "Kako se kaže 'mother' na bosanskom?",
+                  "promptEn": "How do you say 'mother' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "majka",
+                  "choices": [
+                    "majka",
+                    "otac",
+                    "sestra",
+                    "baka"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s5-l1-e2",
+                  "prompt": "Šta znači 'brat'?",
+                  "promptEn": "What does 'brat' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "brother",
+                  "choices": [
+                    "brother",
+                    "father",
+                    "son",
+                    "husband"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s5-l1-e3",
+                  "prompt": "Sastavi: 'my sister'",
+                  "promptEn": "Build the phrase: 'my sister'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "moja sestra",
+                  "choices": [
+                    "moja",
+                    "sestra",
+                    "moj",
+                    "brat",
+                    "otac"
+                  ]
+                },
+                {
+                  "id": "a1-u1-s5-l1-e4",
+                  "prompt": "Spoji članove porodice s engleskim prijevodom.",
+                  "promptEn": "Match the family members with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "majka",
+                      "en": "mother"
+                    },
+                    {
+                      "bs": "otac",
+                      "en": "father"
+                    },
+                    {
+                      "bs": "sin",
+                      "en": "son"
+                    },
+                    {
+                      "bs": "kćerka",
+                      "en": "daughter"
+                    }
+                  ]
+                },
+                {
+                  "id": "a1-u1-s5-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Grandmother",
+                  "choices": [
+                    "Grandmother",
+                    "Grandfather",
+                    "Mother",
+                    "Wife"
+                  ],
+                  "targetPhrase": "Baka",
+                  "audioHash": "2936d298f1894c25c2806a16282f28123c22e5ec48b5246da0b6366f6f4bafa9"
+                },
+                {
+                  "id": "a1-u1-s5-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Moja porodica",
+                  "audioHash": "ad2a98bd5d03e91cc36b75a89590290878cb3fccf054635926e4b5eac4c83cf4"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

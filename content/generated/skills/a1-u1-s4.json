@@ -1,0 +1,159 @@
+{
+  "id": "a1-u1-s4",
+  "order": 4,
+  "title": "Boje",
+  "titleEn": "Colors",
+  "grammarTip": "Bosnian adjectives — including colors — agree in gender with the noun they describe: 'crven auto' (red car, masculine), 'crvena jabuka' (red apple, feminine), 'crveno cvijeće' (red flowers, neuter). The dictionary form shown here is the masculine singular.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "crven",
+      "en": "red",
+      "audioHash": "1bdce56b64c94e917c0eaae1147b5eeb5d98147c5c3520fa42c6a003e0cbc377"
+    },
+    {
+      "bs": "plav",
+      "en": "blue",
+      "audioHash": "a56ee6eaa36aa84f49b2fc1dd45afc281aa96b4e04c4d23af55812e9e2881671"
+    },
+    {
+      "bs": "zelen",
+      "en": "green",
+      "audioHash": "1ee42d2041c3d59a19d4d5fbff3dcb7b78b321ec7ea66aecd426ede78d195da3"
+    },
+    {
+      "bs": "žut",
+      "en": "yellow",
+      "audioHash": "57744881c54a047cb3953cac702b9265f5130d2482a7fb95286d25a9dc18582e"
+    },
+    {
+      "bs": "crn",
+      "en": "black",
+      "audioHash": "64480b3c277016aa571708f392653684ce26eae06df14795924d1809f3d3ed47"
+    },
+    {
+      "bs": "bijel",
+      "en": "white",
+      "audioHash": "ba36a1ea5725c9eb529d9870961894ccf9d20f8b6cb4abb308e5c155cf976192"
+    },
+    {
+      "bs": "narandžast",
+      "en": "orange",
+      "audioHash": "df2aee0a533f74458420f88a1d6b6c4c3f40def7c09904830b9c9ae20ac4ac7d"
+    },
+    {
+      "bs": "ljubičast",
+      "en": "purple",
+      "audioHash": "6e6486b53b64d3590d91789fbbc1f4e4ed4b4dd7e52f882c1a00de8298464460"
+    },
+    {
+      "bs": "smeđ",
+      "en": "brown",
+      "audioHash": "deb073c9049ad3fd60f8bf508b3f872281cf78529c71b5cfebf0389ab3df1ac4"
+    },
+    {
+      "bs": "ružičast",
+      "en": "pink",
+      "audioHash": "18df2e5531e3be66d7d96b903a35641749d530b4ac31e5e859904c50657e93df"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a1-u1-s4-l1",
+      "order": 1,
+      "title": "Osnovne boje",
+      "exercises": [
+        {
+          "id": "a1-u1-s4-l1-e1",
+          "prompt": "Kako se kaže 'blue' na bosanskom?",
+          "promptEn": "How do you say 'blue' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "plav",
+          "choices": [
+            "plav",
+            "zelen",
+            "žut",
+            "crn"
+          ]
+        },
+        {
+          "id": "a1-u1-s4-l1-e2",
+          "prompt": "Šta znači 'žut'?",
+          "promptEn": "What does 'žut' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "yellow",
+          "choices": [
+            "yellow",
+            "green",
+            "orange",
+            "purple"
+          ]
+        },
+        {
+          "id": "a1-u1-s4-l1-e3",
+          "prompt": "Sastavi: 'red and blue'",
+          "promptEn": "Build the phrase: 'red and blue'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "crven i plav",
+          "choices": [
+            "crven",
+            "i",
+            "plav",
+            "žut",
+            "crn"
+          ]
+        },
+        {
+          "id": "a1-u1-s4-l1-e4",
+          "prompt": "Spoji boje s engleskim prijevodom.",
+          "promptEn": "Match the colors with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "crven",
+              "en": "red"
+            },
+            {
+              "bs": "zelen",
+              "en": "green"
+            },
+            {
+              "bs": "crn",
+              "en": "black"
+            },
+            {
+              "bs": "bijel",
+              "en": "white"
+            }
+          ]
+        },
+        {
+          "id": "a1-u1-s4-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Orange",
+          "choices": [
+            "Orange",
+            "Purple",
+            "Brown",
+            "Pink"
+          ],
+          "targetPhrase": "Narandžast",
+          "audioHash": "a43383f0255a71afab455936b694a898559fc1ea63efc89b79e7bb5d29467883"
+        },
+        {
+          "id": "a1-u1-s4-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Ljubičast",
+          "audioHash": "fe4ef2094a0f8bd5fdc0f0cedf8eb2569020581bb131fc4d6c22a980931ef345"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# builds
+dist/
+build/
+*.tsbuildinfo
+
+# env / secrets
+.env
+.env.local
+*.local
+
+# local databases
+*.db
+*.sqlite
+.pglite/
+backend/.data/
+
+# The generated curriculum JSON is the product — it IS version-controlled so the
+# native-speaker review works against tracked artifacts.
+# Binary reference audio is large + regenerable via TTS, so only its manifest is tracked.
+content/audio-out/*
+!content/audio-out/manifest.json
+content/review-export/
+
+# python
+voice-agent/.venv/
+__pycache__/
+*.pyc
+
+# expo / rn
+app/.expo/
+app/dist/
+app/web-build/
+app/ios/
+app/android/
+
+# logs / os
+*.log
+.DS_Store

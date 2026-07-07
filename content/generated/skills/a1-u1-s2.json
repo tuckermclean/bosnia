@@ -1,0 +1,164 @@
+{
+  "id": "a1-u1-s2",
+  "order": 2,
+  "title": "Predstavljanje",
+  "titleEn": "Introductions",
+  "grammarTip": "Present tense of 'biti' (to be): ja sam, ti si, on/ona/ono je, mi smo, vi ste, oni/one su. Bosnian also uses reflexive verbs with 'se' — 'zvati se' (to be called): 'Kako se zoveš?' / 'Zovem se...'. Keep the informal/formal split in mind: 'zoveš' (ti) vs 'zovete' (vi).",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "Ja sam...",
+      "en": "I am...",
+      "audioHash": "f9fc7c780237a1f0fbbd7f257f3e9dd674a4f1fed2bb5f1b0ba629236466478a"
+    },
+    {
+      "bs": "Kako se zoveš?",
+      "en": "What's your name? (informal)",
+      "audioHash": "7850e1c57a7419eafd737ac3bef43ee4fef53fe5b366b425cff1d1c589f19a31"
+    },
+    {
+      "bs": "Kako se zovete?",
+      "en": "What's your name? (formal)",
+      "audioHash": "587ab34836cc6680131691f3b081513c8da4098337acbf44e751c59231d199bd"
+    },
+    {
+      "bs": "Zovem se...",
+      "en": "My name is...",
+      "audioHash": "fdc57b8306c889e1ac7a84cfbf962c9e830bbc7d88088678df5cfb64619b3413"
+    },
+    {
+      "bs": "Drago mi je",
+      "en": "Nice to meet you",
+      "audioHash": "a3d03d9cde6bd0806523e388707bafeb85adc34f17729f2abd7d2aa85bf63094"
+    },
+    {
+      "bs": "Odakle si?",
+      "en": "Where are you from? (informal)",
+      "audioHash": "4e69bc9ce584cb1625f7953e991211f058c955d57dd5f55bcbfabc3a0de6efbe"
+    },
+    {
+      "bs": "Ja sam iz...",
+      "en": "I am from...",
+      "audioHash": "2d95be36ad02d0027bf1c9f705391d045538db3f0fadd93a8f6fdce39016e188"
+    },
+    {
+      "bs": "Koliko imaš godina?",
+      "en": "How old are you? (informal)",
+      "audioHash": "9cf85d7bbd08d8c791482487074a747a40da078e3dd9e7f0ca2e7e2db71d612b"
+    },
+    {
+      "bs": "Imam ... godina",
+      "en": "I am ... years old",
+      "audioHash": "1cd56029bdfb850d6b0250449acfc091a39144e7b76766314879dbfd23d16498"
+    },
+    {
+      "bs": "prijatelj",
+      "en": "friend (male)",
+      "audioHash": "ccbc10dc34d82c1dc3915d5737a4e5c4de0aa8ae63e9abe710ae28f8332dde11"
+    },
+    {
+      "bs": "prijateljica",
+      "en": "friend (female)",
+      "audioHash": "d82f777dae70ef07b6aee5406de50fffe9cfd11df8d7544873f47b6d6d39852d"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a1-u1-s2-l1",
+      "order": 1,
+      "title": "Upoznavanje",
+      "exercises": [
+        {
+          "id": "a1-u1-s2-l1-e1",
+          "prompt": "Kako se kaže 'Nice to meet you'?",
+          "promptEn": "How do you say 'Nice to meet you'?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "Drago mi je",
+          "choices": [
+            "Drago mi je",
+            "Zovem se",
+            "Odakle si",
+            "Kako si"
+          ]
+        },
+        {
+          "id": "a1-u1-s2-l1-e2",
+          "prompt": "Šta znači 'Odakle si?'",
+          "promptEn": "What does 'Odakle si?' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "Where are you from?",
+          "choices": [
+            "Where are you from?",
+            "How old are you?",
+            "What is your name?",
+            "How are you?"
+          ]
+        },
+        {
+          "id": "a1-u1-s2-l1-e3",
+          "prompt": "Sastavi rečenicu: 'My name is Amar'",
+          "promptEn": "Build the sentence: 'My name is Amar'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "Zovem se Amar",
+          "choices": [
+            "Zovem",
+            "se",
+            "Amar",
+            "sam",
+            "Ja"
+          ]
+        },
+        {
+          "id": "a1-u1-s2-l1-e4",
+          "prompt": "Spoji bosanske fraze s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian phrases with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "Zovem se...",
+              "en": "My name is..."
+            },
+            {
+              "bs": "Drago mi je",
+              "en": "Nice to meet you"
+            },
+            {
+              "bs": "Odakle si?",
+              "en": "Where are you from?"
+            },
+            {
+              "bs": "Koliko imaš godina?",
+              "en": "How old are you?"
+            }
+          ]
+        },
+        {
+          "id": "a1-u1-s2-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "What's your name?",
+          "choices": [
+            "What's your name?",
+            "How are you?",
+            "Where are you from?",
+            "Goodbye"
+          ],
+          "targetPhrase": "Kako se zoveš?",
+          "audioHash": "7850e1c57a7419eafd737ac3bef43ee4fef53fe5b366b425cff1d1c589f19a31"
+        },
+        {
+          "id": "a1-u1-s2-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Drago mi je",
+          "audioHash": "a3d03d9cde6bd0806523e388707bafeb85adc34f17729f2abd7d2aa85bf63094"
+        }
+      ]
+    }
+  ]
+}
