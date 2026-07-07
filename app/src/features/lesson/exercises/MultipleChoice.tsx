@@ -5,16 +5,17 @@ import { color, fontSize, fontWeight, radius, spacing } from '@/theme/tokens';
 import type { ExerciseComponentProps } from './types';
 
 /**
- * `multiple_choice`: learner picks the correct translation of `exercise.prompt`
- * from `exercise.choices`. Correct answer is `exercise.answer`.
+ * `multiple_choice`: learner picks the correct translation of
+ * `exercise.payload.prompt` from `exercise.payload.choices`. Correct answer
+ * is `exercise.payload.answer`.
  */
 export function MultipleChoice({ exercise, onComplete }: ExerciseComponentProps) {
+  const { payload } = exercise;
   const [selected, setSelected] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
 
-  const choices = useMemo(() => exercise.choices ?? [], [exercise.choices]);
-  const isCorrect = checked && selected === exercise.answer;
-  const isWrong = checked && selected !== exercise.answer;
+  const choices = useMemo(() => payload.choices ?? [], [payload.choices]);
+  const isCorrect = checked && selected === payload.answer;
 
   function handleSelect(choice: string) {
     if (checked) return;
@@ -27,19 +28,19 @@ export function MultipleChoice({ exercise, onComplete }: ExerciseComponentProps)
   }
 
   function handleContinue() {
-    onComplete({ correct: selected === exercise.answer });
+    onComplete({ correct: selected === payload.answer });
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.prompt}>{exercise.prompt}</Text>
-      {exercise.promptEn ? <Text style={styles.promptHint}>{exercise.promptEn}</Text> : null}
+      <Text style={styles.prompt}>{payload.prompt}</Text>
+      {payload.promptEn ? <Text style={styles.promptHint}>{payload.promptEn}</Text> : null}
 
       <View style={styles.choices}>
         {choices.map((choice) => {
           const isSelected = selected === choice;
-          const showCorrect = checked && choice === exercise.answer;
-          const showWrong = checked && isSelected && choice !== exercise.answer;
+          const showCorrect = checked && choice === payload.answer;
+          const showWrong = checked && isSelected && choice !== payload.answer;
 
           return (
             <Pressable
@@ -75,7 +76,7 @@ export function MultipleChoice({ exercise, onComplete }: ExerciseComponentProps)
           padded
         >
           <Text style={styles.feedbackText}>
-            {isCorrect ? 'Tačno! Correct.' : `Not quite. Correct answer: ${exercise.answer}`}
+            {isCorrect ? 'Tačno! Correct.' : `Not quite. Correct answer: ${payload.answer}`}
           </Text>
         </Card>
       )}

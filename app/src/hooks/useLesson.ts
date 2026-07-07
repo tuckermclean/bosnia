@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { coursesApi } from '@/api';
 
+/** Returns `{ lesson, exercises }` for the given lesson id. */
 export function useLesson(lessonId: string | undefined) {
   return useQuery({
     queryKey: ['lesson', lessonId],

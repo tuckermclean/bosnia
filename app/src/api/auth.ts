@@ -1,5 +1,5 @@
 import { api } from './client';
-import type { AuthResponse, User } from '@/types/api';
+import type { AuthResponse, MeResponse, User } from '@/types/api';
 
 export interface Credentials {
   email: string;
@@ -14,6 +14,7 @@ export function login(credentials: Credentials): Promise<AuthResponse> {
   return api.post<AuthResponse>('/auth/login', credentials, { skipAuth: true });
 }
 
-export function me(): Promise<User> {
-  return api.get<User>('/auth/me');
+export async function me(): Promise<User> {
+  const res = await api.get<MeResponse>('/auth/me');
+  return res.user;
 }
