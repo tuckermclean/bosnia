@@ -6,10 +6,11 @@ import { useConnectionState, useRoomContext } from '@livekit/components-react';
 import { Button, Card } from '@/components';
 import { color, fontSize, fontWeight, radius, spacing } from '@/theme/tokens';
 import { useTutorSession } from '@/hooks/useTutor';
+import type { CefrLevel } from '@/types/api';
 
 export interface VoiceCallProps {
   /** CEFR level hint for the tutor's difficulty adaptation, e.g. "A1". */
-  level?: string;
+  level?: CefrLevel;
   onEnd?: () => void;
 }
 
@@ -43,16 +44,16 @@ export function VoiceCall({ level, onEnd }: VoiceCallProps) {
     );
   }
 
-  const { url, token } = sessionQuery.data;
+  const { url, token, sessionId } = sessionQuery.data;
 
   return (
     <LiveKitRoom serverUrl={url} token={token} connect audio onDisconnected={onEnd}>
-      <CallContent onEnd={onEnd} />
+      <CallContent onEnd={onEnd} sessionId={sessionId} />
     </LiveKitRoom>
   );
 }
 
-function CallContent({ onEnd }: { onEnd?: () => void }) {
+function CallContent({ onEnd, sessionId }: { onEnd?: () => void; sessionId?: string }) {
   const room = useRoomContext();
   const connectionState = useConnectionState(room);
   const { state: agentState, agentTranscriptions } = useVoiceAssistant();
@@ -90,9 +91,12 @@ function CallContent({ onEnd }: { onEnd?: () => void }) {
   }, [localParticipant]);
 
   const handleEndCall = useCallback(() => {
+    // TODO(follow-up): call session-end on disconnect (POST the turns/duration
+    // for `sessionId` once the backend exposes that endpoint).
+    void sessionId;
     room.disconnect();
     onEnd?.();
-  }, [room, onEnd]);
+  }, [room, onEnd, sessionId]);
 
   const toggleMic = useCallback(() => {
     localParticipant.setMicrophoneEnabled(!isMicrophoneEnabled);

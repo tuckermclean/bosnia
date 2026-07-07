@@ -171,11 +171,18 @@ export interface PronunciationResult {
 // ── Voice tutor ─────────────────────────────────────────────────────────
 
 export interface TutorSessionResponse {
+  /** Present once the backend's `/tutor/session` route returns it; used for a
+   * future session-end/turns call. Optional for backward compatibility with
+   * deployments that haven't rolled out that field yet. */
+  sessionId?: string;
   roomName: string;
   token: string;
   url: string;
 }
 
+export type CefrLevel = 'A1' | 'A2' | 'B1' | 'B2';
+
 export interface TutorSessionRequest {
-  level?: string;
+  level?: CefrLevel;
+  scenario?: string;
 }

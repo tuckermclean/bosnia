@@ -38,7 +38,14 @@ async function refreshAccessToken(): Promise<string | null> {
 
   refreshPromise = (async () => {
     const refreshToken = await getRefreshToken();
-    if (!refreshToken) return null;
+    if (!refreshToken) {
+      // No refresh token to exchange: there's no way back to an authenticated
+      // state, so force the same logout path as a rejected refresh instead of
+      // silently leaving the UI in a stuck "authenticated" state that 401s.
+      await clearTokens();
+      onAuthExpired?.();
+      return null;
+    }
 
     try {
       const res = await fetch(apiUrl('/auth/refresh'), {
@@ -122,10 +129,15 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
 
   if (!res.ok) {
     const body = await parseResponseBody(res);
+    // The backend's error handler always shapes errors as `{ error: <msg> }`
+    // (see backend/src/app.ts setErrorHandler) — never `message`. Read `error`
+    // first, but keep the `message`/status-text fallbacks for resilience
+    // against other/future error shapes.
+    const bodyRecord = typeof body === 'object' && body !== null ? (body as Record<string, unknown>) : undefined;
     const message =
-      (typeof body === 'object' && body !== null && 'message' in body
-        ? String((body as { message?: unknown }).message)
-        : undefined) ?? `Request failed with status ${res.status}`;
+      (bodyRecord && 'error' in bodyRecord ? String(bodyRecord.error) : undefined) ??
+      (bodyRecord && 'message' in bodyRecord ? String(bodyRecord.message) : undefined) ??
+      `Request failed with status ${res.status}`;
     throw new ApiError(res.status, message, body);
   }
 
