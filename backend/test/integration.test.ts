@@ -17,29 +17,61 @@ const COURSE_JSON_PATH = path.resolve(__dirname, "../../content/generated/course
 const AUDIO_MANIFEST_PATH = path.resolve(__dirname, "../../content/audio-out/manifest.json");
 
 /**
- * End-to-end integration test over the REAL generated A1 content — no
- * hand-inserted rows. Proves the seam that the per-route tests (which all seed
- * tiny hand-built fixtures) never exercise: `content/generated/course.json`
- * (as actually produced by the `content` package) loads through
- * `seedCourse()` and then serves correctly through the full HTTP API, from
- * registration through lesson-complete, tutor session, and pronunciation
- * scoring.
+ * End-to-end integration test over the REAL generated course content (now
+ * spanning A1->B2) — no hand-inserted rows. Proves the seam that the
+ * per-route tests (which all seed tiny hand-built fixtures) never exercise:
+ * `content/generated/course.json` (as actually produced by the `content`
+ * package) loads through `seedCourse()` and then serves correctly through
+ * the full HTTP API, from registration through lesson-complete, tutor
+ * session, and pronunciation scoring.
+ *
+ * The top-level seed counts (units/skills/lessons/exercises) are derived
+ * from the same course.json rather than hardcoded, so the test doesn't need
+ * updating every time the curriculum grows. The specific A1 assertions below
+ * (course `bs-a1-b2`, unit `a1-u1`, skill `a1-u1-s1`, lesson `a1-u1-s1-l1`)
+ * stay hardcoded on purpose: that content is unchanged and `a1-u1` is still
+ * unit order 1, i.e. still the first unit served.
  */
-describe("end-to-end: real seeded A1 content through the API", () => {
+describe("end-to-end: real seeded content through the API", () => {
   let dbHandle: DbHandle;
   let app: FastifyInstance;
   let accessToken: string;
+  // Expected totals, derived from the very same course.json the seed reads
+  // below rather than hardcoded — so this test keeps working as the
+  // curriculum grows (e.g. A1-only -> A1->B2) instead of asserting stale
+  // magic numbers that drift out from under it.
+  let expectedUnitCount: number;
+  let expectedSkillCount: number;
+  let expectedLessonCount: number;
+  let expectedExerciseCount: number;
 
   beforeAll(async () => {
     const course = JSON.parse(await readFile(COURSE_JSON_PATH, "utf8")) as RawCourse;
     const manifest = JSON.parse(await readFile(AUDIO_MANIFEST_PATH, "utf8")) as AudioManifest;
 
+    expectedUnitCount = course.units.length;
+    expectedSkillCount = course.units.reduce((sum, unit) => sum + unit.skills.length, 0);
+    expectedLessonCount = course.units.reduce(
+      (sum, unit) => sum + unit.skills.reduce((s, skill) => s + skill.lessons.length, 0),
+      0,
+    );
+    expectedExerciseCount = course.units.reduce(
+      (sum, unit) =>
+        sum +
+        unit.skills.reduce(
+          (s, skill) => s + skill.lessons.reduce((l, lesson) => l + lesson.exercises.length, 0),
+          0,
+        ),
+      0,
+    );
+
     dbHandle = await createTestDb();
     const result = await seedCourse(dbHandle.db, course, manifest);
     // Sanity on the seed itself, ahead of the API-level assertions below.
-    expect(result.unitCount).toBe(1);
-    expect(result.skillCount).toBe(5);
-    expect(result.exerciseCount).toBe(30);
+    expect(result.unitCount).toBe(expectedUnitCount);
+    expect(result.skillCount).toBe(expectedSkillCount);
+    expect(result.lessonCount).toBe(expectedLessonCount);
+    expect(result.exerciseCount).toBe(expectedExerciseCount);
 
     app = buildApp({
       db: dbHandle.db,
@@ -67,7 +99,7 @@ describe("end-to-end: real seeded A1 content through the API", () => {
     return { headers: { authorization: `Bearer ${accessToken}` }, ...overrides };
   }
 
-  it("GET /api/courses serves the real seeded A1 course with the first skill unlocked", async () => {
+  it("GET /api/courses serves the real seeded A1->B2 course with the first skill of the first unit unlocked", async () => {
     const res = await app.inject({ method: "GET", url: "/api/courses", ...authed() });
     expect(res.statusCode).toBe(200);
     const body = res.json();
@@ -75,8 +107,13 @@ describe("end-to-end: real seeded A1 content through the API", () => {
     expect(body.courses).toHaveLength(1);
     const course = body.courses[0];
     expect(course.id).toBe(COURSE_ID);
-    expect(course.units).toHaveLength(1);
+    // Curriculum now spans A1->B2 (multiple units), not just a single A1
+    // unit — assert against the real count from course.json rather than
+    // assuming exactly one unit exists.
+    expect(course.units).toHaveLength(expectedUnitCount);
 
+    // The A1 content itself is unchanged and still ordered first, so it's
+    // still the first unit served.
     const unit = course.units[0];
     expect(unit.id).toBe("a1-u1");
     expect(unit.skills).toHaveLength(5);
