@@ -1,0 +1,177 @@
+{
+  "id": "a2-u2-s1",
+  "order": 1,
+  "title": "Upute i pravci",
+  "titleEn": "Directions",
+  "grammarTip": "To give directions, use the imperative: 'skrenuti' (to turn) becomes skreni (informal) or skrenite (formal / plural) — Skreni lijevo! (Turn left!) Skrenite desno! (Turn right!). Many place prepositions — iza (behind), pored (next to), blizu (near), između (between), kod (at/by) — govern the genitive case: iza semafora (behind the traffic light), pored raskrsnice (next to the intersection), kod stanice (at the station).",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "lijevo",
+      "en": "left",
+      "audioHash": "01da9c681839dff35a3bcd53abdbabb6a5a85e9747e36f0eb3b6c2fb4531e18e"
+    },
+    {
+      "bs": "desno",
+      "en": "right",
+      "audioHash": "cd5f4d73a3851aa5918be327c509e5b72381632294c5b9e8af515dce8ea9458e"
+    },
+    {
+      "bs": "pravo",
+      "en": "straight ahead",
+      "audioHash": "840c74f6392fcf8646a308c0daa4f31995885a976d14ad89456c2baceaf11c66"
+    },
+    {
+      "bs": "skrenuti",
+      "en": "to turn",
+      "audioHash": "ecd365f6b4414bb7eb78f049f4578bb4a50ce10835ef0059828a36f4f4d5fc4d"
+    },
+    {
+      "bs": "ulica",
+      "en": "street",
+      "audioHash": "cc7fbb154ce0876a7a1896181390dce52a77dd2c99b42131a8078660915b42be"
+    },
+    {
+      "bs": "raskrsnica",
+      "en": "intersection",
+      "audioHash": "5f0297b09443ed7b3628f64c257a7e6ccfc0abde1ee343c6f8f1897498d70e1e"
+    },
+    {
+      "bs": "semafor",
+      "en": "traffic light",
+      "audioHash": "1af6318424985b8a422e889afd6de5d1dcbad41bc35bc4ae1e56235e3277f477"
+    },
+    {
+      "bs": "blizu",
+      "en": "near",
+      "audioHash": "ec76efb19f32eae9ef487375587f6b41eb787366513b3ff5ef30d3f1d3d0f69b"
+    },
+    {
+      "bs": "daleko",
+      "en": "far",
+      "audioHash": "5491dd72ecaa2e1a7c2aa19e279b7c0bdac0439a5b7b7a0a07721acb99ffd8f7"
+    },
+    {
+      "bs": "između",
+      "en": "between",
+      "audioHash": "d1d0697517c8b6bb1a2989344417c8733383959ae5ec1377603dad8eb1750fe4"
+    },
+    {
+      "bs": "pored",
+      "en": "next to, beside",
+      "audioHash": "14bfc583cd75177300883ca9d28d084ed2a947962768aef5d8b8af7a7fbf3550"
+    },
+    {
+      "bs": "iza",
+      "en": "behind",
+      "audioHash": "476327b90b0f46ff44a90f1082609337e98f922f747c141678c99a4330841cb5"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a2-u2-s1-l1",
+      "order": 1,
+      "title": "Kako da stignem tamo?",
+      "exercises": [
+        {
+          "id": "a2-u2-s1-l1-e1",
+          "prompt": "Šta znači glagol 'skrenuti'?",
+          "promptEn": "What does the verb 'skrenuti' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "to turn",
+          "choices": [
+            "to turn",
+            "to stop",
+            "to cross",
+            "to arrive"
+          ]
+        },
+        {
+          "id": "a2-u2-s1-l1-e2",
+          "prompt": "Odaberi tačan oblik: 'Pošta je pored ___.' (semafor)",
+          "promptEn": "Choose the correct form: 'The post office is next to the ___.' (traffic light)",
+          "type": "multiple_choice",
+          "answer": "semafora",
+          "choices": [
+            "semafora",
+            "semafor",
+            "semaforu",
+            "semaforom"
+          ]
+        },
+        {
+          "id": "a2-u2-s1-l1-e3",
+          "prompt": "Sastavi rečenicu: 'Turn right at the intersection.'",
+          "promptEn": "Build the sentence: 'Turn right at the intersection.'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "Skrenite desno kod raskrsnice",
+          "choices": [
+            "Skrenite",
+            "desno",
+            "kod",
+            "raskrsnice",
+            "lijevo",
+            "pravo"
+          ]
+        },
+        {
+          "id": "a2-u2-s1-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "lijevo",
+              "en": "left"
+            },
+            {
+              "bs": "desno",
+              "en": "right"
+            },
+            {
+              "bs": "pravo",
+              "en": "straight ahead"
+            },
+            {
+              "bs": "blizu",
+              "en": "near"
+            },
+            {
+              "bs": "daleko",
+              "en": "far"
+            },
+            {
+              "bs": "iza",
+              "en": "behind"
+            }
+          ]
+        },
+        {
+          "id": "a2-u2-s1-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Go straight, then turn left.",
+          "choices": [
+            "Go straight, then turn left.",
+            "Turn right, then go straight.",
+            "The street is far from here.",
+            "The traffic light is broken."
+          ],
+          "targetPhrase": "Idite pravo, pa skrenite lijevo.",
+          "audioHash": "74dc4f3c4edb4a62935008865ab6ba71877e2533f3f3aecedc23629a8939d6a8"
+        },
+        {
+          "id": "a2-u2-s1-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Banka je blizu, pored semafora.",
+          "audioHash": "bc0d1b0e8f57f50e739f1f68ca3b62103d63b68de98c81c9afdcb0aa8777bf42"
+        }
+      ]
+    }
+  ]
+}

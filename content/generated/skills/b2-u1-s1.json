@@ -1,0 +1,169 @@
+{
+  "id": "b2-u1-s1",
+  "order": 1,
+  "title": "Društvo",
+  "titleEn": "Society",
+  "grammarTip": "Na B2 nivou rečenice se sve češće povezuju zavisnim veznicima poput 'iako', 'budući da' i 's obzirom na to da', umjesto nizanja kratkih nezavisnih rečenica: 'Iako je nezaposlenost visoka, mladi ostaju optimistični.' Formalni bosanski jezik također često pretvara glagole u apstraktne imenice (nominalizacija): 'odlučiti' postaje 'odluka', 'promijeniti' postaje 'promjena' — postupak tipičan za novinski i akademski stil.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "društvo",
+      "en": "society",
+      "audioHash": "f5fc4632ddae0f4854d8605bf08ecd1107bc12f91a97c17620b3ebcd4fcf55ac"
+    },
+    {
+      "bs": "siromaštvo",
+      "en": "poverty",
+      "audioHash": "86a6ffc37ffaa27f6cc3e298cb17c9b95d15f467af2984b6de29eb85ef35b5bb"
+    },
+    {
+      "bs": "nejednakost",
+      "en": "inequality",
+      "audioHash": "28fd28176bf46793f2b9fac23fbb18a2f264a7b66285483e03020a660fcf51fb"
+    },
+    {
+      "bs": "useljenik",
+      "en": "immigrant",
+      "audioHash": "19be0d5ec07d7c10ef8cd9172c7c26d4a589c917aaca6e96ceb29868fe3a3cec"
+    },
+    {
+      "bs": "nezaposlenost",
+      "en": "unemployment",
+      "audioHash": "cc5fde662652212f2ebf93bf3e10dfe89dbf6b5bb9fa18f917dacf34ce674ef0"
+    },
+    {
+      "bs": "diskriminacija",
+      "en": "discrimination",
+      "audioHash": "455a8985ff703a8b3422f36240d9fa28b06f484d5d935bb52db60fca30dec615"
+    },
+    {
+      "bs": "ljudska prava",
+      "en": "human rights",
+      "audioHash": "7af715a557135bed716d2eb14603796c38195b9352dcfe1497bc02db0388625e"
+    },
+    {
+      "bs": "javno mnijenje",
+      "en": "public opinion",
+      "audioHash": "8aae7aeab5a271fca23d5458d899751b2bc4184da9f34c334e39ab053da7b275"
+    },
+    {
+      "bs": "generacijski jaz",
+      "en": "generation gap",
+      "audioHash": "d3e136c5aa06df752e5cddb9a4e2faf2d41c9cd83a2c11b7d5fcbc4d7cf7b5e4"
+    },
+    {
+      "bs": "predrasuda",
+      "en": "prejudice",
+      "audioHash": "0bdfc5911dc437d88f0053b6fb92c1e143ecfa3bb2ecfe61eb35460f0c4e2856"
+    },
+    {
+      "bs": "socijalna pravda",
+      "en": "social justice",
+      "audioHash": "19614b41b699818968bd6a5172808a2f5f34457f1c27599aa6e213cc941b6226"
+    },
+    {
+      "bs": "zajednica",
+      "en": "community",
+      "audioHash": "4b250bdecef554fff3c043fa18f423cbde2f57935d8b5d3833e8e56345b399d8"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b2-u1-s1-l1",
+      "order": 1,
+      "title": "Društvena pitanja",
+      "exercises": [
+        {
+          "id": "b2-u1-s1-l1-e1",
+          "prompt": "Kako se kaže 'inequality' na bosanskom?",
+          "promptEn": "How do you say 'inequality' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "nejednakost",
+          "choices": [
+            "nejednakost",
+            "siromaštvo",
+            "pravda",
+            "zajednica"
+          ]
+        },
+        {
+          "id": "b2-u1-s1-l1-e2",
+          "prompt": "Šta znači riječ 'predrasuda'?",
+          "promptEn": "What does the word 'predrasuda' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "prejudice",
+          "choices": [
+            "prejudice",
+            "poverty",
+            "justice",
+            "discrimination"
+          ]
+        },
+        {
+          "id": "b2-u1-s1-l1-e3",
+          "prompt": "Sastavi frazu: 'social justice'",
+          "promptEn": "Build the phrase: 'social justice'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "socijalna pravda",
+          "choices": [
+            "socijalna",
+            "pravda",
+            "javno",
+            "mnijenje",
+            "zajednica"
+          ]
+        },
+        {
+          "id": "b2-u1-s1-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "diskriminacija",
+              "en": "discrimination"
+            },
+            {
+              "bs": "ljudska prava",
+              "en": "human rights"
+            },
+            {
+              "bs": "generacijski jaz",
+              "en": "generation gap"
+            },
+            {
+              "bs": "useljenik",
+              "en": "immigrant"
+            }
+          ]
+        },
+        {
+          "id": "b2-u1-s1-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Human rights are universal.",
+          "choices": [
+            "Human rights are universal.",
+            "Poverty is a global problem.",
+            "Society is changing quickly.",
+            "Discrimination is illegal."
+          ],
+          "targetPhrase": "Ljudska prava su univerzalna.",
+          "audioHash": "f415146c9719bcf59d56f6c4bca9e303a00c9b63189f521f775bb79e23b8c371"
+        },
+        {
+          "id": "b2-u1-s1-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Socijalna pravda je temelj svakog demokratskog društva.",
+          "audioHash": "65c7ad677ec1195fb5e3cf67a2ac9fd834d460870702fa1905ceda25014aba3f"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "id": "b2-u2-s3",
+  "order": 3,
+  "title": "Izražavanje želja",
+  "titleEn": "Expressing Wishes",
+  "grammarTip": "Kondicional se gradi od radnog glagolskog pridjeva i pomoćnog glagola 'biti' u posebnom obliku (bih, bi, bi, bismo, biste, bi): 'Volio bih putovati.' Za izražavanje želje ili namjere česta je i konstrukcija sa 'da': 'Želim da naučim bosanski.' U hipotetičkim rečenicama kondicional se koristi i u glavnoj i u zavisnoj rečenici: 'Kad bih imao vremena, putovao bih više.'",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "želja",
+      "en": "wish",
+      "audioHash": "cc6f51f848b1c7daa38f8347700d069993d1f07bd13d94b7575f5191208cd6a2"
+    },
+    {
+      "bs": "nada",
+      "en": "hope",
+      "audioHash": "ed155b49d67818c8cd71c2c64ba698f10b883434abb8cd905eb691d6fda04e32"
+    },
+    {
+      "bs": "san",
+      "en": "dream",
+      "audioHash": "1912282c27bb724f5b0013d8b8cd65d10f5f1d98765d99369b284e28e6fc8723"
+    },
+    {
+      "bs": "mašta",
+      "en": "imagination",
+      "audioHash": "99310e450c4e8ab310d836df8c37d32713edef01e6e23add3848643764bce6bb"
+    },
+    {
+      "bs": "mogućnost",
+      "en": "possibility",
+      "audioHash": "b897ca2fcbfa92e80cbc9e7494f7ad3b7312b197858382a97d4b62f16c138e08"
+    },
+    {
+      "bs": "uvjet",
+      "en": "condition",
+      "audioHash": "048e70ed633525e4722dd8f79d0810e7bb03a2f40b471cc31e4ca3f9dd92fd38"
+    },
+    {
+      "bs": "kad bih",
+      "en": "if I were to",
+      "audioHash": "aea3ae17cd8b10786b73c0b094391fda657146bef687483d14b0e728994d2808"
+    },
+    {
+      "bs": "volio bih",
+      "en": "I would like (male speaker)",
+      "audioHash": "0177ccb4092e15a60c9eaf85f6fc78d30e14ae439a9d5778356dac6ed25e5d24"
+    },
+    {
+      "bs": "voljela bih",
+      "en": "I would like (female speaker)",
+      "audioHash": "b42f4c917a514a9e794e8fdf00b72210ac5899590d399c8a0d97df2d75a2e252"
+    },
+    {
+      "bs": "nadati se",
+      "en": "to hope",
+      "audioHash": "a5946493bd67e87f88b56922ed4d884c17425482bcffd1c970807575c626f502"
+    },
+    {
+      "bs": "sanjati",
+      "en": "to dream",
+      "audioHash": "00305740429ea39cb70410283f931115a63971f6747f5a7c26fbe50a1346acb8"
+    },
+    {
+      "bs": "zamisliti",
+      "en": "to imagine",
+      "audioHash": "0f86b9cbc7003a66ca8761717ce2751c3dbd9da40a2d176e3963b895e721e096"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b2-u2-s3-l1",
+      "order": 1,
+      "title": "Snovi i nade",
+      "exercises": [
+        {
+          "id": "b2-u2-s3-l1-e1",
+          "prompt": "Kako se kaže 'hope' (imenica) na bosanskom?",
+          "promptEn": "How do you say 'hope' (noun) in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "nada",
+          "choices": [
+            "nada",
+            "san",
+            "želja",
+            "mašta"
+          ]
+        },
+        {
+          "id": "b2-u2-s3-l1-e2",
+          "prompt": "Šta znači riječ 'zamisliti'?",
+          "promptEn": "What does the word 'zamisliti' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "to imagine",
+          "choices": [
+            "to imagine",
+            "to hope",
+            "to dream",
+            "to wish"
+          ]
+        },
+        {
+          "id": "b2-u2-s3-l1-e3",
+          "prompt": "Sastavi frazu: 'I would like to travel.'",
+          "promptEn": "Build the phrase: 'I would like to travel.'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "volio bih putovati",
+          "choices": [
+            "volio",
+            "bih",
+            "putovati",
+            "želim",
+            "da"
+          ]
+        },
+        {
+          "id": "b2-u2-s3-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "san",
+              "en": "dream"
+            },
+            {
+              "bs": "mogućnost",
+              "en": "possibility"
+            },
+            {
+              "bs": "uvjet",
+              "en": "condition"
+            },
+            {
+              "bs": "nadati se",
+              "en": "to hope"
+            }
+          ]
+        },
+        {
+          "id": "b2-u2-s3-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "If I had time, I would travel more.",
+          "choices": [
+            "If I had time, I would travel more.",
+            "I hope to see you soon.",
+            "I dream about the sea every night.",
+            "I imagine a better future."
+          ],
+          "targetPhrase": "Kad bih imao vremena, putovao bih više.",
+          "audioHash": "7755f470ccb199772d8e48a73138a896ea41514d0c3c84de2b0dd32ebab08a4b"
+        },
+        {
+          "id": "b2-u2-s3-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Volio bih da jednog dana ostvarim svoje snove.",
+          "audioHash": "c86257143f75ad3544ad1a9dbbfd34357a8a796c5cbf3a77c124575da3f53536"
+        }
+      ]
+    }
+  ]
+}

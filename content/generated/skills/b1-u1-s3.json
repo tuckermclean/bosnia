@@ -1,0 +1,177 @@
+{
+  "id": "b1-u1-s3",
+  "order": 3,
+  "title": "Zdravlje",
+  "titleEn": "Health",
+  "grammarTip": "Trebati, morati, and moći are the three core modal verbs. Morati expresses strict obligation ('moram uzeti lijek' — I must take medicine); moći expresses ability or permission ('mogu li zakazati termin?' — can I book an appointment?); trebati expresses need and can be personal ('trebam ići kod ljekara' — I need to go to the doctor) or impersonal with the dative ('treba mi lijek' — I need medicine, literally 'medicine is needed to me').",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "zdravlje",
+      "en": "health",
+      "audioHash": "169795058adceb5d9efd8c8d96e9a04692373de1fb5c9b665f80f173b40d6d3f"
+    },
+    {
+      "bs": "bolestan",
+      "en": "sick (male)",
+      "audioHash": "5fd874dcb139c51ddbbaf432e2ed9a8176285f876ab926b3dd5ff0be07f228d7"
+    },
+    {
+      "bs": "simptom",
+      "en": "symptom",
+      "audioHash": "2ad3e103fb41f703a4c9570c77f57c454100519fb4de2d8e737e7ee1895629c8"
+    },
+    {
+      "bs": "temperatura",
+      "en": "fever, temperature",
+      "audioHash": "7d72fb219e69c690b0513472810410081985311d820f732e5c670b66d1335217"
+    },
+    {
+      "bs": "glava",
+      "en": "head",
+      "audioHash": "fcad8fda310de5bc677d0e5ca1cac7e9c59fd8be648d93ae9dd63cf3624a47ea"
+    },
+    {
+      "bs": "stomak",
+      "en": "stomach",
+      "audioHash": "738777152f683a54ddc5e18af8ad5b6a22116bb2dc66e1a8d245463d6d035efe"
+    },
+    {
+      "bs": "grlo",
+      "en": "throat",
+      "audioHash": "14d7c3e1b131eb3e4206022c45327e8cc6b1c215b1ccf0f4a2c115cbb0ef868e"
+    },
+    {
+      "bs": "ljekar",
+      "en": "doctor",
+      "audioHash": "25bfaf7b332ec03cbc30baf67e7c6587d7dfc8812ec886ebc236946638f4c6c1"
+    },
+    {
+      "bs": "lijek",
+      "en": "medicine",
+      "audioHash": "a19b5a8faf9066fe229b9d62fca03299f73db6e22d521dcca8164f2335f227ad"
+    },
+    {
+      "bs": "recept",
+      "en": "prescription",
+      "audioHash": "e99fb53ccb794f0f2c48c299394d9c001ed6300a6de493d9ea2f189a71e90d84"
+    },
+    {
+      "bs": "bolnica",
+      "en": "hospital",
+      "audioHash": "0efb334e416a3aea7f84c85d66bfcaf4c097fc47ef43c39faa2602fa58fc9f95"
+    },
+    {
+      "bs": "termin",
+      "en": "appointment",
+      "audioHash": "597ae04f326d05566ee75a3b299759037038ce1e880f72dd6f0d9b348f701fad"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b1-u1-s3-l1",
+      "order": 1,
+      "title": "Kod ljekara",
+      "exercises": [
+        {
+          "id": "b1-u1-s3-l1-e1",
+          "prompt": "Ako imaš temperaturu, ___ ostati kod kuće.",
+          "promptEn": "If you have a fever, you should stay home.",
+          "type": "multiple_choice",
+          "answer": "trebaš",
+          "choices": [
+            "trebaš",
+            "treba",
+            "trebam",
+            "trebate"
+          ]
+        },
+        {
+          "id": "b1-u1-s3-l1-e2",
+          "prompt": "Šta znači riječ 'recept'?",
+          "promptEn": "What does the word 'recept' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "prescription",
+          "choices": [
+            "prescription",
+            "symptom",
+            "appointment",
+            "hospital"
+          ]
+        },
+        {
+          "id": "b1-u1-s3-l1-e3",
+          "prompt": "Sastavi frazu: 'I have to go to the doctor'",
+          "promptEn": "Build the phrase: 'I have to go to the doctor'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "moram ići kod ljekara",
+          "choices": [
+            "moram",
+            "ići",
+            "kod",
+            "ljekara",
+            "mogu",
+            "trebam"
+          ]
+        },
+        {
+          "id": "b1-u1-s3-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "glava",
+              "en": "head"
+            },
+            {
+              "bs": "stomak",
+              "en": "stomach"
+            },
+            {
+              "bs": "grlo",
+              "en": "throat"
+            },
+            {
+              "bs": "lijek",
+              "en": "medicine"
+            },
+            {
+              "bs": "bolnica",
+              "en": "hospital"
+            },
+            {
+              "bs": "temperatura",
+              "en": "fever"
+            }
+          ]
+        },
+        {
+          "id": "b1-u1-s3-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "You must take the medicine twice a day.",
+          "choices": [
+            "You must take the medicine twice a day.",
+            "You can take the medicine once a day.",
+            "You should visit the doctor twice a week.",
+            "You need a prescription for this medicine."
+          ],
+          "targetPhrase": "Moraš uzeti lijek dva puta dnevno.",
+          "audioHash": "2c501d97c0cf3f169142ce2fdde4942982b1231b6c7b770c9187e48b6bad4f6e"
+        },
+        {
+          "id": "b1-u1-s3-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Mogu li zakazati termin kod doktora za sutra?",
+          "audioHash": "b30d312e980c52e556af8d59ea908eb58c2866b3c4799aec09b1b1bfabe5ab90"
+        }
+      ]
+    }
+  ]
+}

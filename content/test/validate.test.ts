@@ -119,7 +119,10 @@ describe("validateCourse", () => {
     expect(report.errorCount).toBe(0);
   });
 
-  it("flags exact duplicate vocab across two skills as an error", () => {
+  it("flags exact duplicate vocab across two skills as a warning, not a hard error", () => {
+    // Cross-skill repetition of the same word/translation is intentional
+    // (spaced-repetition / spiraling curriculum across CEFR levels), so it
+    // must not fail CI — see the matching comment in validate.ts.
     const course = makeGoodCourse();
     const dupSkill = structuredClone(course.units[0]!.skills[0]!);
     dupSkill.id = "a1-u1-s2";
@@ -128,10 +131,10 @@ describe("validateCourse", () => {
     course.units[0]!.skills.push(dupSkill);
 
     const report = validateCourse(course);
-    expect(report.ok).toBe(false);
-    expect(report.issues.some((i) => i.level === "error" && /Duplicate vocab/.test(i.message))).toBe(
-      true,
-    );
+    expect(report.ok).toBe(true);
+    expect(
+      report.issues.some((i) => i.level === "warning" && /Duplicate vocab/.test(i.message)),
+    ).toBe(true);
   });
 
   it("flags a multiple_choice exercise with zero or duplicate correct answers", () => {

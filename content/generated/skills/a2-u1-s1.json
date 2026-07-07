@@ -1,0 +1,179 @@
+{
+  "id": "a2-u1-s1",
+  "order": 1,
+  "title": "Dnevna rutina",
+  "titleEn": "Daily Routine",
+  "grammarTip": "Reflexive verbs pair a verb with the short pronoun 'se', which stays the same for every person: 'buditi se' (to wake oneself up) → ja se budim, ti se budiš, on/ona se budi, mi se budimo, vi se budite, oni se bude. 'Se' usually comes right after the verb, but jumps in front of it in questions: 'Kada se budiš?' (When do you wake up?). Everyday routine verbs like raditi, učiti and večerati follow the regular present-tense pattern: radim, radiš, radi, radimo, radite, rade.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "buditi se",
+      "en": "to wake up",
+      "audioHash": "afaeb7e6ad268e041187e840213381579a580c0a07cfc21dbc88dd99524a7032"
+    },
+    {
+      "bs": "ustajati",
+      "en": "to get up",
+      "audioHash": "905efb75be3a5bd3ba99c0347fe90f4ff613596f0e1d355791d38d8881ae738b"
+    },
+    {
+      "bs": "umivati se",
+      "en": "to wash up / wash one's face",
+      "audioHash": "eb7d40717538c9a10c083fe97249f6349da07417eddb760aa570645bc8bcf919"
+    },
+    {
+      "bs": "oblačiti se",
+      "en": "to get dressed",
+      "audioHash": "adda16c11badabfeef9711d751cfcf53531ba737282ab96baa7c9d0fb6f463c0"
+    },
+    {
+      "bs": "doručkovati",
+      "en": "to have breakfast",
+      "audioHash": "46cf63d1b3f8d9e27026c4ee2c2eec51bea23f295c3fab8de25e5f186e315e17"
+    },
+    {
+      "bs": "tuširati se",
+      "en": "to shower",
+      "audioHash": "31abd7d8d79ddb1e3a5967f8c3908862046b1a6a0121a1e293e0abeec2710da9"
+    },
+    {
+      "bs": "odlaziti",
+      "en": "to leave / to go (to work, school)",
+      "audioHash": "75fa1ef9ee32513483a98549343907e1d5a9c075d0b29a7ec6925f5ffb6f79eb"
+    },
+    {
+      "bs": "raditi",
+      "en": "to work",
+      "audioHash": "3274d93262eef80254a1711ddd6d2712b13da3ab021486dbfb09cd0ea2f80313"
+    },
+    {
+      "bs": "učiti",
+      "en": "to study",
+      "audioHash": "893e5ceb1d4ca4957a90c678df5a9393b2ca12e72895bd47d26732551c8da519"
+    },
+    {
+      "bs": "odmarati se",
+      "en": "to rest",
+      "audioHash": "973a54ebbebfd4f842df4e37cc07ca5708d979748de48117d7b9726659900c74"
+    },
+    {
+      "bs": "večerati",
+      "en": "to have dinner",
+      "audioHash": "5d828c0ad5e02a93a180873d04a4c71cada46c8098181efbfae0f3853aac18c5"
+    },
+    {
+      "bs": "spavati",
+      "en": "to sleep",
+      "audioHash": "69ef4fd41027a2f2e8ce03febc28a94d1d24c261d8b2d9f9ce909aa8edfd039b"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a2-u1-s1-l1",
+      "order": 1,
+      "title": "Moj dan",
+      "exercises": [
+        {
+          "id": "a2-u1-s1-l1-e1",
+          "prompt": "Šta znači glagol 'buditi se'?",
+          "promptEn": "What does the verb 'buditi se' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "to wake up",
+          "choices": [
+            "to wake up",
+            "to go to sleep",
+            "to get dressed",
+            "to rest"
+          ]
+        },
+        {
+          "id": "a2-u1-s1-l1-e2",
+          "prompt": "Kako se kaže 'to get dressed' na bosanskom?",
+          "promptEn": "How do you say 'to get dressed' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "oblačiti se",
+          "choices": [
+            "oblačiti se",
+            "umivati se",
+            "odmarati se",
+            "večerati"
+          ]
+        },
+        {
+          "id": "a2-u1-s1-l1-e3",
+          "prompt": "Sastavi rečenicu: 'I wake up at seven o'clock.'",
+          "promptEn": "Build the sentence: 'I wake up at seven o'clock.'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "Ja se budim u sedam sati",
+          "choices": [
+            "Ja",
+            "se",
+            "budim",
+            "u",
+            "sedam",
+            "sati",
+            "spavam"
+          ]
+        },
+        {
+          "id": "a2-u1-s1-l1-e4",
+          "prompt": "Spoji bosanske glagole s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian verbs with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "ustajati",
+              "en": "to get up"
+            },
+            {
+              "bs": "doručkovati",
+              "en": "to have breakfast"
+            },
+            {
+              "bs": "raditi",
+              "en": "to work"
+            },
+            {
+              "bs": "učiti",
+              "en": "to study"
+            },
+            {
+              "bs": "odmarati se",
+              "en": "to rest"
+            },
+            {
+              "bs": "spavati",
+              "en": "to sleep"
+            }
+          ]
+        },
+        {
+          "id": "a2-u1-s1-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "I get up early.",
+          "choices": [
+            "I get up early.",
+            "I go to bed late.",
+            "I rest in the evening.",
+            "I have dinner at home."
+          ],
+          "targetPhrase": "Ja ustajem rano.",
+          "audioHash": "65aa56174cfcaa9fcfff3c44136c9a58fa509552394375b6ec95bd2d787c95d5"
+        },
+        {
+          "id": "a2-u1-s1-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Uveče se tuširam i odmaram.",
+          "audioHash": "24ca47976c0e501bd7d24af4d22246e80e28633c4ea9414bd53a5af265110449"
+        }
+      ]
+    }
+  ]
+}

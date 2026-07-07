@@ -1,0 +1,177 @@
+{
+  "id": "a2-u2-s4",
+  "order": 4,
+  "title": "Slobodno vrijeme",
+  "titleEn": "Free Time",
+  "grammarTip": "'Voljeti' (to love, like) pairs with the infinitive to talk about activities: Volim plivati (I like to swim), Volim čitati (I like to read). When 'voljeti' takes a noun instead — the thing you like — that noun goes into the accusative: muzika → Volim muziku (I like music), knjiga → Volim knjigu (I like books/the book).",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "čitati",
+      "en": "to read",
+      "audioHash": "e3ccc204dd92bdabe960857b39d981c2d9e4767cd15bc071956b54ef219be1cd"
+    },
+    {
+      "bs": "plivati",
+      "en": "to swim",
+      "audioHash": "48edf78d92400b494ec76b78f4d60d8cc6f23764e4c51dce20aa6c5cad12a110"
+    },
+    {
+      "bs": "trčati",
+      "en": "to run",
+      "audioHash": "cf6665e7549e227cde8849bda3a00d3ab9c09b606dd4fec7591d867982e10757"
+    },
+    {
+      "bs": "slikati",
+      "en": "to take photos, to paint",
+      "audioHash": "56cebc473a08ec9a79382e0b0117d67ac178b2f48206c6ce20ec482c7ea6a225"
+    },
+    {
+      "bs": "pjevati",
+      "en": "to sing",
+      "audioHash": "7df9a29e0306ade9c07151b5be7af1b8b255dc870475c47395daecfda74cf215"
+    },
+    {
+      "bs": "plesati",
+      "en": "to dance",
+      "audioHash": "caf00bfc0c456209cc4717501715d7adc92098bc76487f5156b0865a6bd7e24c"
+    },
+    {
+      "bs": "crtati",
+      "en": "to draw",
+      "audioHash": "e17245bb1559e6b5633857898ebd05d4c78a23de664e18c084e5a750b107960e"
+    },
+    {
+      "bs": "kuhati",
+      "en": "to cook",
+      "audioHash": "efbbf6ce42d9d399b8d63dda55f50d499255ea15b05c332169a12e9f189aacc3"
+    },
+    {
+      "bs": "sport",
+      "en": "sport",
+      "audioHash": "18e17f6051df264f122880f8777e7457a1b76d559c3fc8aee7ca2c2849154517"
+    },
+    {
+      "bs": "muzika",
+      "en": "music",
+      "audioHash": "1b66019d4aae79de684da38d6ebf6fc281617f6244c6fbf564d81ae2f4468b79"
+    },
+    {
+      "bs": "knjiga",
+      "en": "book",
+      "audioHash": "c73dea299cab71d034e59f226c95094512f5cd7daa15509378ff12690e7863f5"
+    },
+    {
+      "bs": "voljeti",
+      "en": "to love, to like",
+      "audioHash": "a03940e4a7830f28142ff08034ea8bb2b876dd6759b005e280ef304542a056e0"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a2-u2-s4-l1",
+      "order": 1,
+      "title": "Šta voliš raditi?",
+      "exercises": [
+        {
+          "id": "a2-u2-s4-l1-e1",
+          "prompt": "Šta znači glagol 'plivati'?",
+          "promptEn": "What does the verb 'plivati' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "to swim",
+          "choices": [
+            "to swim",
+            "to run",
+            "to dance",
+            "to sing"
+          ]
+        },
+        {
+          "id": "a2-u2-s4-l1-e2",
+          "prompt": "Odaberi tačan oblik: 'Volim ___.' (muzika)",
+          "promptEn": "Choose the correct form: 'I like ___.' (music)",
+          "type": "multiple_choice",
+          "answer": "muziku",
+          "choices": [
+            "muziku",
+            "muzika",
+            "muzici",
+            "muzikom"
+          ]
+        },
+        {
+          "id": "a2-u2-s4-l1-e3",
+          "prompt": "Sastavi rečenicu: 'I like to sing and dance.'",
+          "promptEn": "Build the sentence: 'I like to sing and dance.'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "Volim pjevati i plesati",
+          "choices": [
+            "Volim",
+            "pjevati",
+            "i",
+            "plesati",
+            "čitati",
+            "trčati"
+          ]
+        },
+        {
+          "id": "a2-u2-s4-l1-e4",
+          "prompt": "Spoji bosanske glagole s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian verbs with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "čitati",
+              "en": "to read"
+            },
+            {
+              "bs": "plivati",
+              "en": "to swim"
+            },
+            {
+              "bs": "trčati",
+              "en": "to run"
+            },
+            {
+              "bs": "pjevati",
+              "en": "to sing"
+            },
+            {
+              "bs": "plesati",
+              "en": "to dance"
+            },
+            {
+              "bs": "kuhati",
+              "en": "to cook"
+            }
+          ]
+        },
+        {
+          "id": "a2-u2-s4-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "In my free time I like to draw and paint.",
+          "choices": [
+            "In my free time I like to draw and paint.",
+            "In my free time I like to swim and run.",
+            "I don't have free time.",
+            "I like to cook on Sundays."
+          ],
+          "targetPhrase": "U slobodno vrijeme volim crtati i slikati.",
+          "audioHash": "fc0be8f2c2535026d21d42703b72f9f590d9593e6421a2dc44d8692a93b62ff0"
+        },
+        {
+          "id": "a2-u2-s4-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Svake subote volim trčati i plivati.",
+          "audioHash": "469e1ae8581a118b1a37f45c8950d2b4470a9e93310c026ad221f827afe66b36"
+        }
+      ]
+    }
+  ]
+}

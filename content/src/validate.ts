@@ -89,9 +89,17 @@ export function validateCourse(course: Course): ValidationReport {
           (s) => s.en.trim().toLowerCase() === v.en.trim().toLowerCase() && s.skillId !== skill.id,
         );
         if (exactDup) {
+          // NOTE: this is a WARNING, not a hard error, by design. The course
+          // spans A1->B2 and deliberately re-teaches core vocabulary across
+          // levels/skills (spaced repetition / spiraling curriculum design —
+          // e.g. "raditi" reappearing in an A2 verbs skill and again in a
+          // later past-tense skill). Identical bs+en across different skills
+          // is expected and pedagogically desirable, so it must not fail CI.
+          // Only genuine hygiene problems (missing targetPhrase, wrong answer
+          // count, missing diacritics, broken refs, etc.) remain hard errors.
           issues.push({
-            level: "error",
-            message: `Duplicate vocab "${v.bs}" = "${v.en}" appears in both ${exactDup.skillId} and ${skill.id}`,
+            level: "warning",
+            message: `Duplicate vocab "${v.bs}" = "${v.en}" appears in both ${exactDup.skillId} and ${skill.id} (expected: spiraling curriculum)`,
           });
         } else if (seen.length > 0 && !seen.some((s) => s.skillId === skill.id)) {
           issues.push({

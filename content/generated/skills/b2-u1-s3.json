@@ -1,0 +1,169 @@
+{
+  "id": "b2-u1-s3",
+  "order": 3,
+  "title": "Kultura i umjetnost",
+  "titleEn": "Culture and the Arts",
+  "grammarTip": "Bosanski glagoli dolaze u parovima prema vidu: nesvršeni glagol opisuje radnju u toku ili radnju koja se ponavlja ('slikati' — slikao je cijeli mjesec), a svršeni glagol opisuje završenu, jednokratnu radnju ('naslikati' — naslikao je sliku prošle sedmice). Isto vrijedi za 'pisati/napisati', 'gledati/pogledati', 'čitati/pročitati' — izbor vida mijenja značenje rečenice, ne samo vrijeme.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "umjetnost",
+      "en": "art",
+      "audioHash": "e7f50673741030e6114952325b435904a7bdb719a36be0760d2f963a94647f3d"
+    },
+    {
+      "bs": "film",
+      "en": "film",
+      "audioHash": "40d0eec5538035e5904dca52e66667780dbcee78e8b1a670d2d2696f72bb3253"
+    },
+    {
+      "bs": "književnost",
+      "en": "literature",
+      "audioHash": "faacbbeb3fa5d1d42e19266c579cf44039bf5edd2e046e03411d289294a71d38"
+    },
+    {
+      "bs": "roman",
+      "en": "novel",
+      "audioHash": "0deb5953299f72897038809787d4f64c6656fee6e110c3acb8c51d9be879460d"
+    },
+    {
+      "bs": "slikarstvo",
+      "en": "painting",
+      "audioHash": "9e63c2e025328a8248b0ea755e5b425d4a15a501da583f9ba1e0571a19dfa6c6"
+    },
+    {
+      "bs": "predstava",
+      "en": "theatre play",
+      "audioHash": "c975fb6c7699235bee7a7bbf8e2e3b4bffe30a429b884289982a8afa96eaaf45"
+    },
+    {
+      "bs": "izložba",
+      "en": "exhibition",
+      "audioHash": "83fc3ed637d5446a462a686146cd01d626c4ff72359dc5f326d2d995cdd552ff"
+    },
+    {
+      "bs": "reditelj",
+      "en": "director",
+      "audioHash": "b2d8c8d10da37746d315484d96b2a6d2f72d443620e72bb42bd21c03452c42ec"
+    },
+    {
+      "bs": "glumac",
+      "en": "actor",
+      "audioHash": "88df2dce7f3c603f16a91117eb8eb0e5cec1062f6316dc4e843ad5d8a996b92b"
+    },
+    {
+      "bs": "nadahnuće",
+      "en": "inspiration",
+      "audioHash": "a37bd6815524f86a952780f36e1f128a6d8f04f09becb95dc30e08e011f41397"
+    },
+    {
+      "bs": "remek-djelo",
+      "en": "masterpiece",
+      "audioHash": "917fe54106ffeda10a0496475c6dc1ad392ab2b3ee1c4253510f909f72fc5bbe"
+    },
+    {
+      "bs": "kritika",
+      "en": "review / criticism",
+      "audioHash": "56fc2739208f66816e552a7c6144ff07f55651740db35a8e7f567e560b7c70b7"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b2-u1-s3-l1",
+      "order": 1,
+      "title": "Svijet umjetnosti",
+      "exercises": [
+        {
+          "id": "b2-u1-s3-l1-e1",
+          "prompt": "Kako se kaže 'masterpiece' na bosanskom?",
+          "promptEn": "How do you say 'masterpiece' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "remek-djelo",
+          "choices": [
+            "remek-djelo",
+            "izložba",
+            "kritika",
+            "nadahnuće"
+          ]
+        },
+        {
+          "id": "b2-u1-s3-l1-e2",
+          "prompt": "Šta znači riječ 'reditelj'?",
+          "promptEn": "What does the word 'reditelj' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "director",
+          "choices": [
+            "director",
+            "actor",
+            "painter",
+            "writer"
+          ]
+        },
+        {
+          "id": "b2-u1-s3-l1-e3",
+          "prompt": "Sastavi frazu (svršeni vid): 'he painted a masterpiece'",
+          "promptEn": "Build the phrase (perfective aspect): 'he painted a masterpiece'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "naslikao je remek-djelo",
+          "choices": [
+            "naslikao",
+            "je",
+            "remek-djelo",
+            "slikao",
+            "roman"
+          ]
+        },
+        {
+          "id": "b2-u1-s3-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "umjetnost",
+              "en": "art"
+            },
+            {
+              "bs": "književnost",
+              "en": "literature"
+            },
+            {
+              "bs": "izložba",
+              "en": "exhibition"
+            },
+            {
+              "bs": "glumac",
+              "en": "actor"
+            }
+          ]
+        },
+        {
+          "id": "b2-u1-s3-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "This novel is a true masterpiece.",
+          "choices": [
+            "This novel is a true masterpiece.",
+            "The exhibition opens tomorrow.",
+            "The actor won an award.",
+            "The critic wrote a review."
+          ],
+          "targetPhrase": "Ovaj roman je pravo remek-djelo.",
+          "audioHash": "f249a1f17a3a2df2a13527d530632ec39c1d41a31f11c35df8ecd180e48e13f5"
+        },
+        {
+          "id": "b2-u1-s3-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Reditelj je snimio film pun nadahnuća.",
+          "audioHash": "aa18f3ce00791c847883e91749d1e4756aae73705aeace9f1c389470c3342033"
+        }
+      ]
+    }
+  ]
+}

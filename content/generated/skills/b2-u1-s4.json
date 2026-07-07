@@ -1,0 +1,169 @@
+{
+  "id": "b2-u1-s4",
+  "order": 4,
+  "title": "Historija i tradicija",
+  "titleEn": "History and Tradition",
+  "grammarTip": "U pripovijedanju o prošlosti, posebno u narodnim pričama i legendama, pored svakodnevnog perfekta ('je došao') ponekad se sreću i knjiški prošli oblici: aorist ('dođe' — kratko, jednokratno svršeno) i imperfekt ('bijaše', 'življaše' — radnja koja je trajala). Na B2 nivou dovoljno je prepoznati ove oblike u tekstu, iako se u svakodnevnom govoru gotovo isključivo koristi perfekt.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "historija",
+      "en": "history",
+      "audioHash": "0bb65d30122a5fc255510bee213e77532437a0ccab3d9a818176e48c3588d723"
+    },
+    {
+      "bs": "tradicija",
+      "en": "tradition",
+      "audioHash": "c3c0e9d3e093d5572a419d0d6f83b9f4f15c9a557aa4ca969231014ebe18d1c1"
+    },
+    {
+      "bs": "naslijeđe",
+      "en": "heritage",
+      "audioHash": "5bebfcf328bc855c1bf97b59905fdd85c864f46e409e0c283a029d76d295ccb9"
+    },
+    {
+      "bs": "običaj",
+      "en": "custom",
+      "audioHash": "9ab4169dd0e86dd4c457d678ed3ce4a2f9c3ba1db39ae88afe1d9ce82e2a01fe"
+    },
+    {
+      "bs": "predak",
+      "en": "ancestor",
+      "audioHash": "c3813037810439057653ee5706dc88df2dc5611e52e22ea726b39e2685f02a00"
+    },
+    {
+      "bs": "legenda",
+      "en": "legend",
+      "audioHash": "a2142bc530972efd7ab008bcae5d56f3a5a94bca6d6824e237537122faa5ef92"
+    },
+    {
+      "bs": "osvajanje",
+      "en": "conquest",
+      "audioHash": "22dd3cae01a53fdaee650bba88658bd44d301c1f5cc502da8c8e7e842113db68"
+    },
+    {
+      "bs": "carstvo",
+      "en": "empire",
+      "audioHash": "f2d9bbced7622d37491bb8e6158920c0083d738e83c7dccbfcd6c121048be5ea"
+    },
+    {
+      "bs": "spomenik",
+      "en": "monument",
+      "audioHash": "fbeb9a9282ba517dd22aba329ac7cadcba713ceb270275b45e16a67907913ab2"
+    },
+    {
+      "bs": "narodna priča",
+      "en": "folk tale",
+      "audioHash": "a11f5f4a8fe634d176a8dde811049666d65ecb93dd1e29b3bd90e1a20b464ca6"
+    },
+    {
+      "bs": "vladar",
+      "en": "ruler",
+      "audioHash": "80a3b494ce9a175617d279b865c88c5e05c3efd85adea3e8df3d260188d4a52f"
+    },
+    {
+      "bs": "stoljeće",
+      "en": "century",
+      "audioHash": "543436c52628770b87aa24f3f5f5b4d734e759c54f2cda1c2ee4f997cafe9035"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b2-u1-s4-l1",
+      "order": 1,
+      "title": "Naslijeđe i predanja",
+      "exercises": [
+        {
+          "id": "b2-u1-s4-l1-e1",
+          "prompt": "Kako se kaže 'heritage' na bosanskom?",
+          "promptEn": "How do you say 'heritage' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "naslijeđe",
+          "choices": [
+            "naslijeđe",
+            "običaj",
+            "carstvo",
+            "spomenik"
+          ]
+        },
+        {
+          "id": "b2-u1-s4-l1-e2",
+          "prompt": "Šta znači riječ 'vladar'?",
+          "promptEn": "What does the word 'vladar' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "ruler",
+          "choices": [
+            "ruler",
+            "ancestor",
+            "legend",
+            "monument"
+          ]
+        },
+        {
+          "id": "b2-u1-s4-l1-e3",
+          "prompt": "Sastavi frazu: 'folk tale'",
+          "promptEn": "Build the phrase: 'folk tale'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "narodna priča",
+          "choices": [
+            "narodna",
+            "priča",
+            "legenda",
+            "tradicija",
+            "običaj"
+          ]
+        },
+        {
+          "id": "b2-u1-s4-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "predak",
+              "en": "ancestor"
+            },
+            {
+              "bs": "osvajanje",
+              "en": "conquest"
+            },
+            {
+              "bs": "carstvo",
+              "en": "empire"
+            },
+            {
+              "bs": "stoljeće",
+              "en": "century"
+            }
+          ]
+        },
+        {
+          "id": "b2-u1-s4-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "This monument preserves the memory of our ancestors.",
+          "choices": [
+            "This monument preserves the memory of our ancestors.",
+            "The empire lasted for centuries.",
+            "This is an old folk tale.",
+            "The ruler built many monuments."
+          ],
+          "targetPhrase": "Ovaj spomenik čuva uspomenu na naše pretke.",
+          "audioHash": "c47ca24c1ce5b43a02339cdf27a9baef7ecba8baa63e8c296c880a73ebd24d1b"
+        },
+        {
+          "id": "b2-u1-s4-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Naša tradicija se prenosi s koljena na koljeno.",
+          "audioHash": "74c2901e77c6bd3a636c08a234926cd9460be81ac0e5637b3cde85886fe56a4f"
+        }
+      ]
+    }
+  ]
+}

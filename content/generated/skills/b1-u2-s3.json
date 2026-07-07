@@ -1,0 +1,177 @@
+{
+  "id": "b1-u2-s3",
+  "order": 3,
+  "title": "Planovi i budućnost",
+  "titleEn": "Plans and the Future",
+  "grammarTip": "Namjeravati and planirati (+ infinitive) express intentions and plans: 'Namjeravam upisati fakultet' (I intend to enroll in college). After temporal conjunctions like kad/čim (when/as soon as) that point to a future event, Bosnian keeps the subordinate verb in the present tense rather than the future: 'Kad završim školu, naći ću posao' (When I finish school, I'll find a job) — never 'kad ću završiti'.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "plan",
+      "en": "plan",
+      "audioHash": "2fa1614c5e74e6e4230f1a3e53ff3adb702ac8f7d306226f05e253a481ea5d2a"
+    },
+    {
+      "bs": "namjera",
+      "en": "intention",
+      "audioHash": "65f4c6c0a3e176713efd87bf63cf17dfa57889a33e305caab4feb02238d4c68e"
+    },
+    {
+      "bs": "budućnost",
+      "en": "future",
+      "audioHash": "7bcf8dc9786ff10566c52e61b62538feaed78dcf2242eaaf4aec80d745270529"
+    },
+    {
+      "bs": "cilj",
+      "en": "goal",
+      "audioHash": "4a8626a94ab5c758aab73e8b611bc2fd80edfe1939048f10a4edcf8484ef5ced"
+    },
+    {
+      "bs": "san",
+      "en": "dream",
+      "audioHash": "1912282c27bb724f5b0013d8b8cd65d10f5f1d98765d99369b284e28e6fc8723"
+    },
+    {
+      "bs": "uspjeh",
+      "en": "success",
+      "audioHash": "16ffaa6c24789c548d8481f4d8872f6d22e83809ba4757c3172e432892c0e0a2"
+    },
+    {
+      "bs": "prilika",
+      "en": "opportunity",
+      "audioHash": "d4fc48184f639de15cfdaab4be53dcd885bd1943cd91874b902015d5494011e4"
+    },
+    {
+      "bs": "odluka",
+      "en": "decision",
+      "audioHash": "51edd408d0b68e86aeeffd9e54939a8288417f14dad2922da8868a1ec2b18df2"
+    },
+    {
+      "bs": "promjena",
+      "en": "change",
+      "audioHash": "52a0126e96fb4ae9f309e90d8f0ceabd5ab517fb42e7ba77e68a6f2199ace555"
+    },
+    {
+      "bs": "karijera",
+      "en": "career",
+      "audioHash": "6eecb5b8af18c0d50f3e7894412ba14eb1c43203becd7fbc7e09583efe899d2a"
+    },
+    {
+      "bs": "mogućnost",
+      "en": "possibility",
+      "audioHash": "b897ca2fcbfa92e80cbc9e7494f7ad3b7312b197858382a97d4b62f16c138e08"
+    },
+    {
+      "bs": "ostvariti",
+      "en": "to achieve, to make (a dream) come true",
+      "audioHash": "ee6207b2ea2b15dc1b84b5ee2e25cde333fb41b6d9c7c4b8e87f2a3d1366eb02"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b1-u2-s3-l1",
+      "order": 1,
+      "title": "Moji planovi",
+      "exercises": [
+        {
+          "id": "b1-u2-s3-l1-e1",
+          "prompt": "Kad ___ fakultet, tražiću posao.",
+          "promptEn": "When I finish college, I'll look for a job.",
+          "type": "multiple_choice",
+          "answer": "završim",
+          "choices": [
+            "završim",
+            "završiću",
+            "ću završiti",
+            "završio"
+          ]
+        },
+        {
+          "id": "b1-u2-s3-l1-e2",
+          "prompt": "Šta znači riječ 'prilika'?",
+          "promptEn": "What does the word 'prilika' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "opportunity",
+          "choices": [
+            "opportunity",
+            "decision",
+            "goal",
+            "change"
+          ]
+        },
+        {
+          "id": "b1-u2-s3-l1-e3",
+          "prompt": "Sastavi frazu: 'I plan to change my career'",
+          "promptEn": "Build the phrase: 'I plan to change my career'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "planiram promijeniti karijeru",
+          "choices": [
+            "planiram",
+            "promijeniti",
+            "karijeru",
+            "namjeravam",
+            "cilj",
+            "uspjeh"
+          ]
+        },
+        {
+          "id": "b1-u2-s3-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "cilj",
+              "en": "goal"
+            },
+            {
+              "bs": "san",
+              "en": "dream"
+            },
+            {
+              "bs": "uspjeh",
+              "en": "success"
+            },
+            {
+              "bs": "odluka",
+              "en": "decision"
+            },
+            {
+              "bs": "promjena",
+              "en": "change"
+            },
+            {
+              "bs": "mogućnost",
+              "en": "possibility"
+            }
+          ]
+        },
+        {
+          "id": "b1-u2-s3-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "I intend to achieve my dream before turning thirty.",
+          "choices": [
+            "I intend to achieve my dream before turning thirty.",
+            "I already achieved my dream last year.",
+            "I plan to change my career before turning thirty.",
+            "I don't have a clear goal for the future."
+          ],
+          "targetPhrase": "Namjeravam ostvariti svoj san prije tridesete.",
+          "audioHash": "fbd5afbcc7fd231a8f47c74e69c232ed4cf8b1891cf3f016b7b4dfee2589ecd0"
+        },
+        {
+          "id": "b1-u2-s3-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Čim dobijem priliku, promijeniću karijeru.",
+          "audioHash": "4597cb92f3057d6a6fb6f6180e87e467e5a9ba574476f9742c22c2d97fb8e9a9"
+        }
+      ]
+    }
+  ]
+}

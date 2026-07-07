@@ -1,0 +1,177 @@
+{
+  "id": "b1-u2-s1",
+  "order": 1,
+  "title": "Putovanja",
+  "titleEn": "Travel",
+  "grammarTip": "The future tense combines clitic forms of htjeti (ću, ćeš, će, ćemo, ćete, će) with the infinitive: 'Ja ću putovati', or, when the infinitive comes right before it, the merged form 'putovaću' (putovati + ću). The clitic cannot open a sentence — say 'Sutra ću putovati', not 'Ću putovati sutra'. Negation is a single word — neću, nećeš, neće… + infinitive — and never merges: 'Neću putovati.'",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "putovanje",
+      "en": "trip, travel",
+      "audioHash": "0578d98a6e28e778695826e7595adfc026a630918d305c9f37bfe2f71eedb9b4"
+    },
+    {
+      "bs": "rezervacija",
+      "en": "reservation, booking",
+      "audioHash": "42435e14ff0c837de8a373068ae985bd89a1a4fe20471e4436eead31fc9335fd"
+    },
+    {
+      "bs": "avion",
+      "en": "airplane",
+      "audioHash": "7972082c2a96c22c90c7d73022d1f98361104baba284e4c6146391137f9e5738"
+    },
+    {
+      "bs": "aerodrom",
+      "en": "airport",
+      "audioHash": "0aa7e785bd145ee89774379ad5e1fb6b52ba1a8d6f1ac335b21e6f094ab6bd75"
+    },
+    {
+      "bs": "karta",
+      "en": "ticket",
+      "audioHash": "598d569efec3a067e270a71ea021f13894b80646acca9cf434fe73ced4abad2b"
+    },
+    {
+      "bs": "pasoš",
+      "en": "passport",
+      "audioHash": "4b25c83d60991c5c284841206d5b066c66a13b80196ec27893c1efc304cd629a"
+    },
+    {
+      "bs": "viza",
+      "en": "visa",
+      "audioHash": "6a7fcf6bf7eb0ff3e4edabba4923ca74917da89103efa92dccd57ac6de89b768"
+    },
+    {
+      "bs": "hotel",
+      "en": "hotel",
+      "audioHash": "114de73b8727075fbd5d8c3dfddcf8821ac416ae4041e7cfade35907c2172d78"
+    },
+    {
+      "bs": "prtljag",
+      "en": "luggage",
+      "audioHash": "ec8ba3735c45769cfb0ffafb66a188c454ace2db548a5a5e10ba645447e202c9"
+    },
+    {
+      "bs": "pravac",
+      "en": "direction",
+      "audioHash": "06bcb4e28565112e553debc95a5b244af6856eaa0614ef211a7814384ea6bba7"
+    },
+    {
+      "bs": "granica",
+      "en": "border",
+      "audioHash": "1afbf089bdf243f6ed8f93250dd680b3ddcad929befd4f6c2eb476b412ee002d"
+    },
+    {
+      "bs": "turista",
+      "en": "tourist",
+      "audioHash": "85c39b90b9ccf763875f7b4e89be60edd488ba0bf7c97dcf59b4d7b67ae8841d"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b1-u2-s1-l1",
+      "order": 1,
+      "title": "Priprema za putovanje",
+      "exercises": [
+        {
+          "id": "b1-u2-s1-l1-e1",
+          "prompt": "Sutra ___ putovati u Sarajevo.",
+          "promptEn": "Tomorrow I will travel to Sarajevo.",
+          "type": "multiple_choice",
+          "answer": "ću",
+          "choices": [
+            "ću",
+            "ćeš",
+            "će",
+            "ćemo"
+          ]
+        },
+        {
+          "id": "b1-u2-s1-l1-e2",
+          "prompt": "Šta znači riječ 'prtljag'?",
+          "promptEn": "What does the word 'prtljag' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "luggage",
+          "choices": [
+            "luggage",
+            "ticket",
+            "passport",
+            "direction"
+          ]
+        },
+        {
+          "id": "b1-u2-s1-l1-e3",
+          "prompt": "Sastavi frazu: 'I will book a hotel'",
+          "promptEn": "Build the phrase: 'I will book a hotel'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "ja ću rezervisati hotel",
+          "choices": [
+            "ja",
+            "ću",
+            "rezervisati",
+            "hotel",
+            "avion",
+            "kartu"
+          ]
+        },
+        {
+          "id": "b1-u2-s1-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "aerodrom",
+              "en": "airport"
+            },
+            {
+              "bs": "pasoš",
+              "en": "passport"
+            },
+            {
+              "bs": "viza",
+              "en": "visa"
+            },
+            {
+              "bs": "granica",
+              "en": "border"
+            },
+            {
+              "bs": "turista",
+              "en": "tourist"
+            },
+            {
+              "bs": "karta",
+              "en": "ticket"
+            }
+          ]
+        },
+        {
+          "id": "b1-u2-s1-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Tomorrow we will travel by plane to Vienna.",
+          "choices": [
+            "Tomorrow we will travel by plane to Vienna.",
+            "Yesterday we traveled by train to Vienna.",
+            "Tomorrow we will travel by bus to Zagreb.",
+            "We already traveled to Vienna by plane."
+          ],
+          "targetPhrase": "Sutra ćemo putovati avionom do Beča.",
+          "audioHash": "89cd57b7f2a22c60999d332174a79bc69b4b7f70bc0d38d640b0576426e16eb5"
+        },
+        {
+          "id": "b1-u2-s1-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Pokazaćemo pasoše kada stignemo na aerodrom.",
+          "audioHash": "f515c7de684b90088d5e16b7857bf8642a89509f25e2bd7944060c76c5e0f755"
+        }
+      ]
+    }
+  ]
+}

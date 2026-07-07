@@ -1,0 +1,177 @@
+{
+  "id": "a2-u1-s4",
+  "order": 4,
+  "title": "Vrijeme i dani",
+  "titleEn": "Weather and Days",
+  "grammarTip": "To say 'on' a day of the week, Bosnian uses 'u' + the accusative case: u ponedjeljak, u utorak, u četvrtak and u petak look identical to the nominative (masculine nouns), but feminine day names change their ending: srijeda → u srijedu, subota → u subotu, nedjelja → u nedjelju. Weather is described with 'Vani je...' (It's... outside) followed by a fixed adverbial form that never changes: Vani je sunčano, vani je hladno, vani je toplo. Note that 'vrijeme' means both 'time' and 'weather' — context tells you which.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "ponedjeljak",
+      "en": "Monday",
+      "audioHash": "335048951684af38bd86602dbac7ee51f914150fbb6a1d5eedca521c9592ccd1"
+    },
+    {
+      "bs": "utorak",
+      "en": "Tuesday",
+      "audioHash": "e16f14459e193a22a5afa6dee7ef542596b7127f31db47fbaebf7dd49a94150d"
+    },
+    {
+      "bs": "srijeda",
+      "en": "Wednesday",
+      "audioHash": "ef5d9f0d4846ba37ec26271f8912cb896dbac273cdee659ef30d5474e5a412c5"
+    },
+    {
+      "bs": "četvrtak",
+      "en": "Thursday",
+      "audioHash": "403e9a0798f4da683f90debe27c60c1e293be7b668257e65d11ad42b25afa8ea"
+    },
+    {
+      "bs": "petak",
+      "en": "Friday",
+      "audioHash": "d3bfad350f2c8fd25ab9a680cbd18f49c97ac1dbf2e3b5506028e1045d900883"
+    },
+    {
+      "bs": "subota",
+      "en": "Saturday",
+      "audioHash": "9bb0914d6086b2479eeb66cc7bfc6d5148e70633ad1a08a8acad4047b16f64e1"
+    },
+    {
+      "bs": "nedjelja",
+      "en": "Sunday",
+      "audioHash": "36ba97448b4746366cace41ac2e5b71595084e81cf9fe540322d293802f0c42f"
+    },
+    {
+      "bs": "sunčano",
+      "en": "sunny",
+      "audioHash": "158438274cbbda7596e17b7ffd0da00fcfac16cee31793350d16e5731200141f"
+    },
+    {
+      "bs": "kišovito",
+      "en": "rainy",
+      "audioHash": "46239a11133bb751cc6f492750109401278e18944bef2dc82b6e25220d516f9b"
+    },
+    {
+      "bs": "oblačno",
+      "en": "cloudy",
+      "audioHash": "c8bce59c742e08ea42ce9c11210042214cf0b52852540b78d2a1b6e50f0ad624"
+    },
+    {
+      "bs": "hladno",
+      "en": "cold",
+      "audioHash": "0066fcc4578df243a371b949a2d879955036d03fbef911029bcff4d45dcdb7f1"
+    },
+    {
+      "bs": "toplo",
+      "en": "warm",
+      "audioHash": "28262b2cb3b8ae1b39da8cdda759aace72c445e296d3c8ff2992b43b9da190f9"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a2-u1-s4-l1",
+      "order": 1,
+      "title": "Kakvo je vrijeme?",
+      "exercises": [
+        {
+          "id": "a2-u1-s4-l1-e1",
+          "prompt": "Koji je dan poslije petka?",
+          "promptEn": "Which day is after Friday?",
+          "type": "multiple_choice",
+          "answer": "subota",
+          "choices": [
+            "subota",
+            "nedjelja",
+            "ponedjeljak",
+            "utorak"
+          ]
+        },
+        {
+          "id": "a2-u1-s4-l1-e2",
+          "prompt": "Kako se kaže 'on Wednesday' na bosanskom?",
+          "promptEn": "How do you say 'on Wednesday' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "u srijedu",
+          "choices": [
+            "u srijedu",
+            "u srijeda",
+            "u srijedi",
+            "u srijedom"
+          ]
+        },
+        {
+          "id": "a2-u1-s4-l1-e3",
+          "prompt": "Sastavi rečenicu: 'It's sunny on Monday.'",
+          "promptEn": "Build the sentence: 'It's sunny on Monday.'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "U ponedjeljak je sunčano",
+          "choices": [
+            "U",
+            "ponedjeljak",
+            "je",
+            "sunčano",
+            "subotu",
+            "kišovito"
+          ]
+        },
+        {
+          "id": "a2-u1-s4-l1-e4",
+          "prompt": "Spoji dane u sedmici s engleskim prijevodom.",
+          "promptEn": "Match the days of the week with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "ponedjeljak",
+              "en": "Monday"
+            },
+            {
+              "bs": "utorak",
+              "en": "Tuesday"
+            },
+            {
+              "bs": "srijeda",
+              "en": "Wednesday"
+            },
+            {
+              "bs": "četvrtak",
+              "en": "Thursday"
+            },
+            {
+              "bs": "petak",
+              "en": "Friday"
+            },
+            {
+              "bs": "nedjelja",
+              "en": "Sunday"
+            }
+          ]
+        },
+        {
+          "id": "a2-u1-s4-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Today it's cloudy and cold.",
+          "choices": [
+            "Today it's cloudy and cold.",
+            "Today it's sunny and warm.",
+            "Tomorrow it will rain.",
+            "Yesterday was warm."
+          ],
+          "targetPhrase": "Danas je oblačno i hladno.",
+          "audioHash": "2146c4c769749b53979abaab1693fefae205a08dfde64518cc5aef49ef962462"
+        },
+        {
+          "id": "a2-u1-s4-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "U subotu je toplo i sunčano.",
+          "audioHash": "89ac972c837d83e0f44fb0480b39a6406b8f804efbaeaa8fffd833d18afbb184"
+        }
+      ]
+    }
+  ]
+}

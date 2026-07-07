@@ -1,7 +1,10 @@
 {
   "language": "bs",
   "levels": [
-    "A1"
+    "A1",
+    "A2",
+    "B1",
+    "B2"
   ],
   "units": [
     {
@@ -51,6 +54,258 @@
           "titleEn": "Family",
           "grammarFocus": "Possessive pronouns agree in gender with the noun they modify: 'moj brat' (my brother, masculine), 'moja sestra' (my sister, feminine), 'moje dijete' (my child, neuter).",
           "targetVocabCount": 11
+        }
+      ]
+    },
+    {
+      "id": "a2-u1",
+      "level": "A2",
+      "order": 2,
+      "title": "Svakodnevni život",
+      "titleEn": "Daily Life",
+      "theme": "Daily routines, food and drink, shopping for everyday items, and talking about weather and the days of the week.",
+      "skills": [
+        {
+          "id": "a2-u1-s1",
+          "order": 1,
+          "title": "Dnevna rutina",
+          "titleEn": "Daily Routine",
+          "grammarFocus": "Reflexive verbs with 'se' (buditi se, oblačiti se, odmarati se) and the present tense of everyday verbs.",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "a2-u1-s2",
+          "order": 2,
+          "title": "Hrana i piće",
+          "titleEn": "Food and Drink",
+          "grammarFocus": "The accusative case for direct objects with 'jesti' (to eat) and 'piti' (to drink), e.g. Pijem vodu, Jedem hljeb.",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "a2-u1-s3",
+          "order": 3,
+          "title": "Kupovina",
+          "titleEn": "Shopping",
+          "grammarFocus": "Prices and quantities, asking 'Koliko košta?', and the genitive case after numbers and quantity words.",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "a2-u1-s4",
+          "order": 4,
+          "title": "Vrijeme i dani",
+          "titleEn": "Weather and Days",
+          "grammarFocus": "Days of the week with 'u' + accusative, and fixed adverbial weather expressions with 'Vani je...'.",
+          "targetVocabCount": 12
+        }
+      ]
+    },
+    {
+      "id": "a2-u2",
+      "level": "A2",
+      "order": 3,
+      "title": "Grad i kretanje",
+      "titleEn": "Town and Getting Around",
+      "theme": "Giving and following directions, using public transport, talking about the past, and describing hobbies and free-time activities.",
+      "skills": [
+        {
+          "id": "a2-u2-s1",
+          "order": 1,
+          "title": "Upute i pravci",
+          "titleEn": "Directions",
+          "grammarFocus": "The imperative (skreni, skrenite) and prepositions of place governing the genitive case (iza, pored, blizu, između).",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "a2-u2-s2",
+          "order": 2,
+          "title": "Prijevoz",
+          "titleEn": "Transport",
+          "grammarFocus": "The locative case with 'u' and 'na' to express where you are or how you travel, e.g. u autobusu, na stanici.",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "a2-u2-s3",
+          "order": 3,
+          "title": "Prošlo vrijeme",
+          "titleEn": "The Past Tense",
+          "grammarFocus": "The perfekt tense: 'biti' + the gendered l-participle, e.g. radio sam / radila sam, išao sam / išla sam.",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "a2-u2-s4",
+          "order": 4,
+          "title": "Slobodno vrijeme",
+          "titleEn": "Free Time",
+          "grammarFocus": "'Voljeti' + infinitive for activities versus 'voljeti' + accusative noun for things, e.g. Volim plivati vs. Volim muziku.",
+          "targetVocabCount": 12
+        }
+      ]
+    },
+    {
+      "id": "b1-u1",
+      "level": "B1",
+      "order": 4,
+      "title": "Posao i obrazovanje",
+      "titleEn": "Work and Education",
+      "theme": "Workplace and career vocabulary with the dative case, school and university life with relative clauses, health and the doctor's office with modal verbs, and expressing and defending opinions with subordinate clauses.",
+      "skills": [
+        {
+          "id": "b1-u1-s1",
+          "order": 1,
+          "title": "Posao",
+          "titleEn": "Work",
+          "grammarFocus": "The dative case marks the indirect object and follows verbs like reći, dati, pomoći, and pisati: masculine nouns add -u (šef → šefu), nouns ending in -a like kolega/kolegica change to -i (kolega → kolegi, kolegica → kolegici), and neuter nouns add -u (dijete → djetetu).",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b1-u1-s2",
+          "order": 2,
+          "title": "Obrazovanje",
+          "titleEn": "Education",
+          "grammarFocus": "The relative pronoun koji (who/which) agrees in gender and number with the noun it refers to, but its case depends on its role inside the clause: 'Profesor koji predaje historiju' (nominative) vs. 'Fakultet na kojem studiram' (locative).",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b1-u1-s3",
+          "order": 3,
+          "title": "Zdravlje",
+          "titleEn": "Health",
+          "grammarFocus": "Trebati, morati, and moći are the three core modal verbs: morati expresses strict obligation, moći expresses ability or permission, and trebati expresses need and can be personal or impersonal with the dative ('treba mi lijek').",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b1-u1-s4",
+          "order": 4,
+          "title": "Mišljenja",
+          "titleEn": "Opinions",
+          "grammarFocus": "Opinions are stated with mislim da / smatram da (I think/believe that) followed by a full subordinate clause with its own subject and verb; agreement and disagreement use slažem se / ne slažem se sa + instrumental.",
+          "targetVocabCount": 12
+        }
+      ]
+    },
+    {
+      "id": "b1-u2",
+      "level": "B1",
+      "order": 5,
+      "title": "Putovanja i mediji",
+      "titleEn": "Travel and Media",
+      "theme": "Travel bookings and directions abroad with the future tense, internet and news vocabulary with comparatives and superlatives, future intentions and plans, and real versus hypothetical conditional sentences.",
+      "skills": [
+        {
+          "id": "b1-u2-s1",
+          "order": 1,
+          "title": "Putovanja",
+          "titleEn": "Travel",
+          "grammarFocus": "The future tense combines clitic forms of htjeti (ću, ćeš, će, ćemo, ćete, će) with the infinitive, either as two words ('Ja ću putovati') or merged ('putovaću'); the clitic cannot open a sentence, and negation is a single word (neću, nećeš…) that never merges.",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b1-u2-s2",
+          "order": 2,
+          "title": "Mediji i tehnologija",
+          "titleEn": "Media and Technology",
+          "grammarFocus": "Comparatives are usually formed by adding -iji/-ji/-eći to the adjective stem (brz → brži) and are followed by od + noun to mean 'than'; superlatives add naj- to the comparative (brži → najbrži), with irregulars like dobar → bolji → najbolji.",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b1-u2-s3",
+          "order": 3,
+          "title": "Planovi i budućnost",
+          "titleEn": "Plans and the Future",
+          "grammarFocus": "Namjeravati and planirati (+ infinitive) express intentions and plans; after temporal conjunctions like kad/čim pointing to a future event, Bosnian keeps the subordinate verb in the present tense rather than the future ('Kad završim školu, naći ću posao').",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b1-u2-s4",
+          "order": 4,
+          "title": "Uslovne rečenice",
+          "titleEn": "Conditionals",
+          "grammarFocus": "Real conditions use ako + present tense in both clauses, often with a future main clause ('Ako imam vremena, doći ću'); unreal/hypothetical conditions use the conditional mood (bih/bi + l-participle) in both clauses, typically introduced by kad bi(h).",
+          "targetVocabCount": 12
+        }
+      ]
+    },
+    {
+      "id": "b2-u1",
+      "level": "B2",
+      "order": 6,
+      "title": "Društvo i kultura",
+      "titleEn": "Society and Culture",
+      "theme": "Upper-intermediate discussion of social issues, environmental challenges, arts and culture, and national history and tradition — building nuanced vocabulary, subordinate clauses, verbal aspect, and passive constructions.",
+      "skills": [
+        {
+          "id": "b2-u1-s1",
+          "order": 1,
+          "title": "Društvo",
+          "titleEn": "Society",
+          "grammarFocus": "Complex sentences with subordinating conjunctions ('iako', 'budući da', 's obzirom na to da') and nominalization of verbs into abstract nouns for formal register.",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b2-u1-s2",
+          "order": 2,
+          "title": "Okoliš",
+          "titleEn": "Environment",
+          "grammarFocus": "The se-passive construction used to describe processes and general facts without naming an agent (e.g. 'Šume se sijeku', 'Otpad se reciklira').",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b2-u1-s3",
+          "order": 3,
+          "title": "Kultura i umjetnost",
+          "titleEn": "Culture and the Arts",
+          "grammarFocus": "Verbal aspect (svršeni/nesvršeni glagoli) distinguishes completed vs ongoing/repeated actions, crucial when talking about creative processes and cultural events.",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b2-u1-s4",
+          "order": 4,
+          "title": "Historija i tradicija",
+          "titleEn": "History and Tradition",
+          "grammarFocus": "Awareness of the literary past tenses (aorist and imperfekt) used in storytelling, folk tales, and historical narration, alongside the everyday perfekt.",
+          "targetVocabCount": 12
+        }
+      ]
+    },
+    {
+      "id": "b2-u2",
+      "level": "B2",
+      "order": 7,
+      "title": "Apstraktne teme",
+      "titleEn": "Abstract Topics",
+      "theme": "Abstract and opinion-based discourse spanning politics and economy, emotions and relationships, hypothetical wishes, and everyday idioms — reinforcing formal connectors, reflexive/reciprocal verbs, the conditional mood, and fixed expressions.",
+      "skills": [
+        {
+          "id": "b2-u2-s1",
+          "order": 1,
+          "title": "Politika i ekonomija",
+          "titleEn": "Politics and Economy",
+          "grammarFocus": "Formal register and cohesive connectors ('dakle', 'stoga', 's druge strane', 'međutim') used to structure argumentative discourse on current affairs.",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b2-u2-s2",
+          "order": 2,
+          "title": "Emocije i odnosi",
+          "titleEn": "Emotions and Relationships",
+          "grammarFocus": "Reflexive and reciprocal verbs with 'se' express emotional states and mutual relationships ('osjećati se', 'zaljubiti se', 'razumjeti se', 'svađati se').",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b2-u2-s3",
+          "order": 3,
+          "title": "Izražavanje želja",
+          "titleEn": "Expressing Wishes",
+          "grammarFocus": "Conditional mood (bih, bi, bi, bismo, biste, bi) for hypotheticals, and da-clauses for wishes and purpose ('želim da' / 'volio bih da').",
+          "targetVocabCount": 12
+        },
+        {
+          "id": "b2-u2-s4",
+          "order": 4,
+          "title": "Idiomi i izrazi",
+          "titleEn": "Idioms and Expressions",
+          "grammarFocus": "Fixed idiomatic expressions whose meaning cannot be derived from individual words — mastering them is a hallmark of near-native fluency.",
+          "targetVocabCount": 12
         }
       ]
     }

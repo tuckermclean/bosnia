@@ -1,0 +1,177 @@
+{
+  "id": "b1-u1-s2",
+  "order": 2,
+  "title": "Obrazovanje",
+  "titleEn": "Education",
+  "grammarTip": "The relative pronoun koji (who/which) agrees in gender and number with the noun it refers to, but its case depends on its role inside the clause: 'Profesor koji predaje historiju' (nominative, subject), 'Predmet koji najviše volim' (accusative, object), 'Fakultet na kojem studiram' (locative, after a preposition). Feminine forms are koja/koju; neuter is koje.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "škola",
+      "en": "school",
+      "audioHash": "e46ed1f977449b2b117ffe2d40d1279f2328ccbd0e8e337501b1bd83e8b017a5"
+    },
+    {
+      "bs": "fakultet",
+      "en": "college, faculty",
+      "audioHash": "2e2b2b44213a6d95aa8c96e4d7ffa20b3d94bc6163ec46043aab7a954b9fbe50"
+    },
+    {
+      "bs": "profesor",
+      "en": "professor (male)",
+      "audioHash": "7e85b3c2c3dc0726f85cb9d73d4be603390dbbe840948bbf23c67ad48f907756"
+    },
+    {
+      "bs": "profesorica",
+      "en": "professor (female)",
+      "audioHash": "4653ccf47f752adb7e84a48a95a1ef1421da0ba37c1e067ed428e58202753135"
+    },
+    {
+      "bs": "student",
+      "en": "student (male)",
+      "audioHash": "c78cb4c0a99603a30ce6c851a260324131b7c8eff404bcc8b6330986a464c599"
+    },
+    {
+      "bs": "studentica",
+      "en": "student (female)",
+      "audioHash": "6eb27693291c4c422556360ac3a0bc73c730b388cb0ed54b3ab051b02788ff6f"
+    },
+    {
+      "bs": "predmet",
+      "en": "school subject",
+      "audioHash": "fba2a14e9e64ab7cd5b549e48413ab4523114ddcfd6dda04f27952697a91db02"
+    },
+    {
+      "bs": "ispit",
+      "en": "exam",
+      "audioHash": "0bfa979d3c86ee3999e31a69fe47530c1c2a2ba44f108602868b3ff47e2227e6"
+    },
+    {
+      "bs": "ocjena",
+      "en": "grade",
+      "audioHash": "af9f15d513115d8eca50ea89b124363ed62863fa066744385101888c1113915a"
+    },
+    {
+      "bs": "diploma",
+      "en": "diploma",
+      "audioHash": "0d1bf44991dda7b8c09031fcc366194e247cfe9b3aac7940421feb624e18c5fb"
+    },
+    {
+      "bs": "stipendija",
+      "en": "scholarship",
+      "audioHash": "9e2d0cb133921cd2dd8b7db37dfe8fb8048def2935ed8e0b59075adff11c332f"
+    },
+    {
+      "bs": "biblioteka",
+      "en": "library",
+      "audioHash": "ce081f334d2b3a7526e31a31cb0ddfb9190157c42cdeecc35b390f18fc7b5510"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b1-u1-s2-l1",
+      "order": 1,
+      "title": "Škola i fakultet",
+      "exercises": [
+        {
+          "id": "b1-u1-s2-l1-e1",
+          "prompt": "Studentica ___ studira medicinu je moja sestra.",
+          "promptEn": "The student who studies medicine is my sister.",
+          "type": "multiple_choice",
+          "answer": "koja",
+          "choices": [
+            "koja",
+            "koji",
+            "koje",
+            "koju"
+          ]
+        },
+        {
+          "id": "b1-u1-s2-l1-e2",
+          "prompt": "Šta znači riječ 'stipendija'?",
+          "promptEn": "What does the word 'stipendija' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "scholarship",
+          "choices": [
+            "scholarship",
+            "diploma",
+            "grade",
+            "exam"
+          ]
+        },
+        {
+          "id": "b1-u1-s2-l1-e3",
+          "prompt": "Sastavi frazu: 'the professor who teaches history'",
+          "promptEn": "Build the phrase: 'the professor who teaches history'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "profesor koji predaje historiju",
+          "choices": [
+            "profesor",
+            "koji",
+            "predaje",
+            "historiju",
+            "koja",
+            "fakultet"
+          ]
+        },
+        {
+          "id": "b1-u1-s2-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "ispit",
+              "en": "exam"
+            },
+            {
+              "bs": "ocjena",
+              "en": "grade"
+            },
+            {
+              "bs": "diploma",
+              "en": "diploma"
+            },
+            {
+              "bs": "stipendija",
+              "en": "scholarship"
+            },
+            {
+              "bs": "biblioteka",
+              "en": "library"
+            },
+            {
+              "bs": "škola",
+              "en": "school"
+            }
+          ]
+        },
+        {
+          "id": "b1-u1-s2-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "The exam we took was very difficult.",
+          "choices": [
+            "The exam we took was very difficult.",
+            "The grade we got was very good.",
+            "The lecture we attended was very long.",
+            "The scholarship we received was very small."
+          ],
+          "targetPhrase": "Ispit koji smo polagali bio je vrlo težak.",
+          "audioHash": "bd4158a6855f64e4ae207cd01f3ab592ff56ae0bf4d008beedcdd9107c3d7e46"
+        },
+        {
+          "id": "b1-u1-s2-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Studiram na fakultetu koji ima dobru biblioteku.",
+          "audioHash": "b21dc1052f49b529c4a48caa87b21dbdf3bf43a656c5a243b37afd0c3b573016"
+        }
+      ]
+    }
+  ]
+}

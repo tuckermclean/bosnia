@@ -1,0 +1,177 @@
+{
+  "id": "b1-u1-s4",
+  "order": 4,
+  "title": "Mišljenja",
+  "titleEn": "Opinions",
+  "grammarTip": "To state an opinion, follow mislim da / smatram da (I think/believe that) with a full subordinate clause that has its own subject and verb: 'Mislim da je ovo dobra ideja' (I think that this is a good idea). To agree or disagree, use slažem se / ne slažem se sa + instrumental: 'Slažem se s tobom' (I agree with you).",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "mišljenje",
+      "en": "opinion",
+      "audioHash": "493984ddabea5b5c3475997553d0977f23310228c6e8c36bea17be19285ca2aa"
+    },
+    {
+      "bs": "misliti",
+      "en": "to think",
+      "audioHash": "a07021762f6261f2c7df57818a53a3bdc0c1870f422ba8bc5faf4e29cb51df01"
+    },
+    {
+      "bs": "smatrati",
+      "en": "to consider, to believe",
+      "audioHash": "47d060668142e3d286714642b31425b478a7c43c6f741ab98f47fc7f75990065"
+    },
+    {
+      "bs": "slagati se",
+      "en": "to agree",
+      "audioHash": "d2dbad0ce5020c6b2c00fc10f881c55e8e1a7a7f650ccb217722856d18cbc75f"
+    },
+    {
+      "bs": "ne slagati se",
+      "en": "to disagree",
+      "audioHash": "9ff9f56d3c707e0a2ff87d375e198d1ab05b35ca03b51f99d1a81639cabb4ceb"
+    },
+    {
+      "bs": "stav",
+      "en": "standpoint, attitude",
+      "audioHash": "67ac518e2a1f27fe589317e61b371689e16c70eab259485d5d24a81f0aa32f05"
+    },
+    {
+      "bs": "tvrditi",
+      "en": "to claim, to assert",
+      "audioHash": "8617ca63aff82b2972601b8b2355a956db78d521d11ab71ca645d45ddd67c3aa"
+    },
+    {
+      "bs": "po mom mišljenju",
+      "en": "in my opinion",
+      "audioHash": "b0a8b933fc17e1379e22bba6ccd1ae12ae0ca4adda81c92b21d29567fd36a02b"
+    },
+    {
+      "bs": "u pravu si",
+      "en": "you're right",
+      "audioHash": "6d4ab563c26d0ed0e625d932812a206206b854a65885f9b82a9e58674886cabd"
+    },
+    {
+      "bs": "griješiti",
+      "en": "to be wrong, to make a mistake",
+      "audioHash": "730326a139c5a832cf0878547432a64c58f0c082047d261b1aeb88fd47946c24"
+    },
+    {
+      "bs": "rasprava",
+      "en": "discussion, debate",
+      "audioHash": "e9f51ed7b77edd04d1fcd702e0021541b8fd5b531e4db547003cfb021f1911d9"
+    },
+    {
+      "bs": "argument",
+      "en": "argument (in a discussion)",
+      "audioHash": "c28f54850359f881fcc4503573930b95dacf69506c5f194d65ae4398e0bf64b3"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b1-u1-s4-l1",
+      "order": 1,
+      "title": "Izražavanje mišljenja",
+      "exercises": [
+        {
+          "id": "b1-u1-s4-l1-e1",
+          "prompt": "Ja ___ da je ovaj film odličan.",
+          "promptEn": "I think that this movie is excellent.",
+          "type": "multiple_choice",
+          "answer": "mislim",
+          "choices": [
+            "mislim",
+            "misliš",
+            "misli",
+            "mislimo"
+          ]
+        },
+        {
+          "id": "b1-u1-s4-l1-e2",
+          "prompt": "Šta znači fraza 'po mom mišljenju'?",
+          "promptEn": "What does the phrase 'po mom mišljenju' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "in my opinion",
+          "choices": [
+            "in my opinion",
+            "I agree",
+            "you're right",
+            "for example"
+          ]
+        },
+        {
+          "id": "b1-u1-s4-l1-e3",
+          "prompt": "Sastavi frazu: 'I agree with you'",
+          "promptEn": "Build the phrase: 'I agree with you'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "slažem se s tobom",
+          "choices": [
+            "slažem",
+            "se",
+            "s",
+            "tobom",
+            "mislim",
+            "da"
+          ]
+        },
+        {
+          "id": "b1-u1-s4-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "stav",
+              "en": "standpoint"
+            },
+            {
+              "bs": "tvrditi",
+              "en": "to claim"
+            },
+            {
+              "bs": "argument",
+              "en": "argument"
+            },
+            {
+              "bs": "rasprava",
+              "en": "discussion"
+            },
+            {
+              "bs": "mišljenje",
+              "en": "opinion"
+            },
+            {
+              "bs": "smatrati",
+              "en": "to consider"
+            }
+          ]
+        },
+        {
+          "id": "b1-u1-s4-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "I believe that we need to change the plan.",
+          "choices": [
+            "I believe that we need to change the plan.",
+            "I think that the plan is very good.",
+            "I claim that the discussion was useless.",
+            "I agree that we should keep the plan."
+          ],
+          "targetPhrase": "Smatram da trebamo promijeniti plan.",
+          "audioHash": "c4f0a34dad20b73a150f6ca05599255cbc1f6a651873d2487c0bfb1ee3077f54"
+        },
+        {
+          "id": "b1-u1-s4-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Ne slažem se s tobom, mislim da griješiš.",
+          "audioHash": "75afae9f424b4c1d0e0248f63a5849f0458ae41c55705fb83db5c77dc68a18eb"
+        }
+      ]
+    }
+  ]
+}

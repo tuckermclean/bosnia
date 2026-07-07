@@ -1,0 +1,177 @@
+{
+  "id": "b1-u1-s1",
+  "order": 1,
+  "title": "Posao",
+  "titleEn": "Work",
+  "grammarTip": "The dative case marks the indirect object — the person 'to' or 'for' whom something happens — and follows verbs like reći, dati, pomoći, and pisati. Masculine nouns add -u (šef → šefu), nouns ending in -a like kolega/kolegica change to -i (kolega → kolegi, kolegica → kolegici), and neuter nouns add -u (dijete → djetetu). 'Pomogao sam kolegici sa izvještajem' — I helped my colleague (f.) with the report.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "posao",
+      "en": "job, work",
+      "audioHash": "5442f08695779a46d729b5e76f24564bbc4494b6bbe7bf25ce553fc755a247de"
+    },
+    {
+      "bs": "šef",
+      "en": "boss (male)",
+      "audioHash": "7ff4e5ab25dd3d704bd82ea4d05a9d370943fe342d9084779ced4415bdf2d3bd"
+    },
+    {
+      "bs": "kolega",
+      "en": "colleague (male)",
+      "audioHash": "747f4659b763e67e228b974bde857bad416c9b9144936c026076dc2a56018d88"
+    },
+    {
+      "bs": "kolegica",
+      "en": "colleague (female)",
+      "audioHash": "16ecebff5a771c0cdac0b94fb5956c99a82c75691d21e486ddb6df5f14adf0b1"
+    },
+    {
+      "bs": "plata",
+      "en": "salary",
+      "audioHash": "ed7e23cfc5b1adceb412b1c7216aa0dac3ed142c7c1ee9d24186a4f197bd0912"
+    },
+    {
+      "bs": "ured",
+      "en": "office",
+      "audioHash": "382d4b5384225a5637e65ed9a954f47a12c97a8300cc3288cf3cc7aeac3ddd28"
+    },
+    {
+      "bs": "sastanak",
+      "en": "meeting",
+      "audioHash": "149afb10697685cfeeafed66bb0fc5e8c4ac1c1cd9927c76009277a9db907acd"
+    },
+    {
+      "bs": "zaposlenik",
+      "en": "employee",
+      "audioHash": "34ead8250edb536d89d9cd19ed047d85fcfc3470b6effaafe590e31de5cdb356"
+    },
+    {
+      "bs": "intervju za posao",
+      "en": "job interview",
+      "audioHash": "15a677efc27c34ee54bdf23b44a179476638b381586a6a59ad4a6a0c494507e9"
+    },
+    {
+      "bs": "radno vrijeme",
+      "en": "working hours",
+      "audioHash": "f30c06f471a141a98a17b529916f64bfbc06e128577a28e3daa009d3576dda4e"
+    },
+    {
+      "bs": "iskustvo",
+      "en": "experience",
+      "audioHash": "56697d1e637f18e2dccb912f62ab8aa887f5385777d7f60453e8c25787386e15"
+    },
+    {
+      "bs": "otkaz",
+      "en": "dismissal, notice (from a job)",
+      "audioHash": "e33cc93ec12270dca6c05de521dfb7f06ebbf35cdaa83f89479564cdf8dda213"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b1-u1-s1-l1",
+      "order": 1,
+      "title": "Na poslu",
+      "exercises": [
+        {
+          "id": "b1-u1-s1-l1-e1",
+          "prompt": "Poslao sam poruku ___. (šef)",
+          "promptEn": "I sent a message to the boss. (boss)",
+          "type": "multiple_choice",
+          "answer": "šefu",
+          "choices": [
+            "šefu",
+            "šefa",
+            "šefom",
+            "šefovi"
+          ]
+        },
+        {
+          "id": "b1-u1-s1-l1-e2",
+          "prompt": "Šta znači riječ 'kolegica'?",
+          "promptEn": "What does the word 'kolegica' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "colleague (female)",
+          "choices": [
+            "colleague (female)",
+            "boss (female)",
+            "employee (female)",
+            "doctor (female)"
+          ]
+        },
+        {
+          "id": "b1-u1-s1-l1-e3",
+          "prompt": "Sastavi frazu: 'job interview'",
+          "promptEn": "Build the phrase: 'job interview'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "intervju za posao",
+          "choices": [
+            "intervju",
+            "za",
+            "posao",
+            "radno",
+            "vrijeme",
+            "sastanak"
+          ]
+        },
+        {
+          "id": "b1-u1-s1-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "plata",
+              "en": "salary"
+            },
+            {
+              "bs": "ured",
+              "en": "office"
+            },
+            {
+              "bs": "sastanak",
+              "en": "meeting"
+            },
+            {
+              "bs": "zaposlenik",
+              "en": "employee"
+            },
+            {
+              "bs": "iskustvo",
+              "en": "experience"
+            },
+            {
+              "bs": "otkaz",
+              "en": "dismissal"
+            }
+          ]
+        },
+        {
+          "id": "b1-u1-s1-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Working hours begin at eight.",
+          "choices": [
+            "Working hours begin at eight.",
+            "The meeting begins at eight.",
+            "The boss arrives at eight.",
+            "I have experience since eight."
+          ],
+          "targetPhrase": "Radno vrijeme počinje u osam.",
+          "audioHash": "d789b8f01834a57a70057ac6e702daac87ef046f92ca7dad393791bc98365ed2"
+        },
+        {
+          "id": "b1-u1-s1-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Imam sastanak sa šefom u devet ujutro.",
+          "audioHash": "dac591c4effd835075aa26d2ce6332052317f7319739004ca97989ee3c7aeb2b"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "id": "b1-u2-s4",
+  "order": 4,
+  "title": "Uslovne rečenice",
+  "titleEn": "Conditionals",
+  "grammarTip": "Real conditions use ako + present tense in both clauses, with the main clause often in the future: 'Ako imam vremena, doći ću' (If I have time, I'll come). Unreal or hypothetical conditions use the conditional mood (bih/bi/bismo/biste + l-participle) in both clauses, typically introduced by kad bi(h): 'Kad bih imao više novca, kupio bih kuću' (If I had more money, I would buy a house).",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "uslov",
+      "en": "condition",
+      "audioHash": "a08e982b0b95939eab537c9bf97600b27351a01cffb7542e07c7f3062f85b4a8"
+    },
+    {
+      "bs": "ako",
+      "en": "if",
+      "audioHash": "ee1abc6c902137416324c4207fecd6ef8b8ed51b80f759d4c945464288644138"
+    },
+    {
+      "bs": "kada",
+      "en": "when",
+      "audioHash": "c8f5bbada120e054743b409f04485fcaf6978b81696fd06f704259da11df5908"
+    },
+    {
+      "bs": "možda",
+      "en": "maybe, perhaps",
+      "audioHash": "4e4d01569572aa6a7bb5553f06f7d6e7bc992b2c015c2f47aabf7d7954a9eaea"
+    },
+    {
+      "bs": "stvarnost",
+      "en": "reality",
+      "audioHash": "0ab771aa373e57ef62356eecb95cc74b1d89a57f2ac2ecc6cc334bc40afda3fd"
+    },
+    {
+      "bs": "mašta",
+      "en": "imagination",
+      "audioHash": "99310e450c4e8ab310d836df8c37d32713edef01e6e23add3848643764bce6bb"
+    },
+    {
+      "bs": "izbor",
+      "en": "choice",
+      "audioHash": "6faede41fa2a0800cd6f12352278253faf578c5defa1c962158bade22c9f9def"
+    },
+    {
+      "bs": "posljedica",
+      "en": "consequence",
+      "audioHash": "dfea23bce61d4d439a9c48beca6e113c60a62a99e3968105f936ae3e55a21bbf"
+    },
+    {
+      "bs": "pretpostavka",
+      "en": "assumption",
+      "audioHash": "1a70863fdf407be6fda31e72317f8d4024ae56fd82be975650c5d300f46f4745"
+    },
+    {
+      "bs": "zamisliti",
+      "en": "to imagine",
+      "audioHash": "0f86b9cbc7003a66ca8761717ce2751c3dbd9da40a2d176e3963b895e721e096"
+    },
+    {
+      "bs": "sreća",
+      "en": "luck, happiness",
+      "audioHash": "5d7ebe7510cbfa425907660a7b959a17d41bb481d8b0b25e11e264e6000c8831"
+    },
+    {
+      "bs": "novac",
+      "en": "money",
+      "audioHash": "4003d5d54b37877b3af9b81d5c2e736111736145210bac6212d0190e2375e9de"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b1-u2-s4-l1",
+      "order": 1,
+      "title": "Šta bih uradio",
+      "exercises": [
+        {
+          "id": "b1-u2-s4-l1-e1",
+          "prompt": "Ako ___ vremena, doći ću na zabavu. (imati)",
+          "promptEn": "If I have time, I'll come to the party. (to have)",
+          "type": "multiple_choice",
+          "answer": "imam",
+          "choices": [
+            "imam",
+            "imao bih",
+            "budem imao",
+            "imati"
+          ]
+        },
+        {
+          "id": "b1-u2-s4-l1-e2",
+          "prompt": "Šta znači riječ 'pretpostavka'?",
+          "promptEn": "What does the word 'pretpostavka' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "assumption",
+          "choices": [
+            "assumption",
+            "consequence",
+            "choice",
+            "reality"
+          ]
+        },
+        {
+          "id": "b1-u2-s4-l1-e3",
+          "prompt": "Sastavi frazu: 'If I had money, I would buy a house'",
+          "promptEn": "Build the phrase: 'If I had money, I would buy a house'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "kad bih imao novca kupio bih kuću",
+          "choices": [
+            "kad",
+            "bih",
+            "imao",
+            "novca",
+            "kupio",
+            "bih",
+            "kuću",
+            "ako"
+          ]
+        },
+        {
+          "id": "b1-u2-s4-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "uslov",
+              "en": "condition"
+            },
+            {
+              "bs": "stvarnost",
+              "en": "reality"
+            },
+            {
+              "bs": "mašta",
+              "en": "imagination"
+            },
+            {
+              "bs": "izbor",
+              "en": "choice"
+            },
+            {
+              "bs": "posljedica",
+              "en": "consequence"
+            },
+            {
+              "bs": "sreća",
+              "en": "happiness"
+            }
+          ]
+        },
+        {
+          "id": "b1-u2-s4-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "If I have enough time, I will help you.",
+          "choices": [
+            "If I have enough time, I will help you.",
+            "If I had more time, I would help you.",
+            "I never have enough time to help you.",
+            "If you have time, you will help me."
+          ],
+          "targetPhrase": "Ako imam dovoljno vremena, pomoći ću ti.",
+          "audioHash": "598d481e256b660f8ccaba6e574f8748548e551907a1fc239cda7e8d7a82d32e"
+        },
+        {
+          "id": "b1-u2-s4-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Kad bih imao više vremena, učio bih bosanski svaki dan.",
+          "audioHash": "c3c52d531069fdb130565d84737b216360a33cdb544119ddede68269d93c0b6c"
+        }
+      ]
+    }
+  ]
+}

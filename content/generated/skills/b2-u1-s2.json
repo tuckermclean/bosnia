@@ -1,0 +1,169 @@
+{
+  "id": "b2-u1-s2",
+  "order": 2,
+  "title": "Okoliš",
+  "titleEn": "Environment",
+  "grammarTip": "Pasivna rečenica sa 'se' opisuje radnju bez isticanja ko je vrši i vrlo je česta u govoru o okolišu: 'Šume se sijeku brže nego što rastu.' / 'Otpad se mora reciklirati.' Ovo se razlikuje od pravog pasiva s 'biti' + trpni pridjev ('Šuma je posječena'), koji naglašava rezultat radnje, dok se-pasiv opisuje opću, ponavljanu praksu.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "okoliš",
+      "en": "environment",
+      "audioHash": "8af9d246439a748ba6e6697c36c9c35edee6900ccf09cca3f2cf24357240403e"
+    },
+    {
+      "bs": "klima",
+      "en": "climate",
+      "audioHash": "5635a0c680ba04be5ee62010b9fd5b4012d22886f5ec5d6175a55dce0dd1e75e"
+    },
+    {
+      "bs": "klimatske promjene",
+      "en": "climate change",
+      "audioHash": "8cd3531df9fa90976b9442c4612792f1fa0c817e06950475eda727c471d59785"
+    },
+    {
+      "bs": "zagađenje",
+      "en": "pollution",
+      "audioHash": "d7e09eaa7029b52e35cf817308a6e07bef63f20df2ab0c661fd8c8cef0989e6c"
+    },
+    {
+      "bs": "održivost",
+      "en": "sustainability",
+      "audioHash": "11bd84580e224fcec226f728e07c112cb4421a5112df91b4946b3c3bacf658db"
+    },
+    {
+      "bs": "reciklaža",
+      "en": "recycling",
+      "audioHash": "4aa38f2e97878321f850aeb3d88f81b2743ec4cca5a17e25ed467fed0331652e"
+    },
+    {
+      "bs": "obnovljivi izvori energije",
+      "en": "renewable energy sources",
+      "audioHash": "8508bb123023b6a8391de1ca1f6470bfc8e46dfb50361972509db78ab14b90d2"
+    },
+    {
+      "bs": "ugljični otisak",
+      "en": "carbon footprint",
+      "audioHash": "8643e6fd62d79c8792710e4fab0f04fdd8e6791429d3458ec4f48e2922eaa552"
+    },
+    {
+      "bs": "izumiranje vrsta",
+      "en": "species extinction",
+      "audioHash": "f5589d60221cc065b801c5ba7f218ecbe39fcef7e85d11569a3f8abaee36a9d2"
+    },
+    {
+      "bs": "prirodni resursi",
+      "en": "natural resources",
+      "audioHash": "61a4acc2213470187b60534ff7bb199a625ab593ba769ee2bdcc901a816700b1"
+    },
+    {
+      "bs": "zagrijavanje planete",
+      "en": "global warming",
+      "audioHash": "018a11ae3a8c3186f75fc23a0f8fd9e6c910029533f168b57559a2905ed64968"
+    },
+    {
+      "bs": "ekosistem",
+      "en": "ecosystem",
+      "audioHash": "94afd7f6845d076f226de07cce3aad6bfdca3d644c8d3781fd5f17581895226c"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b2-u1-s2-l1",
+      "order": 1,
+      "title": "Zaštita okoliša",
+      "exercises": [
+        {
+          "id": "b2-u1-s2-l1-e1",
+          "prompt": "Kako se kaže 'climate change' na bosanskom?",
+          "promptEn": "How do you say 'climate change' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "klimatske promjene",
+          "choices": [
+            "klimatske promjene",
+            "zagađenje",
+            "održivost",
+            "ekosistem"
+          ]
+        },
+        {
+          "id": "b2-u1-s2-l1-e2",
+          "prompt": "Šta znači izraz 'ugljični otisak'?",
+          "promptEn": "What does the phrase 'ugljični otisak' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "carbon footprint",
+          "choices": [
+            "carbon footprint",
+            "natural resources",
+            "global warming",
+            "recycling"
+          ]
+        },
+        {
+          "id": "b2-u1-s2-l1-e3",
+          "prompt": "Sastavi frazu: 'renewable energy sources'",
+          "promptEn": "Build the phrase: 'renewable energy sources'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "obnovljivi izvori energije",
+          "choices": [
+            "obnovljivi",
+            "izvori",
+            "energije",
+            "prirodni",
+            "resursi"
+          ]
+        },
+        {
+          "id": "b2-u1-s2-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "zagađenje",
+              "en": "pollution"
+            },
+            {
+              "bs": "održivost",
+              "en": "sustainability"
+            },
+            {
+              "bs": "izumiranje vrsta",
+              "en": "species extinction"
+            },
+            {
+              "bs": "ekosistem",
+              "en": "ecosystem"
+            }
+          ]
+        },
+        {
+          "id": "b2-u1-s2-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Waste must be recycled.",
+          "choices": [
+            "Waste must be recycled.",
+            "The climate is changing rapidly.",
+            "Forests are being cut down.",
+            "Energy sources are renewable."
+          ],
+          "targetPhrase": "Otpad se mora reciklirati.",
+          "audioHash": "b8a651a826f68f11c751eac049f4c43f3df4bc8f6f0cff4a37be39286872b7af"
+        },
+        {
+          "id": "b2-u1-s2-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Moramo smanjiti ugljični otisak zbog klimatskih promjena.",
+          "audioHash": "a2891c79b3ce0379bc6aa6bc332c09d538cb6e8ce1b15e8d4aecddfd62dcfa9d"
+        }
+      ]
+    }
+  ]
+}

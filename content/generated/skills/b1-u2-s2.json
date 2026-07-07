@@ -1,0 +1,177 @@
+{
+  "id": "b1-u2-s2",
+  "order": 2,
+  "title": "Mediji i tehnologija",
+  "titleEn": "Media and Technology",
+  "grammarTip": "Comparatives are usually formed by adding -iji/-ji/-eći to the adjective stem (brz → brži, zanimljiv → zanimljiviji) and are followed by od + noun, or nego + clause, to mean 'than'. Superlatives simply add naj- to the comparative form: brži → najbrži (fastest). A handful of common adjectives are irregular: dobar → bolji → najbolji (good/better/best), loš → gori → najgori (bad/worse/worst).",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "internet",
+      "en": "internet",
+      "audioHash": "c6050dd9a5f9a7a89f9a556fbae50688e4c1a82db7ccfe8df5dee8ccf7157272"
+    },
+    {
+      "bs": "vijesti",
+      "en": "news",
+      "audioHash": "5feba2c485e50ea2f1ed235d61ece798101a79d5e3238ff174e1219c727bcc17"
+    },
+    {
+      "bs": "televizija",
+      "en": "television",
+      "audioHash": "7507b0a893ce20008fce43cdeb89dd8a671a0ded16f078c7cd4fce6cef8a6242"
+    },
+    {
+      "bs": "novine",
+      "en": "newspaper",
+      "audioHash": "3eec68454d60f104057ebe39fd447a081e610335f5669688b0e8784d670d6daa"
+    },
+    {
+      "bs": "društvene mreže",
+      "en": "social media, social networks",
+      "audioHash": "f4e7013ead02cf94c693c54723c12f6afe24bffee4bf21d15f2663814eb09d7b"
+    },
+    {
+      "bs": "aplikacija",
+      "en": "app, application",
+      "audioHash": "a4e2de164e71df918f3e87aafbfa0cee00dda66675dd336dcdffb0af30c969e8"
+    },
+    {
+      "bs": "mobilni telefon",
+      "en": "mobile phone",
+      "audioHash": "331d78d2fe97981d3fd5f772458deeca575492b28e2a65c0cf26207ff256d2d3"
+    },
+    {
+      "bs": "računar",
+      "en": "computer",
+      "audioHash": "44b6d7ba5fcd5e0e7b2e5164d9622c6e6f5cbdf15c98b0e4e1d36786b3afba7f"
+    },
+    {
+      "bs": "ekran",
+      "en": "screen",
+      "audioHash": "97b66befe26e2bb808cc0c9483ee204e773861ac02bae3a599fea509953c498a"
+    },
+    {
+      "bs": "pretraživač",
+      "en": "search engine, browser",
+      "audioHash": "8c6198f47e301e4fdfce5510edddce7c2f5268c0c8103e21a19a33682143f23c"
+    },
+    {
+      "bs": "reklama",
+      "en": "advertisement",
+      "audioHash": "f9ba72062085760d5a012f0cc91170951364ff305ee0a068c209f379eb96fd8a"
+    },
+    {
+      "bs": "informacija",
+      "en": "information, piece of information",
+      "audioHash": "1322ade0e6bc2439800a9aa53f92023aeab053bf8fa47d04d586cacd639f8b12"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b1-u2-s2-l1",
+      "order": 1,
+      "title": "Svijet interneta",
+      "exercises": [
+        {
+          "id": "b1-u2-s2-l1-e1",
+          "prompt": "Internet je ___ od novina za brze informacije.",
+          "promptEn": "The internet is faster than newspapers for quick information.",
+          "type": "multiple_choice",
+          "answer": "brži",
+          "choices": [
+            "brži",
+            "brz",
+            "najbrži",
+            "brzo"
+          ]
+        },
+        {
+          "id": "b1-u2-s2-l1-e2",
+          "prompt": "Šta znači riječ 'pretraživač'?",
+          "promptEn": "What does the word 'pretraživač' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "search engine, browser",
+          "choices": [
+            "search engine, browser",
+            "social network",
+            "advertisement",
+            "screen"
+          ]
+        },
+        {
+          "id": "b1-u2-s2-l1-e3",
+          "prompt": "Sastavi frazu: 'This is the best app'",
+          "promptEn": "Build the phrase: 'This is the best app'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "ovo je najbolja aplikacija",
+          "choices": [
+            "ovo",
+            "je",
+            "najbolja",
+            "aplikacija",
+            "bolja",
+            "dobra"
+          ]
+        },
+        {
+          "id": "b1-u2-s2-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "vijesti",
+              "en": "news"
+            },
+            {
+              "bs": "novine",
+              "en": "newspaper"
+            },
+            {
+              "bs": "ekran",
+              "en": "screen"
+            },
+            {
+              "bs": "reklama",
+              "en": "advertisement"
+            },
+            {
+              "bs": "informacija",
+              "en": "information"
+            },
+            {
+              "bs": "društvene mreže",
+              "en": "social media"
+            }
+          ]
+        },
+        {
+          "id": "b1-u2-s2-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "This app is more interesting than the old one.",
+          "choices": [
+            "This app is more interesting than the old one.",
+            "This app is worse than the old one.",
+            "This app is the fastest of all.",
+            "The old app is more interesting than this one."
+          ],
+          "targetPhrase": "Ova aplikacija je zanimljivija od one stare.",
+          "audioHash": "f3a346d30acf170e8438494d480757754072f46b2aa4e1a29202fda3f273426c"
+        },
+        {
+          "id": "b1-u2-s2-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Društvene mreže su danas najbrži izvor vijesti.",
+          "audioHash": "0ec284cc02371a94372cb779bdbab11356b40a7dbcf9ce4b377240fc436774a9"
+        }
+      ]
+    }
+  ]
+}

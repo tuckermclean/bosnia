@@ -1,0 +1,168 @@
+{
+  "id": "b2-u2-s4",
+  "order": 4,
+  "title": "Idiomi i izrazi",
+  "titleEn": "Idioms and Expressions",
+  "grammarTip": "Idiomi su ustaljeni izrazi čije se značenje ne može izvesti iz pojedinačnih riječi — 'praviti se Englez' nema nikakve veze s Engleskom, već znači 'pretvarati se da neko ne razumije'. Idiomi obično ne mijenjaju svoju strukturu (ne kaže se 'praviti se Francuz' s istim značenjem), a njihovo poznavanje i pravilna upotreba znak su gotovo izvornog vladanja jezikom.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "pasti s Marsa",
+      "en": "to be completely out of touch (lit. 'to fall from Mars')",
+      "audioHash": "b9a87666d2ec2eb08159e8e3026580add9bcd30164cf8f1782d059218ac1b4f9"
+    },
+    {
+      "bs": "biti u sedmom nebu",
+      "en": "to be overjoyed (lit. 'to be in the seventh heaven')",
+      "audioHash": "e05bf4628cea86ad76db294a5da2cc6fd221858a1934037de5c9f5d4d7a655c9"
+    },
+    {
+      "bs": "praviti se Englez",
+      "en": "to feign ignorance (lit. 'to act like an Englishman')",
+      "audioHash": "d821ebb7ec589dd5610731e17c87404281bf5e261237e64067407fce8b6cd3d4"
+    },
+    {
+      "bs": "vući nekoga za nos",
+      "en": "to deceive/lead someone on (lit. 'to pull someone by the nose')",
+      "audioHash": "7da4441b2181336a37a3374a0b6864ee618c45adb542efb95560a970c1ea15ec"
+    },
+    {
+      "bs": "kad na vrbi rodi grožđe",
+      "en": "never (lit. 'when grapes grow on a willow')",
+      "audioHash": "8e21e7edde364e2000414e7be311a40392d91946cde55e992800ad3a7a234ed2"
+    },
+    {
+      "bs": "imati leptiriće u stomaku",
+      "en": "to have butterflies in one's stomach",
+      "audioHash": "36f467d7ef05a8be2fab5c8a115780995c5029f67f10238930cc0995b68e58db"
+    },
+    {
+      "bs": "držati jezik za zubima",
+      "en": "to hold one's tongue / keep quiet",
+      "audioHash": "75a31912a80063e1c9e1984bb564ded9ba45bf1db18f6d112bee6e4a7440d47d"
+    },
+    {
+      "bs": "raditi kao konj",
+      "en": "to work very hard (lit. 'to work like a horse')",
+      "audioHash": "9886646dca3bd69f7e0bb2ff65d73e235bfa4081af45383063a9e4e241fdeb74"
+    },
+    {
+      "bs": "praviti od muhe slona",
+      "en": "to make a mountain out of a molehill (lit. 'to make an elephant out of a fly')",
+      "audioHash": "29d61dfc9616f8fd9e06b97444bbd039684c6ba6f330c4aff62150ef1fc08a0b"
+    },
+    {
+      "bs": "biti na istom valu",
+      "en": "to be on the same wavelength",
+      "audioHash": "96690066d93887f15a9a3f8e6a16ad92150f16494a94e70cebf2a9f97549b22e"
+    },
+    {
+      "bs": "imati vezu",
+      "en": "to have connections / pull strings",
+      "audioHash": "df712fb81006a25af58efd974ab28b5e7739678f6c4a5fcb8eed598c14f9e9ce"
+    },
+    {
+      "bs": "gledati kroz prste",
+      "en": "to turn a blind eye (lit. 'to look through one's fingers')",
+      "audioHash": "56c8d144e2123a0ed0dcc8d8e126476bb29d520dca6181da6eca531b44dfce5c"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b2-u2-s4-l1",
+      "order": 1,
+      "title": "Bosanski idiomi",
+      "exercises": [
+        {
+          "id": "b2-u2-s4-l1-e1",
+          "prompt": "Šta znači izraz 'biti u sedmom nebu'?",
+          "promptEn": "What does the expression 'biti u sedmom nebu' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "to be extremely happy",
+          "choices": [
+            "to be extremely happy",
+            "to be very tired",
+            "to be very confused",
+            "to be very angry"
+          ]
+        },
+        {
+          "id": "b2-u2-s4-l1-e2",
+          "prompt": "Kojim izrazom kažemo da se neko 'pretvara da ne razumije'?",
+          "promptEn": "Which expression means someone 'is pretending not to understand'?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "praviti se Englez",
+          "choices": [
+            "praviti se Englez",
+            "vući nekoga za nos",
+            "gledati kroz prste",
+            "raditi kao konj"
+          ]
+        },
+        {
+          "id": "b2-u2-s4-l1-e3",
+          "prompt": "Sastavi izraz koji znači 'nikad' (kad se to nikad neće desiti).",
+          "promptEn": "Build the expression meaning 'never' (something that will never happen).",
+          "type": "word_bank",
+          "answer": "kad na vrbi rodi grožđe",
+          "choices": [
+            "kad",
+            "na",
+            "vrbi",
+            "rodi",
+            "grožđe"
+          ]
+        },
+        {
+          "id": "b2-u2-s4-l1-e4",
+          "prompt": "Spoji idiome s njihovim značenjem.",
+          "promptEn": "Match the idioms with their meaning.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "vući nekoga za nos",
+              "en": "to deceive someone"
+            },
+            {
+              "bs": "praviti od muhe slona",
+              "en": "to make a mountain out of a molehill"
+            },
+            {
+              "bs": "biti na istom valu",
+              "en": "to be on the same wavelength"
+            },
+            {
+              "bs": "gledati kroz prste",
+              "en": "to turn a blind eye"
+            }
+          ]
+        },
+        {
+          "id": "b2-u2-s4-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "He always works very hard to support his family.",
+          "choices": [
+            "He always works very hard to support his family.",
+            "He always deceives his family.",
+            "He never listens to his family.",
+            "He always argues with his family."
+          ],
+          "targetPhrase": "Uvijek radi kao konj da bi izdržavao porodicu.",
+          "audioHash": "0badad86033b4c3cc3aadd9f53c92dfd1274e42c4aa5e5f93011ad9829e850a3"
+        },
+        {
+          "id": "b2-u2-s4-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Nemoj me vući za nos, reci mi istinu.",
+          "audioHash": "0f26c9db3b21e8df6f13a93c42ed268924e17bc80cc99f0597e53e82a57d49ba"
+        }
+      ]
+    }
+  ]
+}

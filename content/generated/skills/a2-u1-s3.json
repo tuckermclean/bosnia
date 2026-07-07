@@ -1,0 +1,176 @@
+{
+  "id": "a2-u1-s3",
+  "order": 3,
+  "title": "Kupovina",
+  "titleEn": "Shopping",
+  "grammarTip": "When you talk about quantities and prices, the noun that follows goes into the genitive case. After the numbers 2, 3 and 4 use the genitive singular: dva kilograma, tri eura; from 5 upward, and after quantity words like kilogram and litar, use the genitive plural: pet eura, kilogram krompira (a kilo of potatoes), litar mlijeka (a liter of milk). To ask a price, use 'Koliko košta...?' (How much does... cost?) — the thing being priced itself stays in the nominative: Koliko košta hljeb?",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "prodavnica",
+      "en": "store, shop",
+      "audioHash": "43b2e417de129a7344827e5d19be19ceb758eeb95fdc16f5de0787a964dedbe6"
+    },
+    {
+      "bs": "pijaca",
+      "en": "market",
+      "audioHash": "506a46ae1d6d26dad5a8b33682ed081917cb40e23cbacca1894436da67351fb7"
+    },
+    {
+      "bs": "novac",
+      "en": "money",
+      "audioHash": "4003d5d54b37877b3af9b81d5c2e736111736145210bac6212d0190e2375e9de"
+    },
+    {
+      "bs": "cijena",
+      "en": "price",
+      "audioHash": "b80cdb173db9c4f53858d3dd5ded56ec95e1455b22b2055ddac8bf3562a0d2d6"
+    },
+    {
+      "bs": "koliko košta",
+      "en": "how much does it cost",
+      "audioHash": "958cf3b5bf23cda3488c24cc12223587521c7210b209c4adeceb06c54cc5a5e9"
+    },
+    {
+      "bs": "kilogram",
+      "en": "kilogram",
+      "audioHash": "d527a01541eae8860eb85bded3937d15bf573850868dcb5dab2d3063e3f4a3bb"
+    },
+    {
+      "bs": "litar",
+      "en": "liter",
+      "audioHash": "7d4c94ab911cf5fdd21aa60c2af12add68086f47024b5368f938b6e3162942e4"
+    },
+    {
+      "bs": "jeftino",
+      "en": "cheap",
+      "audioHash": "141518dafa657e2416222e5843722c60ea180d63ac71497bcf08b059f73f8c58"
+    },
+    {
+      "bs": "skupo",
+      "en": "expensive",
+      "audioHash": "f160a945a77371e418c9082325f5f73e543d485bb9671534f316d56cdc6c5887"
+    },
+    {
+      "bs": "krompir",
+      "en": "potato",
+      "audioHash": "f8789c220937a404773c6c410e321168d37356353326b9e4a4b72a711ddfc4f8"
+    },
+    {
+      "bs": "kupiti",
+      "en": "to buy",
+      "audioHash": "a4db876f0b1fec3657289179e160a812fe4118323b1d21d7a5e58e5acc76090b"
+    },
+    {
+      "bs": "platiti",
+      "en": "to pay",
+      "audioHash": "535f17b6cd49f2b6a7076dc620859d6e23e0aca988faaf98fd08cbda0c171b0f"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a2-u1-s3-l1",
+      "order": 1,
+      "title": "Na pijaci",
+      "exercises": [
+        {
+          "id": "a2-u1-s3-l1-e1",
+          "prompt": "Kako se pita za cijenu nečega?",
+          "promptEn": "How do you ask for the price of something?",
+          "type": "multiple_choice",
+          "answer": "Koliko košta?",
+          "choices": [
+            "Koliko košta?",
+            "Koliko je sati?",
+            "Gdje je prodavnica?",
+            "Šta je ovo?"
+          ]
+        },
+        {
+          "id": "a2-u1-s3-l1-e2",
+          "prompt": "Odaberi tačan oblik: 'Kilogram ___, molim.' (krompir)",
+          "promptEn": "Choose the correct form: 'A kilo of ___, please.' (potato)",
+          "type": "multiple_choice",
+          "answer": "krompira",
+          "choices": [
+            "krompira",
+            "krompir",
+            "krompiru",
+            "krompirom"
+          ]
+        },
+        {
+          "id": "a2-u1-s3-l1-e3",
+          "prompt": "Sastavi rečenicu: 'How much does the potato cost?'",
+          "promptEn": "Build the sentence: 'How much does the potato cost?'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "Koliko košta krompir",
+          "choices": [
+            "Koliko",
+            "košta",
+            "krompir",
+            "jeftino",
+            "skupo",
+            "novac"
+          ]
+        },
+        {
+          "id": "a2-u1-s3-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "prodavnica",
+              "en": "store"
+            },
+            {
+              "bs": "pijaca",
+              "en": "market"
+            },
+            {
+              "bs": "novac",
+              "en": "money"
+            },
+            {
+              "bs": "cijena",
+              "en": "price"
+            },
+            {
+              "bs": "jeftino",
+              "en": "cheap"
+            },
+            {
+              "bs": "skupo",
+              "en": "expensive"
+            }
+          ]
+        },
+        {
+          "id": "a2-u1-s3-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "How much does this cheese cost?",
+          "choices": [
+            "How much does this cheese cost?",
+            "Where is the market?",
+            "This is too expensive.",
+            "I want to pay in cash."
+          ],
+          "targetPhrase": "Koliko košta ovaj sir?",
+          "audioHash": "a9bf0203b98359df4d79b3f536e1a411175b4f8ce518e48f8627f26a82401a59"
+        },
+        {
+          "id": "a2-u1-s3-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Kilogram krompira košta dvije marke.",
+          "audioHash": "1ab0f6a7968b808fc68679ddc4d2facc4c7b712c33c75e70861664933500dafb"
+        }
+      ]
+    }
+  ]
+}

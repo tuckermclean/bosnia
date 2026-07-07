@@ -1,0 +1,177 @@
+{
+  "id": "a2-u2-s3",
+  "order": 3,
+  "title": "Prošlo vrijeme",
+  "titleEn": "The Past Tense",
+  "grammarTip": "The perfekt (past tense) is formed with the present tense of 'biti' (to be) plus the l-participle of the main verb, which changes for gender: masculine ends in -o, feminine in -la. 'Raditi' (to work) → (ja) radio sam / radila sam (I worked); 'ići' (to go) → išao sam / išla sam; 'vidjeti' (to see) → vidio sam / vidjela sam. In speech the auxiliary 'sam' usually comes right after the participle: Jučer sam radio. Prošle sedmice sam putovao u Sarajevo.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "jučer",
+      "en": "yesterday",
+      "audioHash": "6a4929d87065d1a5cf749bf1fe488d02431a46c9c9055def9a720b290e6f5f82"
+    },
+    {
+      "bs": "prošle sedmice",
+      "en": "last week",
+      "audioHash": "8c140cb89ed929af1602e100513c8c9b55cdf81043c185577caf574808ad04f9"
+    },
+    {
+      "bs": "prošle godine",
+      "en": "last year",
+      "audioHash": "bb4d6b4245f570a8140dbf28e6fb1354e101a522b4b52d11472d4db85c43f280"
+    },
+    {
+      "bs": "biti",
+      "en": "to be (bio/bila sam - I was)",
+      "audioHash": "12386236a15cf9ebd6fda1f8e12e3002bd37aa91887ca0010f69579169193324"
+    },
+    {
+      "bs": "raditi",
+      "en": "to work",
+      "audioHash": "3274d93262eef80254a1711ddd6d2712b13da3ab021486dbfb09cd0ea2f80313"
+    },
+    {
+      "bs": "ići",
+      "en": "to go",
+      "audioHash": "e9dc287d93cf6b769b7b9d2cb356eeb446fad00bed9ca77e00e4e9e7e0400692"
+    },
+    {
+      "bs": "vidjeti",
+      "en": "to see",
+      "audioHash": "7c0033370d6657d7fc2f04a6a0f3a05dfbc7ed417ada41b0d44a1f2597d6ee91"
+    },
+    {
+      "bs": "kupiti",
+      "en": "to buy",
+      "audioHash": "a4db876f0b1fec3657289179e160a812fe4118323b1d21d7a5e58e5acc76090b"
+    },
+    {
+      "bs": "jesti",
+      "en": "to eat",
+      "audioHash": "5281035201c92f7bbb848598d167892497a39f931e6f25f6ff20a2f0ef9ced2f"
+    },
+    {
+      "bs": "učiti",
+      "en": "to study",
+      "audioHash": "893e5ceb1d4ca4957a90c678df5a9393b2ca12e72895bd47d26732551c8da519"
+    },
+    {
+      "bs": "gledati",
+      "en": "to watch",
+      "audioHash": "7658bdc318e681609ead983c2456cffb8d97eeab3d5e2b720edff8c05a06decd"
+    },
+    {
+      "bs": "putovati",
+      "en": "to travel",
+      "audioHash": "72174d5a6d53d10bf292b1ca713eb068acb3dc3765d31ebe498d47a4de72f4b9"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a2-u2-s3-l1",
+      "order": 1,
+      "title": "Šta si radio jučer?",
+      "exercises": [
+        {
+          "id": "a2-u2-s3-l1-e1",
+          "prompt": "Kako glasi prošlo vrijeme glagola 'ići' za žensku osobu (ja)?",
+          "promptEn": "What is the past tense of the verb 'ići' (to go) for a female speaker (I)?",
+          "type": "multiple_choice",
+          "answer": "išla sam",
+          "choices": [
+            "išla sam",
+            "išao sam",
+            "idem",
+            "ću ići"
+          ]
+        },
+        {
+          "id": "a2-u2-s3-l1-e2",
+          "prompt": "Šta znači riječ 'jučer'?",
+          "promptEn": "What does the word 'jučer' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "yesterday",
+          "choices": [
+            "yesterday",
+            "tomorrow",
+            "today",
+            "last year"
+          ]
+        },
+        {
+          "id": "a2-u2-s3-l1-e3",
+          "prompt": "Sastavi rečenicu: 'Yesterday I worked.' (muško lice)",
+          "promptEn": "Build the sentence: 'Yesterday I worked.' (male speaker)",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "Jučer sam radio",
+          "choices": [
+            "Jučer",
+            "sam",
+            "radio",
+            "radila",
+            "danas",
+            "ću"
+          ]
+        },
+        {
+          "id": "a2-u2-s3-l1-e4",
+          "prompt": "Spoji infinitive s engleskim prijevodom.",
+          "promptEn": "Match the infinitives with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "biti",
+              "en": "to be"
+            },
+            {
+              "bs": "raditi",
+              "en": "to work"
+            },
+            {
+              "bs": "ići",
+              "en": "to go"
+            },
+            {
+              "bs": "vidjeti",
+              "en": "to see"
+            },
+            {
+              "bs": "kupiti",
+              "en": "to buy"
+            },
+            {
+              "bs": "putovati",
+              "en": "to travel"
+            }
+          ]
+        },
+        {
+          "id": "a2-u2-s3-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "Last week I traveled to Mostar.",
+          "choices": [
+            "Last week I traveled to Mostar.",
+            "Next week I will travel to Mostar.",
+            "Yesterday I saw Mostar.",
+            "I live in Mostar."
+          ],
+          "targetPhrase": "Prošle sedmice sam putovao u Mostar.",
+          "audioHash": "10f6494da96aeaed9d0226a0745d6c928a879f2c36da02a8ff9267d662053da1"
+        },
+        {
+          "id": "a2-u2-s3-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Jučer sam kupio kartu za voz.",
+          "audioHash": "4055684f97ece26a2902d0351cae4b471f38417148138c3e5ba248c255e1caeb"
+        }
+      ]
+    }
+  ]
+}

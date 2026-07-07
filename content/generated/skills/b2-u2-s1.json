@@ -1,0 +1,169 @@
+{
+  "id": "b2-u2-s1",
+  "order": 1,
+  "title": "Politika i ekonomija",
+  "titleEn": "Politics and Economy",
+  "grammarTip": "Formalni govor o politici i ekonomiji oslanja se na vezničke izraze koji jasno pokazuju logiku argumenta: 'dakle' (zaključak), 'stoga' (posljedica), 's druge strane' (suprotnost) i 'međutim' (kontrast). Na primjer: 'Inflacija raste, stoga vlada najavljuje reformu poreza. S druge strane, mnogi građani strahuju od korupcije.' Ovakvi veznici obilježavaju formalniji registar nego svakodnevni razgovor.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "politika",
+      "en": "politics",
+      "audioHash": "b9c062c46782d62c1c8d6dacbe9fa7027c3f6399c63f1625900480eb0b7dc552"
+    },
+    {
+      "bs": "ekonomija",
+      "en": "economy",
+      "audioHash": "6dd54f584c121b65db75867760c89bdcddc02f08ab1b51206a673fed5aa58866"
+    },
+    {
+      "bs": "vlada",
+      "en": "government",
+      "audioHash": "2ff59d7723dd9ce5359c8998b3d01f0b842ae189d41ed39d3a889afc2927e2e7"
+    },
+    {
+      "bs": "izbori",
+      "en": "elections",
+      "audioHash": "c483a67a7bd74770229c5a07d4fc33cb5dfde132da39aa271ea97ddba227593b"
+    },
+    {
+      "bs": "zakon",
+      "en": "law",
+      "audioHash": "ce57c77d53ad0129591b330d049e1f60c71eb8e7fa7d75e99ee657439b8ba921"
+    },
+    {
+      "bs": "inflacija",
+      "en": "inflation",
+      "audioHash": "cf66713310a64b277c1002f8750671b14954e9f76e322294348fc3ad1b86f1d3"
+    },
+    {
+      "bs": "budžet",
+      "en": "budget",
+      "audioHash": "7565503e9fddbb79c1e32babbcc0528f87f7d060eff33289fd976a89201f9028"
+    },
+    {
+      "bs": "reforma",
+      "en": "reform",
+      "audioHash": "5b6da750e691d97d6904956d40be37eb6c156debc7b5fb0b79db811a3351974e"
+    },
+    {
+      "bs": "korupcija",
+      "en": "corruption",
+      "audioHash": "4fa62bf56dd64d8204c7acffc957e6142d68b53ea44522d6288a1ab93966a702"
+    },
+    {
+      "bs": "glasač",
+      "en": "voter",
+      "audioHash": "eacd17b811215f064485cb2801e4a8e5806a84e94ed298f8926cb8f8301ad844"
+    },
+    {
+      "bs": "tržište",
+      "en": "market",
+      "audioHash": "c8f26fa9732985c3082629f73998b161a013b2c0470f1c99376bf1c18b6cc887"
+    },
+    {
+      "bs": "porez",
+      "en": "tax",
+      "audioHash": "278dd81b100237e1754b97dc68574587371e58cfe0596ab31876c04676b1d01c"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b2-u2-s1-l1",
+      "order": 1,
+      "title": "Aktuelna dešavanja",
+      "exercises": [
+        {
+          "id": "b2-u2-s1-l1-e1",
+          "prompt": "Kako se kaže 'elections' na bosanskom?",
+          "promptEn": "How do you say 'elections' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "izbori",
+          "choices": [
+            "izbori",
+            "vlada",
+            "zakon",
+            "budžet"
+          ]
+        },
+        {
+          "id": "b2-u2-s1-l1-e2",
+          "prompt": "Šta znači riječ 'korupcija'?",
+          "promptEn": "What does the word 'korupcija' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "corruption",
+          "choices": [
+            "corruption",
+            "inflation",
+            "tax",
+            "market"
+          ]
+        },
+        {
+          "id": "b2-u2-s1-l1-e3",
+          "prompt": "Sastavi frazu: 'tax reform'",
+          "promptEn": "Build the phrase: 'tax reform'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "reforma poreza",
+          "choices": [
+            "reforma",
+            "poreza",
+            "budžet",
+            "tržište",
+            "zakon"
+          ]
+        },
+        {
+          "id": "b2-u2-s1-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "vlada",
+              "en": "government"
+            },
+            {
+              "bs": "inflacija",
+              "en": "inflation"
+            },
+            {
+              "bs": "glasač",
+              "en": "voter"
+            },
+            {
+              "bs": "tržište",
+              "en": "market"
+            }
+          ]
+        },
+        {
+          "id": "b2-u2-s1-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "The government announced a reform of the tax system.",
+          "choices": [
+            "The government announced a reform of the tax system.",
+            "Elections will be held next year.",
+            "Inflation is falling steadily.",
+            "Corruption remains a big problem."
+          ],
+          "targetPhrase": "Vlada je najavila reformu poreskog sistema.",
+          "audioHash": "c675913e3dd47dc4415c0b4e906903b25e87b7d823f381c37cd3b2653d45a001"
+        },
+        {
+          "id": "b2-u2-s1-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Stoga je važno da svaki glasač izađe na izbore.",
+          "audioHash": "968c07ea1a7788fb0e0a6c27efdbc6a115e7f5bcac5823f8645aecd03f6d4a9a"
+        }
+      ]
+    }
+  ]
+}

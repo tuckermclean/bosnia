@@ -1,0 +1,177 @@
+{
+  "id": "a2-u1-s2",
+  "order": 2,
+  "title": "Hrana i piće",
+  "titleEn": "Food and Drink",
+  "grammarTip": "The accusative case marks the direct object — what you eat or drink. Feminine nouns ending in -a change that ending to -u: voda → Pijem vodu (I drink water), kafa → Pijem kafu. Masculine and neuter nouns for inanimate things keep the same form as the nominative: hljeb → Jedem hljeb, meso → Jedem meso. The verbs 'jesti' (to eat) and 'piti' (to drink) always take their object in the accusative: Šta jedeš? Jedem sir. Šta piješ? Pijem sok.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "hljeb",
+      "en": "bread",
+      "audioHash": "a846fb11eb18374e76ce789b5aaab9873969c3e4d24440d9f86ee5b1935a4f84"
+    },
+    {
+      "bs": "voda",
+      "en": "water",
+      "audioHash": "37bb2c5dc44d2a4b0bca7a22d5e1dce9f312ba50d7236cf33a0ad039a3d9149e"
+    },
+    {
+      "bs": "mlijeko",
+      "en": "milk",
+      "audioHash": "c18fc90fe7b9c192df0ab56c8da823295c5086bb527bba914d4219efc9b74dc1"
+    },
+    {
+      "bs": "sir",
+      "en": "cheese",
+      "audioHash": "2a3249b41ebaa7bfe75aaaf58b0483b167c66696b5d0479ad962b8f4fe61a41d"
+    },
+    {
+      "bs": "meso",
+      "en": "meat",
+      "audioHash": "b6e86415bb48eefed473a69b33b2e1c1f1122df68712abc6f2e0af783db98bea"
+    },
+    {
+      "bs": "povrće",
+      "en": "vegetables",
+      "audioHash": "2695d26cf2d1da0debd8e515256a6b439f28d2b84e33d0626354ae8bded26d44"
+    },
+    {
+      "bs": "voće",
+      "en": "fruit",
+      "audioHash": "7d4dac217583ab8b6f32f2ba5ffce10de886851e71446a7d398e84eb58e52310"
+    },
+    {
+      "bs": "jaje",
+      "en": "egg",
+      "audioHash": "0a25130cd4d32e25ae626250c8563712c6ea0fa988a0b2486653bb12a9616622"
+    },
+    {
+      "bs": "kafa",
+      "en": "coffee",
+      "audioHash": "ec9bac2b6d675c25b33ffe06c302d75df0f7140a7a14076ce0a2ebfe24cff01c"
+    },
+    {
+      "bs": "sok",
+      "en": "juice",
+      "audioHash": "26d8b597e7ba95a2e8168ad734344ff44c58a4482016348cf51b3dcc77af012d"
+    },
+    {
+      "bs": "jesti",
+      "en": "to eat",
+      "audioHash": "5281035201c92f7bbb848598d167892497a39f931e6f25f6ff20a2f0ef9ced2f"
+    },
+    {
+      "bs": "piti",
+      "en": "to drink",
+      "audioHash": "cd836b8731fd9dd827baea9a1d234ae8a6e4365803f604c2a8a910b212426d33"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a2-u1-s2-l1",
+      "order": 1,
+      "title": "Za doručkom",
+      "exercises": [
+        {
+          "id": "a2-u1-s2-l1-e1",
+          "prompt": "Šta znači riječ 'mlijeko'?",
+          "promptEn": "What does the word 'mlijeko' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "milk",
+          "choices": [
+            "milk",
+            "juice",
+            "water",
+            "cheese"
+          ]
+        },
+        {
+          "id": "a2-u1-s2-l1-e2",
+          "prompt": "Odaberi tačan oblik: 'Pijem ___.' (kafa)",
+          "promptEn": "Choose the correct form: 'I drink ___.' (coffee)",
+          "type": "multiple_choice",
+          "answer": "kafu",
+          "choices": [
+            "kafu",
+            "kafa",
+            "kafi",
+            "kafom"
+          ]
+        },
+        {
+          "id": "a2-u1-s2-l1-e3",
+          "prompt": "Sastavi rečenicu: 'I eat bread and cheese.'",
+          "promptEn": "Build the sentence: 'I eat bread and cheese.'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "Jedem hljeb i sir",
+          "choices": [
+            "Jedem",
+            "hljeb",
+            "i",
+            "sir",
+            "pijem",
+            "vodu"
+          ]
+        },
+        {
+          "id": "a2-u1-s2-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "hljeb",
+              "en": "bread"
+            },
+            {
+              "bs": "voće",
+              "en": "fruit"
+            },
+            {
+              "bs": "povrće",
+              "en": "vegetables"
+            },
+            {
+              "bs": "jaje",
+              "en": "egg"
+            },
+            {
+              "bs": "sok",
+              "en": "juice"
+            },
+            {
+              "bs": "meso",
+              "en": "meat"
+            }
+          ]
+        },
+        {
+          "id": "a2-u1-s2-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "I drink water.",
+          "choices": [
+            "I drink water.",
+            "I drink juice.",
+            "I eat fruit.",
+            "I drink milk."
+          ],
+          "targetPhrase": "Ja pijem vodu.",
+          "audioHash": "7abb0f963ae4f78a7f388940769706d59a34d1ac49eef3ecb1b364743d838298"
+        },
+        {
+          "id": "a2-u1-s2-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Svako jutro pijem kafu i jedem hljeb sa sirom.",
+          "audioHash": "9b833e9a4ce67c09c28c623c0c648753286eeada03d98f62220938da9d46a85d"
+        }
+      ]
+    }
+  ]
+}

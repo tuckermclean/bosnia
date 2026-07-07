@@ -1,0 +1,169 @@
+{
+  "id": "b2-u2-s2",
+  "order": 2,
+  "title": "Emocije i odnosi",
+  "titleEn": "Emotions and Relationships",
+  "grammarTip": "Povratni glagoli sa 'se' opisuju stanja i radnje usmjerene na samog sebe ('osjećati se dobro', 'zaljubiti se'), dok recipročni glagoli sa 'se' opisuju uzajamnu radnju dvoje ili više ljudi ('razumjeti se', 'posvađati se', 'pomiriti se'). U oba slučaja 'se' je obavezan dio glagola i ne prevodi se doslovno na engleski.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "osjećaj",
+      "en": "feeling",
+      "audioHash": "073e59fc8bfaa7099a1430dea41931e59fada290f2dc18cde8f4682c0583a84c"
+    },
+    {
+      "bs": "ljubomora",
+      "en": "jealousy",
+      "audioHash": "7e1353bcdc6350685280e8d7d8f91480a79d7ea620ed0b3de21ca00eb6dd1e09"
+    },
+    {
+      "bs": "povjerenje",
+      "en": "trust",
+      "audioHash": "238b6433a288c657d2d780bb843659a2c99152a1867afecedac1330c13d4fae3"
+    },
+    {
+      "bs": "razočaranje",
+      "en": "disappointment",
+      "audioHash": "280f9436432cef2af9fdc2b162b53d1aa2a38aff24426645aab1f4dbcbc4d114"
+    },
+    {
+      "bs": "čežnja",
+      "en": "longing / yearning",
+      "audioHash": "4144d5f1e15bc46e442d4df2c481a224c5f83ae2a5f463814ab8aa02731761d1"
+    },
+    {
+      "bs": "zaljubiti se",
+      "en": "to fall in love",
+      "audioHash": "7fe746ee6bd702739b9b5d0a691b5b00f4b7a9d2d0a2245bd243085e7449596b"
+    },
+    {
+      "bs": "razumjeti se",
+      "en": "to understand each other",
+      "audioHash": "14a572b049f683869fb0677c65a447aa9f4cdc998e1494e0a296c1bf0154d188"
+    },
+    {
+      "bs": "posvađati se",
+      "en": "to have an argument",
+      "audioHash": "eca5d3458c8cf4c04237624fbd8c67988b021d257075b26379a0ca515e78245c"
+    },
+    {
+      "bs": "pomiriti se",
+      "en": "to reconcile / to make up",
+      "audioHash": "970b235090ab4f94b8232754d69e89dadb073684cfcdc30e01fca15a4984a11f"
+    },
+    {
+      "bs": "brak",
+      "en": "marriage",
+      "audioHash": "d2e002d104b2d8ced26da44650fba9bd629fa479245ae4b48d33962f7de4b495"
+    },
+    {
+      "bs": "veza",
+      "en": "relationship",
+      "audioHash": "0471a8e0e992958623d5b89615e23e47f6a3905d3778029d34a92ab43c79771e"
+    },
+    {
+      "bs": "odnos",
+      "en": "relation / relationship",
+      "audioHash": "2e548cfddc586e0f354e1e83ff674b5a84f9e2aeceb3e309611234984ad3c19b"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b2-u2-s2-l1",
+      "order": 1,
+      "title": "Osjećaji i veze",
+      "exercises": [
+        {
+          "id": "b2-u2-s2-l1-e1",
+          "prompt": "Kako se kaže 'trust' na bosanskom?",
+          "promptEn": "How do you say 'trust' in Bosnian?",
+          "translationDirection": "en->bs",
+          "type": "multiple_choice",
+          "answer": "povjerenje",
+          "choices": [
+            "povjerenje",
+            "ljubomora",
+            "razočaranje",
+            "čežnja"
+          ]
+        },
+        {
+          "id": "b2-u2-s2-l1-e2",
+          "prompt": "Šta znači 'pomiriti se'?",
+          "promptEn": "What does 'pomiriti se' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "to reconcile / to make up",
+          "choices": [
+            "to reconcile / to make up",
+            "to fall in love",
+            "to have an argument",
+            "to trust someone"
+          ]
+        },
+        {
+          "id": "b2-u2-s2-l1-e3",
+          "prompt": "Sastavi frazu: 'to fall in love'",
+          "promptEn": "Build the phrase: 'to fall in love'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "zaljubiti se",
+          "choices": [
+            "zaljubiti",
+            "se",
+            "razumjeti",
+            "posvađati",
+            "pomiriti"
+          ]
+        },
+        {
+          "id": "b2-u2-s2-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "ljubomora",
+              "en": "jealousy"
+            },
+            {
+              "bs": "razočaranje",
+              "en": "disappointment"
+            },
+            {
+              "bs": "brak",
+              "en": "marriage"
+            },
+            {
+              "bs": "veza",
+              "en": "relationship"
+            }
+          ]
+        },
+        {
+          "id": "b2-u2-s2-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "They understand each other well.",
+          "choices": [
+            "They understand each other well.",
+            "They fell in love last year.",
+            "They had an argument yesterday.",
+            "They reconciled after the fight."
+          ],
+          "targetPhrase": "Oni se dobro razumiju.",
+          "audioHash": "6c89b7e8a3543593477266cdba06fcd032fdfd05003f042e304a09f6bf4d3dee"
+        },
+        {
+          "id": "b2-u2-s2-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Povjerenje je temelj svakog dobrog odnosa.",
+          "audioHash": "1dcc38dc46e5d1781149f9e37b6c8f5896ca25eb2ecc8ad7698635681f5c2305"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "id": "a2-u2-s2",
+  "order": 2,
+  "title": "Prijevoz",
+  "titleEn": "Transport",
+  "grammarTip": "The locative case answers 'where?' and always follows 'u' or 'na'. Masculine and neuter nouns typically add -u: autobus → u autobusu (on the bus), voz → u vozu (on the train), aerodrom → na aerodromu (at the airport). Some nouns pair with 'na' by convention even though they aren't open surfaces — na stanici (at the station) — while enclosed vehicles usually take 'u': u autobusu, u tramvaju, u taksiju.",
+  "reviewStatus": "unreviewed",
+  "vocab": [
+    {
+      "bs": "autobus",
+      "en": "bus",
+      "audioHash": "3846b53dbc5ab0925b62415f5e38df3e5449acaaf783a41222ae61c5ad0b01cd"
+    },
+    {
+      "bs": "voz",
+      "en": "train",
+      "audioHash": "c44ab2bc652fe637c8e58e04d48d14d6550848fe36001101af86f4373ee37ea5"
+    },
+    {
+      "bs": "tramvaj",
+      "en": "tram",
+      "audioHash": "83c893ac45ca1338669c73a2adb6f43eee70373292c34a2854cfafbd512571a7"
+    },
+    {
+      "bs": "taksi",
+      "en": "taxi",
+      "audioHash": "db3a3f1b56472b1e22ae36f3283567c90b1023ef6778ba76a687f0a02c295ea5"
+    },
+    {
+      "bs": "stanica",
+      "en": "station, stop",
+      "audioHash": "a9dc2d2ff345b003b89ebebd645224beeca19a27adad38e7fee65f3a862323ea"
+    },
+    {
+      "bs": "karta",
+      "en": "ticket",
+      "audioHash": "598d569efec3a067e270a71ea021f13894b80646acca9cf434fe73ced4abad2b"
+    },
+    {
+      "bs": "voziti se",
+      "en": "to ride, to travel (by vehicle)",
+      "audioHash": "638d9b0c598c80da84ecdf269e4b0a62a56438c0790a13fc3697757ff8fdf4c0"
+    },
+    {
+      "bs": "presjesti",
+      "en": "to transfer, to change (transport)",
+      "audioHash": "634e784797d90fe5a786e276b71516bfcb7e685c0aff7e7682a91740eb3ec985"
+    },
+    {
+      "bs": "aerodrom",
+      "en": "airport",
+      "audioHash": "0aa7e785bd145ee89774379ad5e1fb6b52ba1a8d6f1ac335b21e6f094ab6bd75"
+    },
+    {
+      "bs": "avion",
+      "en": "airplane",
+      "audioHash": "7972082c2a96c22c90c7d73022d1f98361104baba284e4c6146391137f9e5738"
+    },
+    {
+      "bs": "brod",
+      "en": "boat, ship",
+      "audioHash": "001dde5277ffe326de69ab3d25fefa6d4e2ae19346caf522f006f6ec74ce719b"
+    },
+    {
+      "bs": "bicikl",
+      "en": "bicycle",
+      "audioHash": "a494db96056bc5bb1f46c2bd9d449b9952845527dea195c12c4f292ac2654c8b"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "a2-u2-s2-l1",
+      "order": 1,
+      "title": "Kojim prijevozom?",
+      "exercises": [
+        {
+          "id": "a2-u2-s2-l1-e1",
+          "prompt": "Šta znači riječ 'stanica'?",
+          "promptEn": "What does the word 'stanica' mean?",
+          "translationDirection": "bs->en",
+          "type": "multiple_choice",
+          "answer": "station, stop",
+          "choices": [
+            "station, stop",
+            "ticket",
+            "airport",
+            "street"
+          ]
+        },
+        {
+          "id": "a2-u2-s2-l1-e2",
+          "prompt": "Odaberi tačan oblik: 'Putujem ___.' (voz)",
+          "promptEn": "Choose the correct form: 'I'm traveling ___.' (by train)",
+          "type": "multiple_choice",
+          "answer": "u vozu",
+          "choices": [
+            "u vozu",
+            "u voz",
+            "vozom",
+            "voz"
+          ]
+        },
+        {
+          "id": "a2-u2-s2-l1-e3",
+          "prompt": "Sastavi rečenicu: 'I am waiting for the bus at the station.'",
+          "promptEn": "Build the sentence: 'I am waiting for the bus at the station.'",
+          "translationDirection": "en->bs",
+          "type": "word_bank",
+          "answer": "Čekam autobus na stanici",
+          "choices": [
+            "Čekam",
+            "autobus",
+            "na",
+            "stanici",
+            "u",
+            "vozu"
+          ]
+        },
+        {
+          "id": "a2-u2-s2-l1-e4",
+          "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+          "promptEn": "Match the Bosnian words with their English translation.",
+          "type": "match_pairs",
+          "pairs": [
+            {
+              "bs": "autobus",
+              "en": "bus"
+            },
+            {
+              "bs": "voz",
+              "en": "train"
+            },
+            {
+              "bs": "tramvaj",
+              "en": "tram"
+            },
+            {
+              "bs": "taksi",
+              "en": "taxi"
+            },
+            {
+              "bs": "avion",
+              "en": "airplane"
+            },
+            {
+              "bs": "bicikl",
+              "en": "bicycle"
+            }
+          ]
+        },
+        {
+          "id": "a2-u2-s2-l1-e5",
+          "prompt": "Poslušaj i odaberi tačan prijevod.",
+          "promptEn": "Listen and choose the correct translation.",
+          "type": "listen_choose",
+          "answer": "I'm going to the airport by taxi.",
+          "choices": [
+            "I'm going to the airport by taxi.",
+            "I'm going to the station by bus.",
+            "The train is late today.",
+            "I need to buy a ticket."
+          ],
+          "targetPhrase": "Idem na aerodrom taksijem.",
+          "audioHash": "45ccfc3d967a65a045d1049d386345d3274ac2bcaed9a47261af8d72482f06dd"
+        },
+        {
+          "id": "a2-u2-s2-l1-e6",
+          "prompt": "Izgovori naglas.",
+          "promptEn": "Say it out loud.",
+          "type": "speak",
+          "targetPhrase": "Svaki dan se vozim tramvajem do posla.",
+          "audioHash": "8d1825c7124725468e679aa1ce0440f36e122b65feb53c5321568844e21b1e14"
+        }
+      ]
+    }
+  ]
+}

@@ -825,6 +825,4252 @@
           ]
         }
       ]
+    },
+    {
+      "id": "a2-u1",
+      "level": "A2",
+      "order": 2,
+      "title": "Svakodnevni život",
+      "titleEn": "Daily Life",
+      "theme": "Daily routines, food and drink, shopping for everyday items, and talking about weather and the days of the week.",
+      "skills": [
+        {
+          "id": "a2-u1-s1",
+          "order": 1,
+          "title": "Dnevna rutina",
+          "titleEn": "Daily Routine",
+          "grammarTip": "Reflexive verbs pair a verb with the short pronoun 'se', which stays the same for every person: 'buditi se' (to wake oneself up) → ja se budim, ti se budiš, on/ona se budi, mi se budimo, vi se budite, oni se bude. 'Se' usually comes right after the verb, but jumps in front of it in questions: 'Kada se budiš?' (When do you wake up?). Everyday routine verbs like raditi, učiti and večerati follow the regular present-tense pattern: radim, radiš, radi, radimo, radite, rade.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "buditi se",
+              "en": "to wake up",
+              "audioHash": "afaeb7e6ad268e041187e840213381579a580c0a07cfc21dbc88dd99524a7032"
+            },
+            {
+              "bs": "ustajati",
+              "en": "to get up",
+              "audioHash": "905efb75be3a5bd3ba99c0347fe90f4ff613596f0e1d355791d38d8881ae738b"
+            },
+            {
+              "bs": "umivati se",
+              "en": "to wash up / wash one's face",
+              "audioHash": "eb7d40717538c9a10c083fe97249f6349da07417eddb760aa570645bc8bcf919"
+            },
+            {
+              "bs": "oblačiti se",
+              "en": "to get dressed",
+              "audioHash": "adda16c11badabfeef9711d751cfcf53531ba737282ab96baa7c9d0fb6f463c0"
+            },
+            {
+              "bs": "doručkovati",
+              "en": "to have breakfast",
+              "audioHash": "46cf63d1b3f8d9e27026c4ee2c2eec51bea23f295c3fab8de25e5f186e315e17"
+            },
+            {
+              "bs": "tuširati se",
+              "en": "to shower",
+              "audioHash": "31abd7d8d79ddb1e3a5967f8c3908862046b1a6a0121a1e293e0abeec2710da9"
+            },
+            {
+              "bs": "odlaziti",
+              "en": "to leave / to go (to work, school)",
+              "audioHash": "75fa1ef9ee32513483a98549343907e1d5a9c075d0b29a7ec6925f5ffb6f79eb"
+            },
+            {
+              "bs": "raditi",
+              "en": "to work",
+              "audioHash": "3274d93262eef80254a1711ddd6d2712b13da3ab021486dbfb09cd0ea2f80313"
+            },
+            {
+              "bs": "učiti",
+              "en": "to study",
+              "audioHash": "893e5ceb1d4ca4957a90c678df5a9393b2ca12e72895bd47d26732551c8da519"
+            },
+            {
+              "bs": "odmarati se",
+              "en": "to rest",
+              "audioHash": "973a54ebbebfd4f842df4e37cc07ca5708d979748de48117d7b9726659900c74"
+            },
+            {
+              "bs": "večerati",
+              "en": "to have dinner",
+              "audioHash": "5d828c0ad5e02a93a180873d04a4c71cada46c8098181efbfae0f3853aac18c5"
+            },
+            {
+              "bs": "spavati",
+              "en": "to sleep",
+              "audioHash": "69ef4fd41027a2f2e8ce03febc28a94d1d24c261d8b2d9f9ce909aa8edfd039b"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a2-u1-s1-l1",
+              "order": 1,
+              "title": "Moj dan",
+              "exercises": [
+                {
+                  "id": "a2-u1-s1-l1-e1",
+                  "prompt": "Šta znači glagol 'buditi se'?",
+                  "promptEn": "What does the verb 'buditi se' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "to wake up",
+                  "choices": [
+                    "to wake up",
+                    "to go to sleep",
+                    "to get dressed",
+                    "to rest"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s1-l1-e2",
+                  "prompt": "Kako se kaže 'to get dressed' na bosanskom?",
+                  "promptEn": "How do you say 'to get dressed' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "oblačiti se",
+                  "choices": [
+                    "oblačiti se",
+                    "umivati se",
+                    "odmarati se",
+                    "večerati"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s1-l1-e3",
+                  "prompt": "Sastavi rečenicu: 'I wake up at seven o'clock.'",
+                  "promptEn": "Build the sentence: 'I wake up at seven o'clock.'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "Ja se budim u sedam sati",
+                  "choices": [
+                    "Ja",
+                    "se",
+                    "budim",
+                    "u",
+                    "sedam",
+                    "sati",
+                    "spavam"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s1-l1-e4",
+                  "prompt": "Spoji bosanske glagole s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian verbs with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "ustajati",
+                      "en": "to get up"
+                    },
+                    {
+                      "bs": "doručkovati",
+                      "en": "to have breakfast"
+                    },
+                    {
+                      "bs": "raditi",
+                      "en": "to work"
+                    },
+                    {
+                      "bs": "učiti",
+                      "en": "to study"
+                    },
+                    {
+                      "bs": "odmarati se",
+                      "en": "to rest"
+                    },
+                    {
+                      "bs": "spavati",
+                      "en": "to sleep"
+                    }
+                  ]
+                },
+                {
+                  "id": "a2-u1-s1-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "I get up early.",
+                  "choices": [
+                    "I get up early.",
+                    "I go to bed late.",
+                    "I rest in the evening.",
+                    "I have dinner at home."
+                  ],
+                  "targetPhrase": "Ja ustajem rano.",
+                  "audioHash": "65aa56174cfcaa9fcfff3c44136c9a58fa509552394375b6ec95bd2d787c95d5"
+                },
+                {
+                  "id": "a2-u1-s1-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Uveče se tuširam i odmaram.",
+                  "audioHash": "24ca47976c0e501bd7d24af4d22246e80e28633c4ea9414bd53a5af265110449"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a2-u1-s2",
+          "order": 2,
+          "title": "Hrana i piće",
+          "titleEn": "Food and Drink",
+          "grammarTip": "The accusative case marks the direct object — what you eat or drink. Feminine nouns ending in -a change that ending to -u: voda → Pijem vodu (I drink water), kafa → Pijem kafu. Masculine and neuter nouns for inanimate things keep the same form as the nominative: hljeb → Jedem hljeb, meso → Jedem meso. The verbs 'jesti' (to eat) and 'piti' (to drink) always take their object in the accusative: Šta jedeš? Jedem sir. Šta piješ? Pijem sok.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "hljeb",
+              "en": "bread",
+              "audioHash": "a846fb11eb18374e76ce789b5aaab9873969c3e4d24440d9f86ee5b1935a4f84"
+            },
+            {
+              "bs": "voda",
+              "en": "water",
+              "audioHash": "37bb2c5dc44d2a4b0bca7a22d5e1dce9f312ba50d7236cf33a0ad039a3d9149e"
+            },
+            {
+              "bs": "mlijeko",
+              "en": "milk",
+              "audioHash": "c18fc90fe7b9c192df0ab56c8da823295c5086bb527bba914d4219efc9b74dc1"
+            },
+            {
+              "bs": "sir",
+              "en": "cheese",
+              "audioHash": "2a3249b41ebaa7bfe75aaaf58b0483b167c66696b5d0479ad962b8f4fe61a41d"
+            },
+            {
+              "bs": "meso",
+              "en": "meat",
+              "audioHash": "b6e86415bb48eefed473a69b33b2e1c1f1122df68712abc6f2e0af783db98bea"
+            },
+            {
+              "bs": "povrće",
+              "en": "vegetables",
+              "audioHash": "2695d26cf2d1da0debd8e515256a6b439f28d2b84e33d0626354ae8bded26d44"
+            },
+            {
+              "bs": "voće",
+              "en": "fruit",
+              "audioHash": "7d4dac217583ab8b6f32f2ba5ffce10de886851e71446a7d398e84eb58e52310"
+            },
+            {
+              "bs": "jaje",
+              "en": "egg",
+              "audioHash": "0a25130cd4d32e25ae626250c8563712c6ea0fa988a0b2486653bb12a9616622"
+            },
+            {
+              "bs": "kafa",
+              "en": "coffee",
+              "audioHash": "ec9bac2b6d675c25b33ffe06c302d75df0f7140a7a14076ce0a2ebfe24cff01c"
+            },
+            {
+              "bs": "sok",
+              "en": "juice",
+              "audioHash": "26d8b597e7ba95a2e8168ad734344ff44c58a4482016348cf51b3dcc77af012d"
+            },
+            {
+              "bs": "jesti",
+              "en": "to eat",
+              "audioHash": "5281035201c92f7bbb848598d167892497a39f931e6f25f6ff20a2f0ef9ced2f"
+            },
+            {
+              "bs": "piti",
+              "en": "to drink",
+              "audioHash": "cd836b8731fd9dd827baea9a1d234ae8a6e4365803f604c2a8a910b212426d33"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a2-u1-s2-l1",
+              "order": 1,
+              "title": "Za doručkom",
+              "exercises": [
+                {
+                  "id": "a2-u1-s2-l1-e1",
+                  "prompt": "Šta znači riječ 'mlijeko'?",
+                  "promptEn": "What does the word 'mlijeko' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "milk",
+                  "choices": [
+                    "milk",
+                    "juice",
+                    "water",
+                    "cheese"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s2-l1-e2",
+                  "prompt": "Odaberi tačan oblik: 'Pijem ___.' (kafa)",
+                  "promptEn": "Choose the correct form: 'I drink ___.' (coffee)",
+                  "type": "multiple_choice",
+                  "answer": "kafu",
+                  "choices": [
+                    "kafu",
+                    "kafa",
+                    "kafi",
+                    "kafom"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s2-l1-e3",
+                  "prompt": "Sastavi rečenicu: 'I eat bread and cheese.'",
+                  "promptEn": "Build the sentence: 'I eat bread and cheese.'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "Jedem hljeb i sir",
+                  "choices": [
+                    "Jedem",
+                    "hljeb",
+                    "i",
+                    "sir",
+                    "pijem",
+                    "vodu"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s2-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "hljeb",
+                      "en": "bread"
+                    },
+                    {
+                      "bs": "voće",
+                      "en": "fruit"
+                    },
+                    {
+                      "bs": "povrće",
+                      "en": "vegetables"
+                    },
+                    {
+                      "bs": "jaje",
+                      "en": "egg"
+                    },
+                    {
+                      "bs": "sok",
+                      "en": "juice"
+                    },
+                    {
+                      "bs": "meso",
+                      "en": "meat"
+                    }
+                  ]
+                },
+                {
+                  "id": "a2-u1-s2-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "I drink water.",
+                  "choices": [
+                    "I drink water.",
+                    "I drink juice.",
+                    "I eat fruit.",
+                    "I drink milk."
+                  ],
+                  "targetPhrase": "Ja pijem vodu.",
+                  "audioHash": "7abb0f963ae4f78a7f388940769706d59a34d1ac49eef3ecb1b364743d838298"
+                },
+                {
+                  "id": "a2-u1-s2-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Svako jutro pijem kafu i jedem hljeb sa sirom.",
+                  "audioHash": "9b833e9a4ce67c09c28c623c0c648753286eeada03d98f62220938da9d46a85d"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a2-u1-s3",
+          "order": 3,
+          "title": "Kupovina",
+          "titleEn": "Shopping",
+          "grammarTip": "When you talk about quantities and prices, the noun that follows goes into the genitive case. After the numbers 2, 3 and 4 use the genitive singular: dva kilograma, tri eura; from 5 upward, and after quantity words like kilogram and litar, use the genitive plural: pet eura, kilogram krompira (a kilo of potatoes), litar mlijeka (a liter of milk). To ask a price, use 'Koliko košta...?' (How much does... cost?) — the thing being priced itself stays in the nominative: Koliko košta hljeb?",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "prodavnica",
+              "en": "store, shop",
+              "audioHash": "43b2e417de129a7344827e5d19be19ceb758eeb95fdc16f5de0787a964dedbe6"
+            },
+            {
+              "bs": "pijaca",
+              "en": "market",
+              "audioHash": "506a46ae1d6d26dad5a8b33682ed081917cb40e23cbacca1894436da67351fb7"
+            },
+            {
+              "bs": "novac",
+              "en": "money",
+              "audioHash": "4003d5d54b37877b3af9b81d5c2e736111736145210bac6212d0190e2375e9de"
+            },
+            {
+              "bs": "cijena",
+              "en": "price",
+              "audioHash": "b80cdb173db9c4f53858d3dd5ded56ec95e1455b22b2055ddac8bf3562a0d2d6"
+            },
+            {
+              "bs": "koliko košta",
+              "en": "how much does it cost",
+              "audioHash": "958cf3b5bf23cda3488c24cc12223587521c7210b209c4adeceb06c54cc5a5e9"
+            },
+            {
+              "bs": "kilogram",
+              "en": "kilogram",
+              "audioHash": "d527a01541eae8860eb85bded3937d15bf573850868dcb5dab2d3063e3f4a3bb"
+            },
+            {
+              "bs": "litar",
+              "en": "liter",
+              "audioHash": "7d4c94ab911cf5fdd21aa60c2af12add68086f47024b5368f938b6e3162942e4"
+            },
+            {
+              "bs": "jeftino",
+              "en": "cheap",
+              "audioHash": "141518dafa657e2416222e5843722c60ea180d63ac71497bcf08b059f73f8c58"
+            },
+            {
+              "bs": "skupo",
+              "en": "expensive",
+              "audioHash": "f160a945a77371e418c9082325f5f73e543d485bb9671534f316d56cdc6c5887"
+            },
+            {
+              "bs": "krompir",
+              "en": "potato",
+              "audioHash": "f8789c220937a404773c6c410e321168d37356353326b9e4a4b72a711ddfc4f8"
+            },
+            {
+              "bs": "kupiti",
+              "en": "to buy",
+              "audioHash": "a4db876f0b1fec3657289179e160a812fe4118323b1d21d7a5e58e5acc76090b"
+            },
+            {
+              "bs": "platiti",
+              "en": "to pay",
+              "audioHash": "535f17b6cd49f2b6a7076dc620859d6e23e0aca988faaf98fd08cbda0c171b0f"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a2-u1-s3-l1",
+              "order": 1,
+              "title": "Na pijaci",
+              "exercises": [
+                {
+                  "id": "a2-u1-s3-l1-e1",
+                  "prompt": "Kako se pita za cijenu nečega?",
+                  "promptEn": "How do you ask for the price of something?",
+                  "type": "multiple_choice",
+                  "answer": "Koliko košta?",
+                  "choices": [
+                    "Koliko košta?",
+                    "Koliko je sati?",
+                    "Gdje je prodavnica?",
+                    "Šta je ovo?"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s3-l1-e2",
+                  "prompt": "Odaberi tačan oblik: 'Kilogram ___, molim.' (krompir)",
+                  "promptEn": "Choose the correct form: 'A kilo of ___, please.' (potato)",
+                  "type": "multiple_choice",
+                  "answer": "krompira",
+                  "choices": [
+                    "krompira",
+                    "krompir",
+                    "krompiru",
+                    "krompirom"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s3-l1-e3",
+                  "prompt": "Sastavi rečenicu: 'How much does the potato cost?'",
+                  "promptEn": "Build the sentence: 'How much does the potato cost?'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "Koliko košta krompir",
+                  "choices": [
+                    "Koliko",
+                    "košta",
+                    "krompir",
+                    "jeftino",
+                    "skupo",
+                    "novac"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s3-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "prodavnica",
+                      "en": "store"
+                    },
+                    {
+                      "bs": "pijaca",
+                      "en": "market"
+                    },
+                    {
+                      "bs": "novac",
+                      "en": "money"
+                    },
+                    {
+                      "bs": "cijena",
+                      "en": "price"
+                    },
+                    {
+                      "bs": "jeftino",
+                      "en": "cheap"
+                    },
+                    {
+                      "bs": "skupo",
+                      "en": "expensive"
+                    }
+                  ]
+                },
+                {
+                  "id": "a2-u1-s3-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "How much does this cheese cost?",
+                  "choices": [
+                    "How much does this cheese cost?",
+                    "Where is the market?",
+                    "This is too expensive.",
+                    "I want to pay in cash."
+                  ],
+                  "targetPhrase": "Koliko košta ovaj sir?",
+                  "audioHash": "a9bf0203b98359df4d79b3f536e1a411175b4f8ce518e48f8627f26a82401a59"
+                },
+                {
+                  "id": "a2-u1-s3-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Kilogram krompira košta dvije marke.",
+                  "audioHash": "1ab0f6a7968b808fc68679ddc4d2facc4c7b712c33c75e70861664933500dafb"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a2-u1-s4",
+          "order": 4,
+          "title": "Vrijeme i dani",
+          "titleEn": "Weather and Days",
+          "grammarTip": "To say 'on' a day of the week, Bosnian uses 'u' + the accusative case: u ponedjeljak, u utorak, u četvrtak and u petak look identical to the nominative (masculine nouns), but feminine day names change their ending: srijeda → u srijedu, subota → u subotu, nedjelja → u nedjelju. Weather is described with 'Vani je...' (It's... outside) followed by a fixed adverbial form that never changes: Vani je sunčano, vani je hladno, vani je toplo. Note that 'vrijeme' means both 'time' and 'weather' — context tells you which.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "ponedjeljak",
+              "en": "Monday",
+              "audioHash": "335048951684af38bd86602dbac7ee51f914150fbb6a1d5eedca521c9592ccd1"
+            },
+            {
+              "bs": "utorak",
+              "en": "Tuesday",
+              "audioHash": "e16f14459e193a22a5afa6dee7ef542596b7127f31db47fbaebf7dd49a94150d"
+            },
+            {
+              "bs": "srijeda",
+              "en": "Wednesday",
+              "audioHash": "ef5d9f0d4846ba37ec26271f8912cb896dbac273cdee659ef30d5474e5a412c5"
+            },
+            {
+              "bs": "četvrtak",
+              "en": "Thursday",
+              "audioHash": "403e9a0798f4da683f90debe27c60c1e293be7b668257e65d11ad42b25afa8ea"
+            },
+            {
+              "bs": "petak",
+              "en": "Friday",
+              "audioHash": "d3bfad350f2c8fd25ab9a680cbd18f49c97ac1dbf2e3b5506028e1045d900883"
+            },
+            {
+              "bs": "subota",
+              "en": "Saturday",
+              "audioHash": "9bb0914d6086b2479eeb66cc7bfc6d5148e70633ad1a08a8acad4047b16f64e1"
+            },
+            {
+              "bs": "nedjelja",
+              "en": "Sunday",
+              "audioHash": "36ba97448b4746366cace41ac2e5b71595084e81cf9fe540322d293802f0c42f"
+            },
+            {
+              "bs": "sunčano",
+              "en": "sunny",
+              "audioHash": "158438274cbbda7596e17b7ffd0da00fcfac16cee31793350d16e5731200141f"
+            },
+            {
+              "bs": "kišovito",
+              "en": "rainy",
+              "audioHash": "46239a11133bb751cc6f492750109401278e18944bef2dc82b6e25220d516f9b"
+            },
+            {
+              "bs": "oblačno",
+              "en": "cloudy",
+              "audioHash": "c8bce59c742e08ea42ce9c11210042214cf0b52852540b78d2a1b6e50f0ad624"
+            },
+            {
+              "bs": "hladno",
+              "en": "cold",
+              "audioHash": "0066fcc4578df243a371b949a2d879955036d03fbef911029bcff4d45dcdb7f1"
+            },
+            {
+              "bs": "toplo",
+              "en": "warm",
+              "audioHash": "28262b2cb3b8ae1b39da8cdda759aace72c445e296d3c8ff2992b43b9da190f9"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a2-u1-s4-l1",
+              "order": 1,
+              "title": "Kakvo je vrijeme?",
+              "exercises": [
+                {
+                  "id": "a2-u1-s4-l1-e1",
+                  "prompt": "Koji je dan poslije petka?",
+                  "promptEn": "Which day is after Friday?",
+                  "type": "multiple_choice",
+                  "answer": "subota",
+                  "choices": [
+                    "subota",
+                    "nedjelja",
+                    "ponedjeljak",
+                    "utorak"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s4-l1-e2",
+                  "prompt": "Kako se kaže 'on Wednesday' na bosanskom?",
+                  "promptEn": "How do you say 'on Wednesday' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "u srijedu",
+                  "choices": [
+                    "u srijedu",
+                    "u srijeda",
+                    "u srijedi",
+                    "u srijedom"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s4-l1-e3",
+                  "prompt": "Sastavi rečenicu: 'It's sunny on Monday.'",
+                  "promptEn": "Build the sentence: 'It's sunny on Monday.'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "U ponedjeljak je sunčano",
+                  "choices": [
+                    "U",
+                    "ponedjeljak",
+                    "je",
+                    "sunčano",
+                    "subotu",
+                    "kišovito"
+                  ]
+                },
+                {
+                  "id": "a2-u1-s4-l1-e4",
+                  "prompt": "Spoji dane u sedmici s engleskim prijevodom.",
+                  "promptEn": "Match the days of the week with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "ponedjeljak",
+                      "en": "Monday"
+                    },
+                    {
+                      "bs": "utorak",
+                      "en": "Tuesday"
+                    },
+                    {
+                      "bs": "srijeda",
+                      "en": "Wednesday"
+                    },
+                    {
+                      "bs": "četvrtak",
+                      "en": "Thursday"
+                    },
+                    {
+                      "bs": "petak",
+                      "en": "Friday"
+                    },
+                    {
+                      "bs": "nedjelja",
+                      "en": "Sunday"
+                    }
+                  ]
+                },
+                {
+                  "id": "a2-u1-s4-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Today it's cloudy and cold.",
+                  "choices": [
+                    "Today it's cloudy and cold.",
+                    "Today it's sunny and warm.",
+                    "Tomorrow it will rain.",
+                    "Yesterday was warm."
+                  ],
+                  "targetPhrase": "Danas je oblačno i hladno.",
+                  "audioHash": "2146c4c769749b53979abaab1693fefae205a08dfde64518cc5aef49ef962462"
+                },
+                {
+                  "id": "a2-u1-s4-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "U subotu je toplo i sunčano.",
+                  "audioHash": "89ac972c837d83e0f44fb0480b39a6406b8f804efbaeaa8fffd833d18afbb184"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2-u2",
+      "level": "A2",
+      "order": 3,
+      "title": "Grad i kretanje",
+      "titleEn": "Town and Getting Around",
+      "theme": "Giving and following directions, using public transport, talking about the past, and describing hobbies and free-time activities.",
+      "skills": [
+        {
+          "id": "a2-u2-s1",
+          "order": 1,
+          "title": "Upute i pravci",
+          "titleEn": "Directions",
+          "grammarTip": "To give directions, use the imperative: 'skrenuti' (to turn) becomes skreni (informal) or skrenite (formal / plural) — Skreni lijevo! (Turn left!) Skrenite desno! (Turn right!). Many place prepositions — iza (behind), pored (next to), blizu (near), između (between), kod (at/by) — govern the genitive case: iza semafora (behind the traffic light), pored raskrsnice (next to the intersection), kod stanice (at the station).",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "lijevo",
+              "en": "left",
+              "audioHash": "01da9c681839dff35a3bcd53abdbabb6a5a85e9747e36f0eb3b6c2fb4531e18e"
+            },
+            {
+              "bs": "desno",
+              "en": "right",
+              "audioHash": "cd5f4d73a3851aa5918be327c509e5b72381632294c5b9e8af515dce8ea9458e"
+            },
+            {
+              "bs": "pravo",
+              "en": "straight ahead",
+              "audioHash": "840c74f6392fcf8646a308c0daa4f31995885a976d14ad89456c2baceaf11c66"
+            },
+            {
+              "bs": "skrenuti",
+              "en": "to turn",
+              "audioHash": "ecd365f6b4414bb7eb78f049f4578bb4a50ce10835ef0059828a36f4f4d5fc4d"
+            },
+            {
+              "bs": "ulica",
+              "en": "street",
+              "audioHash": "cc7fbb154ce0876a7a1896181390dce52a77dd2c99b42131a8078660915b42be"
+            },
+            {
+              "bs": "raskrsnica",
+              "en": "intersection",
+              "audioHash": "5f0297b09443ed7b3628f64c257a7e6ccfc0abde1ee343c6f8f1897498d70e1e"
+            },
+            {
+              "bs": "semafor",
+              "en": "traffic light",
+              "audioHash": "1af6318424985b8a422e889afd6de5d1dcbad41bc35bc4ae1e56235e3277f477"
+            },
+            {
+              "bs": "blizu",
+              "en": "near",
+              "audioHash": "ec76efb19f32eae9ef487375587f6b41eb787366513b3ff5ef30d3f1d3d0f69b"
+            },
+            {
+              "bs": "daleko",
+              "en": "far",
+              "audioHash": "5491dd72ecaa2e1a7c2aa19e279b7c0bdac0439a5b7b7a0a07721acb99ffd8f7"
+            },
+            {
+              "bs": "između",
+              "en": "between",
+              "audioHash": "d1d0697517c8b6bb1a2989344417c8733383959ae5ec1377603dad8eb1750fe4"
+            },
+            {
+              "bs": "pored",
+              "en": "next to, beside",
+              "audioHash": "14bfc583cd75177300883ca9d28d084ed2a947962768aef5d8b8af7a7fbf3550"
+            },
+            {
+              "bs": "iza",
+              "en": "behind",
+              "audioHash": "476327b90b0f46ff44a90f1082609337e98f922f747c141678c99a4330841cb5"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a2-u2-s1-l1",
+              "order": 1,
+              "title": "Kako da stignem tamo?",
+              "exercises": [
+                {
+                  "id": "a2-u2-s1-l1-e1",
+                  "prompt": "Šta znači glagol 'skrenuti'?",
+                  "promptEn": "What does the verb 'skrenuti' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "to turn",
+                  "choices": [
+                    "to turn",
+                    "to stop",
+                    "to cross",
+                    "to arrive"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s1-l1-e2",
+                  "prompt": "Odaberi tačan oblik: 'Pošta je pored ___.' (semafor)",
+                  "promptEn": "Choose the correct form: 'The post office is next to the ___.' (traffic light)",
+                  "type": "multiple_choice",
+                  "answer": "semafora",
+                  "choices": [
+                    "semafora",
+                    "semafor",
+                    "semaforu",
+                    "semaforom"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s1-l1-e3",
+                  "prompt": "Sastavi rečenicu: 'Turn right at the intersection.'",
+                  "promptEn": "Build the sentence: 'Turn right at the intersection.'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "Skrenite desno kod raskrsnice",
+                  "choices": [
+                    "Skrenite",
+                    "desno",
+                    "kod",
+                    "raskrsnice",
+                    "lijevo",
+                    "pravo"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s1-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "lijevo",
+                      "en": "left"
+                    },
+                    {
+                      "bs": "desno",
+                      "en": "right"
+                    },
+                    {
+                      "bs": "pravo",
+                      "en": "straight ahead"
+                    },
+                    {
+                      "bs": "blizu",
+                      "en": "near"
+                    },
+                    {
+                      "bs": "daleko",
+                      "en": "far"
+                    },
+                    {
+                      "bs": "iza",
+                      "en": "behind"
+                    }
+                  ]
+                },
+                {
+                  "id": "a2-u2-s1-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Go straight, then turn left.",
+                  "choices": [
+                    "Go straight, then turn left.",
+                    "Turn right, then go straight.",
+                    "The street is far from here.",
+                    "The traffic light is broken."
+                  ],
+                  "targetPhrase": "Idite pravo, pa skrenite lijevo.",
+                  "audioHash": "74dc4f3c4edb4a62935008865ab6ba71877e2533f3f3aecedc23629a8939d6a8"
+                },
+                {
+                  "id": "a2-u2-s1-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Banka je blizu, pored semafora.",
+                  "audioHash": "bc0d1b0e8f57f50e739f1f68ca3b62103d63b68de98c81c9afdcb0aa8777bf42"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a2-u2-s2",
+          "order": 2,
+          "title": "Prijevoz",
+          "titleEn": "Transport",
+          "grammarTip": "The locative case answers 'where?' and always follows 'u' or 'na'. Masculine and neuter nouns typically add -u: autobus → u autobusu (on the bus), voz → u vozu (on the train), aerodrom → na aerodromu (at the airport). Some nouns pair with 'na' by convention even though they aren't open surfaces — na stanici (at the station) — while enclosed vehicles usually take 'u': u autobusu, u tramvaju, u taksiju.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "autobus",
+              "en": "bus",
+              "audioHash": "3846b53dbc5ab0925b62415f5e38df3e5449acaaf783a41222ae61c5ad0b01cd"
+            },
+            {
+              "bs": "voz",
+              "en": "train",
+              "audioHash": "c44ab2bc652fe637c8e58e04d48d14d6550848fe36001101af86f4373ee37ea5"
+            },
+            {
+              "bs": "tramvaj",
+              "en": "tram",
+              "audioHash": "83c893ac45ca1338669c73a2adb6f43eee70373292c34a2854cfafbd512571a7"
+            },
+            {
+              "bs": "taksi",
+              "en": "taxi",
+              "audioHash": "db3a3f1b56472b1e22ae36f3283567c90b1023ef6778ba76a687f0a02c295ea5"
+            },
+            {
+              "bs": "stanica",
+              "en": "station, stop",
+              "audioHash": "a9dc2d2ff345b003b89ebebd645224beeca19a27adad38e7fee65f3a862323ea"
+            },
+            {
+              "bs": "karta",
+              "en": "ticket",
+              "audioHash": "598d569efec3a067e270a71ea021f13894b80646acca9cf434fe73ced4abad2b"
+            },
+            {
+              "bs": "voziti se",
+              "en": "to ride, to travel (by vehicle)",
+              "audioHash": "638d9b0c598c80da84ecdf269e4b0a62a56438c0790a13fc3697757ff8fdf4c0"
+            },
+            {
+              "bs": "presjesti",
+              "en": "to transfer, to change (transport)",
+              "audioHash": "634e784797d90fe5a786e276b71516bfcb7e685c0aff7e7682a91740eb3ec985"
+            },
+            {
+              "bs": "aerodrom",
+              "en": "airport",
+              "audioHash": "0aa7e785bd145ee89774379ad5e1fb6b52ba1a8d6f1ac335b21e6f094ab6bd75"
+            },
+            {
+              "bs": "avion",
+              "en": "airplane",
+              "audioHash": "7972082c2a96c22c90c7d73022d1f98361104baba284e4c6146391137f9e5738"
+            },
+            {
+              "bs": "brod",
+              "en": "boat, ship",
+              "audioHash": "001dde5277ffe326de69ab3d25fefa6d4e2ae19346caf522f006f6ec74ce719b"
+            },
+            {
+              "bs": "bicikl",
+              "en": "bicycle",
+              "audioHash": "a494db96056bc5bb1f46c2bd9d449b9952845527dea195c12c4f292ac2654c8b"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a2-u2-s2-l1",
+              "order": 1,
+              "title": "Kojim prijevozom?",
+              "exercises": [
+                {
+                  "id": "a2-u2-s2-l1-e1",
+                  "prompt": "Šta znači riječ 'stanica'?",
+                  "promptEn": "What does the word 'stanica' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "station, stop",
+                  "choices": [
+                    "station, stop",
+                    "ticket",
+                    "airport",
+                    "street"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s2-l1-e2",
+                  "prompt": "Odaberi tačan oblik: 'Putujem ___.' (voz)",
+                  "promptEn": "Choose the correct form: 'I'm traveling ___.' (by train)",
+                  "type": "multiple_choice",
+                  "answer": "u vozu",
+                  "choices": [
+                    "u vozu",
+                    "u voz",
+                    "vozom",
+                    "voz"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s2-l1-e3",
+                  "prompt": "Sastavi rečenicu: 'I am waiting for the bus at the station.'",
+                  "promptEn": "Build the sentence: 'I am waiting for the bus at the station.'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "Čekam autobus na stanici",
+                  "choices": [
+                    "Čekam",
+                    "autobus",
+                    "na",
+                    "stanici",
+                    "u",
+                    "vozu"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s2-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "autobus",
+                      "en": "bus"
+                    },
+                    {
+                      "bs": "voz",
+                      "en": "train"
+                    },
+                    {
+                      "bs": "tramvaj",
+                      "en": "tram"
+                    },
+                    {
+                      "bs": "taksi",
+                      "en": "taxi"
+                    },
+                    {
+                      "bs": "avion",
+                      "en": "airplane"
+                    },
+                    {
+                      "bs": "bicikl",
+                      "en": "bicycle"
+                    }
+                  ]
+                },
+                {
+                  "id": "a2-u2-s2-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "I'm going to the airport by taxi.",
+                  "choices": [
+                    "I'm going to the airport by taxi.",
+                    "I'm going to the station by bus.",
+                    "The train is late today.",
+                    "I need to buy a ticket."
+                  ],
+                  "targetPhrase": "Idem na aerodrom taksijem.",
+                  "audioHash": "45ccfc3d967a65a045d1049d386345d3274ac2bcaed9a47261af8d72482f06dd"
+                },
+                {
+                  "id": "a2-u2-s2-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Svaki dan se vozim tramvajem do posla.",
+                  "audioHash": "8d1825c7124725468e679aa1ce0440f36e122b65feb53c5321568844e21b1e14"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a2-u2-s3",
+          "order": 3,
+          "title": "Prošlo vrijeme",
+          "titleEn": "The Past Tense",
+          "grammarTip": "The perfekt (past tense) is formed with the present tense of 'biti' (to be) plus the l-participle of the main verb, which changes for gender: masculine ends in -o, feminine in -la. 'Raditi' (to work) → (ja) radio sam / radila sam (I worked); 'ići' (to go) → išao sam / išla sam; 'vidjeti' (to see) → vidio sam / vidjela sam. In speech the auxiliary 'sam' usually comes right after the participle: Jučer sam radio. Prošle sedmice sam putovao u Sarajevo.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "jučer",
+              "en": "yesterday",
+              "audioHash": "6a4929d87065d1a5cf749bf1fe488d02431a46c9c9055def9a720b290e6f5f82"
+            },
+            {
+              "bs": "prošle sedmice",
+              "en": "last week",
+              "audioHash": "8c140cb89ed929af1602e100513c8c9b55cdf81043c185577caf574808ad04f9"
+            },
+            {
+              "bs": "prošle godine",
+              "en": "last year",
+              "audioHash": "bb4d6b4245f570a8140dbf28e6fb1354e101a522b4b52d11472d4db85c43f280"
+            },
+            {
+              "bs": "biti",
+              "en": "to be (bio/bila sam - I was)",
+              "audioHash": "12386236a15cf9ebd6fda1f8e12e3002bd37aa91887ca0010f69579169193324"
+            },
+            {
+              "bs": "raditi",
+              "en": "to work",
+              "audioHash": "3274d93262eef80254a1711ddd6d2712b13da3ab021486dbfb09cd0ea2f80313"
+            },
+            {
+              "bs": "ići",
+              "en": "to go",
+              "audioHash": "e9dc287d93cf6b769b7b9d2cb356eeb446fad00bed9ca77e00e4e9e7e0400692"
+            },
+            {
+              "bs": "vidjeti",
+              "en": "to see",
+              "audioHash": "7c0033370d6657d7fc2f04a6a0f3a05dfbc7ed417ada41b0d44a1f2597d6ee91"
+            },
+            {
+              "bs": "kupiti",
+              "en": "to buy",
+              "audioHash": "a4db876f0b1fec3657289179e160a812fe4118323b1d21d7a5e58e5acc76090b"
+            },
+            {
+              "bs": "jesti",
+              "en": "to eat",
+              "audioHash": "5281035201c92f7bbb848598d167892497a39f931e6f25f6ff20a2f0ef9ced2f"
+            },
+            {
+              "bs": "učiti",
+              "en": "to study",
+              "audioHash": "893e5ceb1d4ca4957a90c678df5a9393b2ca12e72895bd47d26732551c8da519"
+            },
+            {
+              "bs": "gledati",
+              "en": "to watch",
+              "audioHash": "7658bdc318e681609ead983c2456cffb8d97eeab3d5e2b720edff8c05a06decd"
+            },
+            {
+              "bs": "putovati",
+              "en": "to travel",
+              "audioHash": "72174d5a6d53d10bf292b1ca713eb068acb3dc3765d31ebe498d47a4de72f4b9"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a2-u2-s3-l1",
+              "order": 1,
+              "title": "Šta si radio jučer?",
+              "exercises": [
+                {
+                  "id": "a2-u2-s3-l1-e1",
+                  "prompt": "Kako glasi prošlo vrijeme glagola 'ići' za žensku osobu (ja)?",
+                  "promptEn": "What is the past tense of the verb 'ići' (to go) for a female speaker (I)?",
+                  "type": "multiple_choice",
+                  "answer": "išla sam",
+                  "choices": [
+                    "išla sam",
+                    "išao sam",
+                    "idem",
+                    "ću ići"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s3-l1-e2",
+                  "prompt": "Šta znači riječ 'jučer'?",
+                  "promptEn": "What does the word 'jučer' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "yesterday",
+                  "choices": [
+                    "yesterday",
+                    "tomorrow",
+                    "today",
+                    "last year"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s3-l1-e3",
+                  "prompt": "Sastavi rečenicu: 'Yesterday I worked.' (muško lice)",
+                  "promptEn": "Build the sentence: 'Yesterday I worked.' (male speaker)",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "Jučer sam radio",
+                  "choices": [
+                    "Jučer",
+                    "sam",
+                    "radio",
+                    "radila",
+                    "danas",
+                    "ću"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s3-l1-e4",
+                  "prompt": "Spoji infinitive s engleskim prijevodom.",
+                  "promptEn": "Match the infinitives with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "biti",
+                      "en": "to be"
+                    },
+                    {
+                      "bs": "raditi",
+                      "en": "to work"
+                    },
+                    {
+                      "bs": "ići",
+                      "en": "to go"
+                    },
+                    {
+                      "bs": "vidjeti",
+                      "en": "to see"
+                    },
+                    {
+                      "bs": "kupiti",
+                      "en": "to buy"
+                    },
+                    {
+                      "bs": "putovati",
+                      "en": "to travel"
+                    }
+                  ]
+                },
+                {
+                  "id": "a2-u2-s3-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Last week I traveled to Mostar.",
+                  "choices": [
+                    "Last week I traveled to Mostar.",
+                    "Next week I will travel to Mostar.",
+                    "Yesterday I saw Mostar.",
+                    "I live in Mostar."
+                  ],
+                  "targetPhrase": "Prošle sedmice sam putovao u Mostar.",
+                  "audioHash": "10f6494da96aeaed9d0226a0745d6c928a879f2c36da02a8ff9267d662053da1"
+                },
+                {
+                  "id": "a2-u2-s3-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Jučer sam kupio kartu za voz.",
+                  "audioHash": "4055684f97ece26a2902d0351cae4b471f38417148138c3e5ba248c255e1caeb"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a2-u2-s4",
+          "order": 4,
+          "title": "Slobodno vrijeme",
+          "titleEn": "Free Time",
+          "grammarTip": "'Voljeti' (to love, like) pairs with the infinitive to talk about activities: Volim plivati (I like to swim), Volim čitati (I like to read). When 'voljeti' takes a noun instead — the thing you like — that noun goes into the accusative: muzika → Volim muziku (I like music), knjiga → Volim knjigu (I like books/the book).",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "čitati",
+              "en": "to read",
+              "audioHash": "e3ccc204dd92bdabe960857b39d981c2d9e4767cd15bc071956b54ef219be1cd"
+            },
+            {
+              "bs": "plivati",
+              "en": "to swim",
+              "audioHash": "48edf78d92400b494ec76b78f4d60d8cc6f23764e4c51dce20aa6c5cad12a110"
+            },
+            {
+              "bs": "trčati",
+              "en": "to run",
+              "audioHash": "cf6665e7549e227cde8849bda3a00d3ab9c09b606dd4fec7591d867982e10757"
+            },
+            {
+              "bs": "slikati",
+              "en": "to take photos, to paint",
+              "audioHash": "56cebc473a08ec9a79382e0b0117d67ac178b2f48206c6ce20ec482c7ea6a225"
+            },
+            {
+              "bs": "pjevati",
+              "en": "to sing",
+              "audioHash": "7df9a29e0306ade9c07151b5be7af1b8b255dc870475c47395daecfda74cf215"
+            },
+            {
+              "bs": "plesati",
+              "en": "to dance",
+              "audioHash": "caf00bfc0c456209cc4717501715d7adc92098bc76487f5156b0865a6bd7e24c"
+            },
+            {
+              "bs": "crtati",
+              "en": "to draw",
+              "audioHash": "e17245bb1559e6b5633857898ebd05d4c78a23de664e18c084e5a750b107960e"
+            },
+            {
+              "bs": "kuhati",
+              "en": "to cook",
+              "audioHash": "efbbf6ce42d9d399b8d63dda55f50d499255ea15b05c332169a12e9f189aacc3"
+            },
+            {
+              "bs": "sport",
+              "en": "sport",
+              "audioHash": "18e17f6051df264f122880f8777e7457a1b76d559c3fc8aee7ca2c2849154517"
+            },
+            {
+              "bs": "muzika",
+              "en": "music",
+              "audioHash": "1b66019d4aae79de684da38d6ebf6fc281617f6244c6fbf564d81ae2f4468b79"
+            },
+            {
+              "bs": "knjiga",
+              "en": "book",
+              "audioHash": "c73dea299cab71d034e59f226c95094512f5cd7daa15509378ff12690e7863f5"
+            },
+            {
+              "bs": "voljeti",
+              "en": "to love, to like",
+              "audioHash": "a03940e4a7830f28142ff08034ea8bb2b876dd6759b005e280ef304542a056e0"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "a2-u2-s4-l1",
+              "order": 1,
+              "title": "Šta voliš raditi?",
+              "exercises": [
+                {
+                  "id": "a2-u2-s4-l1-e1",
+                  "prompt": "Šta znači glagol 'plivati'?",
+                  "promptEn": "What does the verb 'plivati' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "to swim",
+                  "choices": [
+                    "to swim",
+                    "to run",
+                    "to dance",
+                    "to sing"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s4-l1-e2",
+                  "prompt": "Odaberi tačan oblik: 'Volim ___.' (muzika)",
+                  "promptEn": "Choose the correct form: 'I like ___.' (music)",
+                  "type": "multiple_choice",
+                  "answer": "muziku",
+                  "choices": [
+                    "muziku",
+                    "muzika",
+                    "muzici",
+                    "muzikom"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s4-l1-e3",
+                  "prompt": "Sastavi rečenicu: 'I like to sing and dance.'",
+                  "promptEn": "Build the sentence: 'I like to sing and dance.'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "Volim pjevati i plesati",
+                  "choices": [
+                    "Volim",
+                    "pjevati",
+                    "i",
+                    "plesati",
+                    "čitati",
+                    "trčati"
+                  ]
+                },
+                {
+                  "id": "a2-u2-s4-l1-e4",
+                  "prompt": "Spoji bosanske glagole s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian verbs with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "čitati",
+                      "en": "to read"
+                    },
+                    {
+                      "bs": "plivati",
+                      "en": "to swim"
+                    },
+                    {
+                      "bs": "trčati",
+                      "en": "to run"
+                    },
+                    {
+                      "bs": "pjevati",
+                      "en": "to sing"
+                    },
+                    {
+                      "bs": "plesati",
+                      "en": "to dance"
+                    },
+                    {
+                      "bs": "kuhati",
+                      "en": "to cook"
+                    }
+                  ]
+                },
+                {
+                  "id": "a2-u2-s4-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "In my free time I like to draw and paint.",
+                  "choices": [
+                    "In my free time I like to draw and paint.",
+                    "In my free time I like to swim and run.",
+                    "I don't have free time.",
+                    "I like to cook on Sundays."
+                  ],
+                  "targetPhrase": "U slobodno vrijeme volim crtati i slikati.",
+                  "audioHash": "fc0be8f2c2535026d21d42703b72f9f590d9593e6421a2dc44d8692a93b62ff0"
+                },
+                {
+                  "id": "a2-u2-s4-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Svake subote volim trčati i plivati.",
+                  "audioHash": "469e1ae8581a118b1a37f45c8950d2b4470a9e93310c026ad221f827afe66b36"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-u1",
+      "level": "B1",
+      "order": 4,
+      "title": "Posao i obrazovanje",
+      "titleEn": "Work and Education",
+      "theme": "Workplace and career vocabulary with the dative case, school and university life with relative clauses, health and the doctor's office with modal verbs, and expressing and defending opinions with subordinate clauses.",
+      "skills": [
+        {
+          "id": "b1-u1-s1",
+          "order": 1,
+          "title": "Posao",
+          "titleEn": "Work",
+          "grammarTip": "The dative case marks the indirect object — the person 'to' or 'for' whom something happens — and follows verbs like reći, dati, pomoći, and pisati. Masculine nouns add -u (šef → šefu), nouns ending in -a like kolega/kolegica change to -i (kolega → kolegi, kolegica → kolegici), and neuter nouns add -u (dijete → djetetu). 'Pomogao sam kolegici sa izvještajem' — I helped my colleague (f.) with the report.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "posao",
+              "en": "job, work",
+              "audioHash": "5442f08695779a46d729b5e76f24564bbc4494b6bbe7bf25ce553fc755a247de"
+            },
+            {
+              "bs": "šef",
+              "en": "boss (male)",
+              "audioHash": "7ff4e5ab25dd3d704bd82ea4d05a9d370943fe342d9084779ced4415bdf2d3bd"
+            },
+            {
+              "bs": "kolega",
+              "en": "colleague (male)",
+              "audioHash": "747f4659b763e67e228b974bde857bad416c9b9144936c026076dc2a56018d88"
+            },
+            {
+              "bs": "kolegica",
+              "en": "colleague (female)",
+              "audioHash": "16ecebff5a771c0cdac0b94fb5956c99a82c75691d21e486ddb6df5f14adf0b1"
+            },
+            {
+              "bs": "plata",
+              "en": "salary",
+              "audioHash": "ed7e23cfc5b1adceb412b1c7216aa0dac3ed142c7c1ee9d24186a4f197bd0912"
+            },
+            {
+              "bs": "ured",
+              "en": "office",
+              "audioHash": "382d4b5384225a5637e65ed9a954f47a12c97a8300cc3288cf3cc7aeac3ddd28"
+            },
+            {
+              "bs": "sastanak",
+              "en": "meeting",
+              "audioHash": "149afb10697685cfeeafed66bb0fc5e8c4ac1c1cd9927c76009277a9db907acd"
+            },
+            {
+              "bs": "zaposlenik",
+              "en": "employee",
+              "audioHash": "34ead8250edb536d89d9cd19ed047d85fcfc3470b6effaafe590e31de5cdb356"
+            },
+            {
+              "bs": "intervju za posao",
+              "en": "job interview",
+              "audioHash": "15a677efc27c34ee54bdf23b44a179476638b381586a6a59ad4a6a0c494507e9"
+            },
+            {
+              "bs": "radno vrijeme",
+              "en": "working hours",
+              "audioHash": "f30c06f471a141a98a17b529916f64bfbc06e128577a28e3daa009d3576dda4e"
+            },
+            {
+              "bs": "iskustvo",
+              "en": "experience",
+              "audioHash": "56697d1e637f18e2dccb912f62ab8aa887f5385777d7f60453e8c25787386e15"
+            },
+            {
+              "bs": "otkaz",
+              "en": "dismissal, notice (from a job)",
+              "audioHash": "e33cc93ec12270dca6c05de521dfb7f06ebbf35cdaa83f89479564cdf8dda213"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b1-u1-s1-l1",
+              "order": 1,
+              "title": "Na poslu",
+              "exercises": [
+                {
+                  "id": "b1-u1-s1-l1-e1",
+                  "prompt": "Poslao sam poruku ___. (šef)",
+                  "promptEn": "I sent a message to the boss. (boss)",
+                  "type": "multiple_choice",
+                  "answer": "šefu",
+                  "choices": [
+                    "šefu",
+                    "šefa",
+                    "šefom",
+                    "šefovi"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s1-l1-e2",
+                  "prompt": "Šta znači riječ 'kolegica'?",
+                  "promptEn": "What does the word 'kolegica' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "colleague (female)",
+                  "choices": [
+                    "colleague (female)",
+                    "boss (female)",
+                    "employee (female)",
+                    "doctor (female)"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s1-l1-e3",
+                  "prompt": "Sastavi frazu: 'job interview'",
+                  "promptEn": "Build the phrase: 'job interview'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "intervju za posao",
+                  "choices": [
+                    "intervju",
+                    "za",
+                    "posao",
+                    "radno",
+                    "vrijeme",
+                    "sastanak"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s1-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "plata",
+                      "en": "salary"
+                    },
+                    {
+                      "bs": "ured",
+                      "en": "office"
+                    },
+                    {
+                      "bs": "sastanak",
+                      "en": "meeting"
+                    },
+                    {
+                      "bs": "zaposlenik",
+                      "en": "employee"
+                    },
+                    {
+                      "bs": "iskustvo",
+                      "en": "experience"
+                    },
+                    {
+                      "bs": "otkaz",
+                      "en": "dismissal"
+                    }
+                  ]
+                },
+                {
+                  "id": "b1-u1-s1-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Working hours begin at eight.",
+                  "choices": [
+                    "Working hours begin at eight.",
+                    "The meeting begins at eight.",
+                    "The boss arrives at eight.",
+                    "I have experience since eight."
+                  ],
+                  "targetPhrase": "Radno vrijeme počinje u osam.",
+                  "audioHash": "d789b8f01834a57a70057ac6e702daac87ef046f92ca7dad393791bc98365ed2"
+                },
+                {
+                  "id": "b1-u1-s1-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Imam sastanak sa šefom u devet ujutro.",
+                  "audioHash": "dac591c4effd835075aa26d2ce6332052317f7319739004ca97989ee3c7aeb2b"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b1-u1-s2",
+          "order": 2,
+          "title": "Obrazovanje",
+          "titleEn": "Education",
+          "grammarTip": "The relative pronoun koji (who/which) agrees in gender and number with the noun it refers to, but its case depends on its role inside the clause: 'Profesor koji predaje historiju' (nominative, subject), 'Predmet koji najviše volim' (accusative, object), 'Fakultet na kojem studiram' (locative, after a preposition). Feminine forms are koja/koju; neuter is koje.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "škola",
+              "en": "school",
+              "audioHash": "e46ed1f977449b2b117ffe2d40d1279f2328ccbd0e8e337501b1bd83e8b017a5"
+            },
+            {
+              "bs": "fakultet",
+              "en": "college, faculty",
+              "audioHash": "2e2b2b44213a6d95aa8c96e4d7ffa20b3d94bc6163ec46043aab7a954b9fbe50"
+            },
+            {
+              "bs": "profesor",
+              "en": "professor (male)",
+              "audioHash": "7e85b3c2c3dc0726f85cb9d73d4be603390dbbe840948bbf23c67ad48f907756"
+            },
+            {
+              "bs": "profesorica",
+              "en": "professor (female)",
+              "audioHash": "4653ccf47f752adb7e84a48a95a1ef1421da0ba37c1e067ed428e58202753135"
+            },
+            {
+              "bs": "student",
+              "en": "student (male)",
+              "audioHash": "c78cb4c0a99603a30ce6c851a260324131b7c8eff404bcc8b6330986a464c599"
+            },
+            {
+              "bs": "studentica",
+              "en": "student (female)",
+              "audioHash": "6eb27693291c4c422556360ac3a0bc73c730b388cb0ed54b3ab051b02788ff6f"
+            },
+            {
+              "bs": "predmet",
+              "en": "school subject",
+              "audioHash": "fba2a14e9e64ab7cd5b549e48413ab4523114ddcfd6dda04f27952697a91db02"
+            },
+            {
+              "bs": "ispit",
+              "en": "exam",
+              "audioHash": "0bfa979d3c86ee3999e31a69fe47530c1c2a2ba44f108602868b3ff47e2227e6"
+            },
+            {
+              "bs": "ocjena",
+              "en": "grade",
+              "audioHash": "af9f15d513115d8eca50ea89b124363ed62863fa066744385101888c1113915a"
+            },
+            {
+              "bs": "diploma",
+              "en": "diploma",
+              "audioHash": "0d1bf44991dda7b8c09031fcc366194e247cfe9b3aac7940421feb624e18c5fb"
+            },
+            {
+              "bs": "stipendija",
+              "en": "scholarship",
+              "audioHash": "9e2d0cb133921cd2dd8b7db37dfe8fb8048def2935ed8e0b59075adff11c332f"
+            },
+            {
+              "bs": "biblioteka",
+              "en": "library",
+              "audioHash": "ce081f334d2b3a7526e31a31cb0ddfb9190157c42cdeecc35b390f18fc7b5510"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b1-u1-s2-l1",
+              "order": 1,
+              "title": "Škola i fakultet",
+              "exercises": [
+                {
+                  "id": "b1-u1-s2-l1-e1",
+                  "prompt": "Studentica ___ studira medicinu je moja sestra.",
+                  "promptEn": "The student who studies medicine is my sister.",
+                  "type": "multiple_choice",
+                  "answer": "koja",
+                  "choices": [
+                    "koja",
+                    "koji",
+                    "koje",
+                    "koju"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s2-l1-e2",
+                  "prompt": "Šta znači riječ 'stipendija'?",
+                  "promptEn": "What does the word 'stipendija' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "scholarship",
+                  "choices": [
+                    "scholarship",
+                    "diploma",
+                    "grade",
+                    "exam"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s2-l1-e3",
+                  "prompt": "Sastavi frazu: 'the professor who teaches history'",
+                  "promptEn": "Build the phrase: 'the professor who teaches history'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "profesor koji predaje historiju",
+                  "choices": [
+                    "profesor",
+                    "koji",
+                    "predaje",
+                    "historiju",
+                    "koja",
+                    "fakultet"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s2-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "ispit",
+                      "en": "exam"
+                    },
+                    {
+                      "bs": "ocjena",
+                      "en": "grade"
+                    },
+                    {
+                      "bs": "diploma",
+                      "en": "diploma"
+                    },
+                    {
+                      "bs": "stipendija",
+                      "en": "scholarship"
+                    },
+                    {
+                      "bs": "biblioteka",
+                      "en": "library"
+                    },
+                    {
+                      "bs": "škola",
+                      "en": "school"
+                    }
+                  ]
+                },
+                {
+                  "id": "b1-u1-s2-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "The exam we took was very difficult.",
+                  "choices": [
+                    "The exam we took was very difficult.",
+                    "The grade we got was very good.",
+                    "The lecture we attended was very long.",
+                    "The scholarship we received was very small."
+                  ],
+                  "targetPhrase": "Ispit koji smo polagali bio je vrlo težak.",
+                  "audioHash": "bd4158a6855f64e4ae207cd01f3ab592ff56ae0bf4d008beedcdd9107c3d7e46"
+                },
+                {
+                  "id": "b1-u1-s2-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Studiram na fakultetu koji ima dobru biblioteku.",
+                  "audioHash": "b21dc1052f49b529c4a48caa87b21dbdf3bf43a656c5a243b37afd0c3b573016"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b1-u1-s3",
+          "order": 3,
+          "title": "Zdravlje",
+          "titleEn": "Health",
+          "grammarTip": "Trebati, morati, and moći are the three core modal verbs. Morati expresses strict obligation ('moram uzeti lijek' — I must take medicine); moći expresses ability or permission ('mogu li zakazati termin?' — can I book an appointment?); trebati expresses need and can be personal ('trebam ići kod ljekara' — I need to go to the doctor) or impersonal with the dative ('treba mi lijek' — I need medicine, literally 'medicine is needed to me').",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "zdravlje",
+              "en": "health",
+              "audioHash": "169795058adceb5d9efd8c8d96e9a04692373de1fb5c9b665f80f173b40d6d3f"
+            },
+            {
+              "bs": "bolestan",
+              "en": "sick (male)",
+              "audioHash": "5fd874dcb139c51ddbbaf432e2ed9a8176285f876ab926b3dd5ff0be07f228d7"
+            },
+            {
+              "bs": "simptom",
+              "en": "symptom",
+              "audioHash": "2ad3e103fb41f703a4c9570c77f57c454100519fb4de2d8e737e7ee1895629c8"
+            },
+            {
+              "bs": "temperatura",
+              "en": "fever, temperature",
+              "audioHash": "7d72fb219e69c690b0513472810410081985311d820f732e5c670b66d1335217"
+            },
+            {
+              "bs": "glava",
+              "en": "head",
+              "audioHash": "fcad8fda310de5bc677d0e5ca1cac7e9c59fd8be648d93ae9dd63cf3624a47ea"
+            },
+            {
+              "bs": "stomak",
+              "en": "stomach",
+              "audioHash": "738777152f683a54ddc5e18af8ad5b6a22116bb2dc66e1a8d245463d6d035efe"
+            },
+            {
+              "bs": "grlo",
+              "en": "throat",
+              "audioHash": "14d7c3e1b131eb3e4206022c45327e8cc6b1c215b1ccf0f4a2c115cbb0ef868e"
+            },
+            {
+              "bs": "ljekar",
+              "en": "doctor",
+              "audioHash": "25bfaf7b332ec03cbc30baf67e7c6587d7dfc8812ec886ebc236946638f4c6c1"
+            },
+            {
+              "bs": "lijek",
+              "en": "medicine",
+              "audioHash": "a19b5a8faf9066fe229b9d62fca03299f73db6e22d521dcca8164f2335f227ad"
+            },
+            {
+              "bs": "recept",
+              "en": "prescription",
+              "audioHash": "e99fb53ccb794f0f2c48c299394d9c001ed6300a6de493d9ea2f189a71e90d84"
+            },
+            {
+              "bs": "bolnica",
+              "en": "hospital",
+              "audioHash": "0efb334e416a3aea7f84c85d66bfcaf4c097fc47ef43c39faa2602fa58fc9f95"
+            },
+            {
+              "bs": "termin",
+              "en": "appointment",
+              "audioHash": "597ae04f326d05566ee75a3b299759037038ce1e880f72dd6f0d9b348f701fad"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b1-u1-s3-l1",
+              "order": 1,
+              "title": "Kod ljekara",
+              "exercises": [
+                {
+                  "id": "b1-u1-s3-l1-e1",
+                  "prompt": "Ako imaš temperaturu, ___ ostati kod kuće.",
+                  "promptEn": "If you have a fever, you should stay home.",
+                  "type": "multiple_choice",
+                  "answer": "trebaš",
+                  "choices": [
+                    "trebaš",
+                    "treba",
+                    "trebam",
+                    "trebate"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s3-l1-e2",
+                  "prompt": "Šta znači riječ 'recept'?",
+                  "promptEn": "What does the word 'recept' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "prescription",
+                  "choices": [
+                    "prescription",
+                    "symptom",
+                    "appointment",
+                    "hospital"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s3-l1-e3",
+                  "prompt": "Sastavi frazu: 'I have to go to the doctor'",
+                  "promptEn": "Build the phrase: 'I have to go to the doctor'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "moram ići kod ljekara",
+                  "choices": [
+                    "moram",
+                    "ići",
+                    "kod",
+                    "ljekara",
+                    "mogu",
+                    "trebam"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s3-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "glava",
+                      "en": "head"
+                    },
+                    {
+                      "bs": "stomak",
+                      "en": "stomach"
+                    },
+                    {
+                      "bs": "grlo",
+                      "en": "throat"
+                    },
+                    {
+                      "bs": "lijek",
+                      "en": "medicine"
+                    },
+                    {
+                      "bs": "bolnica",
+                      "en": "hospital"
+                    },
+                    {
+                      "bs": "temperatura",
+                      "en": "fever"
+                    }
+                  ]
+                },
+                {
+                  "id": "b1-u1-s3-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "You must take the medicine twice a day.",
+                  "choices": [
+                    "You must take the medicine twice a day.",
+                    "You can take the medicine once a day.",
+                    "You should visit the doctor twice a week.",
+                    "You need a prescription for this medicine."
+                  ],
+                  "targetPhrase": "Moraš uzeti lijek dva puta dnevno.",
+                  "audioHash": "2c501d97c0cf3f169142ce2fdde4942982b1231b6c7b770c9187e48b6bad4f6e"
+                },
+                {
+                  "id": "b1-u1-s3-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Mogu li zakazati termin kod doktora za sutra?",
+                  "audioHash": "b30d312e980c52e556af8d59ea908eb58c2866b3c4799aec09b1b1bfabe5ab90"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b1-u1-s4",
+          "order": 4,
+          "title": "Mišljenja",
+          "titleEn": "Opinions",
+          "grammarTip": "To state an opinion, follow mislim da / smatram da (I think/believe that) with a full subordinate clause that has its own subject and verb: 'Mislim da je ovo dobra ideja' (I think that this is a good idea). To agree or disagree, use slažem se / ne slažem se sa + instrumental: 'Slažem se s tobom' (I agree with you).",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "mišljenje",
+              "en": "opinion",
+              "audioHash": "493984ddabea5b5c3475997553d0977f23310228c6e8c36bea17be19285ca2aa"
+            },
+            {
+              "bs": "misliti",
+              "en": "to think",
+              "audioHash": "a07021762f6261f2c7df57818a53a3bdc0c1870f422ba8bc5faf4e29cb51df01"
+            },
+            {
+              "bs": "smatrati",
+              "en": "to consider, to believe",
+              "audioHash": "47d060668142e3d286714642b31425b478a7c43c6f741ab98f47fc7f75990065"
+            },
+            {
+              "bs": "slagati se",
+              "en": "to agree",
+              "audioHash": "d2dbad0ce5020c6b2c00fc10f881c55e8e1a7a7f650ccb217722856d18cbc75f"
+            },
+            {
+              "bs": "ne slagati se",
+              "en": "to disagree",
+              "audioHash": "9ff9f56d3c707e0a2ff87d375e198d1ab05b35ca03b51f99d1a81639cabb4ceb"
+            },
+            {
+              "bs": "stav",
+              "en": "standpoint, attitude",
+              "audioHash": "67ac518e2a1f27fe589317e61b371689e16c70eab259485d5d24a81f0aa32f05"
+            },
+            {
+              "bs": "tvrditi",
+              "en": "to claim, to assert",
+              "audioHash": "8617ca63aff82b2972601b8b2355a956db78d521d11ab71ca645d45ddd67c3aa"
+            },
+            {
+              "bs": "po mom mišljenju",
+              "en": "in my opinion",
+              "audioHash": "b0a8b933fc17e1379e22bba6ccd1ae12ae0ca4adda81c92b21d29567fd36a02b"
+            },
+            {
+              "bs": "u pravu si",
+              "en": "you're right",
+              "audioHash": "6d4ab563c26d0ed0e625d932812a206206b854a65885f9b82a9e58674886cabd"
+            },
+            {
+              "bs": "griješiti",
+              "en": "to be wrong, to make a mistake",
+              "audioHash": "730326a139c5a832cf0878547432a64c58f0c082047d261b1aeb88fd47946c24"
+            },
+            {
+              "bs": "rasprava",
+              "en": "discussion, debate",
+              "audioHash": "e9f51ed7b77edd04d1fcd702e0021541b8fd5b531e4db547003cfb021f1911d9"
+            },
+            {
+              "bs": "argument",
+              "en": "argument (in a discussion)",
+              "audioHash": "c28f54850359f881fcc4503573930b95dacf69506c5f194d65ae4398e0bf64b3"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b1-u1-s4-l1",
+              "order": 1,
+              "title": "Izražavanje mišljenja",
+              "exercises": [
+                {
+                  "id": "b1-u1-s4-l1-e1",
+                  "prompt": "Ja ___ da je ovaj film odličan.",
+                  "promptEn": "I think that this movie is excellent.",
+                  "type": "multiple_choice",
+                  "answer": "mislim",
+                  "choices": [
+                    "mislim",
+                    "misliš",
+                    "misli",
+                    "mislimo"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s4-l1-e2",
+                  "prompt": "Šta znači fraza 'po mom mišljenju'?",
+                  "promptEn": "What does the phrase 'po mom mišljenju' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "in my opinion",
+                  "choices": [
+                    "in my opinion",
+                    "I agree",
+                    "you're right",
+                    "for example"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s4-l1-e3",
+                  "prompt": "Sastavi frazu: 'I agree with you'",
+                  "promptEn": "Build the phrase: 'I agree with you'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "slažem se s tobom",
+                  "choices": [
+                    "slažem",
+                    "se",
+                    "s",
+                    "tobom",
+                    "mislim",
+                    "da"
+                  ]
+                },
+                {
+                  "id": "b1-u1-s4-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "stav",
+                      "en": "standpoint"
+                    },
+                    {
+                      "bs": "tvrditi",
+                      "en": "to claim"
+                    },
+                    {
+                      "bs": "argument",
+                      "en": "argument"
+                    },
+                    {
+                      "bs": "rasprava",
+                      "en": "discussion"
+                    },
+                    {
+                      "bs": "mišljenje",
+                      "en": "opinion"
+                    },
+                    {
+                      "bs": "smatrati",
+                      "en": "to consider"
+                    }
+                  ]
+                },
+                {
+                  "id": "b1-u1-s4-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "I believe that we need to change the plan.",
+                  "choices": [
+                    "I believe that we need to change the plan.",
+                    "I think that the plan is very good.",
+                    "I claim that the discussion was useless.",
+                    "I agree that we should keep the plan."
+                  ],
+                  "targetPhrase": "Smatram da trebamo promijeniti plan.",
+                  "audioHash": "c4f0a34dad20b73a150f6ca05599255cbc1f6a651873d2487c0bfb1ee3077f54"
+                },
+                {
+                  "id": "b1-u1-s4-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Ne slažem se s tobom, mislim da griješiš.",
+                  "audioHash": "75afae9f424b4c1d0e0248f63a5849f0458ae41c55705fb83db5c77dc68a18eb"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1-u2",
+      "level": "B1",
+      "order": 5,
+      "title": "Putovanja i mediji",
+      "titleEn": "Travel and Media",
+      "theme": "Travel bookings and directions abroad with the future tense, internet and news vocabulary with comparatives and superlatives, future intentions and plans, and real versus hypothetical conditional sentences.",
+      "skills": [
+        {
+          "id": "b1-u2-s1",
+          "order": 1,
+          "title": "Putovanja",
+          "titleEn": "Travel",
+          "grammarTip": "The future tense combines clitic forms of htjeti (ću, ćeš, će, ćemo, ćete, će) with the infinitive: 'Ja ću putovati', or, when the infinitive comes right before it, the merged form 'putovaću' (putovati + ću). The clitic cannot open a sentence — say 'Sutra ću putovati', not 'Ću putovati sutra'. Negation is a single word — neću, nećeš, neće… + infinitive — and never merges: 'Neću putovati.'",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "putovanje",
+              "en": "trip, travel",
+              "audioHash": "0578d98a6e28e778695826e7595adfc026a630918d305c9f37bfe2f71eedb9b4"
+            },
+            {
+              "bs": "rezervacija",
+              "en": "reservation, booking",
+              "audioHash": "42435e14ff0c837de8a373068ae985bd89a1a4fe20471e4436eead31fc9335fd"
+            },
+            {
+              "bs": "avion",
+              "en": "airplane",
+              "audioHash": "7972082c2a96c22c90c7d73022d1f98361104baba284e4c6146391137f9e5738"
+            },
+            {
+              "bs": "aerodrom",
+              "en": "airport",
+              "audioHash": "0aa7e785bd145ee89774379ad5e1fb6b52ba1a8d6f1ac335b21e6f094ab6bd75"
+            },
+            {
+              "bs": "karta",
+              "en": "ticket",
+              "audioHash": "598d569efec3a067e270a71ea021f13894b80646acca9cf434fe73ced4abad2b"
+            },
+            {
+              "bs": "pasoš",
+              "en": "passport",
+              "audioHash": "4b25c83d60991c5c284841206d5b066c66a13b80196ec27893c1efc304cd629a"
+            },
+            {
+              "bs": "viza",
+              "en": "visa",
+              "audioHash": "6a7fcf6bf7eb0ff3e4edabba4923ca74917da89103efa92dccd57ac6de89b768"
+            },
+            {
+              "bs": "hotel",
+              "en": "hotel",
+              "audioHash": "114de73b8727075fbd5d8c3dfddcf8821ac416ae4041e7cfade35907c2172d78"
+            },
+            {
+              "bs": "prtljag",
+              "en": "luggage",
+              "audioHash": "ec8ba3735c45769cfb0ffafb66a188c454ace2db548a5a5e10ba645447e202c9"
+            },
+            {
+              "bs": "pravac",
+              "en": "direction",
+              "audioHash": "06bcb4e28565112e553debc95a5b244af6856eaa0614ef211a7814384ea6bba7"
+            },
+            {
+              "bs": "granica",
+              "en": "border",
+              "audioHash": "1afbf089bdf243f6ed8f93250dd680b3ddcad929befd4f6c2eb476b412ee002d"
+            },
+            {
+              "bs": "turista",
+              "en": "tourist",
+              "audioHash": "85c39b90b9ccf763875f7b4e89be60edd488ba0bf7c97dcf59b4d7b67ae8841d"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b1-u2-s1-l1",
+              "order": 1,
+              "title": "Priprema za putovanje",
+              "exercises": [
+                {
+                  "id": "b1-u2-s1-l1-e1",
+                  "prompt": "Sutra ___ putovati u Sarajevo.",
+                  "promptEn": "Tomorrow I will travel to Sarajevo.",
+                  "type": "multiple_choice",
+                  "answer": "ću",
+                  "choices": [
+                    "ću",
+                    "ćeš",
+                    "će",
+                    "ćemo"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s1-l1-e2",
+                  "prompt": "Šta znači riječ 'prtljag'?",
+                  "promptEn": "What does the word 'prtljag' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "luggage",
+                  "choices": [
+                    "luggage",
+                    "ticket",
+                    "passport",
+                    "direction"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s1-l1-e3",
+                  "prompt": "Sastavi frazu: 'I will book a hotel'",
+                  "promptEn": "Build the phrase: 'I will book a hotel'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "ja ću rezervisati hotel",
+                  "choices": [
+                    "ja",
+                    "ću",
+                    "rezervisati",
+                    "hotel",
+                    "avion",
+                    "kartu"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s1-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "aerodrom",
+                      "en": "airport"
+                    },
+                    {
+                      "bs": "pasoš",
+                      "en": "passport"
+                    },
+                    {
+                      "bs": "viza",
+                      "en": "visa"
+                    },
+                    {
+                      "bs": "granica",
+                      "en": "border"
+                    },
+                    {
+                      "bs": "turista",
+                      "en": "tourist"
+                    },
+                    {
+                      "bs": "karta",
+                      "en": "ticket"
+                    }
+                  ]
+                },
+                {
+                  "id": "b1-u2-s1-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Tomorrow we will travel by plane to Vienna.",
+                  "choices": [
+                    "Tomorrow we will travel by plane to Vienna.",
+                    "Yesterday we traveled by train to Vienna.",
+                    "Tomorrow we will travel by bus to Zagreb.",
+                    "We already traveled to Vienna by plane."
+                  ],
+                  "targetPhrase": "Sutra ćemo putovati avionom do Beča.",
+                  "audioHash": "89cd57b7f2a22c60999d332174a79bc69b4b7f70bc0d38d640b0576426e16eb5"
+                },
+                {
+                  "id": "b1-u2-s1-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Pokazaćemo pasoše kada stignemo na aerodrom.",
+                  "audioHash": "f515c7de684b90088d5e16b7857bf8642a89509f25e2bd7944060c76c5e0f755"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b1-u2-s2",
+          "order": 2,
+          "title": "Mediji i tehnologija",
+          "titleEn": "Media and Technology",
+          "grammarTip": "Comparatives are usually formed by adding -iji/-ji/-eći to the adjective stem (brz → brži, zanimljiv → zanimljiviji) and are followed by od + noun, or nego + clause, to mean 'than'. Superlatives simply add naj- to the comparative form: brži → najbrži (fastest). A handful of common adjectives are irregular: dobar → bolji → najbolji (good/better/best), loš → gori → najgori (bad/worse/worst).",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "internet",
+              "en": "internet",
+              "audioHash": "c6050dd9a5f9a7a89f9a556fbae50688e4c1a82db7ccfe8df5dee8ccf7157272"
+            },
+            {
+              "bs": "vijesti",
+              "en": "news",
+              "audioHash": "5feba2c485e50ea2f1ed235d61ece798101a79d5e3238ff174e1219c727bcc17"
+            },
+            {
+              "bs": "televizija",
+              "en": "television",
+              "audioHash": "7507b0a893ce20008fce43cdeb89dd8a671a0ded16f078c7cd4fce6cef8a6242"
+            },
+            {
+              "bs": "novine",
+              "en": "newspaper",
+              "audioHash": "3eec68454d60f104057ebe39fd447a081e610335f5669688b0e8784d670d6daa"
+            },
+            {
+              "bs": "društvene mreže",
+              "en": "social media, social networks",
+              "audioHash": "f4e7013ead02cf94c693c54723c12f6afe24bffee4bf21d15f2663814eb09d7b"
+            },
+            {
+              "bs": "aplikacija",
+              "en": "app, application",
+              "audioHash": "a4e2de164e71df918f3e87aafbfa0cee00dda66675dd336dcdffb0af30c969e8"
+            },
+            {
+              "bs": "mobilni telefon",
+              "en": "mobile phone",
+              "audioHash": "331d78d2fe97981d3fd5f772458deeca575492b28e2a65c0cf26207ff256d2d3"
+            },
+            {
+              "bs": "računar",
+              "en": "computer",
+              "audioHash": "44b6d7ba5fcd5e0e7b2e5164d9622c6e6f5cbdf15c98b0e4e1d36786b3afba7f"
+            },
+            {
+              "bs": "ekran",
+              "en": "screen",
+              "audioHash": "97b66befe26e2bb808cc0c9483ee204e773861ac02bae3a599fea509953c498a"
+            },
+            {
+              "bs": "pretraživač",
+              "en": "search engine, browser",
+              "audioHash": "8c6198f47e301e4fdfce5510edddce7c2f5268c0c8103e21a19a33682143f23c"
+            },
+            {
+              "bs": "reklama",
+              "en": "advertisement",
+              "audioHash": "f9ba72062085760d5a012f0cc91170951364ff305ee0a068c209f379eb96fd8a"
+            },
+            {
+              "bs": "informacija",
+              "en": "information, piece of information",
+              "audioHash": "1322ade0e6bc2439800a9aa53f92023aeab053bf8fa47d04d586cacd639f8b12"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b1-u2-s2-l1",
+              "order": 1,
+              "title": "Svijet interneta",
+              "exercises": [
+                {
+                  "id": "b1-u2-s2-l1-e1",
+                  "prompt": "Internet je ___ od novina za brze informacije.",
+                  "promptEn": "The internet is faster than newspapers for quick information.",
+                  "type": "multiple_choice",
+                  "answer": "brži",
+                  "choices": [
+                    "brži",
+                    "brz",
+                    "najbrži",
+                    "brzo"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s2-l1-e2",
+                  "prompt": "Šta znači riječ 'pretraživač'?",
+                  "promptEn": "What does the word 'pretraživač' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "search engine, browser",
+                  "choices": [
+                    "search engine, browser",
+                    "social network",
+                    "advertisement",
+                    "screen"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s2-l1-e3",
+                  "prompt": "Sastavi frazu: 'This is the best app'",
+                  "promptEn": "Build the phrase: 'This is the best app'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "ovo je najbolja aplikacija",
+                  "choices": [
+                    "ovo",
+                    "je",
+                    "najbolja",
+                    "aplikacija",
+                    "bolja",
+                    "dobra"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s2-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "vijesti",
+                      "en": "news"
+                    },
+                    {
+                      "bs": "novine",
+                      "en": "newspaper"
+                    },
+                    {
+                      "bs": "ekran",
+                      "en": "screen"
+                    },
+                    {
+                      "bs": "reklama",
+                      "en": "advertisement"
+                    },
+                    {
+                      "bs": "informacija",
+                      "en": "information"
+                    },
+                    {
+                      "bs": "društvene mreže",
+                      "en": "social media"
+                    }
+                  ]
+                },
+                {
+                  "id": "b1-u2-s2-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "This app is more interesting than the old one.",
+                  "choices": [
+                    "This app is more interesting than the old one.",
+                    "This app is worse than the old one.",
+                    "This app is the fastest of all.",
+                    "The old app is more interesting than this one."
+                  ],
+                  "targetPhrase": "Ova aplikacija je zanimljivija od one stare.",
+                  "audioHash": "f3a346d30acf170e8438494d480757754072f46b2aa4e1a29202fda3f273426c"
+                },
+                {
+                  "id": "b1-u2-s2-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Društvene mreže su danas najbrži izvor vijesti.",
+                  "audioHash": "0ec284cc02371a94372cb779bdbab11356b40a7dbcf9ce4b377240fc436774a9"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b1-u2-s3",
+          "order": 3,
+          "title": "Planovi i budućnost",
+          "titleEn": "Plans and the Future",
+          "grammarTip": "Namjeravati and planirati (+ infinitive) express intentions and plans: 'Namjeravam upisati fakultet' (I intend to enroll in college). After temporal conjunctions like kad/čim (when/as soon as) that point to a future event, Bosnian keeps the subordinate verb in the present tense rather than the future: 'Kad završim školu, naći ću posao' (When I finish school, I'll find a job) — never 'kad ću završiti'.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "plan",
+              "en": "plan",
+              "audioHash": "2fa1614c5e74e6e4230f1a3e53ff3adb702ac8f7d306226f05e253a481ea5d2a"
+            },
+            {
+              "bs": "namjera",
+              "en": "intention",
+              "audioHash": "65f4c6c0a3e176713efd87bf63cf17dfa57889a33e305caab4feb02238d4c68e"
+            },
+            {
+              "bs": "budućnost",
+              "en": "future",
+              "audioHash": "7bcf8dc9786ff10566c52e61b62538feaed78dcf2242eaaf4aec80d745270529"
+            },
+            {
+              "bs": "cilj",
+              "en": "goal",
+              "audioHash": "4a8626a94ab5c758aab73e8b611bc2fd80edfe1939048f10a4edcf8484ef5ced"
+            },
+            {
+              "bs": "san",
+              "en": "dream",
+              "audioHash": "1912282c27bb724f5b0013d8b8cd65d10f5f1d98765d99369b284e28e6fc8723"
+            },
+            {
+              "bs": "uspjeh",
+              "en": "success",
+              "audioHash": "16ffaa6c24789c548d8481f4d8872f6d22e83809ba4757c3172e432892c0e0a2"
+            },
+            {
+              "bs": "prilika",
+              "en": "opportunity",
+              "audioHash": "d4fc48184f639de15cfdaab4be53dcd885bd1943cd91874b902015d5494011e4"
+            },
+            {
+              "bs": "odluka",
+              "en": "decision",
+              "audioHash": "51edd408d0b68e86aeeffd9e54939a8288417f14dad2922da8868a1ec2b18df2"
+            },
+            {
+              "bs": "promjena",
+              "en": "change",
+              "audioHash": "52a0126e96fb4ae9f309e90d8f0ceabd5ab517fb42e7ba77e68a6f2199ace555"
+            },
+            {
+              "bs": "karijera",
+              "en": "career",
+              "audioHash": "6eecb5b8af18c0d50f3e7894412ba14eb1c43203becd7fbc7e09583efe899d2a"
+            },
+            {
+              "bs": "mogućnost",
+              "en": "possibility",
+              "audioHash": "b897ca2fcbfa92e80cbc9e7494f7ad3b7312b197858382a97d4b62f16c138e08"
+            },
+            {
+              "bs": "ostvariti",
+              "en": "to achieve, to make (a dream) come true",
+              "audioHash": "ee6207b2ea2b15dc1b84b5ee2e25cde333fb41b6d9c7c4b8e87f2a3d1366eb02"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b1-u2-s3-l1",
+              "order": 1,
+              "title": "Moji planovi",
+              "exercises": [
+                {
+                  "id": "b1-u2-s3-l1-e1",
+                  "prompt": "Kad ___ fakultet, tražiću posao.",
+                  "promptEn": "When I finish college, I'll look for a job.",
+                  "type": "multiple_choice",
+                  "answer": "završim",
+                  "choices": [
+                    "završim",
+                    "završiću",
+                    "ću završiti",
+                    "završio"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s3-l1-e2",
+                  "prompt": "Šta znači riječ 'prilika'?",
+                  "promptEn": "What does the word 'prilika' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "opportunity",
+                  "choices": [
+                    "opportunity",
+                    "decision",
+                    "goal",
+                    "change"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s3-l1-e3",
+                  "prompt": "Sastavi frazu: 'I plan to change my career'",
+                  "promptEn": "Build the phrase: 'I plan to change my career'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "planiram promijeniti karijeru",
+                  "choices": [
+                    "planiram",
+                    "promijeniti",
+                    "karijeru",
+                    "namjeravam",
+                    "cilj",
+                    "uspjeh"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s3-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "cilj",
+                      "en": "goal"
+                    },
+                    {
+                      "bs": "san",
+                      "en": "dream"
+                    },
+                    {
+                      "bs": "uspjeh",
+                      "en": "success"
+                    },
+                    {
+                      "bs": "odluka",
+                      "en": "decision"
+                    },
+                    {
+                      "bs": "promjena",
+                      "en": "change"
+                    },
+                    {
+                      "bs": "mogućnost",
+                      "en": "possibility"
+                    }
+                  ]
+                },
+                {
+                  "id": "b1-u2-s3-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "I intend to achieve my dream before turning thirty.",
+                  "choices": [
+                    "I intend to achieve my dream before turning thirty.",
+                    "I already achieved my dream last year.",
+                    "I plan to change my career before turning thirty.",
+                    "I don't have a clear goal for the future."
+                  ],
+                  "targetPhrase": "Namjeravam ostvariti svoj san prije tridesete.",
+                  "audioHash": "fbd5afbcc7fd231a8f47c74e69c232ed4cf8b1891cf3f016b7b4dfee2589ecd0"
+                },
+                {
+                  "id": "b1-u2-s3-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Čim dobijem priliku, promijeniću karijeru.",
+                  "audioHash": "4597cb92f3057d6a6fb6f6180e87e467e5a9ba574476f9742c22c2d97fb8e9a9"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b1-u2-s4",
+          "order": 4,
+          "title": "Uslovne rečenice",
+          "titleEn": "Conditionals",
+          "grammarTip": "Real conditions use ako + present tense in both clauses, with the main clause often in the future: 'Ako imam vremena, doći ću' (If I have time, I'll come). Unreal or hypothetical conditions use the conditional mood (bih/bi/bismo/biste + l-participle) in both clauses, typically introduced by kad bi(h): 'Kad bih imao više novca, kupio bih kuću' (If I had more money, I would buy a house).",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "uslov",
+              "en": "condition",
+              "audioHash": "a08e982b0b95939eab537c9bf97600b27351a01cffb7542e07c7f3062f85b4a8"
+            },
+            {
+              "bs": "ako",
+              "en": "if",
+              "audioHash": "ee1abc6c902137416324c4207fecd6ef8b8ed51b80f759d4c945464288644138"
+            },
+            {
+              "bs": "kada",
+              "en": "when",
+              "audioHash": "c8f5bbada120e054743b409f04485fcaf6978b81696fd06f704259da11df5908"
+            },
+            {
+              "bs": "možda",
+              "en": "maybe, perhaps",
+              "audioHash": "4e4d01569572aa6a7bb5553f06f7d6e7bc992b2c015c2f47aabf7d7954a9eaea"
+            },
+            {
+              "bs": "stvarnost",
+              "en": "reality",
+              "audioHash": "0ab771aa373e57ef62356eecb95cc74b1d89a57f2ac2ecc6cc334bc40afda3fd"
+            },
+            {
+              "bs": "mašta",
+              "en": "imagination",
+              "audioHash": "99310e450c4e8ab310d836df8c37d32713edef01e6e23add3848643764bce6bb"
+            },
+            {
+              "bs": "izbor",
+              "en": "choice",
+              "audioHash": "6faede41fa2a0800cd6f12352278253faf578c5defa1c962158bade22c9f9def"
+            },
+            {
+              "bs": "posljedica",
+              "en": "consequence",
+              "audioHash": "dfea23bce61d4d439a9c48beca6e113c60a62a99e3968105f936ae3e55a21bbf"
+            },
+            {
+              "bs": "pretpostavka",
+              "en": "assumption",
+              "audioHash": "1a70863fdf407be6fda31e72317f8d4024ae56fd82be975650c5d300f46f4745"
+            },
+            {
+              "bs": "zamisliti",
+              "en": "to imagine",
+              "audioHash": "0f86b9cbc7003a66ca8761717ce2751c3dbd9da40a2d176e3963b895e721e096"
+            },
+            {
+              "bs": "sreća",
+              "en": "luck, happiness",
+              "audioHash": "5d7ebe7510cbfa425907660a7b959a17d41bb481d8b0b25e11e264e6000c8831"
+            },
+            {
+              "bs": "novac",
+              "en": "money",
+              "audioHash": "4003d5d54b37877b3af9b81d5c2e736111736145210bac6212d0190e2375e9de"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b1-u2-s4-l1",
+              "order": 1,
+              "title": "Šta bih uradio",
+              "exercises": [
+                {
+                  "id": "b1-u2-s4-l1-e1",
+                  "prompt": "Ako ___ vremena, doći ću na zabavu. (imati)",
+                  "promptEn": "If I have time, I'll come to the party. (to have)",
+                  "type": "multiple_choice",
+                  "answer": "imam",
+                  "choices": [
+                    "imam",
+                    "imao bih",
+                    "budem imao",
+                    "imati"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s4-l1-e2",
+                  "prompt": "Šta znači riječ 'pretpostavka'?",
+                  "promptEn": "What does the word 'pretpostavka' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "assumption",
+                  "choices": [
+                    "assumption",
+                    "consequence",
+                    "choice",
+                    "reality"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s4-l1-e3",
+                  "prompt": "Sastavi frazu: 'If I had money, I would buy a house'",
+                  "promptEn": "Build the phrase: 'If I had money, I would buy a house'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "kad bih imao novca kupio bih kuću",
+                  "choices": [
+                    "kad",
+                    "bih",
+                    "imao",
+                    "novca",
+                    "kupio",
+                    "bih",
+                    "kuću",
+                    "ako"
+                  ]
+                },
+                {
+                  "id": "b1-u2-s4-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "uslov",
+                      "en": "condition"
+                    },
+                    {
+                      "bs": "stvarnost",
+                      "en": "reality"
+                    },
+                    {
+                      "bs": "mašta",
+                      "en": "imagination"
+                    },
+                    {
+                      "bs": "izbor",
+                      "en": "choice"
+                    },
+                    {
+                      "bs": "posljedica",
+                      "en": "consequence"
+                    },
+                    {
+                      "bs": "sreća",
+                      "en": "happiness"
+                    }
+                  ]
+                },
+                {
+                  "id": "b1-u2-s4-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "If I have enough time, I will help you.",
+                  "choices": [
+                    "If I have enough time, I will help you.",
+                    "If I had more time, I would help you.",
+                    "I never have enough time to help you.",
+                    "If you have time, you will help me."
+                  ],
+                  "targetPhrase": "Ako imam dovoljno vremena, pomoći ću ti.",
+                  "audioHash": "598d481e256b660f8ccaba6e574f8748548e551907a1fc239cda7e8d7a82d32e"
+                },
+                {
+                  "id": "b1-u2-s4-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Kad bih imao više vremena, učio bih bosanski svaki dan.",
+                  "audioHash": "c3c52d531069fdb130565d84737b216360a33cdb544119ddede68269d93c0b6c"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2-u1",
+      "level": "B2",
+      "order": 6,
+      "title": "Društvo i kultura",
+      "titleEn": "Society and Culture",
+      "theme": "Upper-intermediate discussion of social issues, environmental challenges, arts and culture, and national history and tradition — building nuanced vocabulary, subordinate clauses, verbal aspect, and passive constructions.",
+      "skills": [
+        {
+          "id": "b2-u1-s1",
+          "order": 1,
+          "title": "Društvo",
+          "titleEn": "Society",
+          "grammarTip": "Na B2 nivou rečenice se sve češće povezuju zavisnim veznicima poput 'iako', 'budući da' i 's obzirom na to da', umjesto nizanja kratkih nezavisnih rečenica: 'Iako je nezaposlenost visoka, mladi ostaju optimistični.' Formalni bosanski jezik također često pretvara glagole u apstraktne imenice (nominalizacija): 'odlučiti' postaje 'odluka', 'promijeniti' postaje 'promjena' — postupak tipičan za novinski i akademski stil.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "društvo",
+              "en": "society",
+              "audioHash": "f5fc4632ddae0f4854d8605bf08ecd1107bc12f91a97c17620b3ebcd4fcf55ac"
+            },
+            {
+              "bs": "siromaštvo",
+              "en": "poverty",
+              "audioHash": "86a6ffc37ffaa27f6cc3e298cb17c9b95d15f467af2984b6de29eb85ef35b5bb"
+            },
+            {
+              "bs": "nejednakost",
+              "en": "inequality",
+              "audioHash": "28fd28176bf46793f2b9fac23fbb18a2f264a7b66285483e03020a660fcf51fb"
+            },
+            {
+              "bs": "useljenik",
+              "en": "immigrant",
+              "audioHash": "19be0d5ec07d7c10ef8cd9172c7c26d4a589c917aaca6e96ceb29868fe3a3cec"
+            },
+            {
+              "bs": "nezaposlenost",
+              "en": "unemployment",
+              "audioHash": "cc5fde662652212f2ebf93bf3e10dfe89dbf6b5bb9fa18f917dacf34ce674ef0"
+            },
+            {
+              "bs": "diskriminacija",
+              "en": "discrimination",
+              "audioHash": "455a8985ff703a8b3422f36240d9fa28b06f484d5d935bb52db60fca30dec615"
+            },
+            {
+              "bs": "ljudska prava",
+              "en": "human rights",
+              "audioHash": "7af715a557135bed716d2eb14603796c38195b9352dcfe1497bc02db0388625e"
+            },
+            {
+              "bs": "javno mnijenje",
+              "en": "public opinion",
+              "audioHash": "8aae7aeab5a271fca23d5458d899751b2bc4184da9f34c334e39ab053da7b275"
+            },
+            {
+              "bs": "generacijski jaz",
+              "en": "generation gap",
+              "audioHash": "d3e136c5aa06df752e5cddb9a4e2faf2d41c9cd83a2c11b7d5fcbc4d7cf7b5e4"
+            },
+            {
+              "bs": "predrasuda",
+              "en": "prejudice",
+              "audioHash": "0bdfc5911dc437d88f0053b6fb92c1e143ecfa3bb2ecfe61eb35460f0c4e2856"
+            },
+            {
+              "bs": "socijalna pravda",
+              "en": "social justice",
+              "audioHash": "19614b41b699818968bd6a5172808a2f5f34457f1c27599aa6e213cc941b6226"
+            },
+            {
+              "bs": "zajednica",
+              "en": "community",
+              "audioHash": "4b250bdecef554fff3c043fa18f423cbde2f57935d8b5d3833e8e56345b399d8"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b2-u1-s1-l1",
+              "order": 1,
+              "title": "Društvena pitanja",
+              "exercises": [
+                {
+                  "id": "b2-u1-s1-l1-e1",
+                  "prompt": "Kako se kaže 'inequality' na bosanskom?",
+                  "promptEn": "How do you say 'inequality' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "nejednakost",
+                  "choices": [
+                    "nejednakost",
+                    "siromaštvo",
+                    "pravda",
+                    "zajednica"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s1-l1-e2",
+                  "prompt": "Šta znači riječ 'predrasuda'?",
+                  "promptEn": "What does the word 'predrasuda' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "prejudice",
+                  "choices": [
+                    "prejudice",
+                    "poverty",
+                    "justice",
+                    "discrimination"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s1-l1-e3",
+                  "prompt": "Sastavi frazu: 'social justice'",
+                  "promptEn": "Build the phrase: 'social justice'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "socijalna pravda",
+                  "choices": [
+                    "socijalna",
+                    "pravda",
+                    "javno",
+                    "mnijenje",
+                    "zajednica"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s1-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "diskriminacija",
+                      "en": "discrimination"
+                    },
+                    {
+                      "bs": "ljudska prava",
+                      "en": "human rights"
+                    },
+                    {
+                      "bs": "generacijski jaz",
+                      "en": "generation gap"
+                    },
+                    {
+                      "bs": "useljenik",
+                      "en": "immigrant"
+                    }
+                  ]
+                },
+                {
+                  "id": "b2-u1-s1-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Human rights are universal.",
+                  "choices": [
+                    "Human rights are universal.",
+                    "Poverty is a global problem.",
+                    "Society is changing quickly.",
+                    "Discrimination is illegal."
+                  ],
+                  "targetPhrase": "Ljudska prava su univerzalna.",
+                  "audioHash": "f415146c9719bcf59d56f6c4bca9e303a00c9b63189f521f775bb79e23b8c371"
+                },
+                {
+                  "id": "b2-u1-s1-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Socijalna pravda je temelj svakog demokratskog društva.",
+                  "audioHash": "65c7ad677ec1195fb5e3cf67a2ac9fd834d460870702fa1905ceda25014aba3f"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b2-u1-s2",
+          "order": 2,
+          "title": "Okoliš",
+          "titleEn": "Environment",
+          "grammarTip": "Pasivna rečenica sa 'se' opisuje radnju bez isticanja ko je vrši i vrlo je česta u govoru o okolišu: 'Šume se sijeku brže nego što rastu.' / 'Otpad se mora reciklirati.' Ovo se razlikuje od pravog pasiva s 'biti' + trpni pridjev ('Šuma je posječena'), koji naglašava rezultat radnje, dok se-pasiv opisuje opću, ponavljanu praksu.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "okoliš",
+              "en": "environment",
+              "audioHash": "8af9d246439a748ba6e6697c36c9c35edee6900ccf09cca3f2cf24357240403e"
+            },
+            {
+              "bs": "klima",
+              "en": "climate",
+              "audioHash": "5635a0c680ba04be5ee62010b9fd5b4012d22886f5ec5d6175a55dce0dd1e75e"
+            },
+            {
+              "bs": "klimatske promjene",
+              "en": "climate change",
+              "audioHash": "8cd3531df9fa90976b9442c4612792f1fa0c817e06950475eda727c471d59785"
+            },
+            {
+              "bs": "zagađenje",
+              "en": "pollution",
+              "audioHash": "d7e09eaa7029b52e35cf817308a6e07bef63f20df2ab0c661fd8c8cef0989e6c"
+            },
+            {
+              "bs": "održivost",
+              "en": "sustainability",
+              "audioHash": "11bd84580e224fcec226f728e07c112cb4421a5112df91b4946b3c3bacf658db"
+            },
+            {
+              "bs": "reciklaža",
+              "en": "recycling",
+              "audioHash": "4aa38f2e97878321f850aeb3d88f81b2743ec4cca5a17e25ed467fed0331652e"
+            },
+            {
+              "bs": "obnovljivi izvori energije",
+              "en": "renewable energy sources",
+              "audioHash": "8508bb123023b6a8391de1ca1f6470bfc8e46dfb50361972509db78ab14b90d2"
+            },
+            {
+              "bs": "ugljični otisak",
+              "en": "carbon footprint",
+              "audioHash": "8643e6fd62d79c8792710e4fab0f04fdd8e6791429d3458ec4f48e2922eaa552"
+            },
+            {
+              "bs": "izumiranje vrsta",
+              "en": "species extinction",
+              "audioHash": "f5589d60221cc065b801c5ba7f218ecbe39fcef7e85d11569a3f8abaee36a9d2"
+            },
+            {
+              "bs": "prirodni resursi",
+              "en": "natural resources",
+              "audioHash": "61a4acc2213470187b60534ff7bb199a625ab593ba769ee2bdcc901a816700b1"
+            },
+            {
+              "bs": "zagrijavanje planete",
+              "en": "global warming",
+              "audioHash": "018a11ae3a8c3186f75fc23a0f8fd9e6c910029533f168b57559a2905ed64968"
+            },
+            {
+              "bs": "ekosistem",
+              "en": "ecosystem",
+              "audioHash": "94afd7f6845d076f226de07cce3aad6bfdca3d644c8d3781fd5f17581895226c"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b2-u1-s2-l1",
+              "order": 1,
+              "title": "Zaštita okoliša",
+              "exercises": [
+                {
+                  "id": "b2-u1-s2-l1-e1",
+                  "prompt": "Kako se kaže 'climate change' na bosanskom?",
+                  "promptEn": "How do you say 'climate change' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "klimatske promjene",
+                  "choices": [
+                    "klimatske promjene",
+                    "zagađenje",
+                    "održivost",
+                    "ekosistem"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s2-l1-e2",
+                  "prompt": "Šta znači izraz 'ugljični otisak'?",
+                  "promptEn": "What does the phrase 'ugljični otisak' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "carbon footprint",
+                  "choices": [
+                    "carbon footprint",
+                    "natural resources",
+                    "global warming",
+                    "recycling"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s2-l1-e3",
+                  "prompt": "Sastavi frazu: 'renewable energy sources'",
+                  "promptEn": "Build the phrase: 'renewable energy sources'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "obnovljivi izvori energije",
+                  "choices": [
+                    "obnovljivi",
+                    "izvori",
+                    "energije",
+                    "prirodni",
+                    "resursi"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s2-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "zagađenje",
+                      "en": "pollution"
+                    },
+                    {
+                      "bs": "održivost",
+                      "en": "sustainability"
+                    },
+                    {
+                      "bs": "izumiranje vrsta",
+                      "en": "species extinction"
+                    },
+                    {
+                      "bs": "ekosistem",
+                      "en": "ecosystem"
+                    }
+                  ]
+                },
+                {
+                  "id": "b2-u1-s2-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "Waste must be recycled.",
+                  "choices": [
+                    "Waste must be recycled.",
+                    "The climate is changing rapidly.",
+                    "Forests are being cut down.",
+                    "Energy sources are renewable."
+                  ],
+                  "targetPhrase": "Otpad se mora reciklirati.",
+                  "audioHash": "b8a651a826f68f11c751eac049f4c43f3df4bc8f6f0cff4a37be39286872b7af"
+                },
+                {
+                  "id": "b2-u1-s2-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Moramo smanjiti ugljični otisak zbog klimatskih promjena.",
+                  "audioHash": "a2891c79b3ce0379bc6aa6bc332c09d538cb6e8ce1b15e8d4aecddfd62dcfa9d"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b2-u1-s3",
+          "order": 3,
+          "title": "Kultura i umjetnost",
+          "titleEn": "Culture and the Arts",
+          "grammarTip": "Bosanski glagoli dolaze u parovima prema vidu: nesvršeni glagol opisuje radnju u toku ili radnju koja se ponavlja ('slikati' — slikao je cijeli mjesec), a svršeni glagol opisuje završenu, jednokratnu radnju ('naslikati' — naslikao je sliku prošle sedmice). Isto vrijedi za 'pisati/napisati', 'gledati/pogledati', 'čitati/pročitati' — izbor vida mijenja značenje rečenice, ne samo vrijeme.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "umjetnost",
+              "en": "art",
+              "audioHash": "e7f50673741030e6114952325b435904a7bdb719a36be0760d2f963a94647f3d"
+            },
+            {
+              "bs": "film",
+              "en": "film",
+              "audioHash": "40d0eec5538035e5904dca52e66667780dbcee78e8b1a670d2d2696f72bb3253"
+            },
+            {
+              "bs": "književnost",
+              "en": "literature",
+              "audioHash": "faacbbeb3fa5d1d42e19266c579cf44039bf5edd2e046e03411d289294a71d38"
+            },
+            {
+              "bs": "roman",
+              "en": "novel",
+              "audioHash": "0deb5953299f72897038809787d4f64c6656fee6e110c3acb8c51d9be879460d"
+            },
+            {
+              "bs": "slikarstvo",
+              "en": "painting",
+              "audioHash": "9e63c2e025328a8248b0ea755e5b425d4a15a501da583f9ba1e0571a19dfa6c6"
+            },
+            {
+              "bs": "predstava",
+              "en": "theatre play",
+              "audioHash": "c975fb6c7699235bee7a7bbf8e2e3b4bffe30a429b884289982a8afa96eaaf45"
+            },
+            {
+              "bs": "izložba",
+              "en": "exhibition",
+              "audioHash": "83fc3ed637d5446a462a686146cd01d626c4ff72359dc5f326d2d995cdd552ff"
+            },
+            {
+              "bs": "reditelj",
+              "en": "director",
+              "audioHash": "b2d8c8d10da37746d315484d96b2a6d2f72d443620e72bb42bd21c03452c42ec"
+            },
+            {
+              "bs": "glumac",
+              "en": "actor",
+              "audioHash": "88df2dce7f3c603f16a91117eb8eb0e5cec1062f6316dc4e843ad5d8a996b92b"
+            },
+            {
+              "bs": "nadahnuće",
+              "en": "inspiration",
+              "audioHash": "a37bd6815524f86a952780f36e1f128a6d8f04f09becb95dc30e08e011f41397"
+            },
+            {
+              "bs": "remek-djelo",
+              "en": "masterpiece",
+              "audioHash": "917fe54106ffeda10a0496475c6dc1ad392ab2b3ee1c4253510f909f72fc5bbe"
+            },
+            {
+              "bs": "kritika",
+              "en": "review / criticism",
+              "audioHash": "56fc2739208f66816e552a7c6144ff07f55651740db35a8e7f567e560b7c70b7"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b2-u1-s3-l1",
+              "order": 1,
+              "title": "Svijet umjetnosti",
+              "exercises": [
+                {
+                  "id": "b2-u1-s3-l1-e1",
+                  "prompt": "Kako se kaže 'masterpiece' na bosanskom?",
+                  "promptEn": "How do you say 'masterpiece' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "remek-djelo",
+                  "choices": [
+                    "remek-djelo",
+                    "izložba",
+                    "kritika",
+                    "nadahnuće"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s3-l1-e2",
+                  "prompt": "Šta znači riječ 'reditelj'?",
+                  "promptEn": "What does the word 'reditelj' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "director",
+                  "choices": [
+                    "director",
+                    "actor",
+                    "painter",
+                    "writer"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s3-l1-e3",
+                  "prompt": "Sastavi frazu (svršeni vid): 'he painted a masterpiece'",
+                  "promptEn": "Build the phrase (perfective aspect): 'he painted a masterpiece'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "naslikao je remek-djelo",
+                  "choices": [
+                    "naslikao",
+                    "je",
+                    "remek-djelo",
+                    "slikao",
+                    "roman"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s3-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "umjetnost",
+                      "en": "art"
+                    },
+                    {
+                      "bs": "književnost",
+                      "en": "literature"
+                    },
+                    {
+                      "bs": "izložba",
+                      "en": "exhibition"
+                    },
+                    {
+                      "bs": "glumac",
+                      "en": "actor"
+                    }
+                  ]
+                },
+                {
+                  "id": "b2-u1-s3-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "This novel is a true masterpiece.",
+                  "choices": [
+                    "This novel is a true masterpiece.",
+                    "The exhibition opens tomorrow.",
+                    "The actor won an award.",
+                    "The critic wrote a review."
+                  ],
+                  "targetPhrase": "Ovaj roman je pravo remek-djelo.",
+                  "audioHash": "f249a1f17a3a2df2a13527d530632ec39c1d41a31f11c35df8ecd180e48e13f5"
+                },
+                {
+                  "id": "b2-u1-s3-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Reditelj je snimio film pun nadahnuća.",
+                  "audioHash": "aa18f3ce00791c847883e91749d1e4756aae73705aeace9f1c389470c3342033"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b2-u1-s4",
+          "order": 4,
+          "title": "Historija i tradicija",
+          "titleEn": "History and Tradition",
+          "grammarTip": "U pripovijedanju o prošlosti, posebno u narodnim pričama i legendama, pored svakodnevnog perfekta ('je došao') ponekad se sreću i knjiški prošli oblici: aorist ('dođe' — kratko, jednokratno svršeno) i imperfekt ('bijaše', 'življaše' — radnja koja je trajala). Na B2 nivou dovoljno je prepoznati ove oblike u tekstu, iako se u svakodnevnom govoru gotovo isključivo koristi perfekt.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "historija",
+              "en": "history",
+              "audioHash": "0bb65d30122a5fc255510bee213e77532437a0ccab3d9a818176e48c3588d723"
+            },
+            {
+              "bs": "tradicija",
+              "en": "tradition",
+              "audioHash": "c3c0e9d3e093d5572a419d0d6f83b9f4f15c9a557aa4ca969231014ebe18d1c1"
+            },
+            {
+              "bs": "naslijeđe",
+              "en": "heritage",
+              "audioHash": "5bebfcf328bc855c1bf97b59905fdd85c864f46e409e0c283a029d76d295ccb9"
+            },
+            {
+              "bs": "običaj",
+              "en": "custom",
+              "audioHash": "9ab4169dd0e86dd4c457d678ed3ce4a2f9c3ba1db39ae88afe1d9ce82e2a01fe"
+            },
+            {
+              "bs": "predak",
+              "en": "ancestor",
+              "audioHash": "c3813037810439057653ee5706dc88df2dc5611e52e22ea726b39e2685f02a00"
+            },
+            {
+              "bs": "legenda",
+              "en": "legend",
+              "audioHash": "a2142bc530972efd7ab008bcae5d56f3a5a94bca6d6824e237537122faa5ef92"
+            },
+            {
+              "bs": "osvajanje",
+              "en": "conquest",
+              "audioHash": "22dd3cae01a53fdaee650bba88658bd44d301c1f5cc502da8c8e7e842113db68"
+            },
+            {
+              "bs": "carstvo",
+              "en": "empire",
+              "audioHash": "f2d9bbced7622d37491bb8e6158920c0083d738e83c7dccbfcd6c121048be5ea"
+            },
+            {
+              "bs": "spomenik",
+              "en": "monument",
+              "audioHash": "fbeb9a9282ba517dd22aba329ac7cadcba713ceb270275b45e16a67907913ab2"
+            },
+            {
+              "bs": "narodna priča",
+              "en": "folk tale",
+              "audioHash": "a11f5f4a8fe634d176a8dde811049666d65ecb93dd1e29b3bd90e1a20b464ca6"
+            },
+            {
+              "bs": "vladar",
+              "en": "ruler",
+              "audioHash": "80a3b494ce9a175617d279b865c88c5e05c3efd85adea3e8df3d260188d4a52f"
+            },
+            {
+              "bs": "stoljeće",
+              "en": "century",
+              "audioHash": "543436c52628770b87aa24f3f5f5b4d734e759c54f2cda1c2ee4f997cafe9035"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b2-u1-s4-l1",
+              "order": 1,
+              "title": "Naslijeđe i predanja",
+              "exercises": [
+                {
+                  "id": "b2-u1-s4-l1-e1",
+                  "prompt": "Kako se kaže 'heritage' na bosanskom?",
+                  "promptEn": "How do you say 'heritage' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "naslijeđe",
+                  "choices": [
+                    "naslijeđe",
+                    "običaj",
+                    "carstvo",
+                    "spomenik"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s4-l1-e2",
+                  "prompt": "Šta znači riječ 'vladar'?",
+                  "promptEn": "What does the word 'vladar' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "ruler",
+                  "choices": [
+                    "ruler",
+                    "ancestor",
+                    "legend",
+                    "monument"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s4-l1-e3",
+                  "prompt": "Sastavi frazu: 'folk tale'",
+                  "promptEn": "Build the phrase: 'folk tale'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "narodna priča",
+                  "choices": [
+                    "narodna",
+                    "priča",
+                    "legenda",
+                    "tradicija",
+                    "običaj"
+                  ]
+                },
+                {
+                  "id": "b2-u1-s4-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "predak",
+                      "en": "ancestor"
+                    },
+                    {
+                      "bs": "osvajanje",
+                      "en": "conquest"
+                    },
+                    {
+                      "bs": "carstvo",
+                      "en": "empire"
+                    },
+                    {
+                      "bs": "stoljeće",
+                      "en": "century"
+                    }
+                  ]
+                },
+                {
+                  "id": "b2-u1-s4-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "This monument preserves the memory of our ancestors.",
+                  "choices": [
+                    "This monument preserves the memory of our ancestors.",
+                    "The empire lasted for centuries.",
+                    "This is an old folk tale.",
+                    "The ruler built many monuments."
+                  ],
+                  "targetPhrase": "Ovaj spomenik čuva uspomenu na naše pretke.",
+                  "audioHash": "c47ca24c1ce5b43a02339cdf27a9baef7ecba8baa63e8c296c880a73ebd24d1b"
+                },
+                {
+                  "id": "b2-u1-s4-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Naša tradicija se prenosi s koljena na koljeno.",
+                  "audioHash": "74c2901e77c6bd3a636c08a234926cd9460be81ac0e5637b3cde85886fe56a4f"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2-u2",
+      "level": "B2",
+      "order": 7,
+      "title": "Apstraktne teme",
+      "titleEn": "Abstract Topics",
+      "theme": "Abstract and opinion-based discourse spanning politics and economy, emotions and relationships, hypothetical wishes, and everyday idioms — reinforcing formal connectors, reflexive/reciprocal verbs, the conditional mood, and fixed expressions.",
+      "skills": [
+        {
+          "id": "b2-u2-s1",
+          "order": 1,
+          "title": "Politika i ekonomija",
+          "titleEn": "Politics and Economy",
+          "grammarTip": "Formalni govor o politici i ekonomiji oslanja se na vezničke izraze koji jasno pokazuju logiku argumenta: 'dakle' (zaključak), 'stoga' (posljedica), 's druge strane' (suprotnost) i 'međutim' (kontrast). Na primjer: 'Inflacija raste, stoga vlada najavljuje reformu poreza. S druge strane, mnogi građani strahuju od korupcije.' Ovakvi veznici obilježavaju formalniji registar nego svakodnevni razgovor.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "politika",
+              "en": "politics",
+              "audioHash": "b9c062c46782d62c1c8d6dacbe9fa7027c3f6399c63f1625900480eb0b7dc552"
+            },
+            {
+              "bs": "ekonomija",
+              "en": "economy",
+              "audioHash": "6dd54f584c121b65db75867760c89bdcddc02f08ab1b51206a673fed5aa58866"
+            },
+            {
+              "bs": "vlada",
+              "en": "government",
+              "audioHash": "2ff59d7723dd9ce5359c8998b3d01f0b842ae189d41ed39d3a889afc2927e2e7"
+            },
+            {
+              "bs": "izbori",
+              "en": "elections",
+              "audioHash": "c483a67a7bd74770229c5a07d4fc33cb5dfde132da39aa271ea97ddba227593b"
+            },
+            {
+              "bs": "zakon",
+              "en": "law",
+              "audioHash": "ce57c77d53ad0129591b330d049e1f60c71eb8e7fa7d75e99ee657439b8ba921"
+            },
+            {
+              "bs": "inflacija",
+              "en": "inflation",
+              "audioHash": "cf66713310a64b277c1002f8750671b14954e9f76e322294348fc3ad1b86f1d3"
+            },
+            {
+              "bs": "budžet",
+              "en": "budget",
+              "audioHash": "7565503e9fddbb79c1e32babbcc0528f87f7d060eff33289fd976a89201f9028"
+            },
+            {
+              "bs": "reforma",
+              "en": "reform",
+              "audioHash": "5b6da750e691d97d6904956d40be37eb6c156debc7b5fb0b79db811a3351974e"
+            },
+            {
+              "bs": "korupcija",
+              "en": "corruption",
+              "audioHash": "4fa62bf56dd64d8204c7acffc957e6142d68b53ea44522d6288a1ab93966a702"
+            },
+            {
+              "bs": "glasač",
+              "en": "voter",
+              "audioHash": "eacd17b811215f064485cb2801e4a8e5806a84e94ed298f8926cb8f8301ad844"
+            },
+            {
+              "bs": "tržište",
+              "en": "market",
+              "audioHash": "c8f26fa9732985c3082629f73998b161a013b2c0470f1c99376bf1c18b6cc887"
+            },
+            {
+              "bs": "porez",
+              "en": "tax",
+              "audioHash": "278dd81b100237e1754b97dc68574587371e58cfe0596ab31876c04676b1d01c"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b2-u2-s1-l1",
+              "order": 1,
+              "title": "Aktuelna dešavanja",
+              "exercises": [
+                {
+                  "id": "b2-u2-s1-l1-e1",
+                  "prompt": "Kako se kaže 'elections' na bosanskom?",
+                  "promptEn": "How do you say 'elections' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "izbori",
+                  "choices": [
+                    "izbori",
+                    "vlada",
+                    "zakon",
+                    "budžet"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s1-l1-e2",
+                  "prompt": "Šta znači riječ 'korupcija'?",
+                  "promptEn": "What does the word 'korupcija' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "corruption",
+                  "choices": [
+                    "corruption",
+                    "inflation",
+                    "tax",
+                    "market"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s1-l1-e3",
+                  "prompt": "Sastavi frazu: 'tax reform'",
+                  "promptEn": "Build the phrase: 'tax reform'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "reforma poreza",
+                  "choices": [
+                    "reforma",
+                    "poreza",
+                    "budžet",
+                    "tržište",
+                    "zakon"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s1-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "vlada",
+                      "en": "government"
+                    },
+                    {
+                      "bs": "inflacija",
+                      "en": "inflation"
+                    },
+                    {
+                      "bs": "glasač",
+                      "en": "voter"
+                    },
+                    {
+                      "bs": "tržište",
+                      "en": "market"
+                    }
+                  ]
+                },
+                {
+                  "id": "b2-u2-s1-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "The government announced a reform of the tax system.",
+                  "choices": [
+                    "The government announced a reform of the tax system.",
+                    "Elections will be held next year.",
+                    "Inflation is falling steadily.",
+                    "Corruption remains a big problem."
+                  ],
+                  "targetPhrase": "Vlada je najavila reformu poreskog sistema.",
+                  "audioHash": "c675913e3dd47dc4415c0b4e906903b25e87b7d823f381c37cd3b2653d45a001"
+                },
+                {
+                  "id": "b2-u2-s1-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Stoga je važno da svaki glasač izađe na izbore.",
+                  "audioHash": "968c07ea1a7788fb0e0a6c27efdbc6a115e7f5bcac5823f8645aecd03f6d4a9a"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b2-u2-s2",
+          "order": 2,
+          "title": "Emocije i odnosi",
+          "titleEn": "Emotions and Relationships",
+          "grammarTip": "Povratni glagoli sa 'se' opisuju stanja i radnje usmjerene na samog sebe ('osjećati se dobro', 'zaljubiti se'), dok recipročni glagoli sa 'se' opisuju uzajamnu radnju dvoje ili više ljudi ('razumjeti se', 'posvađati se', 'pomiriti se'). U oba slučaja 'se' je obavezan dio glagola i ne prevodi se doslovno na engleski.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "osjećaj",
+              "en": "feeling",
+              "audioHash": "073e59fc8bfaa7099a1430dea41931e59fada290f2dc18cde8f4682c0583a84c"
+            },
+            {
+              "bs": "ljubomora",
+              "en": "jealousy",
+              "audioHash": "7e1353bcdc6350685280e8d7d8f91480a79d7ea620ed0b3de21ca00eb6dd1e09"
+            },
+            {
+              "bs": "povjerenje",
+              "en": "trust",
+              "audioHash": "238b6433a288c657d2d780bb843659a2c99152a1867afecedac1330c13d4fae3"
+            },
+            {
+              "bs": "razočaranje",
+              "en": "disappointment",
+              "audioHash": "280f9436432cef2af9fdc2b162b53d1aa2a38aff24426645aab1f4dbcbc4d114"
+            },
+            {
+              "bs": "čežnja",
+              "en": "longing / yearning",
+              "audioHash": "4144d5f1e15bc46e442d4df2c481a224c5f83ae2a5f463814ab8aa02731761d1"
+            },
+            {
+              "bs": "zaljubiti se",
+              "en": "to fall in love",
+              "audioHash": "7fe746ee6bd702739b9b5d0a691b5b00f4b7a9d2d0a2245bd243085e7449596b"
+            },
+            {
+              "bs": "razumjeti se",
+              "en": "to understand each other",
+              "audioHash": "14a572b049f683869fb0677c65a447aa9f4cdc998e1494e0a296c1bf0154d188"
+            },
+            {
+              "bs": "posvađati se",
+              "en": "to have an argument",
+              "audioHash": "eca5d3458c8cf4c04237624fbd8c67988b021d257075b26379a0ca515e78245c"
+            },
+            {
+              "bs": "pomiriti se",
+              "en": "to reconcile / to make up",
+              "audioHash": "970b235090ab4f94b8232754d69e89dadb073684cfcdc30e01fca15a4984a11f"
+            },
+            {
+              "bs": "brak",
+              "en": "marriage",
+              "audioHash": "d2e002d104b2d8ced26da44650fba9bd629fa479245ae4b48d33962f7de4b495"
+            },
+            {
+              "bs": "veza",
+              "en": "relationship",
+              "audioHash": "0471a8e0e992958623d5b89615e23e47f6a3905d3778029d34a92ab43c79771e"
+            },
+            {
+              "bs": "odnos",
+              "en": "relation / relationship",
+              "audioHash": "2e548cfddc586e0f354e1e83ff674b5a84f9e2aeceb3e309611234984ad3c19b"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b2-u2-s2-l1",
+              "order": 1,
+              "title": "Osjećaji i veze",
+              "exercises": [
+                {
+                  "id": "b2-u2-s2-l1-e1",
+                  "prompt": "Kako se kaže 'trust' na bosanskom?",
+                  "promptEn": "How do you say 'trust' in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "povjerenje",
+                  "choices": [
+                    "povjerenje",
+                    "ljubomora",
+                    "razočaranje",
+                    "čežnja"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s2-l1-e2",
+                  "prompt": "Šta znači 'pomiriti se'?",
+                  "promptEn": "What does 'pomiriti se' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "to reconcile / to make up",
+                  "choices": [
+                    "to reconcile / to make up",
+                    "to fall in love",
+                    "to have an argument",
+                    "to trust someone"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s2-l1-e3",
+                  "prompt": "Sastavi frazu: 'to fall in love'",
+                  "promptEn": "Build the phrase: 'to fall in love'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "zaljubiti se",
+                  "choices": [
+                    "zaljubiti",
+                    "se",
+                    "razumjeti",
+                    "posvađati",
+                    "pomiriti"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s2-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "ljubomora",
+                      "en": "jealousy"
+                    },
+                    {
+                      "bs": "razočaranje",
+                      "en": "disappointment"
+                    },
+                    {
+                      "bs": "brak",
+                      "en": "marriage"
+                    },
+                    {
+                      "bs": "veza",
+                      "en": "relationship"
+                    }
+                  ]
+                },
+                {
+                  "id": "b2-u2-s2-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "They understand each other well.",
+                  "choices": [
+                    "They understand each other well.",
+                    "They fell in love last year.",
+                    "They had an argument yesterday.",
+                    "They reconciled after the fight."
+                  ],
+                  "targetPhrase": "Oni se dobro razumiju.",
+                  "audioHash": "6c89b7e8a3543593477266cdba06fcd032fdfd05003f042e304a09f6bf4d3dee"
+                },
+                {
+                  "id": "b2-u2-s2-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Povjerenje je temelj svakog dobrog odnosa.",
+                  "audioHash": "1dcc38dc46e5d1781149f9e37b6c8f5896ca25eb2ecc8ad7698635681f5c2305"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b2-u2-s3",
+          "order": 3,
+          "title": "Izražavanje želja",
+          "titleEn": "Expressing Wishes",
+          "grammarTip": "Kondicional se gradi od radnog glagolskog pridjeva i pomoćnog glagola 'biti' u posebnom obliku (bih, bi, bi, bismo, biste, bi): 'Volio bih putovati.' Za izražavanje želje ili namjere česta je i konstrukcija sa 'da': 'Želim da naučim bosanski.' U hipotetičkim rečenicama kondicional se koristi i u glavnoj i u zavisnoj rečenici: 'Kad bih imao vremena, putovao bih više.'",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "želja",
+              "en": "wish",
+              "audioHash": "cc6f51f848b1c7daa38f8347700d069993d1f07bd13d94b7575f5191208cd6a2"
+            },
+            {
+              "bs": "nada",
+              "en": "hope",
+              "audioHash": "ed155b49d67818c8cd71c2c64ba698f10b883434abb8cd905eb691d6fda04e32"
+            },
+            {
+              "bs": "san",
+              "en": "dream",
+              "audioHash": "1912282c27bb724f5b0013d8b8cd65d10f5f1d98765d99369b284e28e6fc8723"
+            },
+            {
+              "bs": "mašta",
+              "en": "imagination",
+              "audioHash": "99310e450c4e8ab310d836df8c37d32713edef01e6e23add3848643764bce6bb"
+            },
+            {
+              "bs": "mogućnost",
+              "en": "possibility",
+              "audioHash": "b897ca2fcbfa92e80cbc9e7494f7ad3b7312b197858382a97d4b62f16c138e08"
+            },
+            {
+              "bs": "uvjet",
+              "en": "condition",
+              "audioHash": "048e70ed633525e4722dd8f79d0810e7bb03a2f40b471cc31e4ca3f9dd92fd38"
+            },
+            {
+              "bs": "kad bih",
+              "en": "if I were to",
+              "audioHash": "aea3ae17cd8b10786b73c0b094391fda657146bef687483d14b0e728994d2808"
+            },
+            {
+              "bs": "volio bih",
+              "en": "I would like (male speaker)",
+              "audioHash": "0177ccb4092e15a60c9eaf85f6fc78d30e14ae439a9d5778356dac6ed25e5d24"
+            },
+            {
+              "bs": "voljela bih",
+              "en": "I would like (female speaker)",
+              "audioHash": "b42f4c917a514a9e794e8fdf00b72210ac5899590d399c8a0d97df2d75a2e252"
+            },
+            {
+              "bs": "nadati se",
+              "en": "to hope",
+              "audioHash": "a5946493bd67e87f88b56922ed4d884c17425482bcffd1c970807575c626f502"
+            },
+            {
+              "bs": "sanjati",
+              "en": "to dream",
+              "audioHash": "00305740429ea39cb70410283f931115a63971f6747f5a7c26fbe50a1346acb8"
+            },
+            {
+              "bs": "zamisliti",
+              "en": "to imagine",
+              "audioHash": "0f86b9cbc7003a66ca8761717ce2751c3dbd9da40a2d176e3963b895e721e096"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b2-u2-s3-l1",
+              "order": 1,
+              "title": "Snovi i nade",
+              "exercises": [
+                {
+                  "id": "b2-u2-s3-l1-e1",
+                  "prompt": "Kako se kaže 'hope' (imenica) na bosanskom?",
+                  "promptEn": "How do you say 'hope' (noun) in Bosnian?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "nada",
+                  "choices": [
+                    "nada",
+                    "san",
+                    "želja",
+                    "mašta"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s3-l1-e2",
+                  "prompt": "Šta znači riječ 'zamisliti'?",
+                  "promptEn": "What does the word 'zamisliti' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "to imagine",
+                  "choices": [
+                    "to imagine",
+                    "to hope",
+                    "to dream",
+                    "to wish"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s3-l1-e3",
+                  "prompt": "Sastavi frazu: 'I would like to travel.'",
+                  "promptEn": "Build the phrase: 'I would like to travel.'",
+                  "translationDirection": "en->bs",
+                  "type": "word_bank",
+                  "answer": "volio bih putovati",
+                  "choices": [
+                    "volio",
+                    "bih",
+                    "putovati",
+                    "želim",
+                    "da"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s3-l1-e4",
+                  "prompt": "Spoji bosanske riječi s engleskim prijevodom.",
+                  "promptEn": "Match the Bosnian words with their English translation.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "san",
+                      "en": "dream"
+                    },
+                    {
+                      "bs": "mogućnost",
+                      "en": "possibility"
+                    },
+                    {
+                      "bs": "uvjet",
+                      "en": "condition"
+                    },
+                    {
+                      "bs": "nadati se",
+                      "en": "to hope"
+                    }
+                  ]
+                },
+                {
+                  "id": "b2-u2-s3-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "If I had time, I would travel more.",
+                  "choices": [
+                    "If I had time, I would travel more.",
+                    "I hope to see you soon.",
+                    "I dream about the sea every night.",
+                    "I imagine a better future."
+                  ],
+                  "targetPhrase": "Kad bih imao vremena, putovao bih više.",
+                  "audioHash": "7755f470ccb199772d8e48a73138a896ea41514d0c3c84de2b0dd32ebab08a4b"
+                },
+                {
+                  "id": "b2-u2-s3-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Volio bih da jednog dana ostvarim svoje snove.",
+                  "audioHash": "c86257143f75ad3544ad1a9dbbfd34357a8a796c5cbf3a77c124575da3f53536"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b2-u2-s4",
+          "order": 4,
+          "title": "Idiomi i izrazi",
+          "titleEn": "Idioms and Expressions",
+          "grammarTip": "Idiomi su ustaljeni izrazi čije se značenje ne može izvesti iz pojedinačnih riječi — 'praviti se Englez' nema nikakve veze s Engleskom, već znači 'pretvarati se da neko ne razumije'. Idiomi obično ne mijenjaju svoju strukturu (ne kaže se 'praviti se Francuz' s istim značenjem), a njihovo poznavanje i pravilna upotreba znak su gotovo izvornog vladanja jezikom.",
+          "reviewStatus": "unreviewed",
+          "vocab": [
+            {
+              "bs": "pasti s Marsa",
+              "en": "to be completely out of touch (lit. 'to fall from Mars')",
+              "audioHash": "b9a87666d2ec2eb08159e8e3026580add9bcd30164cf8f1782d059218ac1b4f9"
+            },
+            {
+              "bs": "biti u sedmom nebu",
+              "en": "to be overjoyed (lit. 'to be in the seventh heaven')",
+              "audioHash": "e05bf4628cea86ad76db294a5da2cc6fd221858a1934037de5c9f5d4d7a655c9"
+            },
+            {
+              "bs": "praviti se Englez",
+              "en": "to feign ignorance (lit. 'to act like an Englishman')",
+              "audioHash": "d821ebb7ec589dd5610731e17c87404281bf5e261237e64067407fce8b6cd3d4"
+            },
+            {
+              "bs": "vući nekoga za nos",
+              "en": "to deceive/lead someone on (lit. 'to pull someone by the nose')",
+              "audioHash": "7da4441b2181336a37a3374a0b6864ee618c45adb542efb95560a970c1ea15ec"
+            },
+            {
+              "bs": "kad na vrbi rodi grožđe",
+              "en": "never (lit. 'when grapes grow on a willow')",
+              "audioHash": "8e21e7edde364e2000414e7be311a40392d91946cde55e992800ad3a7a234ed2"
+            },
+            {
+              "bs": "imati leptiriće u stomaku",
+              "en": "to have butterflies in one's stomach",
+              "audioHash": "36f467d7ef05a8be2fab5c8a115780995c5029f67f10238930cc0995b68e58db"
+            },
+            {
+              "bs": "držati jezik za zubima",
+              "en": "to hold one's tongue / keep quiet",
+              "audioHash": "75a31912a80063e1c9e1984bb564ded9ba45bf1db18f6d112bee6e4a7440d47d"
+            },
+            {
+              "bs": "raditi kao konj",
+              "en": "to work very hard (lit. 'to work like a horse')",
+              "audioHash": "9886646dca3bd69f7e0bb2ff65d73e235bfa4081af45383063a9e4e241fdeb74"
+            },
+            {
+              "bs": "praviti od muhe slona",
+              "en": "to make a mountain out of a molehill (lit. 'to make an elephant out of a fly')",
+              "audioHash": "29d61dfc9616f8fd9e06b97444bbd039684c6ba6f330c4aff62150ef1fc08a0b"
+            },
+            {
+              "bs": "biti na istom valu",
+              "en": "to be on the same wavelength",
+              "audioHash": "96690066d93887f15a9a3f8e6a16ad92150f16494a94e70cebf2a9f97549b22e"
+            },
+            {
+              "bs": "imati vezu",
+              "en": "to have connections / pull strings",
+              "audioHash": "df712fb81006a25af58efd974ab28b5e7739678f6c4a5fcb8eed598c14f9e9ce"
+            },
+            {
+              "bs": "gledati kroz prste",
+              "en": "to turn a blind eye (lit. 'to look through one's fingers')",
+              "audioHash": "56c8d144e2123a0ed0dcc8d8e126476bb29d520dca6181da6eca531b44dfce5c"
+            }
+          ],
+          "lessons": [
+            {
+              "id": "b2-u2-s4-l1",
+              "order": 1,
+              "title": "Bosanski idiomi",
+              "exercises": [
+                {
+                  "id": "b2-u2-s4-l1-e1",
+                  "prompt": "Šta znači izraz 'biti u sedmom nebu'?",
+                  "promptEn": "What does the expression 'biti u sedmom nebu' mean?",
+                  "translationDirection": "bs->en",
+                  "type": "multiple_choice",
+                  "answer": "to be extremely happy",
+                  "choices": [
+                    "to be extremely happy",
+                    "to be very tired",
+                    "to be very confused",
+                    "to be very angry"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s4-l1-e2",
+                  "prompt": "Kojim izrazom kažemo da se neko 'pretvara da ne razumije'?",
+                  "promptEn": "Which expression means someone 'is pretending not to understand'?",
+                  "translationDirection": "en->bs",
+                  "type": "multiple_choice",
+                  "answer": "praviti se Englez",
+                  "choices": [
+                    "praviti se Englez",
+                    "vući nekoga za nos",
+                    "gledati kroz prste",
+                    "raditi kao konj"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s4-l1-e3",
+                  "prompt": "Sastavi izraz koji znači 'nikad' (kad se to nikad neće desiti).",
+                  "promptEn": "Build the expression meaning 'never' (something that will never happen).",
+                  "type": "word_bank",
+                  "answer": "kad na vrbi rodi grožđe",
+                  "choices": [
+                    "kad",
+                    "na",
+                    "vrbi",
+                    "rodi",
+                    "grožđe"
+                  ]
+                },
+                {
+                  "id": "b2-u2-s4-l1-e4",
+                  "prompt": "Spoji idiome s njihovim značenjem.",
+                  "promptEn": "Match the idioms with their meaning.",
+                  "type": "match_pairs",
+                  "pairs": [
+                    {
+                      "bs": "vući nekoga za nos",
+                      "en": "to deceive someone"
+                    },
+                    {
+                      "bs": "praviti od muhe slona",
+                      "en": "to make a mountain out of a molehill"
+                    },
+                    {
+                      "bs": "biti na istom valu",
+                      "en": "to be on the same wavelength"
+                    },
+                    {
+                      "bs": "gledati kroz prste",
+                      "en": "to turn a blind eye"
+                    }
+                  ]
+                },
+                {
+                  "id": "b2-u2-s4-l1-e5",
+                  "prompt": "Poslušaj i odaberi tačan prijevod.",
+                  "promptEn": "Listen and choose the correct translation.",
+                  "type": "listen_choose",
+                  "answer": "He always works very hard to support his family.",
+                  "choices": [
+                    "He always works very hard to support his family.",
+                    "He always deceives his family.",
+                    "He never listens to his family.",
+                    "He always argues with his family."
+                  ],
+                  "targetPhrase": "Uvijek radi kao konj da bi izdržavao porodicu.",
+                  "audioHash": "0badad86033b4c3cc3aadd9f53c92dfd1274e42c4aa5e5f93011ad9829e850a3"
+                },
+                {
+                  "id": "b2-u2-s4-l1-e6",
+                  "prompt": "Izgovori naglas.",
+                  "promptEn": "Say it out loud.",
+                  "type": "speak",
+                  "targetPhrase": "Nemoj me vući za nos, reci mi istinu.",
+                  "audioHash": "0f26c9db3b21e8df6f13a93c42ed268924e17bc80cc99f0597e53e82a57d49ba"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
