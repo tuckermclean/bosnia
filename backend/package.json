@@ -13,6 +13,7 @@
     "test:watch": "vitest",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx src/db/migrate.ts",
+    "seed": "tsx scripts/seed-course.ts",
     "smoke:groq": "tsx scripts/smoke-groq.ts"
   },
   "dependencies": {

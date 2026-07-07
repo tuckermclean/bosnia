@@ -6,6 +6,11 @@
  *   ../content/generated/course.json      (required — logs and exits cleanly if absent)
  *   ../content/audio-out/manifest.json    (optional — audioHash -> {url,text,voice})
  *
+ * The actual DB-writing logic lives in the exported `seedCourse()` function so it
+ * can be reused directly (e.g. from integration tests) without shelling out to this
+ * script or re-reading files from disk. This file is just the CLI entrypoint: read
+ * JSON off disk, open a DB handle, call `seedCourse`, report, close.
+ *
  * Idempotent: every row is upserted by id, so reruns after content regeneration
  * (or partial-content dev iterations) are safe.
  *
@@ -15,6 +20,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createDbHandle } from "../src/db/client.js";
+import type { Db } from "../src/db/client.js";
 import { courses, exercises, lessons, skills, units } from "../src/db/schema.js";
 import type { ExercisePayload, ExerciseType, ReviewStatus } from "../src/db/schema.js";
 
@@ -24,10 +30,10 @@ const AUDIO_MANIFEST_PATH = path.resolve(__dirname, "../../content/audio-out/man
 
 // The content package's course.json has no top-level id/title (just `language`
 // + `units`) — this backend assigns the single canonical course its identity.
-const COURSE_ID = "bs-a1-b2";
-const COURSE_TITLE = "Bosnian A1–B2";
+export const COURSE_ID = "bs-a1-b2";
+export const COURSE_TITLE = "Bosnian A1–B2";
 
-interface RawExercise {
+export interface RawExercise {
   id: string;
   type: ExerciseType;
   prompt: string;
@@ -39,13 +45,13 @@ interface RawExercise {
   targetPhrase?: string;
   audioHash?: string;
 }
-interface RawLesson {
+export interface RawLesson {
   id: string;
   order: number;
   title: string;
   exercises: RawExercise[];
 }
-interface RawSkill {
+export interface RawSkill {
   id: string;
   order: number;
   title: string;
@@ -54,7 +60,7 @@ interface RawSkill {
   reviewStatus: ReviewStatus;
   lessons: RawLesson[];
 }
-interface RawUnit {
+export interface RawUnit {
   id: string;
   level: string;
   order: number;
@@ -63,17 +69,26 @@ interface RawUnit {
   theme: string;
   skills: RawSkill[];
 }
-interface RawCourse {
+export interface RawCourse {
   language: string;
   units: RawUnit[];
 }
 
-interface AudioManifestEntry {
+export interface AudioManifestEntry {
   url: string;
   text: string;
   voice: string;
 }
-type AudioManifest = Record<string, AudioManifestEntry>;
+export type AudioManifest = Record<string, AudioManifestEntry>;
+
+export interface SeedCourseResult {
+  unitCount: number;
+  skillCount: number;
+  lessonCount: number;
+  exerciseCount: number;
+  audioHits: number;
+  audioMisses: number;
+}
 
 async function readJson<T>(filePath: string): Promise<T | undefined> {
   try {
@@ -85,27 +100,17 @@ async function readJson<T>(filePath: string): Promise<T | undefined> {
   }
 }
 
-async function main(): Promise<void> {
-  const course = await readJson<RawCourse>(COURSE_JSON_PATH);
-  if (!course) {
-    console.log(
-      `[seed-course] No course JSON found at ${COURSE_JSON_PATH} — nothing to seed. ` +
-        `Run the content pipeline (\`npm run --workspace content ...\`) first.`,
-    );
-    return;
-  }
-
-  const manifest = (await readJson<AudioManifest>(AUDIO_MANIFEST_PATH)) ?? {};
-  if (Object.keys(manifest).length === 0) {
-    console.log(
-      `[seed-course] No audio manifest found at ${AUDIO_MANIFEST_PATH} — seeding without audioUrl. ` +
-        `Re-run after audio synthesis to backfill.`,
-    );
-  }
-
-  const { db, initSchema, close } = createDbHandle();
-  await initSchema();
-
+/**
+ * Upsert a parsed `course.json` (plus optional audio manifest) into the DB. Pure
+ * DB-writing logic — no file I/O, no DB-handle lifecycle — so callers (the CLI
+ * below, or tests that want to seed real generated content into a `createTestDb()`)
+ * own how the `db` and source JSON are obtained. Idempotent via onConflictDoUpdate.
+ */
+export async function seedCourse(
+  db: Db,
+  course: RawCourse,
+  manifest: AudioManifest = {},
+): Promise<SeedCourseResult> {
   await db
     .insert(courses)
     .values({ id: COURSE_ID, language: course.language, title: COURSE_TITLE })
@@ -230,10 +235,36 @@ async function main(): Promise<void> {
     }
   }
 
+  return { unitCount, skillCount, lessonCount, exerciseCount, audioHits, audioMisses };
+}
+
+async function main(): Promise<void> {
+  const course = await readJson<RawCourse>(COURSE_JSON_PATH);
+  if (!course) {
+    console.log(
+      `[seed-course] No course JSON found at ${COURSE_JSON_PATH} — nothing to seed. ` +
+        `Run the content pipeline (\`npm run --workspace content ...\`) first.`,
+    );
+    return;
+  }
+
+  const manifest = (await readJson<AudioManifest>(AUDIO_MANIFEST_PATH)) ?? {};
+  if (Object.keys(manifest).length === 0) {
+    console.log(
+      `[seed-course] No audio manifest found at ${AUDIO_MANIFEST_PATH} — seeding without audioUrl. ` +
+        `Re-run after audio synthesis to backfill.`,
+    );
+  }
+
+  const { db, initSchema, close } = createDbHandle();
+  await initSchema();
+
+  const result = await seedCourse(db, course, manifest);
+
   console.log(
-    `[seed-course] Seeded course "${COURSE_ID}": ${unitCount} units, ${skillCount} skills, ` +
-      `${lessonCount} lessons, ${exerciseCount} exercises ` +
-      `(audio: ${audioHits} matched, ${audioMisses} missing from manifest).`,
+    `[seed-course] Seeded course "${COURSE_ID}": ${result.unitCount} units, ${result.skillCount} skills, ` +
+      `${result.lessonCount} lessons, ${result.exerciseCount} exercises ` +
+      `(audio: ${result.audioHits} matched, ${result.audioMisses} missing from manifest).`,
   );
 
   await close();

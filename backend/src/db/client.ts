@@ -19,7 +19,9 @@ export interface DbHandle {
 /** Production/dev handle chosen by whether DATABASE_URL is set. */
 export function createDbHandle(): DbHandle {
   if (isLocalDb) {
-    const client = new PGlite(); // in-memory
+    // File-backed when PGLITE_PATH is set (lets `seed` and `dev` share one DB
+    // across process runs for manual E2E); in-memory otherwise, as before.
+    const client = env.PGLITE_PATH ? new PGlite(env.PGLITE_PATH) : new PGlite();
     const db = drizzlePglite(client, { schema }) as unknown as Db;
     return {
       db,

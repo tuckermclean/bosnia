@@ -8,6 +8,10 @@ loadDotenv({ path: new URL("../.env", import.meta.url).pathname });
 const schema = z.object({
   // Empty DATABASE_URL => local/test mode using in-process PGlite.
   DATABASE_URL: z.string().optional().default(""),
+  // Optional directory for a file-backed PGlite database (local/manual E2E only).
+  // Unset => in-memory PGlite, same as tests. Lets `seed` and `dev` share one DB
+  // on disk across separate process runs.
+  PGLITE_PATH: z.string().optional(),
   JWT_ACCESS_SECRET: z.string().min(1).default("dev-access-secret-change-me"),
   JWT_REFRESH_SECRET: z.string().min(1).default("dev-refresh-secret-change-me"),
   PORT: z.coerce.number().default(3000),
