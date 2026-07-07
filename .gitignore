@@ -13,6 +13,11 @@ build/
 .env.local
 *.local
 
+# Filled-in k8s Secret manifest (copied from deploy/backend-secret.example.yaml
+# per DEPLOY.md) — real credentials, never commit. The .example.yaml template
+# (placeholders only) IS tracked.
+deploy/backend-secret.yaml
+
 # local databases
 *.db
 *.sqlite

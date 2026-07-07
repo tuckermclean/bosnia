@@ -1,0 +1,6 @@
+# All Ljiljan k8s resources live in this namespace. Apply first:
+#   kubectl apply -f deploy/namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ljiljan

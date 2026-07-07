@@ -46,3 +46,14 @@ npm run dev -w @bosanski/backend
 ```
 
 See each package's own README for its run instructions.
+
+## CI/CD & Deployment
+Every push/PR runs the full test suite for all four packages
+(`.github/workflows/ci.yml`). Every push to `main` and every `v*` tag builds
+`backend/` and `voice-agent/` into container images and pushes them to GHCR
+(`.github/workflows/release.yml`) — gated on those same tests passing. `app/`
+ships separately via EAS Build, not a container.
+
+See **[`DEPLOY.md`](./DEPLOY.md)** for taking a released image to a
+Kubernetes cluster against your own HA Postgres — secrets, manifests, the
+curriculum seed Job, schema bootstrapping, and the JWT-secret boot guard.

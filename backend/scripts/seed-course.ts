@@ -25,8 +25,20 @@ import { courses, exercises, lessons, skills, units } from "../src/db/schema.js"
 import type { ExercisePayload, ExerciseType, ReviewStatus } from "../src/db/schema.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const COURSE_JSON_PATH = path.resolve(__dirname, "../../content/generated/course.json");
-const AUDIO_MANIFEST_PATH = path.resolve(__dirname, "../../content/audio-out/manifest.json");
+
+// In the monorepo checkout (this file run via `tsx` from `backend/scripts/`),
+// `content/` is a sibling of `backend/`, so the default two-levels-up resolution
+// holds. That relative distance changes once this file is compiled to
+// `backend/dist/scripts/seed-course.js` and run from a container image (see
+// `backend/Dockerfile`), where `content/generated` + `content/audio-out` are
+// baked in at a fixed, deployment-chosen path instead. CONTENT_DIR lets the
+// image (or any other non-standard layout) override the base directory
+// without touching this default for local dev/tests.
+const CONTENT_DIR = process.env.CONTENT_DIR
+  ? path.resolve(process.env.CONTENT_DIR)
+  : path.resolve(__dirname, "../../content");
+const COURSE_JSON_PATH = path.join(CONTENT_DIR, "generated/course.json");
+const AUDIO_MANIFEST_PATH = path.join(CONTENT_DIR, "audio-out/manifest.json");
 
 // The content package's course.json has no top-level id/title (just `language`
 // + `units`) — this backend assigns the single canonical course its identity.

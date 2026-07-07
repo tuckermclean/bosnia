@@ -1,0 +1,29 @@
+# Optional: expose the backend Service outside the cluster. Fully commented
+# out — uncomment and adapt to your ingress controller, domain, and TLS setup
+# (e.g. cert-manager) before applying. Example shown targets an nginx ingress
+# controller; adjust the ingressClassName/annotations for your controller.
+#
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: backend
+#   namespace: ljiljan
+#   annotations:
+#     cert-manager.io/cluster-issuer: letsencrypt-prod
+# spec:
+#   ingressClassName: nginx
+#   tls:
+#     - hosts:
+#         - api.example.com
+#       secretName: backend-tls
+#   rules:
+#     - host: api.example.com
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: backend
+#                 port:
+#                   number: 80

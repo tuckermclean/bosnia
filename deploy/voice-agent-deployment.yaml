@@ -1,0 +1,46 @@
+# The real-time voice-tutor worker (Python + LiveKit Agents), built from
+# voice-agent/Dockerfile, published to ghcr.io/OWNER/ljiljan-voice-agent.
+#
+# Optional: only needed if you're running the live voice-tutor feature.
+# Needs LiveKit (LIVEKIT_URL/API_KEY/API_SECRET), Groq (GROQ_API_KEY, default
+# STT+LLM), and Azure Speech (AZURE_SPEECH_KEY/REGION, TTS) — all in the same
+# `backend-secrets` Secret the backend Deployment uses (see
+# deploy/backend-secret.example.yaml).
+#
+# This is a worker, not a server: it registers with your LiveKit project and
+# receives job dispatches over that outbound connection, so there's no
+# containerPort/Service/probe to define here (unlike backend). Liveness is
+# instead whatever your LiveKit project's worker-registration monitoring
+# shows, plus normal pod restarts via k8s if the process crashes.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voice-agent
+  namespace: ljiljan
+  labels:
+    app: voice-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: voice-agent
+  template:
+    metadata:
+      labels:
+        app: voice-agent
+    spec:
+      imagePullSecrets:
+        - name: ghcr-pull-secret
+      containers:
+        - name: voice-agent
+          image: ghcr.io/OWNER/ljiljan-voice-agent:latest
+          envFrom:
+            - secretRef:
+                name: backend-secrets
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              cpu: 1
+              memory: 1Gi

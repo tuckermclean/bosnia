@@ -1,0 +1,87 @@
+name: CI
+
+# Runs on every push/PR to main, AND is reused by release.yml (via
+# `workflow_call`) as its test gate — one definition of "the suite is green"
+# shared by both workflows, so a release can never build+push images that
+# haven't passed exactly these checks.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_call: {}
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # backend/ and content/ are npm workspaces under the root package.json, so
+  # they share one `npm ci` (root lockfile) and are addressed by package name.
+  backend:
+    name: backend (typecheck + test)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck -w @bosanski/backend
+      - run: npm test -w @bosanski/backend
+
+  content:
+    name: content (typecheck + test)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck -w @bosanski/content
+      - run: npm run test -w @bosanski/content
+
+  # app/ is the Expo client. It is deliberately NOT an npm workspace (Expo/RN's
+  # own dependency resolution wants full control of its tree), so it has its
+  # own lockfile and its own `npm ci`, scoped to app/.
+  app:
+    name: app (typecheck + test)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npx jest
+
+  # voice-agent/ is the Python/LiveKit worker — no Node involved.
+  voice-agent:
+    name: voice-agent (compile + test)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: voice-agent
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: voice-agent/requirements.txt
+      - run: pip install -r requirements.txt
+      # Every module must import cleanly with zero env vars set (config is
+      # validated lazily inside agent.py's entrypoint/prewarm, never at
+      # import time) — py_compile is both a syntax check and a fast guard
+      # against accidental module-level side effects.
+      - run: python -m py_compile *.py
+      - run: python -m unittest discover -s tests -t .

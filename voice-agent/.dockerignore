@@ -1,0 +1,19 @@
+# Applies to the voice-agent image build (voice-agent/Dockerfile is built
+# with voice-agent/ itself as context — it's self-contained, no monorepo root
+# needed).
+
+.venv
+__pycache__
+**/__pycache__
+*.pyc
+
+tests
+
+.git
+.github
+
+*.log
+.DS_Store
+.env
+.env.local
+*.local

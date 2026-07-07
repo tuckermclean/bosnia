@@ -1,0 +1,50 @@
+# Root .dockerignore — applies to the backend image build (backend/Dockerfile
+# is built with the repo root as context; see that file's top comment).
+# Keeps the build context small and out of the daemon's upload entirely
+# rather than merely unused: secrets/tests/other packages' node_modules never
+# leave the host.
+
+# Dependencies (reinstalled inside the image via `npm ci`/`pip install`).
+**/node_modules
+**/.venv
+**/__pycache__
+**/*.pyc
+
+# VCS / CI.
+.git
+.github
+
+# The Expo mobile app is not part of the backend image (it ships via EAS, not
+# a container) and is by far the largest subtree in this repo (RN/Expo
+# node_modules, native build output) — never needed for the backend build.
+app
+
+# Build output recreated fresh inside the image; never trust the host's.
+backend/dist
+content/dist
+**/*.tsbuildinfo
+
+# Tests aren't part of the runtime image (harmless if compiled, but no reason
+# to ship them or count them against build context size).
+backend/test
+content/test
+voice-agent/tests
+
+# content/ generation tooling and its non-generated artifacts: the backend
+# image only needs content/generated + content/audio-out/manifest.json (see
+# backend/Dockerfile), never the pipeline source, review exports, or the
+# full (gitignored, mostly-absent-anyway) audio-out tree.
+content/src
+content/scripts
+content/review-export
+content/audio-out/*
+!content/audio-out/manifest.json
+
+# Editor / OS cruft, logs, local env files (never bake secrets into an image).
+.vscode
+.idea
+*.log
+.DS_Store
+.env
+.env.local
+*.local

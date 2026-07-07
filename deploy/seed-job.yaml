@@ -1,0 +1,40 @@
+# One-shot Job that seeds the curriculum content baked into the backend image
+# (content/generated/course.json + content/audio-out/manifest.json, copied in
+# by backend/Dockerfile) into your HA Postgres. Idempotent — every row is
+# upserted by id (see seedCourse() in backend/scripts/seed-course.ts), so
+# re-running after a new image ships updated content is safe.
+#
+# Uses the SAME image as the backend Deployment: the compiled seed script's
+# CONTENT_DIR default is already baked in via the image's own Dockerfile ENV
+# (CONTENT_DIR=/app/content) — no override needed here.
+#
+# Run with:
+#   kubectl apply -f deploy/seed-job.yaml
+#   kubectl logs -n ljiljan job/backend-seed -f
+#   kubectl delete job -n ljiljan backend-seed   # before re-applying/re-running
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: backend-seed
+  namespace: ljiljan
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      imagePullSecrets:
+        - name: ghcr-pull-secret
+      containers:
+        - name: seed
+          image: ghcr.io/OWNER/ljiljan-backend:latest
+          command: ["node", "backend/dist/scripts/seed-course.js"]
+          envFrom:
+            - secretRef:
+                name: backend-secrets
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
