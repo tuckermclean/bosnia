@@ -106,6 +106,7 @@ describe("synthesizeAudio (dry-run, no AZURE_SPEECH_KEY)", () => {
 
     const second = await synthesizeAudio();
     expect(second.synthesized).toBe(0);
-    expect(second.cached).toBe(3);
+    // All 4 text lookups (2 vocab + 2 target phrases) now hit the manifest cache.
+    expect(second.cached).toBe(4);
   });
 });
