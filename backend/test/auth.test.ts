@@ -71,4 +71,48 @@ describe("auth flow", () => {
     const res = await app.inject({ method: "GET", url: "/api/auth/me" });
     expect(res.statusCode).toBe(401);
   });
+
+  it("rejects registering the same email twice with 409", async () => {
+    const payload = { email: "dupe@example.com", password: "password1" };
+
+    const first = await app.inject({ method: "POST", url: "/api/auth/register", payload });
+    expect(first.statusCode).toBe(200);
+
+    const second = await app.inject({ method: "POST", url: "/api/auth/register", payload });
+    expect(second.statusCode).toBe(409);
+  });
+
+  it("rejects login with a wrong password with 401", async () => {
+    const email = "wrongpass@example.com";
+    await app.inject({
+      method: "POST",
+      url: "/api/auth/register",
+      payload: { email, password: "correct-password" },
+    });
+
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/auth/login",
+      payload: { email, password: "totally-wrong-password" },
+    });
+    expect(res.statusCode).toBe(401);
+  });
+
+  it("rejects login for an email that was never registered with 401 (same code path as wrong password)", async () => {
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/auth/login",
+      payload: { email: "never-registered@example.com", password: "whatever1" },
+    });
+    expect(res.statusCode).toBe(401);
+  });
+
+  it("rejects passwords longer than 256 characters", async () => {
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/auth/register",
+      payload: { email: "toolong@example.com", password: "a".repeat(257) },
+    });
+    expect(res.statusCode).toBe(400);
+  });
 });

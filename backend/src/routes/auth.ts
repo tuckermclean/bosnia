@@ -16,8 +16,15 @@ import {
 
 const credentials = z.object({
   email: z.string().email(),
-  password: z.string().min(8),
+  // Upper bound guards against Argon2-cost DoS from pathologically long inputs.
+  password: z.string().min(8).max(256),
 });
+
+// A valid Argon2 hash computed once at module load, verified against on login
+// attempts for emails that don't exist — so failing on an unknown email costs
+// the same wall-clock time as failing on a wrong password, and login timing
+// can't be used to enumerate registered addresses.
+const DUMMY_PASSWORD_HASH = hashPassword("dummy-password-for-constant-time-login-checks");
 
 export function authRoutes(app: FastifyInstance, deps: AppDeps): void {
   const { db } = deps;
@@ -51,7 +58,13 @@ export function authRoutes(app: FastifyInstance, deps: AppDeps): void {
     const { email, password } = credentials.parse(request.body);
     const rows = await db.select().from(users).where(eq(users.email, email)).limit(1);
     const user = rows[0];
-    if (!user || !(await verifyPassword(user.passwordHash, password))) {
+    if (!user) {
+      // Burn the same Argon2-verify time an existing user's wrong password
+      // would cost, so response timing doesn't leak whether `email` is registered.
+      await verifyPassword(await DUMMY_PASSWORD_HASH, password);
+      throw new HttpError(401, "Invalid email or password");
+    }
+    if (!(await verifyPassword(user.passwordHash, password))) {
       throw new HttpError(401, "Invalid email or password");
     }
     const tokens = await issueTokens(user.id);

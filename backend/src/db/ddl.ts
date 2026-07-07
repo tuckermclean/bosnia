@@ -104,6 +104,7 @@ CREATE TABLE IF NOT EXISTS tutor_sessions (
   id text PRIMARY KEY,
   user_id text NOT NULL REFERENCES users(id),
   room_name text NOT NULL,
+  level text,
   started_at timestamptz DEFAULT now(),
   ended_at timestamptz,
   duration_sec real

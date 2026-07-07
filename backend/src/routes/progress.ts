@@ -3,13 +3,17 @@ import { and, eq, inArray } from "drizzle-orm";
 import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import type { AppDeps } from "../deps.js";
-import type { Db } from "../db/client.js";
-import { lessons, lessonAttempts, skills, units, userSkillProgress, userStats } from "../db/schema.js";
+import { exercises, lessons, lessonAttempts, userSkillProgress, userStats } from "../db/schema.js";
 import { HttpError, requireAuth, userIdOf } from "../http.js";
+import { findNextSkillId, isSkillUnlocked } from "../services/progression.js";
 
 const MAX_HEARTS = 5;
 const HEART_REGEN_INTERVAL_MS = 30 * 60 * 1000; // 1 heart per 30 minutes
 const MAX_CROWN_LEVEL = 5;
+/** A lesson only counts toward crown/unlock progression once scored >= 60% —
+ * closes the "0/10, out of hearts" exploit where any attempt (even a total
+ * failure) used to unlock the next skill. */
+const PASS_RATIO = 0.6;
 
 /** Regenerate hearts based on elapsed time since `heartsUpdatedAt`, preserving the
  * remainder of a not-yet-complete interval so regen timing stays accurate across
@@ -50,18 +54,6 @@ export function computeStreak(lastActive: Date | null | undefined, now: Date, cu
   return 1;
 }
 
-/** Skill order across the whole course: unit orderIndex, then skill orderIndex. */
-async function findNextSkillId(db: Db, skillId: string): Promise<string | undefined> {
-  const rows = await db
-    .select({ skillId: skills.id, skillOrder: skills.orderIndex, unitOrder: units.orderIndex })
-    .from(skills)
-    .innerJoin(units, eq(skills.unitId, units.id));
-  const sorted = [...rows].sort((a, b) => a.unitOrder - b.unitOrder || a.skillOrder - b.skillOrder);
-  const idx = sorted.findIndex((r) => r.skillId === skillId);
-  if (idx === -1 || idx === sorted.length - 1) return undefined;
-  return sorted[idx + 1]?.skillId;
-}
-
 const lessonCompleteBody = z.object({
   lessonId: z.string().min(1),
   correctCount: z.number().int().min(0),
@@ -95,15 +87,29 @@ export function progressRoutes(app: FastifyInstance, deps: AppDeps): void {
 
   app.post("/api/progress/lesson-complete", { preHandler: requireAuth }, async (request) => {
     const userId = userIdOf(request);
-    const { lessonId, correctCount, total } = lessonCompleteBody.parse(request.body);
+    const { lessonId, correctCount: rawCorrectCount, total: rawTotal } = lessonCompleteBody.parse(request.body);
 
     const lessonRows = await db.select().from(lessons).where(eq(lessons.id, lessonId)).limit(1);
     const lesson = lessonRows[0];
     if (!lesson) throw new HttpError(404, "Lesson not found");
 
+    // Server-side unlock enforcement: mirror the check in GET /api/lessons/:id
+    // so a locked skill can't be "completed" directly against the API either.
+    if (!(await isSkillUnlocked(db, userId, lesson.skillId))) {
+      throw new HttpError(403, "Skill is locked");
+    }
+
     const statsRows = await db.select().from(userStats).where(eq(userStats.userId, userId)).limit(1);
     const stats = statsRows[0];
     if (!stats) throw new HttpError(404, "User stats not found");
+
+    // `correctCount`/`total` are client-supplied — clamp them to the lesson's
+    // real exercise count server-side before any XP/heart math, so a crafted
+    // request can't inflate XP beyond what the lesson could actually award.
+    const exerciseRows = await db.select({ id: exercises.id }).from(exercises).where(eq(exercises.lessonId, lessonId));
+    const realTotal = exerciseRows.length;
+    const total = Math.min(rawTotal, realTotal);
+    const correctCount = Math.min(Math.max(0, rawCorrectCount), total);
 
     const now = new Date();
     const regen = applyHeartRegen(stats.hearts, stats.heartsUpdatedAt ?? now, now);
@@ -117,6 +123,8 @@ export function progressRoutes(app: FastifyInstance, deps: AppDeps): void {
       .set({ xp: newXp, hearts: newHearts, heartsUpdatedAt: now, streak: newStreak, lastActive: now })
       .where(eq(userStats.userId, userId));
 
+    // Record the attempt regardless of pass/fail — only progression (crown
+    // bump / next-skill unlock) below is gated on passing.
     await db.insert(lessonAttempts).values({ id: randomUUID(), userId, lessonId, correctCount, total });
 
     // Skill completion / crown / unlock bookkeeping.
@@ -127,13 +135,22 @@ export function progressRoutes(app: FastifyInstance, deps: AppDeps): void {
     const skillLessonIds = skillLessonRows.map((r) => r.id);
 
     const attemptedRows = await db
-      .select({ lessonId: lessonAttempts.lessonId })
+      .select({
+        lessonId: lessonAttempts.lessonId,
+        correctCount: lessonAttempts.correctCount,
+        total: lessonAttempts.total,
+      })
       .from(lessonAttempts)
       .where(and(eq(lessonAttempts.userId, userId), inArray(lessonAttempts.lessonId, skillLessonIds)));
-    const attemptedLessonIds = new Set(attemptedRows.map((r) => r.lessonId));
-    const allLessonsCompleted = skillLessonIds.every((id) => attemptedLessonIds.has(id));
+    // A lesson only counts toward skill completion once it has been *passed*
+    // at least once (>= PASS_RATIO) — an out-of-hearts 0/10 attempt must not
+    // crown the skill or unlock the next one.
+    const passedLessonIds = new Set(
+      attemptedRows.filter((r) => r.total > 0 && r.correctCount / r.total >= PASS_RATIO).map((r) => r.lessonId),
+    );
+    const allLessonsPassed = skillLessonIds.every((id) => passedLessonIds.has(id));
 
-    if (allLessonsCompleted) {
+    if (allLessonsPassed) {
       const existingProgress = await db
         .select()
         .from(userSkillProgress)

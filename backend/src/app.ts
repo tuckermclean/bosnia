@@ -1,5 +1,6 @@
 import Fastify, { type FastifyInstance } from "fastify";
 import cors from "@fastify/cors";
+import helmet from "@fastify/helmet";
 import multipart from "@fastify/multipart";
 import { ZodError } from "zod";
 import type { AppDeps } from "./deps.js";
@@ -10,12 +11,18 @@ import { progressRoutes } from "./routes/progress.js";
 import { pronunciationRoutes } from "./routes/pronunciation.js";
 import { tutorRoutes } from "./routes/tutor.js";
 
+/** Max upload size for pronunciation audio clips (see routes/pronunciation.ts). */
+export const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
+
 /** Builds the Fastify app with injected deps so tests can supply fakes. */
 export function buildApp(deps: AppDeps): FastifyInstance {
   const app = Fastify({ logger: false });
 
   app.register(cors, { origin: true });
-  app.register(multipart);
+  app.register(helmet);
+  app.register(multipart, {
+    limits: { fileSize: MAX_UPLOAD_BYTES, files: 1 },
+  });
 
   app.setErrorHandler((error, _request, reply) => {
     if (error instanceof HttpError) {

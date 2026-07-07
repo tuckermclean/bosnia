@@ -168,6 +168,10 @@ export const tutorSessions = pgTable("tutor_sessions", {
     .notNull()
     .references(() => users.id),
   roomName: text("room_name").notNull(),
+  // CEFR level ("A1"/"A2"/"B1"/"B2") requested for this session, mirrored onto
+  // the LiveKit room metadata that voice-agent/agent.py reads. Nullable: older
+  // rows and sessions that didn't specify a level have none.
+  level: text("level"),
   startedAt: timestamp("started_at", { withTimezone: true }).defaultNow(),
   endedAt: timestamp("ended_at", { withTimezone: true }),
   durationSec: real("duration_sec"),

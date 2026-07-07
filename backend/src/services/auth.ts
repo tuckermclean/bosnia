@@ -47,13 +47,13 @@ export function issueRefreshToken(userId: string): IssuedRefresh {
 }
 
 export function verifyAccessToken(token: string): AccessClaims {
-  const decoded = jwt.verify(token, env.JWT_ACCESS_SECRET) as AccessClaims;
+  const decoded = jwt.verify(token, env.JWT_ACCESS_SECRET, { algorithms: ["HS256"] }) as AccessClaims;
   if (decoded.type !== "access") throw new Error("wrong token type");
   return decoded;
 }
 
 export function verifyRefreshToken(token: string): RefreshClaims {
-  const decoded = jwt.verify(token, env.JWT_REFRESH_SECRET) as RefreshClaims;
+  const decoded = jwt.verify(token, env.JWT_REFRESH_SECRET, { algorithms: ["HS256"] }) as RefreshClaims;
   if (decoded.type !== "refresh") throw new Error("wrong token type");
   return decoded;
 }

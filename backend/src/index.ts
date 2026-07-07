@@ -1,10 +1,12 @@
 import { buildApp } from "./app.js";
 import { createDbHandle } from "./db/client.js";
-import { env } from "./env.js";
+import { assertProductionSecretsAreSafe, env } from "./env.js";
 import { createGroqTranscriber } from "./services/groq.js";
 import { createLiveKitMinter } from "./services/livekit.js";
 
 async function main(): Promise<void> {
+  assertProductionSecretsAreSafe();
+
   const { db, initSchema } = createDbHandle();
   await initSchema();
 

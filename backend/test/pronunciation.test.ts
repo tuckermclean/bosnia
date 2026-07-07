@@ -1,5 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import type { FastifyInstance } from "fastify";
+import FormData from "form-data";
 import { eq } from "drizzle-orm";
+import { buildApp, MAX_UPLOAD_BYTES } from "../src/app.js";
 import { processPronunciation } from "../src/routes/pronunciation.js";
 import { createTestDb, type DbHandle } from "../src/db/client.js";
 import { pronunciationAttempts, users } from "../src/db/schema.js";
@@ -63,5 +66,90 @@ describe("processPronunciation", () => {
       .from(pronunciationAttempts)
       .where(eq(pronunciationAttempts.userId, "user-1"));
     expect(rows.find((r) => r.exerciseId === "exercise-42")).toBeTruthy();
+  });
+});
+
+describe("POST /api/pronunciation (real HTTP multipart path)", () => {
+  let httpDbHandle: DbHandle;
+  let app: FastifyInstance;
+  let accessToken: string;
+
+  beforeEach(async () => {
+    httpDbHandle = await createTestDb();
+    app = buildApp({
+      db: httpDbHandle.db,
+      transcriber: fakeTranscriber("dobar dan"),
+      minter: fakeMinter(),
+    });
+    await app.ready();
+
+    const register = await app.inject({
+      method: "POST",
+      url: "/api/auth/register",
+      payload: { email: "speaker@example.com", password: "password1" },
+    });
+    accessToken = register.json().accessToken;
+  });
+
+  afterEach(async () => {
+    await app.close();
+    await httpDbHandle.close();
+  });
+
+  it("scores a real multipart audio upload end-to-end", async () => {
+    const form = new FormData();
+    form.append("targetPhrase", "Dobar dan");
+    form.append("exerciseId", "exercise-1");
+    form.append("audio", Buffer.from("fake-wav-bytes"), { filename: "clip.wav", contentType: "audio/wav" });
+
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/pronunciation",
+      headers: { authorization: `Bearer ${accessToken}`, ...form.getHeaders() },
+      payload: form.getBuffer(),
+    });
+
+    expect(res.statusCode).toBe(200);
+    const body = res.json();
+    const expected = scorePronunciation("Dobar dan", "dobar dan");
+    expect(body.score).toBe(expected.score);
+    expect(body.transcript).toBe(expected.transcript);
+
+    const rows = await httpDbHandle.db.select().from(pronunciationAttempts);
+    expect(rows).toHaveLength(1);
+    expect(rows[0]?.exerciseId).toBe("exercise-1");
+  });
+
+  it("rejects a non-audio content type with 415", async () => {
+    const form = new FormData();
+    form.append("targetPhrase", "Dobar dan");
+    form.append("audio", Buffer.from("not audio"), { filename: "clip.txt", contentType: "text/plain" });
+
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/pronunciation",
+      headers: { authorization: `Bearer ${accessToken}`, ...form.getHeaders() },
+      payload: form.getBuffer(),
+    });
+
+    expect(res.statusCode).toBe(415);
+  });
+
+  it("rejects an oversize upload with 413", async () => {
+    const form = new FormData();
+    form.append("targetPhrase", "Dobar dan");
+    form.append("audio", Buffer.alloc(MAX_UPLOAD_BYTES + 1024, 1), {
+      filename: "huge.wav",
+      contentType: "audio/wav",
+    });
+
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/pronunciation",
+      headers: { authorization: `Bearer ${accessToken}`, ...form.getHeaders() },
+      payload: form.getBuffer(),
+    });
+
+    expect(res.statusCode).toBe(413);
   });
 });
