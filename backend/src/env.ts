@@ -1,9 +1,18 @@
-import { config as loadDotenv } from "dotenv";
 import { z } from "zod";
 
 // Load .env from the repo root and the backend package (root first, package overrides).
-loadDotenv({ path: new URL("../../.env", import.meta.url).pathname });
-loadDotenv({ path: new URL("../.env", import.meta.url).pathname });
+// process.loadEnvFile throws if the file doesn't exist (normal in tests/CI), so each
+// load is best-effort.
+function loadEnvFileIfPresent(path: string): void {
+  try {
+    process.loadEnvFile(path);
+  } catch {
+    // Missing .env is expected outside of local dev — ignore.
+  }
+}
+
+loadEnvFileIfPresent(new URL("../../.env", import.meta.url).pathname);
+loadEnvFileIfPresent(new URL("../.env", import.meta.url).pathname);
 
 const schema = z.object({
   // Empty DATABASE_URL => local/test mode using in-process PGlite.
