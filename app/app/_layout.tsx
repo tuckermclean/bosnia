@@ -1,8 +1,4 @@
 import 'react-native-gesture-handler';
-import { registerGlobals } from '@livekit/react-native';
-// Registers WebRTC globals LiveKit needs; must run once, before any LiveKit
-// usage, so it lives at module scope in the app's entry layout.
-registerGlobals();
 
 import React, { useEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';

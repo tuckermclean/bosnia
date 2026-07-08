@@ -1,3 +1,12 @@
+import { registerGlobals } from '@livekit/react-native';
+// Registers WebRTC globals LiveKit needs; must run once, before any LiveKit
+// usage. This module is only ever reached via a dynamic `import()` (never
+// statically imported from anything expo-router eagerly loads), so it's
+// safe to call at module scope here — it only runs when LiveKit is
+// actually about to be used, in a dev/standalone build that ships the
+// native WebRTC module.
+registerGlobals();
+
 import React, { useCallback, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { LiveKitRoom, useLocalParticipant, useVoiceAssistant } from '@livekit/react-native';
@@ -22,8 +31,12 @@ export interface VoiceCallProps {
  *
  * The actual conversational brain runs server-side as a LiveKit Agents
  * worker (see `/voice-agent`); this component is purely the call UI.
+ *
+ * Only ever loaded via `React.lazy(() => import('@/features/tutor/VoiceCallLive'))`
+ * from `app/tutor.tsx`, gated by `isVoiceTutorAvailable()` — see
+ * `src/features/tutor/availability.ts`.
  */
-export function VoiceCall({ level, onEnd }: VoiceCallProps) {
+export default function VoiceCallLive({ level, onEnd }: VoiceCallProps) {
   const sessionQuery = useTutorSession(level);
 
   if (sessionQuery.isLoading) {

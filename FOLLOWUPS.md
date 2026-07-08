@@ -34,6 +34,11 @@ development.
 
 ## Known MVP limitations
 
+- **Voice tutor is unavailable in Expo Go by design.** `app/src/features/tutor/availability.ts`
+  gates the real-time LiveKit voice tutor off in Expo Go (no native WebRTC module there); it
+  requires a development build (`npx expo run:android`/`run:ios` or an EAS dev build with
+  `expo-dev-client`). Lessons and pronunciation are unaffected and run fully in Expo Go.
+
 - **Pronunciation scoring is coarse.** Scoring relies on Whisper
   transcription, which auto-corrects mispronunciations, so it under-detects
   errors. Path forward: phoneme-level forced alignment instead of

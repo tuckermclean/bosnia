@@ -1,14 +1,33 @@
-import React from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import React, { Suspense } from 'react';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
-import { VoiceCall } from '@/features/tutor/VoiceCall';
+import { Button } from '@/components';
+import { isVoiceTutorAvailable } from '@/features/tutor/availability';
 import { useCourses } from '@/hooks/useCourses';
 import { deriveLearnerLevel } from '@/features/tutor/level';
-import { color } from '@/theme/tokens';
+import { color, fontSize, spacing } from '@/theme/tokens';
+
+// LiveKit (and the native WebRTC module it needs) is loaded ONLY via this
+// dynamic import, never statically — Expo Go doesn't ship native WebRTC, and
+// expo-router eagerly requires every static import reachable from `app/` to
+// build its route table. A dynamic `import()` keeps LiveKit out of that
+// eager boot bundle entirely; see `src/features/tutor/availability.ts`.
+const VoiceCallLive = React.lazy(() => import('@/features/tutor/VoiceCallLive'));
 
 export default function TutorCallScreen() {
   const router = useRouter();
   const coursesQuery = useCourses();
+
+  if (!isVoiceTutorAvailable()) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.center}>
+          <Text style={styles.hint}>Voice tutor needs a development build</Text>
+          <Button label="Back" onPress={() => router.back()} variant="ghost" />
+        </View>
+      </View>
+    );
+  }
 
   // Wait for course/progress data so the very first tutor session request
   // carries the learner's real level instead of a throwaway "A1" guess that
@@ -27,7 +46,15 @@ export default function TutorCallScreen() {
 
   return (
     <View style={styles.container}>
-      <VoiceCall level={level} onEnd={() => router.back()} />
+      <Suspense
+        fallback={
+          <View style={styles.center}>
+            <ActivityIndicator color={color.gold500} size="large" />
+          </View>
+        }
+      >
+        <VoiceCallLive level={level} onEnd={() => router.back()} />
+      </Suspense>
     </View>
   );
 }
@@ -41,5 +68,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: spacing.md,
+  },
+  hint: {
+    color: color.white,
+    fontSize: fontSize.md,
+    textAlign: 'center',
   },
 });

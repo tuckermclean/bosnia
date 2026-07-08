@@ -8,12 +8,17 @@ import Constants from 'expo-constants';
  */
 function resolveApiBaseUrl(): string {
   const fromEnv = process.env.EXPO_PUBLIC_API_BASE_URL;
-  if (fromEnv) return fromEnv;
+  if (fromEnv) return stripTrailingSlash(fromEnv);
 
   const fromConfig = Constants.expoConfig?.extra?.apiBaseUrl;
-  if (typeof fromConfig === 'string' && fromConfig.length > 0) return fromConfig;
+  if (typeof fromConfig === 'string' && fromConfig.length > 0) return stripTrailingSlash(fromConfig);
 
   return 'http://localhost:3000';
+}
+
+/** Strips a single trailing `/`, if present, so `apiUrl()` never doubles it up. */
+function stripTrailingSlash(url: string): string {
+  return url.endsWith('/') ? url.slice(0, -1) : url;
 }
 
 export const API_BASE_URL = resolveApiBaseUrl();
