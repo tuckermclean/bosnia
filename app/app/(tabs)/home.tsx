@@ -20,6 +20,10 @@ export default function HomeScreen() {
   // MVP content is a single A1 course; index [0] per the backend contract.
   const course = coursesQuery.data?.[0];
   const stats = progressQuery.data?.stats;
+  // Successful response, but no course (or a course with no units) — e.g. a
+  // freshly booted/unseeded backend serving `{"courses":[]}`. Without this
+  // branch nothing renders below the header, so the screen just looks blank.
+  const isEmpty = !isLoading && !isError && (!course || course.units.length === 0);
 
   function handleSelectSkill(skill: SkillSummary) {
     if (!skill.unlocked) return;
@@ -59,7 +63,14 @@ export default function HomeScreen() {
         </View>
       )}
 
-      {course && (
+      {isEmpty && (
+        <View style={styles.center}>
+          <Text style={styles.errorText}>No lessons loaded yet</Text>
+          <Text style={styles.emptyHint}>Make sure the backend is running and seeded.</Text>
+        </View>
+      )}
+
+      {course && course.units.length > 0 && (
         <ScrollView contentContainerStyle={styles.scrollContent}>
           {course.units.map((unit) => (
             <SkillPath key={unit.id} unit={unit} onSelectSkill={handleSelectSkill} />
@@ -84,5 +95,6 @@ const styles = StyleSheet.create({
   heartsRow: { paddingHorizontal: spacing.md, paddingTop: spacing.xs },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.lg },
   errorText: { color: color.gray500, textAlign: 'center' },
+  emptyHint: { color: color.gray500, textAlign: 'center', marginTop: spacing.xs, fontSize: fontSize.sm },
   scrollContent: { padding: spacing.md, paddingBottom: spacing.xxl },
 });

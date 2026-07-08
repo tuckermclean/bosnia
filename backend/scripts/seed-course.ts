@@ -18,7 +18,7 @@
  */
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { createDbHandle } from "../src/db/client.js";
 import type { Db } from "../src/db/client.js";
 import { courses, exercises, lessons, skills, units } from "../src/db/schema.js";
@@ -282,7 +282,16 @@ async function main(): Promise<void> {
   await close();
 }
 
-main().catch((err) => {
-  console.error("[seed-course] Failed:", err);
-  process.exit(1);
-});
+// Only run the CLI when this file is the actual entrypoint (`tsx
+// scripts/seed-course.ts`, `npm run seed`, or the compiled `dist/scripts/
+// seed-course.js` invoked directly) — NOT when `seedCourse`/`COURSE_ID`/etc.
+// are imported as a library (by `src/auto-seed.ts` or by tests), which would
+// otherwise trigger a redundant full seed run against a throwaway DB as an
+// import side effect on every such import.
+const isMainModule = process.argv[1] !== undefined && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isMainModule) {
+  main().catch((err) => {
+    console.error("[seed-course] Failed:", err);
+    process.exit(1);
+  });
+}

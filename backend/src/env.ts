@@ -21,6 +21,11 @@ const schema = z.object({
   // Unset => in-memory PGlite, same as tests. Lets `seed` and `dev` share one DB
   // on disk across separate process runs.
   PGLITE_PATH: z.string().optional(),
+  // Controls startup auto-seeding of course content (see src/auto-seed.ts).
+  // Unset => auto-seed only when local (no DATABASE_URL) and the DB is
+  // empty. "false" disables it even locally; "true" forces it even against
+  // a configured DATABASE_URL.
+  AUTO_SEED: z.enum(["true", "false"]).optional(),
   JWT_ACCESS_SECRET: z.string().min(1).default("dev-access-secret-change-me"),
   JWT_REFRESH_SECRET: z.string().min(1).default("dev-refresh-secret-change-me"),
   PORT: z.coerce.number().default(3000),
