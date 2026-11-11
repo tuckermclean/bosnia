@@ -1,0 +1,101 @@
+# The plan: one node per unit of work. SPEC.md explains the families, the build order and the open
+# decisions (OD1..OD10) that nodes list under `decisions`. Node specs live in nodes/<ID>-<name>.md.
+template:
+  headings: [Purpose, Tests, Changes, Gate, Risks]
+
+nodes:
+  # H: hygiene (broken commands, stale docs, dependencies, missing tests)
+  - id: H01
+    name: fix-commands-and-docs
+    deps: []
+    track: now
+    summary: Make the documented commands work (npm start, compiled auto-seed), delete the seed-a1 trap and correct the stale docs.
+  - id: H02
+    name: dependency-fixes
+    deps: []
+    track: now
+    summary: Patch the five high npm audit findings and make expo-doctor pass, including the Hermes memory fix.
+  - id: H03
+    name: review-tool-tests
+    deps: []
+    track: now
+    summary: Pin the native-speaker review round trip (export-review, apply-review) with tests.
+    decisions: [OD4]
+
+  # W: the web client
+  - id: W01
+    name: web-build
+    deps: [H02]
+    track: now
+    summary: Make the Expo app export and run in the browser (web deps, web token storage, web audio upload, no native LiveKit on web).
+    decisions: [OD1, OD3]
+  - id: W02
+    name: cors-allowlist
+    deps: []
+    track: now
+    summary: Replace the reflect-any-origin CORS setting with an allowlist from CORS_ORIGINS.
+    decisions: [OD5]
+  - id: W03
+    name: web-hosting
+    deps: [W01]
+    track: now
+    summary: Ship the web build as a static image served on the same origin as the backend (image, release job, k8s manifests, API base URL).
+    decisions: [OD2]
+  - id: W04
+    name: web-voice-tutor
+    deps: [W01]
+    track: now
+    summary: Run the voice tutor in the browser with LiveKit's web SDK, tested headlessly.
+    decisions: [OD10]
+
+  # B: backend robustness
+  - id: B01
+    name: not-configured-503
+    deps: []
+    track: now
+    summary: Answer 503 "not configured" instead of 500 when the tutor's or pronunciation's keys are missing.
+  - id: B02
+    name: auth-hardening
+    deps: []
+    track: now
+    summary: Atomic refresh rotation with token-family revocation, a server-side logout and auth rate limiting.
+    decisions: [OD6]
+  - id: B03
+    name: schema-migrations
+    deps: []
+    track: now
+    summary: Real drizzle-kit migrations applied under an advisory lock, a k8s migrate Job, and no more boot-time DDL races.
+    decisions: [OD8]
+  - id: B04
+    name: graceful-shutdown
+    deps: []
+    track: now
+    summary: Close the server and database cleanly on SIGTERM and SIGINT.
+
+  # T: voice tutor persistence and control
+  - id: T01
+    name: tutor-persistence
+    deps: [W04]
+    track: now
+    summary: Persist tutor turns from the voice agent and record session end from the call screen.
+    decisions: [OD9]
+  - id: T02
+    name: agent-interrupt
+    deps: []
+    track: now
+    summary: Make the voice agent act on the call screen's lk.interrupt message.
+
+  # A: reference audio
+  - id: A01
+    name: reference-audio
+    deps: []
+    track: now
+    summary: Re-synthesize placeholder audio, write absolute AUDIO_BASE_URL URLs, and document hosting the files.
+    decisions: [OD7]
+
+  # P: pronunciation scoring
+  - id: P01
+    name: phoneme-alignment-spike
+    deps: []
+    track: later
+    summary: Research phoneme forced alignment for Bosnian and recommend an aligner before any build.

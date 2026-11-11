@@ -1,0 +1,24 @@
+# Role guard paths for the plugin's tester, implementer and reviewer (root-relative globs).
+# A key here replaces the guard's default for that key, so the defaults are repeated.
+tests:
+  # the guard's defaults
+  - "**/*.test.sh"
+  - "**/*_test.*"
+  - "**/test_*"
+  - "**/tests/**"
+  - "**/testdata/**"
+  - "**/fixtures/**"
+  # this repository
+  - "backend/test/**"
+  - "content/test/**"
+  - "app/**/__tests__/**"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+  - "voice-agent/tests/**"
+specs:
+  - "SPEC.md"
+  - "AGENTS.md"
+  - "CLAUDE.md"
+  - "docs/graph.yaml"
+  - "docs/AUDIT.md"
+  - "nodes/**"
