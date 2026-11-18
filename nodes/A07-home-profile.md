@@ -41,7 +41,7 @@ none: imported
 - **A07-AC-2** — A course without units shows the empty state. *Verify:* `app/app/(tabs)/__tests__/home.test.tsx` ("shows the empty state when the course has no units").
 - **A07-AC-3** — No empty state is shown while the courses load. *Verify:* `app/app/(tabs)/__tests__/home.test.tsx` ("does not show the empty state while loading").
 - **A07-AC-4** — A failed courses query shows the error text, not the empty state. *Verify:* `app/app/(tabs)/__tests__/home.test.tsx` ("does not show the empty state on error").
-- **A07-AC-5** — A course with a unit shows that unit's header instead of the empty state. *Verify:* `app/app/(tabs)/__tests__/home.test.tsx` ("renders the skill path (not the empty state) when a course with units is returned").
+- **A07-AC-5** — A course with a unit shows that unit's Bosnian title instead of the empty state. *Verify:* `app/app/(tabs)/__tests__/home.test.tsx` ("renders the skill path (not the empty state) when a course with units is returned").
 - **A07-AC-6** — A locked skill cannot be opened; an unlocked one opens its first lesson. *Verify:* unpinned.
 - **A07-AC-7** — A skill with unreviewed content is tagged "unreviewed content". *Verify:* unpinned.
 - **A07-AC-8** — Profile's "Log out" signs the user out. *Verify:* unpinned.

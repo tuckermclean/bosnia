@@ -13,12 +13,12 @@ result reported to the backend (B07's lesson-complete).
 
 - `app/app/lesson/[id].tsx` reads the `id` route parameter and renders `LessonRunnerScreen` for it.
 - `app/src/features/lesson/LessonRunnerScreen.tsx` loads the lesson and the progress (A03's hooks), with a
-  spinner meanwhile and "Couldn't load this lesson." with "Go back" when the lesson fails. The run starts
-  with the server's hearts (5 when unknown). Its header has an exit (✕, back), the progress bar and the
-  hearts. When the run ends, finished or out of hearts, it reports `{lessonId, correctCount, total}` once,
-  the real tally even for a failed run. "Try Again" replaces the route with the same lesson. A lesson
-  without exercises shows "No exercises in this lesson yet." and never ends: nothing is reported, and only
-  the exit leaves it. The end screens:
+  spinner meanwhile and "Couldn't load this lesson." with "Go back" when the lesson fails. The run starts with
+  the server's hearts (5 when unknown). Its header has an exit (✕, back), the progress bar and the hearts.
+  When the run ends, finished or out of hearts, it reports `{lessonId, correctCount, total}` once, the real
+  tally even for a failed run. With hearts left, a lesson without exercises shows "No exercises in this lesson
+  yet." and never ends: nothing is reported, and only the exit leaves it. The end screens, where "Try Again"
+  replaces the route with the same lesson:
   - out of hearts: "Out of hearts" with the tally, "Try Again" and "Back to Home";
   - finished below `PASS_RATIO` (60%): "Not quite there" with the number needed to pass, "Try Again" and
     "Back to Home";
@@ -28,8 +28,7 @@ result reported to the backend (B07's lesson-complete).
   answer takes one heart (not below 0); the run is finished after the last exercise, and out of hearts
   when hearts reach 0 before that.
 - `app/src/features/lesson/exercises/`: `ExerciseRenderer` picks the component by `exercise.type` and shows
-  "Unsupported exercise type" for another. Each component calls `onComplete({correct})` from its "Continue"
-  button:
+  "Unsupported exercise type" for another. Each component's "Continue" button calls `onComplete({correct})`:
   - `MultipleChoice`: pick one of `choices` (the English `promptEn` shown as a hint), "Check" (disabled
     until a choice), then "Tačno! Correct." or "Not quite. Correct answer: <answer>"; correct when the
     pick equals `answer`.
@@ -83,7 +82,7 @@ none: imported
 - Choices are keyed by their text, so a duplicate choice collides; WordBank compares strings exactly, case
   and punctuation included.
 - The exercise payloads carry the answers (B07's risk): the client grades and the server only clamps (OD8).
-- A lesson with no exercises never finishes on the client, so it is never reported (the backend would not
-  pass it either, B07).
+- With hearts left, a lesson with no exercises never finishes on the client, so it is never reported (the
+  backend would not pass it either, B07).
 - A run that starts at 0 hearts is out of hearts at once: it shows "Out of hearts" before any exercise and
   reports 0 of `total`, which the backend records as an attempt and counts toward the streak (B07).

@@ -82,8 +82,8 @@ none: imported
 - Every request without `FormData` carries `Content-Type: application/json`, a body-less POST included,
   which the backend answers 500 (B10's risk); today's calls always send a body.
 - The access token is read from SecureStore on every request.
-- `submitPronunciation` appends the audio as a plain `{uri, name, type}` object, which a browser's `FormData`
-  turns into the string `[object Object]`, and labels it `audio/m4a` whatever the recorder produced: the
-  upload as written is native-only (principle 8).
+- `submitPronunciation` adds the audio to the form as a plain `{uri, name, type}` object labelled `audio/m4a`
+  whatever the recorder produced. React Native's networking reads that object as a file; in a browser,
+  `FormData` stores it as the string `[object Object]`. The upload as written is native-only (principle 8).
 - `useTutorSession`'s key includes the level, so a level change while the call screen is mounted asks for a
   second room.

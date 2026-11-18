@@ -54,6 +54,8 @@ none: imported
 - The store's `error` field is reset but never set: the screens keep their own error state.
 - The minimum password length (8) is the client's copy of the backend's rule; nothing ties them.
 - Nothing navigates on a successful sign in or sign up: the store becomes `authenticated`, but the root layout
-  reacts only to `unauthenticated` and only `index.tsx` redirects to the tabs, so the form stays on screen.
+  reacts only to `unauthenticated`, and the only redirect to the tabs is in `index.tsx`, which the boot
+  redirect has already replaced (expo-router's `<Redirect>` is a `router.replace`). The form stays on screen
+  until the next start, when the saved tokens sign the user in.
 - Nothing here is tested; a regression in the boot redirect or the bounce to sign-in shows only in a run of
   the app.

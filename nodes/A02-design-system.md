@@ -28,8 +28,7 @@ screen uses.
   - `ScreenContainer`: a safe-area view (all edges by default) with a background colour and optional
     horizontal padding.
   - `TextField`: a labelled `TextInput` that shows a red border and an error text when `error` is set.
-  - `XpBadge` and `StreakBadge`: pill badges with ⚡ and the xp, 🔥 and the streak, each with an accessibility
-    label.
+  - `XpBadge` (⚡ and the xp) and `StreakBadge` (🔥 and the streak): pill badges with an accessibility label.
 
 ## Tests
 
