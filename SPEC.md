@@ -31,7 +31,9 @@ Every change respects these.
 4. Tests and local dev need no Docker and no keys (PGlite locally and in tests).
 5. Voice-agent modules import with zero env vars set.
 6. Dependencies are pinned and bumped deliberately.
-7. A missing key fails clearly: a 503 from the backend, or a non-zero exit naming the missing key.
+7. A missing key fails clearly. The backend answers a 503 that tells the client the feature is unavailable
+   (e.g. "pronunciation is unavailable"), not the variable's name, and its server log names the missing key;
+   a script or the voice agent exits non-zero naming the missing key.
 8. Web first.
 
 ## State
@@ -50,9 +52,8 @@ nothing is known red.
   file that does not exist.
 - A missing Groq or LiveKit key gives a 500 from `/api/pronunciation` and `/api/tutor/session`, not
   principle 7's 503.
-- The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse
-  detection, the CORS allowlist, auth rate limiting, placeholder reference audio, coarse pronunciation
-  scoring.
+- The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse detection,
+  the CORS allowlist, auth rate limiting, placeholder reference audio, coarse pronunciation scoring.
 
 **Priorities**, in this order:
 1. repository hygiene and broken docs;
@@ -99,14 +100,14 @@ Each has a default that holds until the owner decides otherwise.
   refresh token (`backend/src/services/auth.ts`), which `localStorage` would also hold; rotation limits it.
 - **OD2. CORS.** `backend/src/app.ts` registers `@fastify/cors` with `origin: true` (any origin). *Default:*
   the allowed origins come from a `CORS_ORIGINS` env var that lists them. Without it, a production backend
-  answers no cross-origin request, since the web build is served from the backend's own origin, and a local
-  backend on PGlite accepts the Expo web dev server, `http://localhost:8081`. *Reason:* web first, same
+  answers no cross-origin request, since the web build will be served from the backend's own origin, and a
+  local backend on PGlite accepts the Expo web dev server, `http://localhost:8081`. *Reason:* web first, same
   origin; dev keeps working without setup.
 - **OD3. Auth rate limits.** Register, login and refresh have none. *Default:* `@fastify/rate-limit` on those
-  three routes, 10 requests per minute per client IP, with Fastify's `trustProxy` on so the client IP comes
-  from the ingress's `X-Forwarded-For` (today `request.ip` is the ingress's address, which would limit
-  everyone together); in-memory per pod, switchable off in tests. *Reason:* the deployment runs two backend
-  replicas and no shared store; a per-pod limit is coarse but needs no new infrastructure.
+  three routes, 10 requests per minute per client IP, with Fastify's `trustProxy` on so the client IP comes from
+  the ingress's `X-Forwarded-For` (without it, behind an ingress, `request.ip` is the ingress's address, which
+  would limit everyone together); in-memory per pod, switchable off in tests. *Reason:* the deployment runs two
+  backend replicas and no shared store; a per-pod limit is coarse but needs no new infrastructure.
 - **OD4. Reference audio URLs.** `content/src/synthesize-audio.ts` emits `PLACEHOLDER://<hash>.mp3` without an
   Azure key, and with one writes a relative `audio-out/<hash>.mp3`; the seed copies the manifest's URL into
   the course, and the app plays only `http(s)` URLs, so neither form plays. The audio files are not in git.
@@ -128,13 +129,11 @@ Each has a default that holds until the owner decides otherwise.
   keys out of CI.
 - **OD8. Lesson results come from the client.** `backend/src/routes/progress.ts` accepts the app's
   `correctCount` and `total`. *Default:* accepted, clamped to the lesson's size (its exercise count), not
-  regraded. *Reason:* a learning app with no stakes; regrading would need each attempt's answers on the
-  server.
+  regraded. *Reason:* a learning app with no stakes; regrading would need each attempt's answers on the server.
 - **OD9. Runtime versions.** CI runs Node 22 and Python 3.11; the machine the loop's sessions run on has
   Node 20 and Python 3.13; the root `package.json` allows `node >=20`. *Default:* CI's versions are
   authoritative; a local run on other versions is advisory, and a difference between them is recorded in the
-  node's CI evidence.
-  *Reason:* CI is where the gate is judged.
+  node's CI evidence. *Reason:* CI is where the gate is judged.
 
 ## Conventions
 - Branches `node/<ID>-<name>` for a node and `spec/<topic>` for a spec change.

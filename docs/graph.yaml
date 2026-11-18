@@ -1,7 +1,7 @@
 template: {headings: [Purpose, Tests, Changes, Gate, Risks]}
 gate:
   command: "npm test -w @bosanski/backend; b=$?; npm run test -w @bosanski/content; c=$?; (cd app && npx jest); a=$?; (cd voice-agent && python3 -m unittest discover -s tests -t .); v=$?; exit $((b|c|a|v))"
-  fail_pattern: '^ FAIL  \S+ > |^  ● (?!Test suite failed to run)|^(FAIL|ERROR): test'
+  fail_pattern: '^ FAIL  \S+ > |^  ● (?!Test suite failed to run|Console$)|^(FAIL|ERROR): test'
   known_red: []
 out_of_scope:
   - {glob: "content/generated/", reason: "curriculum data (course, blueprint, skills): changed by the owner's generation and native-speaker review runs, not by nodes"}
