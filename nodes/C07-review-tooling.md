@@ -49,8 +49,8 @@ none: imported
 
 ## Risks
 
-- Running `apply-review` over a unit is the sign-off: it marks every skill file named `<unitId>-s*.json` `reviewed` even when
-  the CSV has no correction, so running it on an unreviewed export breaks principle 3.
+- Running `apply-review` over a unit is the sign-off: it marks every skill file named `<unitId>-s*.json`
+  `reviewed` even when the CSV has no correction, so running it on an unreviewed export breaks principle 3.
 - Row ids are positional (`-vocab-3`, `-pair-2`): applying a CSV exported before the content was regenerated
   or edited corrects the wrong items, silently.
 - The skill id is taken from a row id by the regular expression `^(.*-u\d+-s\d+)`; rows whose id does not match are
