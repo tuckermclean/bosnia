@@ -9,7 +9,6 @@ out_of_scope:
   - {glob: "app/assets/", reason: "binary icons and images, not code"}
 adoption:
   areas:
-    - {name: content-pipeline, globs: ["content/*", "content/src/", "content/test/", "content/scripts/"]}
     - {name: backend, globs: ["backend/"]}
     - {name: app, globs: ["app/*", "app/app/", "app/src/"]}
     - {name: voice-agent, globs: ["voice-agent/"]}
@@ -36,3 +35,59 @@ nodes:
     status: imported
     owns: [".gitignore", ".dockerignore"]
     summary: "The root .gitignore (dependencies, build output, env and secret files, local databases, binary audio) and the root .dockerignore that filters the backend image's build context."
+  - id: C01
+    name: content-package
+    deps: [R01]
+    track: done
+    status: imported
+    owns: ["content/README.md", "content/package.json", "content/tsconfig.json", "content/vitest.config.ts"]
+    summary: "The @bosanski/content workspace package: one tsx script per pipeline stage, the vitest test script and typecheck, its tsconfig and vitest config, and its README."
+  - id: C02
+    name: course-schema
+    deps: [C01]
+    track: done
+    status: imported
+    owns: ["content/src/schema.ts", "content/src/paths.ts"]
+    summary: "The zod schemas of the blueprint, the course contract the backend ingests and the audio manifest, and the pipeline's data paths under CONTENT_DATA_ROOT or the package folder."
+  - id: C03
+    name: llm-provider
+    deps: [C01]
+    track: done
+    status: imported
+    owns: ["content/src/llm.ts", "content/test/llm.test.ts"]
+    summary: "The pluggable LLM client: Anthropic, else OpenAI, else the offline MockProvider by env key; code-fence stripping and generateJSON."
+  - id: C04
+    name: generation
+    deps: [C02, C03]
+    track: done
+    status: imported
+    owns: ["content/src/blueprint.ts", "content/src/generate-skill.ts", "content/src/generate.ts", "content/test/generate-skill.test.ts"]
+    summary: "The blueprint and per-skill generation stages (cached, resumable, with a best-effort self-review pass) and the assembly of course.json."
+  - id: C05
+    name: validation
+    deps: [C02]
+    track: done
+    status: imported
+    owns: ["content/src/validate.ts", "content/test/validate.test.ts"]
+    summary: "The course validator: answer, word-bank, target-phrase and diacritics errors, duplicate-vocab warnings, and npm run validate's report and exit code."
+  - id: C06
+    name: reference-audio
+    deps: [C02, C04]
+    track: done
+    status: imported
+    owns: ["content/src/synthesize-audio.ts", "content/test/synthesize-audio.test.ts"]
+    summary: "The bs-BA reference-audio stage: content-hashed Azure TTS (placeholder URLs in a dry run), the manifest, and audioHash stamping."
+  - id: C07
+    name: review-tooling
+    deps: [C02, C04]
+    track: done
+    status: imported
+    owns: ["content/src/csv.ts", "content/src/export-review.ts", "content/src/apply-review.ts"]
+    summary: "The native-speaker review round trip: per-unit Markdown and CSV export, and applying the CSV's corrections with the unit's sign-off to reviewed."
+  - id: C08
+    name: seed-a1
+    deps: [C02]
+    track: done
+    status: imported
+    owns: ["content/scripts/seed-a1.ts"]
+    summary: "The one-off script that writes a hand-authored one-unit A1 course over the generated curriculum."
