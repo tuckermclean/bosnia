@@ -9,7 +9,6 @@ out_of_scope:
   - {glob: "app/assets/", reason: "binary icons and images, not code"}
 adoption:
   areas:
-    - {name: voice-agent, globs: ["voice-agent/"]}
     - {name: deploy, globs: ["deploy/", "DEPLOY.md", ".github/"]}
 nodes:
   - id: R01
@@ -222,3 +221,52 @@ nodes:
     status: imported
     owns: ["app/src/features/tutor/", "app/app/tutor.tsx", "app/app/(tabs)/tutor.tsx"]
     summary: "The Tutor tab and the full-screen call: the Expo Go availability gate, the learner's CEFR level, a lazily loaded LiveKit call with status, the tutor's transcript, mute, interrupt and end call."
+  - id: V01
+    name: voice-package
+    deps: []
+    track: done
+    status: imported
+    owns: ["voice-agent/README.md", "voice-agent/requirements.txt"]
+    summary: "The voice-agent package's README (pipeline, call flow, env vars, run, probe, test, known limitations) and its pinned LiveKit Agents 1.6.4 dependency set with httpx."
+  - id: V02
+    name: tutor-prompt
+    deps: []
+    track: done
+    status: imported
+    owns: ["voice-agent/prompts.py", "voice-agent/tests/"]
+    summary: "build_system_prompt: the pure Bosnian-only tutor system prompt with CEFR A1-B2 level guidance and optional role-play scenarios, and its unittest suite."
+  - id: V03
+    name: agent-config
+    deps: []
+    track: done
+    status: imported
+    owns: ["voice-agent/config.py"]
+    summary: "load_config: the worker's settings from the environment, validated lazily, requiring only the selected providers' keys and raising ConfigError that names a missing variable."
+  - id: V04
+    name: turn-logger
+    deps: [V01]
+    track: done
+    status: imported
+    owns: ["voice-agent/turn_logger.py"]
+    summary: "TurnLogger: each tutor turn logged locally as JSON and, when BACKEND_TURNS_URL is set, posted fire-and-forget with an optional bearer token."
+  - id: V05
+    name: voice-worker
+    deps: [V01, V02, V03, V04, B09]
+    track: done
+    status: imported
+    owns: ["voice-agent/agent.py"]
+    summary: "The LiveKit Agents worker: Silero VAD prewarm, the STT and LLM provider seams, Azure bs-BA TTS, level and scenario from the room metadata, the tuned turn handling, and turn logging."
+  - id: V06
+    name: latency-probe
+    deps: [V01, V03, V05]
+    track: done
+    status: imported
+    owns: ["voice-agent/latency_probe.py"]
+    summary: "The per-stage latency probe: STT round trip, LLM first chunk and TTS first audio against the live providers, or SIMULATED figures with --mock, against the 0.6-1s budget."
+  - id: V07
+    name: voice-image
+    deps: [V01, V05]
+    track: done
+    status: imported
+    owns: ["voice-agent/Dockerfile", "voice-agent/.dockerignore"]
+    summary: "The self-contained python:3.11-slim worker image built from voice-agent/, run as a non-root user with python agent.py start, and its build-context ignore list."
