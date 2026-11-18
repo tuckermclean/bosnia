@@ -38,7 +38,7 @@ none: imported
 ## Gate
 
 - **C03-AC-1** — `stripCodeFence` removes a ` ```json ` fence and a plain ` ``` ` fence, and leaves unfenced text unchanged. *Verify:* `content/test/llm.test.ts` ("stripCodeFence").
-- **C03-AC-2** — `MockProvider` returns the canned reply of the first rule whose match string the prompt contains, and the fallback responder's reply otherwise. *Verify:* `content/test/llm.test.ts` ("MockProvider" › "returns the matching canned response for a prompt substring", "falls back to the default responder when nothing matches").
+- **C03-AC-2** — `MockProvider` returns a rule's canned reply for a prompt that contains its match string, and the fallback responder's reply otherwise. *Verify:* `content/test/llm.test.ts` ("MockProvider" › "returns the matching canned response for a prompt substring", "falls back to the default responder when nothing matches").
 - **C03-AC-3** — `MockProvider` records every prompt it receives, in order, and answers the same prompt the same way each time. *Verify:* `content/test/llm.test.ts` ("records every call it receives", "never hits the network — is fully offline/deterministic").
 - **C03-AC-4** — `generateJSON` returns what the caller's parser returns for a well-formed JSON reply, and rejects with an error containing "not valid JSON" for a reply that is not JSON. *Verify:* `content/test/llm.test.ts` ("generateJSON").
 - **C03-AC-5** — `getProvider` picks Anthropic when `ANTHROPIC_API_KEY` is set, else OpenAI when `OPENAI_API_KEY` is set, else `MockProvider`. *Verify:* unpinned.
@@ -46,9 +46,12 @@ none: imported
 
 ## Risks
 
-- Without either key, `getProvider` silently returns `MockProvider`, whose default reply fails the stages'
-  schemas: `npm run blueprint` or `npm run generate` without a key fails with a zod error, not an error naming
-  the missing key (principle 7).
+- Without either key, `getProvider` silently returns `MockProvider`, whose default reply fails the stages' schemas. The
+  stages return a cached blueprint or skill file before they call `getProvider` (C04), and the blueprint and all 29
+  skills are committed, so `npm run blueprint` and `npm run generate` succeed without a key and without an LLM call.
+  Only a blueprint or skill that is not cached, or a `--force` run, fails, and then with a zod error, not an error
+  naming the missing key (principle 7).
+- `hasLiveProvider()` would let a stage check for a key first, but nothing calls it.
 - The model ids `claude-sonnet-4-5` and `gpt-4.1` are hard-coded; a retired model breaks generation, and
   nothing in the tests notices.
 - The Anthropic provider has no JSON mode: it relies on the prompt and `stripCodeFence`; a reply with prose

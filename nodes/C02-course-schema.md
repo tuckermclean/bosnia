@@ -27,10 +27,10 @@ every stage parses with:
   non-empty and orders are non-negative integers;
 - the audio manifest: a record from hash to `{url, text, voice}`.
 
-`content/src/paths.ts` names where the pipeline reads and writes: `CONTENT_ROOT` (the package folder), and under
-a data root, which is `CONTENT_DATA_ROOT` when that is set (read once, at import) and the package folder
-otherwise: `generated/` with `skills/`, `blueprint.json` and `course.json`; `audio-out/` with
-`manifest.json`; and `review-export/`. `skillFilePath(id)` is `generated/skills/<id>.json`.
+`content/src/paths.ts` names where the pipeline reads and writes: `CONTENT_ROOT` (the package folder), and under a data
+root, which is `CONTENT_DATA_ROOT` when that is set (read once, at import) and the package folder otherwise:
+`generated/` with `skills/`, `blueprint.json` and `course.json`; `audio-out/` with `manifest.json`; and
+`review-export/`. `skillFilePath(id)` is `generated/skills/<id>.json`.
 
 ## Tests
 
@@ -50,17 +50,21 @@ none: imported
 - **C02-AC-3** — `CourseSchema` rejects a `multiple_choice` exercise without `choices`. *Verify:* `content/test/validate.test.ts` ("rejects a multiple_choice exercise missing choices").
 - **C02-AC-4** — `CourseSchema` rejects a course with no units. *Verify:* `content/test/validate.test.ts` ("rejects a course with an empty units array").
 - **C02-AC-5** — The committed `content/generated/course.json` parses under `CourseSchema`. *Verify:* `content/test/validate.test.ts` ("committed A1 content (integration)").
-- **C02-AC-6** — With `CONTENT_DATA_ROOT` set before import, every generated, audio and review-export path lies under that folder instead of the package folder. *Verify:* `content/test/generate-skill.test.ts` and `content/test/synthesize-audio.test.ts` (they write only under a temporary `CONTENT_DATA_ROOT`).
+- **C02-AC-6** — With `CONTENT_DATA_ROOT` set before import, the skill files and the audio manifest lie under that folder instead of the package folder. *Verify:* `content/test/generate-skill.test.ts` and `content/test/synthesize-audio.test.ts` (they write only under a temporary `CONTENT_DATA_ROOT`).
 - **C02-AC-7** — `BlueprintSchema` requires `language` `"bs"`, at least one level and unit, at least one skill per unit, and a positive integer `targetVocabCount` per skill. *Verify:* unpinned (no test parses a blueprint).
-- **C02-AC-8** — `AudioManifestSchema` is a record from a hash to `{url, text, voice}`, all non-empty. *Verify:* unpinned (the audio tests read the manifest as plain JSON).
+- **C02-AC-8** — `AudioManifestSchema` is a record from a hash to `{url, text, voice}`. *Verify:* `content/test/synthesize-audio.test.ts` ("is idempotent: a second run synthesizes nothing new (fully cached)": the second run loads the manifest through `AudioManifestSchema`, and a manifest that failed to parse would count nothing as cached).
+- **C02-AC-9** — `AudioManifestSchema` requires the `url`, `text` and `voice` of each entry to be non-empty. *Verify:* unpinned (no test gives the manifest an empty field).
+- **C02-AC-10** — With `CONTENT_DATA_ROOT` set before import, `REVIEW_EXPORT_DIR` lies under that folder. *Verify:* unpinned (no test touches `REVIEW_EXPORT_DIR`).
 
 ## Risks
 
 - The course schema is a contract with the backend's seed (`backend/scripts/seed-course.ts`,
-  `backend/src/auto-seed.ts`), which reads `course.json` and the manifest on its own; its comment asks for
-  lockstep changes, and no test spans both packages.
-- The schemas check shape only: nothing requires ids to be unique, an `answer` to be among its `choices`, or
-  `order` to be consecutive. Those rules live in the validator (C05), and id uniqueness is checked nowhere.
+  `backend/src/auto-seed.ts`), which reads `course.json` and the manifest with its own types; its comment asks for
+  lockstep changes. The backend's `integration.test.ts` and `auto-seed.test.ts` seed the committed `course.json`, but no
+  test checks `schema.ts` against the seed's own types.
+- The schemas check shape only: nothing requires ids to be unique, an `answer` to be among its `choices`, or `order` to
+  be consecutive. Of these, only answer-in-choices is checked, by the validator (C05); id uniqueness and consecutive
+  `order` are checked nowhere.
 - `paths.ts` reads `CONTENT_DATA_ROOT` once at import: a test that sets it after importing a stage writes into
   the real `content/generated/` (out of scope).
 - `audioHash` is optional on vocab, `listen_choose` and `speak` only, so the course's audio links depend on

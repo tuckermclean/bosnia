@@ -36,9 +36,10 @@ none: imported
 
 - **C06-AC-1** — Without the Azure key and region, a run makes no network call, reports `dryRun`, and records every new text in the manifest with a `PLACEHOLDER://` URL. *Verify:* `content/test/synthesize-audio.test.ts` ("writes a manifest with placeholder URLs and never touches the network").
 - **C06-AC-2** — A text seen earlier in the same run (a `speak` target equal to a vocab word) is synthesized once and counted as cached. *Verify:* `content/test/synthesize-audio.test.ts` ("writes a manifest with placeholder URLs and never touches the network").
-- **C06-AC-3** — Each vocab item and each `listen_choose`/`speak` exercise gets `audioHash` equal to `contentHash(text, "bs-BA-VesnaNeural")` in its skill file. *Verify:* `content/test/synthesize-audio.test.ts` ("stamps a matching audioHash back onto vocab and target-phrase exercises").
+- **C06-AC-3** — A vocab item and a `speak` exercise get `audioHash` equal to `contentHash(text, "bs-BA-VesnaNeural")` in their skill file. *Verify:* `content/test/synthesize-audio.test.ts` ("stamps a matching audioHash back onto vocab and target-phrase exercises", which checks the first vocab item and the `speak` exercise).
 - **C06-AC-4** — A second run synthesizes nothing and counts every text as cached. *Verify:* `content/test/synthesize-audio.test.ts` ("is idempotent: a second run synthesizes nothing new (fully cached)").
 - **C06-AC-5** — With the key and region set, each new text is posted as `bs-BA` SSML to Azure TTS, saved as `audio-out/<hash>.mp3` and recorded with that relative URL; a non-OK reply throws with its status. *Verify:* unpinned.
+- **C06-AC-6** — Every vocab item and every `listen_choose` and `speak` exercise gets its `audioHash`, not only the first vocab item and the `speak` exercise the test checks. *Verify:* unpinned.
 
 ## Risks
 
@@ -50,5 +51,5 @@ none: imported
 - An unreadable or invalid manifest is silently treated as empty and then overwritten.
 - The voice is read from `AZURE_TTS_VOICE` at import; changing it changes every hash, so every text is
   synthesized again.
-- The run rewrites skill files and `course.json` in `content/generated/` and the manifest in
-  `content/audio-out/`, both out of scope: a node may change this code but never run it against them.
+- The run rewrites skill files and `course.json` in `content/generated/` and the manifest in `content/audio-out/`, both
+  out of scope: a node may change this code but never run it against them.

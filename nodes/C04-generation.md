@@ -10,11 +10,10 @@
 
 Imported from the code. The first two pipeline stages and the course assembly.
 
-- `content/src/blueprint.ts` (`npm run blueprint`): `generateBlueprint` asks the LLM for a CEFR course
-  skeleton for the levels A1, A2, B1 and B2 (units with themes, skills with a grammar focus and a target vocab
-  count of 8 to 14, ids like `a1-u1-s1`), parses it with `BlueprintSchema` and writes
-  `generated/blueprint.json`. It is idempotent: a cached blueprint is returned without an LLM call unless
-  `--force` (`force: true`) is given.
+- `content/src/blueprint.ts` (`npm run blueprint`): `generateBlueprint` asks the LLM for a CEFR course skeleton for the
+  levels A1, A2, B1 and B2 (units with themes, skills with a grammar focus and a target vocab count of 8 to 14, ids like
+  `a1-u1-s1`), parses it with `BlueprintSchema` and writes `generated/blueprint.json`. It is idempotent: a cached
+  blueprint is returned without an LLM call unless `--force` (`force: true`) is given.
 - `content/src/generate-skill.ts`: `generateSkill(unit, skill)` asks the LLM for one skill's full content
   (grammar tip, vocab, one lesson of six exercises covering all five types, `reviewStatus` `unreviewed`),
   parses it with `SkillSchema`, then runs a self-review pass, a second call that asks the LLM to correct the
@@ -27,7 +26,8 @@ Imported from the code. The first two pipeline stages and the course assembly.
   validated by `CourseSchema`. `assembleCourse` throws when there is no blueprint or a skill file is missing;
   the audio (C06) and apply-review (C07) stages call it too.
 
-Each stage file runs its `main()` only when executed directly, and sets a non-zero exit code on an error.
+`blueprint.ts` and `generate.ts` each run their `main()` only when executed directly, and set a non-zero exit code on an
+error; `generate-skill.ts` has no `main()` and is only imported.
 
 ## Tests
 
@@ -46,7 +46,7 @@ none: imported
 - **C04-AC-3** — With `force: true`, `generateSkill` regenerates a skill whose file exists (two more LLM calls). *Verify:* `content/test/generate-skill.test.ts` ("regenerates when force:true is passed, even if a cached file exists").
 - **C04-AC-4** — When the self-review reply is not valid JSON, `generateSkill` keeps the validated draft. *Verify:* `content/test/generate-skill.test.ts` ("falls back to the validated draft if the self-review pass returns garbage").
 - **C04-AC-5** — `generateBlueprint` returns the cached `generated/blueprint.json` without an LLM call unless `force` is set, and otherwise writes the schema-validated blueprint for A1→B2. *Verify:* unpinned.
-- **C04-AC-6** — `assembleCourse` writes `generated/course.json` from the blueprint's units and skills in `order`, and throws naming the skill when a skill file is missing, or when there is no blueprint. *Verify:* unpinned.
+- **C04-AC-6** — `assembleCourse` writes `generated/course.json` from the blueprint's units and skills in `order`, throws when there is no blueprint, and names the skill when a skill file is missing. *Verify:* unpinned.
 - **C04-AC-7** — `runGenerate` generates only the skills without a file (all of them, and the blueprint, with `--force`), then assembles the course. *Verify:* unpinned.
 
 ## Risks
@@ -55,9 +55,10 @@ none: imported
   nodes: a node may change this code but never run it against the committed curriculum.
 - The self-review pass swallows every error, network failures included, and nothing checks that the reviewed
   skill kept the draft's ids, as the prompt asks.
-- Neither the blueprint nor the skill stage checks that the LLM's ids are unique or follow the
-  `<level>-u<n>-s<n>` pattern that the review tooling (C07) parses; only the prompts ask for it.
-- A run without an LLM key falls back to `MockProvider` and fails on a schema error rather than naming the
-  missing key (C03).
+- Neither the blueprint nor the skill stage checks that the LLM's ids are unique or have the form the review tooling
+  (C07) parses (a skill id matching `^(.*-u\d+-s\d+)` and starting with its unit's id); only the prompts ask for it.
+- A run without an LLM key returns the cached blueprint and skill files without an LLM call, so with the committed
+  curriculum it succeeds. A blueprint or skill that is not cached, or a `--force` run, falls back to `MockProvider` and
+  fails on a schema error rather than naming the missing key (C03).
 - The "run when executed directly" check compares `import.meta.url` with `file://` plus `process.argv[1]`;
   a path that needs URL escaping (a space, say) never runs `main()`, silently.

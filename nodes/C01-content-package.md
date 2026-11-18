@@ -8,14 +8,13 @@
 
 ## Purpose
 
-Imported from the code. `content/package.json` makes `content/` the workspace package `@bosanski/content`
-(private, ES modules, version 0.1.0). Its scripts run each pipeline stage with `tsx`: `blueprint`
-(`src/blueprint.ts`), `generate` (`src/generate.ts`), `validate` (`src/validate.ts`), `audio`
-(`src/synthesize-audio.ts`), `export-review` (`src/export-review.ts`) and `apply-review`
-(`src/apply-review.ts`); `test` is `vitest run`, `test:watch` is `vitest`, and `typecheck` is
-`tsc -p tsconfig.json --noEmit`. Its runtime dependencies are `@anthropic-ai/sdk`, `openai` and `zod`; its dev
-dependencies are `@types/node`, `tsx`, `typescript` and `vitest`, all as caret ranges pinned by the root
-lockfile (R01).
+Imported from the code. `content/package.json` makes `content/` the workspace package `@bosanski/content` (private, ES
+modules, version 0.1.0). Its scripts run each pipeline stage with `tsx`: `blueprint` (`src/blueprint.ts`), `generate`
+(`src/generate.ts`), `validate` (`src/validate.ts`), `audio` (`src/synthesize-audio.ts`), `export-review`
+(`src/export-review.ts`) and `apply-review` (`src/apply-review.ts`); `test` is `vitest run`, `test:watch` is `vitest`,
+and `typecheck` is `tsc -p tsconfig.json --noEmit`. Its runtime dependencies are `@anthropic-ai/sdk`, `openai` and
+`zod`; its dev dependencies are `@types/node`, `tsx`, `typescript` and `vitest`. All of them are caret ranges, and the
+root lockfile (R01) pins them.
 
 `content/tsconfig.json` extends the root `tsconfig.base.json` (R01), adds the Node types and compiles `src/`,
 `test/` and `scripts/` (so the typecheck covers the tests and `scripts/seed-a1.ts`). `content/vitest.config.ts`
@@ -30,8 +29,8 @@ speaker signs off.
 
 ## Tests
 
-No test reads these files. Every content test runs through them: the gate's `npm run test -w @bosanski/content`
-runs the package's `test` script, which runs vitest with `vitest.config.ts`. CI's
+No test reads these files. Every content test runs through `package.json` and `vitest.config.ts`: the gate's
+`npm run test -w @bosanski/content` runs the package's `test` script, which runs vitest with `vitest.config.ts`. CI's
 `npm run typecheck -w @bosanski/content` compiles under `tsconfig.json`; it is not a test.
 
 ## Changes
@@ -54,8 +53,8 @@ none: imported
 - The README says audio runs dry when `AZURE_SPEECH_KEY` is unset; the code also runs dry when only
   `AZURE_SPEECH_REGION` is unset (C06). It says `apply-review` flips "items" to reviewed; the code flips every
   skill of the unit (C07).
-- The dependencies are caret ranges: the lockfile (R01) is what pins them, so a dependency bump changes both
-  `content/package.json` and `package-lock.json` (principle 6).
+- The dependencies are caret ranges: the lockfile (R01) is what pins them, so a bump within the range changes only
+  `package-lock.json`, and one past it changes `content/package.json` too (principle 6).
 - The stage scripts run plain `tsx`, so they do not load the root `.env`: their keys must be exported in the
   shell, as the README shows.
 - The content suite includes an integration test over the committed `content/generated/course.json` (C05), so
