@@ -22,13 +22,15 @@ folders of the backend, content and voice agent, `content/src`, `content/scripts
 files in `content/audio-out/` other than `manifest.json`, `.vscode` and `.idea`, and the root's env, log and
 `.DS_Store` files (`.env`, `.env.local`, `*.local`, `*.log`, `.DS_Store`). These env, log and `.DS_Store`
 patterns match only at the context root, unlike the same patterns in `.gitignore`, which match at any depth.
-`.vscode` and `.idea` also match only at the root; `.gitignore` names neither. Everything else stays in the
-context: the root manifests, lockfile and `tsconfig.base.json`, the backend's sources, scripts and config,
-`content/generated/`, `content/audio-out/manifest.json` and content's manifest and config, `voice-agent/`
-without its tests, `deploy/`, `docs/`, `nodes/`, `.noodlebot/`, the root docs and spec files, and
-`.env.example`. What reaches the image is what `backend/Dockerfile` copies, including `content/generated/` and
-`content/audio-out/manifest.json`. The voice agent's image has its own `voice-agent/.dockerignore`, which this
-node does not own.
+`.vscode` and `.idea` also match only at the root; `.gitignore` names neither. Every other tracked file stays in
+the context: at the root, `package.json`, `package-lock.json`, `tsconfig.base.json`, `.env.example`,
+`.gitignore`, `.dockerignore` itself, the docs (`README.md`, `DEPLOY.md`, `FOLLOWUPS.md`) and the spec files
+(`SPEC.md`, `AGENTS.md`); in `backend/`, `src/`, `scripts/`, `Dockerfile`, `README.md`, `package.json`,
+`tsconfig.json` and `vitest.config.ts`; in `content/`, `generated/`, `audio-out/manifest.json`, `README.md`,
+`package.json`, `tsconfig.json` and `vitest.config.ts`; `voice-agent/` without its tests; and the `deploy/`,
+`docs/`, `nodes/` and `.noodlebot/` folders. What reaches the image is what `backend/Dockerfile` copies,
+including `content/generated/` and `content/audio-out/manifest.json`. The voice agent's image has its own
+`voice-agent/.dockerignore`, which this node does not own.
 
 ## Tests
 
