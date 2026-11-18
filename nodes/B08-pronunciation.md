@@ -11,16 +11,15 @@
 Imported from the code. The pronunciation grader: transcribe the learner's recording, score the transcript
 against the target phrase, keep the attempt.
 
-- `backend/src/services/scoring.ts` is pure and deterministic. `normalizeText` applies NFC, lowercases, turns
-  hyphens and dashes into spaces, strips punctuation and collapses whitespace, keeping the Bosnian letters
-  (č, ć, đ, š, ž). `levenshtein` is the edit distance and `charSimilarity` is `1 - distance / longer length`
-  (1 for two empty strings). `scorePronunciation(target, transcript)` aligns the two word sequences in order
-  (Needleman–Wunsch on character similarity, gap penalty -0.1); a target word is matched when its aligned word's
-  similarity is at least 0.8 (`WORD_MATCH_THRESHOLD`). The score is
-  `round(100 * clamp(0.5 * matched fraction + 0.3 * mean similarity + 0.2 * whole-text similarity - insertion
-  penalty))`, the penalty being `min(0.3, 0.15 * extra words / target words)`. It returns the score, the
-  per-word results (target, matched, similarity, what was heard) and the normalized transcript and target. An
-  empty target scores 100 against an empty transcript and 0 otherwise.
+- `backend/src/services/scoring.ts` is pure and deterministic. `normalizeText` applies NFC, lowercases, turns hyphens
+  and dashes into spaces, strips punctuation and collapses whitespace, keeping the Bosnian letters (č, ć, đ, š, ž).
+  `levenshtein` is the edit distance and `charSimilarity` is `1 - distance / longer length` (1 for two empty strings).
+  `scorePronunciation(target, transcript)` aligns the two word sequences in order (Needleman–Wunsch on character
+  similarity, gap penalty -0.1); a target word is matched when its aligned word's similarity is at least 0.8
+  (`WORD_MATCH_THRESHOLD`). The score is `round(100 * clamp(0.5 * matched fraction + 0.3 * mean similarity + 0.2 *
+  whole-text similarity - insertion penalty))`, the penalty being `min(0.3, 0.15 * extra words / target words)`. It
+  returns the score, the per-word results (target, matched, similarity, what was heard) and the normalized transcript
+  and target. An empty target scores 100 against an empty transcript and 0 otherwise.
 - `backend/src/routes/pronunciation.ts`: `processPronunciation(deps, input)` transcribes the audio with the
   injected transcriber (B04), scores it, saves a `pronunciation_attempts` row (the exercise id or null) and
   returns `{score, perWord, transcript}`. `POST /api/pronunciation` (logged in, multipart) reads the `audio` file
@@ -45,7 +44,7 @@ none: imported
 - **B08-AC-2** — `levenshtein` is 0 for equal strings and counts single edits; `charSimilarity` is 1 for equal strings, two empties included, and 0 for two different single characters. *Verify:* `backend/test/scoring.test.ts` ("is zero for identical strings"), `backend/test/scoring.test.ts` ("counts single edits"), `backend/test/scoring.test.ts` ("is 1 for identical, 0 for fully different length-1"), `backend/test/scoring.test.ts` ("treats two empties as identical").
 - **B08-AC-3** — An exact match scores 100 with every word matched, whatever the case and punctuation. *Verify:* `backend/test/scoring.test.ts` ("gives a perfect score for an exact match"), `backend/test/scoring.test.ts` ("is invariant to case and punctuation").
 - **B08-AC-4** — An empty transcript scores 0 with every target word unmatched. *Verify:* `backend/test/scoring.test.ts` ("scores an empty transcript as zero with all words unmatched").
-- **B08-AC-5** — One wrong word of three is unmatched and the score stays between 40 and 90; a word one letter off still matches and scores above 70. *Verify:* `backend/test/scoring.test.ts` ("marks one wrong word out of three as unmatched and keeps the score partial"), `backend/test/scoring.test.ts` ("accepts a minor mispronunciation within the tolerance threshold").
+- **B08-AC-5** — One wrong word of three is unmatched and the score stays between 40 and 90; a five-letter word one letter off still matches and scores above 70. *Verify:* `backend/test/scoring.test.ts` ("marks one wrong word out of three as unmatched and keeps the score partial"), `backend/test/scoring.test.ts` ("accepts a minor mispronunciation within the tolerance threshold").
 - **B08-AC-6** — Extra words lower the score but keep it above 0, and the target words still match. *Verify:* `backend/test/scoring.test.ts` ("penalizes extra inserted words but stays above zero").
 - **B08-AC-7** — Scoring is deterministic, and each target word reports what was heard. *Verify:* `backend/test/scoring.test.ts` ("is deterministic"), `backend/test/scoring.test.ts` ("reports what was heard for each target word").
 - **B08-AC-8** — `processPronunciation` returns what `scorePronunciation` gives for the transcript and saves the attempt, with a null exercise id when none is given and the id when one is. *Verify:* `backend/test/pronunciation.test.ts` ("scores against the fake transcript exactly like scorePronunciation and persists the attempt"), `backend/test/pronunciation.test.ts` ("records the exerciseId when provided").
@@ -60,6 +59,8 @@ none: imported
 - Without `GROQ_API_KEY` the route answers 500, not principle 7's 503 (`SPEC.md`, known gaps).
 - The target phrase and exercise id come from the client and are not checked against an exercise or its lock.
   Each request is a paid Groq call, with no rate limit.
+- A request that is not multipart is answered 500, not a 4xx: the multipart plugin's error carries its own status, but
+  the app's error handler (B10) answers every error that is neither an `HttpError` nor a zod error with 500.
 - The audio type is the one the client declares; the whole file (up to 10 MiB) is buffered in memory.
 - The punctuation class repeats the ASCII `"` and `'` where typographic quotes (U+201C, U+201D, U+2018, U+2019)
   may have been meant, so those quotes are not stripped and lower a word's similarity.

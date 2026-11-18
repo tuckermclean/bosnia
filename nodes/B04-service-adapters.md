@@ -11,8 +11,8 @@
 Imported from the code. The injected dependencies of the routes, the two external services behind them, and
 their test fakes.
 
-- `backend/src/deps.ts`: `AppDeps` is `{ db, transcriber, minter }`, what every route gets, so tests can pass
-  fakes.
+- `backend/src/deps.ts`: `AppDeps`, the `{ db, transcriber, minter }` that every route is given, so tests can pass in
+  fakes instead.
 - `backend/src/services/groq.ts`: the `Transcriber` interface (`transcribe(audio, filename)` returns the text)
   and `createGroqTranscriber(apiKey = GROQ_API_KEY)`, which sends the audio to Groq's `whisper-large-v3` with
   `language: "bs"` and `temperature: 0` and returns the trimmed text.
@@ -42,8 +42,8 @@ none: imported
 
 ## Gate
 
-- **B04-AC-1** — Routes reach the transcriber and the minter only through `AppDeps`, so a test replaces both with the fakes of `helpers.ts` and runs without a key. *Verify:* `backend/test/tutor.test.ts` ("mints a room token, returns a sessionId, and records a tutor session").
-- **B04-AC-2** — `fakeMinter` records each `mint()` call's identity, room name and metadata. *Verify:* `backend/test/tutor.test.ts` ("forwards {level, scenario} to the LiveKit minter as room metadata, and persists level").
+- **B04-AC-1** — Routes reach the transcriber and the minter only through `AppDeps`, so a test replaces both with the fakes of `helpers.ts` and runs without a key. *Verify:* `backend/test/tutor.test.ts` ("mints a room token, returns a sessionId, and records a tutor session"), `backend/test/pronunciation.test.ts` ("scores a real multipart audio upload end-to-end").
+- **B04-AC-2** — `fakeMinter` records each `mint()` call's metadata on `.calls`. *Verify:* `backend/test/tutor.test.ts` ("forwards {level, scenario} to the LiveKit minter as room metadata, and persists level").
 - **B04-AC-3** — `createGroqTranscriber` transcribes with `whisper-large-v3`, language `bs`, temperature 0, and returns the trimmed text. *Verify:* unpinned.
 - **B04-AC-4** — `createLiveKitMinter().mint` sets the room's metadata to the JSON `{level, scenario}` before it returns the token, only when either is given, and the token grants join, publish and subscribe for that one room for one hour. *Verify:* unpinned.
 - **B04-AC-5** — `npm run smoke:groq` exits 0 without calling Groq when `GROQ_API_KEY` is unset. *Verify:* unpinned.

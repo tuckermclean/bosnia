@@ -23,17 +23,17 @@ the database.
   defaults to the sibling `content/` folder. Without `course.json` it prints that there is nothing to seed and
   exits 0; without a manifest it seeds with no audio URLs. It opens the database (B03), runs `initSchema()`,
   seeds, prints the counts and closes. Imported as a module, it runs nothing.
-- `backend/src/auto-seed.ts`: `maybeAutoSeed(db, log)`, which the server (B10) calls in local dev. When the
-  `courses` table already has a row it does nothing (`not-empty`); else it reads the same two files and seeds
-  them through `seedCourse`, logging the counts. A missing `course.json` (`no-course-json`) or any error
-  (`error`) is logged and returned, never thrown, so the server boots regardless.
+- `backend/src/auto-seed.ts`: `maybeAutoSeed(db, log)`, which the server (B10) calls at boot by default in local dev.
+  When the `courses` table already has a row it does nothing (`not-empty`); else it reads the same two files and seeds
+  them through `seedCourse`, logging the counts. A missing `course.json` (`no-course-json`) or any error (`error`) is
+  logged and returned, never thrown, so the server boots regardless.
 
 ## Tests
 
-`backend/test/auto-seed.test.ts`: `maybeAutoSeed` seeds the committed `content/generated/course.json` into an
-empty database and logs it; it does nothing on a database that already has a course. The server's integration
-test (B10) seeds the same file with `seedCourse` and checks the counts against it. No test covers the CLI, the
-manifest's audio URLs, `CONTENT_DIR`, re-seeding, or the `no-course-json` and `error` outcomes.
+`backend/test/auto-seed.test.ts`: `maybeAutoSeed` seeds the committed `content/generated/course.json` into an empty
+database and logs it; it does nothing on a database that already has a course. The server's integration test (B10) seeds
+the same file with `seedCourse` and checks the counts it returns against it. No test covers the CLI, the manifest's
+audio URLs, `CONTENT_DIR`, re-seeding, or the `no-course-json` and `error` outcomes.
 
 ## Changes
 
@@ -41,9 +41,9 @@ none: imported
 
 ## Gate
 
-- **B06-AC-1** — `maybeAutoSeed` on an empty database seeds the committed course (units, skills, lessons and exercises, under `COURSE_ID`) and logs it. *Verify:* `backend/test/auto-seed.test.ts` ("seeds the real generated course content into a fresh, empty DB").
+- **B06-AC-1** — `maybeAutoSeed` on an empty database seeds units, skills, lessons and exercises from the committed course, under `COURSE_ID`, and logs it. *Verify:* `backend/test/auto-seed.test.ts` ("seeds the real generated course content into a fresh, empty DB").
 - **B06-AC-2** — `maybeAutoSeed` on a database that already has a course changes nothing and logs nothing. *Verify:* `backend/test/auto-seed.test.ts` ("no-ops when the DB already has course rows").
-- **B06-AC-3** — `seedCourse` writes as many units, skills, lessons and exercises as `course.json` holds. *Verify:* `backend/test/integration.test.ts` (the `beforeAll` of "end-to-end: real seeded content through the API", which compares the counts with `course.json`).
+- **B06-AC-3** — `seedCourse` returns counts of units, skills, lessons and exercises equal to `course.json`'s. *Verify:* `backend/test/integration.test.ts` (the `beforeAll` of "end-to-end: real seeded content through the API", which compares the counts with `course.json`).
 - **B06-AC-4** — Seeding again upserts every row by id, so a re-run after the content changes updates rows rather than failing. *Verify:* unpinned.
 - **B06-AC-5** — An exercise's `audioUrl` is the manifest entry's `url` for its `audioHash`, and each exercise takes its skill's `review_status`. *Verify:* unpinned.
 - **B06-AC-6** — The seed CLI exits 0 with a message when `course.json` is missing, and reads its files under `CONTENT_DIR` when set. *Verify:* unpinned.
@@ -55,8 +55,8 @@ none: imported
   and is still served.
 - It runs one upsert per row without a transaction, so a failure leaves a partial seed; an auto-seed that failed
   half-way leaves a course row, and the next boot then skips seeding (`not-empty`).
-- `course.json` is cast to `RawCourse`, not parsed: nothing checks it against the content's `CourseSchema` (C02),
-  which the two sides keep in step by hand.
+- The seed casts `course.json` to `RawCourse` without parsing it, and nothing checks that `RawCourse` matches the
+  content's `CourseSchema` (C02); the two are kept in step by hand.
 - The manifest's URLs are copied as they are: a placeholder or a relative path never plays (OD4, priority 5).
 - The auto-seed test and the integration test read the committed curriculum (`content/generated/`, out of scope
   for nodes), so a regeneration by the owner changes what they seed.

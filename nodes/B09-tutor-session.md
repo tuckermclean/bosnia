@@ -37,8 +37,8 @@ none: imported
 
 - Without the LiveKit settings the minter throws and the route answers 500, not principle 7's 503 (`SPEC.md`,
   known gaps).
-- The room is minted before the session row is saved: if the save fails, a room and a token exist without a
-  session.
+- The token is minted before the session row is saved: if the save fails, a token exists without a session, and so does
+  a room when `level` or `scenario` was given (the minter creates one only then).
 - The room name carries the user's id, which every participant of the room sees.
 - The `scenario` is free text, passed to the room's metadata unchecked and not saved.
 - No endpoint ends a session or records its turns; `ended_at`, `duration_sec` and `tutor_turns` stay empty

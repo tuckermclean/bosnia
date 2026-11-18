@@ -96,7 +96,7 @@ nodes:
     track: done
     status: imported
     owns: ["backend/package.json", "backend/tsconfig.json", "backend/vitest.config.ts", "backend/README.md"]
-    summary: "The @bosanski/backend workspace package: its scripts (dev, build, typecheck, vitest test, seed, smoke:groq), dependencies, tsconfig, vitest config and README."
+    summary: "The @bosanski/backend workspace package: its scripts (dev, start, build, typecheck, test with vitest, test:watch, db:generate, db:migrate, seed, smoke:groq), dependencies, tsconfig, vitest config and README."
   - id: B02
     name: env-config
     deps: [B01]

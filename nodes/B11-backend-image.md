@@ -14,12 +14,11 @@ the build context (it needs the root workspace manifests and the content package
 - The build stage (`node:22-slim`) copies the root `package.json`, `package-lock.json` and `tsconfig.base.json`
   and the backend and content `package.json` files, runs `npm ci`, then copies `backend/` and runs
   `npm run build -w @bosanski/backend`.
-- The runtime stage (`node:22-slim`, `NODE_ENV=production`) installs the production dependencies
-  (`npm ci --omit=dev`) from the root manifests and the backend's, copies the compiled `backend/dist`, and bakes
-  in `content/generated` and `content/audio-out/manifest.json`, with `CONTENT_DIR=/app/content` so the
-  compiled seed script and the auto-seed (B06) find them. It runs as the `node` user, exposes port 3000 and
-  starts `node backend/dist/src/index.js` (B10). The seed Job runs `node backend/dist/scripts/seed-course.js`
-  in the same image.
+- The runtime stage (`node:22-slim`, `NODE_ENV=production`) installs the production dependencies (`npm ci --omit=dev`)
+  from the root manifests and the backend's, copies the compiled `backend/dist`, and bakes in `content/generated` and
+  `content/audio-out/manifest.json`, with `CONTENT_DIR=/app/content` so the compiled seed script and the auto-seed (B06)
+  find them. It runs as the `node` user, exposes port 3000 and starts `node backend/dist/src/index.js` (B10). The seed
+  Job runs `node backend/dist/scripts/seed-course.js` in the same image.
 
 ## Tests
 

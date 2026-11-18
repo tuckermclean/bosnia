@@ -10,14 +10,14 @@
 
 Imported from the code. The `@bosanski/backend` workspace package (private, ESM, version 0.1.0).
 
-- `backend/package.json` defines the scripts `dev` (`tsx watch src/index.ts`), `start` (`node dist/index.js`),
-  `build` (`tsc -p tsconfig.json`), `typecheck` (the same with `--noEmit`), `test` (`vitest run`), `test:watch`,
-  `db:generate` (`drizzle-kit generate`), `db:migrate` (`tsx src/db/migrate.ts`), `seed`
-  (`tsx scripts/seed-course.ts`) and `smoke:groq` (`tsx scripts/smoke-groq.ts`). Its runtime dependencies are
-  Fastify 5 with `@fastify/cors`, `@fastify/helmet` and `@fastify/multipart`, `drizzle-orm` over
-  `@electric-sql/pglite` and `postgres`, `@node-rs/argon2`, `jsonwebtoken`, `groq-sdk`, `livekit-server-sdk`
-  and zod 4; its dev dependencies add `drizzle-kit`, `form-data` (for the multipart tests), `tsx`, TypeScript
-  and vitest. The ranges are caret ranges; the root lockfile (R01) pins the versions.
+- `backend/package.json` defines the scripts `dev` (`tsx watch src/index.ts`), `start` (`node dist/index.js`), `build`
+  (`tsc -p tsconfig.json`), `typecheck` (the same with `--noEmit`), `test` (`vitest run`), `test:watch`, `db:generate`
+  (`drizzle-kit generate`), `db:migrate` (`tsx src/db/migrate.ts`), `seed` (`tsx scripts/seed-course.ts`) and
+  `smoke:groq` (`tsx scripts/smoke-groq.ts`). Its runtime dependencies are Fastify 5 with `@fastify/cors`,
+  `@fastify/helmet` and `@fastify/multipart`, `drizzle-orm` over `@electric-sql/pglite` and `postgres`,
+  `@node-rs/argon2`, `jsonwebtoken`, `groq-sdk`, `livekit-server-sdk` and zod 4; its dev dependencies add
+  `@types/jsonwebtoken`, `@types/node`, `drizzle-kit`, `form-data` (for the multipart tests), `tsx`, TypeScript and
+  vitest. The ranges are caret ranges; the root lockfile (R01) pins the versions.
 - `backend/tsconfig.json` extends `../tsconfig.base.json` (R01) with `outDir` `dist`, `rootDir` `.` and the
   `node` types, and includes `src`, `scripts`, `test` and `drizzle.config.ts`.
 - `backend/vitest.config.ts` runs `test/**/*.test.ts` in the node environment with globals on and 30-second

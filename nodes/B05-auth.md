@@ -44,7 +44,7 @@ none: imported
 
 ## Gate
 
-- **B05-AC-1** — Register and login return an access token and a refresh token, and the access token opens `GET /api/auth/me`, which returns the user's email. *Verify:* `backend/test/auth.test.ts` ("registers, logs in, rotates refresh tokens, and fetches /me").
+- **B05-AC-1** — Register answers 200 with the user's email, login returns an access token and a refresh token, and the access token issued by refresh opens `GET /api/auth/me`, which returns the user's email. *Verify:* `backend/test/auth.test.ts` ("registers, logs in, rotates refresh tokens, and fetches /me").
 - **B05-AC-2** — `POST /api/auth/refresh` returns a new refresh token, and the used one is refused with 401 afterwards. *Verify:* `backend/test/auth.test.ts` ("registers, logs in, rotates refresh tokens, and fetches /me").
 - **B05-AC-3** — A request to an authenticated route without a bearer token is answered 401. *Verify:* `backend/test/auth.test.ts` ("rejects /me without a bearer token"), `backend/test/tutor.test.ts` ("rejects tutor session requests without auth").
 - **B05-AC-4** — Registering an email a second time is answered 409. *Verify:* `backend/test/auth.test.ts` ("rejects registering the same email twice with 409").
