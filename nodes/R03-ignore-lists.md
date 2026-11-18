@@ -16,15 +16,19 @@ Python caches and the voice agent's `.venv/`, the Expo and native build folders 
 `.DS_Store`. Its comments record that the generated curriculum JSON is tracked on purpose.
 
 `.dockerignore` is the build-context filter for the backend image, which `backend/Dockerfile` builds with the
-repository root as its context. It leaves out dependencies and Python caches, `.git` and `.github`, the whole
-`app/` tree, host build output, the test folders of the backend, content and voice agent, the content pipeline's
-source and scripts, the review export and audio files other than the manifest, editor files, logs and the
-root env files. Its env, editor and log patterns (`.env`, `.env.local`, `*.local`, `*.log`, `.vscode`, `.idea`)
-match only at the context root, unlike `.gitignore`'s. The filter keeps the app, the tests, the pipeline
-source, `.git` and the root env files out of the context; the rest of the repository stays in it
-(`voice-agent/` without its tests, `deploy/`, the docs and spec files, `.env.example`), and what reaches the
-image is what `backend/Dockerfile` copies (`content/generated/` and `content/audio-out/manifest.json` among
-it). The voice agent's image has its own `voice-agent/.dockerignore`, which this node does not own.
+repository root as its context. It leaves out `node_modules`, `.venv` folders and Python caches at any depth,
+`.git` and `.github`, the whole `app/` tree, `backend/dist`, `content/dist` and `*.tsbuildinfo` files, the test
+folders of the backend, content and voice agent, `content/src`, `content/scripts`, `content/review-export`, the
+files in `content/audio-out/` other than `manifest.json`, `.vscode` and `.idea`, and the root's env, log and
+`.DS_Store` files (`.env`, `.env.local`, `*.local`, `*.log`, `.DS_Store`). These env, log and `.DS_Store`
+patterns match only at the context root, unlike the same patterns in `.gitignore`, which match at any depth.
+`.vscode` and `.idea` also match only at the root; `.gitignore` names neither. Everything else stays in the
+context: the root manifests, lockfile and `tsconfig.base.json`, the backend's sources, scripts and config,
+`content/generated/`, `content/audio-out/manifest.json` and content's manifest and config, `voice-agent/`
+without its tests, `deploy/`, `docs/`, `nodes/`, `.noodlebot/`, the root docs and spec files, and
+`.env.example`. What reaches the image is what `backend/Dockerfile` copies, including `content/generated/` and
+`content/audio-out/manifest.json`. The voice agent's image has its own `voice-agent/.dockerignore`, which this
+node does not own.
 
 ## Tests
 

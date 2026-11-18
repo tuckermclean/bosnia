@@ -10,11 +10,11 @@
 
 Imported from the code. `README.md` introduces the app (Ljiljan, for learning Bosnian), the four packages and
 what each does, a diagram of how they talk (app → backend → Groq Whisper for pronunciation; the backend mints a
-LiveKit token for the app (`POST /api/tutor/session`), and the app joins the LiveKit room with the voice agent;
-content → backend seed → Postgres), the key decisions and caveats (keys server-side,
-coarse pronunciation scoring, `bs-BA` voice authenticity over latency, generated content shipped `unreviewed`),
-local development without Docker (PGlite, `npm install`, `npm test -w @bosanski/backend`,
-`npm run dev -w @bosanski/backend`), and CI/CD with a pointer to `DEPLOY.md`.
+LiveKit token for the app at `POST /api/tutor/session`, and the app joins the LiveKit room with the voice agent;
+content → backend seed → Postgres), the key decisions and caveats (keys server-side, coarse pronunciation scoring,
+`bs-BA` voice authenticity over latency, generated content shipped `unreviewed`), local development without
+Docker (PGlite, `npm install`, `npm test -w @bosanski/backend`, `npm run dev -w @bosanski/backend`), and CI/CD
+with a pointer to `DEPLOY.md`.
 
 `FOLLOWUPS.md` is the backlog of deferred work: tutor turn persistence and session end, refresh-token reuse
 detection, the CORS allowlist; the known MVP limitations (no voice tutor in Expo Go, coarse scoring, unreviewed

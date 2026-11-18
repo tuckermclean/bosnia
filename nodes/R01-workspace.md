@@ -17,8 +17,7 @@ dependency tree of the root and both workspaces; CI installs it with `npm ci`, a
 `tsconfig.base.json` holds the compiler options that `backend/tsconfig.json` and `content/tsconfig.json`
 extend: target and `lib` ES2022, `NodeNext` modules and resolution, `strict`, `noUncheckedIndexedAccess`,
 `noImplicitOverride`, `esModuleInterop`, `skipLibCheck`, `forceConsistentCasingInFileNames`,
-`resolveJsonModule`, declarations and source maps.
-(`app/tsconfig.json` extends Expo's base, not this file.)
+`resolveJsonModule`, declarations and source maps. (`app/tsconfig.json` extends Expo's base, not this file.)
 
 ## Tests
 
