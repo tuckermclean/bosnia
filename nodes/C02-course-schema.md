@@ -52,8 +52,8 @@ none: imported
 - **C02-AC-5** — The committed `content/generated/course.json` parses under `CourseSchema`. *Verify:* `content/test/validate.test.ts` ("committed A1 content (integration)").
 - **C02-AC-6** — With `CONTENT_DATA_ROOT` set before import, the skill files and the audio manifest lie under that folder instead of the package folder. *Verify:* `content/test/generate-skill.test.ts` and `content/test/synthesize-audio.test.ts` (they write only under a temporary `CONTENT_DATA_ROOT`).
 - **C02-AC-7** — `BlueprintSchema` requires `language` `"bs"`, at least one level and unit, at least one skill per unit, and a positive integer `targetVocabCount` per skill. *Verify:* unpinned (no test parses a blueprint).
-- **C02-AC-8** — `AudioManifestSchema` is a record from a hash to `{url, text, voice}`. *Verify:* `content/test/synthesize-audio.test.ts` ("is idempotent: a second run synthesizes nothing new (fully cached)": the second run loads the manifest through `AudioManifestSchema`, and a manifest that failed to parse would count nothing as cached).
-- **C02-AC-9** — `AudioManifestSchema` requires the `url`, `text` and `voice` of each entry to be non-empty. *Verify:* unpinned (no test gives the manifest an empty field).
+- **C02-AC-8** — `AudioManifestSchema` parses the manifest the audio stage writes, so a second run counts its texts as cached. *Verify:* `content/test/synthesize-audio.test.ts` ("is idempotent: a second run synthesizes nothing new (fully cached)": the second run loads the manifest through `AudioManifestSchema`, and a manifest that failed to parse would count nothing as cached).
+- **C02-AC-9** — `AudioManifestSchema` is a record from a hash to `{url, text, voice}`, and requires each of the three to be non-empty. *Verify:* unpinned (zod strips unknown keys, so the audio test still passes with an entry schema of no fields; no test gives the manifest a missing or empty field).
 - **C02-AC-10** — With `CONTENT_DATA_ROOT` set before import, `REVIEW_EXPORT_DIR` lies under that folder. *Verify:* unpinned (no test touches `REVIEW_EXPORT_DIR`).
 
 ## Risks

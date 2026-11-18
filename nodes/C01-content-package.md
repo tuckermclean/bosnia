@@ -52,7 +52,7 @@ none: imported
   script defines (`scripts/seed-a1.ts` is run with `npx tsx`, C08).
 - The README says audio runs dry when `AZURE_SPEECH_KEY` is unset; the code also runs dry when only
   `AZURE_SPEECH_REGION` is unset (C06). It says `apply-review` flips "items" to reviewed; the code flips every
-  skill of the unit (C07).
+  skill file named `<unitId>-s*.json` (C07).
 - The dependencies are caret ranges: the lockfile (R01) is what pins them, so a bump within the range changes only
   `package-lock.json`, and one past it changes `content/package.json` too (principle 6).
 - The stage scripts run plain `tsx`, so they do not load the root `.env`: their keys must be exported in the

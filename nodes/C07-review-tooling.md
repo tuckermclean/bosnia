@@ -44,12 +44,12 @@ none: imported
 - **C07-AC-1** — `parseCsv` reads back what `toCsvRow` writes, including fields with quotes, commas and line breaks. *Verify:* unpinned.
 - **C07-AC-2** — `export-review` writes one Markdown and one CSV file per unit of `course.json`, with one row per vocab item, `match_pairs` pair and `listen_choose`/`speak` target, under the ids `<skillId>-vocab-<n>`, `<exerciseId>-pair-<n>` and `<exerciseId>-target`. *Verify:* unpinned.
 - **C07-AC-3** — `apply-review <unitId>` applies each row's correction to the item its id names: a plain value to the Bosnian text, an `en:` value to the English. A row whose id has no `-u<n>-s<n>` part, or names a missing item of an existing skill, is skipped with a warning; a row whose id names a skill file that does not exist fails the run before anything is written. *Verify:* unpinned.
-- **C07-AC-4** — `apply-review <unitId>` sets every skill of the unit to `reviewed`, writes the skill files back and reassembles `course.json`. *Verify:* unpinned.
+- **C07-AC-4** — `apply-review <unitId>` sets every skill file named `<unitId>-s*.json` to `reviewed`, writes the skill files back and reassembles `course.json`. *Verify:* unpinned.
 - **C07-AC-5** — `apply-review` without a unit id prints its usage and exits non-zero. *Verify:* unpinned.
 
 ## Risks
 
-- Running `apply-review` over a unit is the sign-off: it marks every skill of the unit `reviewed` even when
+- Running `apply-review` over a unit is the sign-off: it marks every skill file named `<unitId>-s*.json` `reviewed` even when
   the CSV has no correction, so running it on an unreviewed export breaks principle 3.
 - Row ids are positional (`-vocab-3`, `-pair-2`): applying a CSV exported before the content was regenerated
   or edited corrects the wrong items, silently.
@@ -60,5 +60,6 @@ none: imported
 - A correction to a vocab word or target phrase does not refresh its `audioHash`, so the audio stays that of
   the old text until `npm run audio` runs again (C06).
 - The Markdown table escapes `|` but not line breaks, so a multi-line text breaks its row.
-- These modules write into `content/generated/`, which is out of scope: a node may change this code but never
-  run it against the committed curriculum. The code is untested.
+- `apply-review.ts` writes into `content/generated/`, which is out of scope: a node may change this code but never
+  run it against the committed curriculum. `export-review.ts` writes only to the git-ignored `review-export/`, and
+  `csv.ts` writes nothing. The code is untested.

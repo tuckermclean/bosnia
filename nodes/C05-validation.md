@@ -43,7 +43,7 @@ none: imported
 - **C05-AC-6** — The committed `content/generated/course.json` validates with no error. *Verify:* `content/test/validate.test.ts` ("committed A1 content (integration)").
 - **C05-AC-7** — Duplicate choices in a `multiple_choice` or `listen_choose` exercise, a blank vocab translation, a blank prompt and a blank `targetPhrase` are errors. *Verify:* unpinned.
 - **C05-AC-8** — `npm run validate` prints one line per issue and a final count line with `PASS` or `FAIL`, and exits non-zero on any error. *Verify:* unpinned.
-- **C05-AC-9** — A `multiple_choice` or `listen_choose` exercise whose choices hold the answer more than once is an error, and each missing letter or digraph gets its own error. *Verify:* unpinned (the tests cover only an answer missing from the choices, and only that some diacritic error is reported).
+- **C05-AC-9** — A `listen_choose` exercise whose choices do not hold the answer, and a `multiple_choice` or `listen_choose` exercise whose choices hold the answer more than once, are errors, and each missing letter or digraph gets its own error. *Verify:* unpinned (the tests cover only a `multiple_choice` answer missing from the choices, and only that some diacritic error is reported).
 
 ## Risks
 
