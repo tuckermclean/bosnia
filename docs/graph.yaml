@@ -9,10 +9,30 @@ out_of_scope:
   - {glob: "app/assets/", reason: "binary icons and images, not code"}
 adoption:
   areas:
-    - {name: repo-root, globs: ["package.json", "package-lock.json", "tsconfig.base.json", "README.md", "FOLLOWUPS.md", ".env.example", ".gitignore", ".dockerignore"]}
     - {name: content-pipeline, globs: ["content/*", "content/src/", "content/test/", "content/scripts/"]}
     - {name: backend, globs: ["backend/"]}
     - {name: app, globs: ["app/*", "app/app/", "app/src/"]}
     - {name: voice-agent, globs: ["voice-agent/"]}
     - {name: deploy, globs: ["deploy/", "DEPLOY.md", ".github/"]}
-nodes: []
+nodes:
+  - id: R01
+    name: workspace
+    deps: []
+    track: done
+    status: imported
+    owns: ["package.json", "package-lock.json", "tsconfig.base.json"]
+    summary: "The root npm workspace (backend and content as members, Node >=20, a backend-only test script), its lockfile, and the shared strict TypeScript options the backend and content extend."
+  - id: R02
+    name: repo-docs
+    deps: []
+    track: done
+    status: imported
+    owns: ["README.md", "FOLLOWUPS.md", ".env.example"]
+    summary: "The repository README, the FOLLOWUPS.md backlog of deferred work and known limitations, and the root .env.example template of server-side settings."
+  - id: R03
+    name: ignore-lists
+    deps: []
+    track: done
+    status: imported
+    owns: [".gitignore", ".dockerignore"]
+    summary: "The root .gitignore (dependencies, build output, env and secret files, local databases, binary audio) and the root .dockerignore that filters the backend image's build context."
