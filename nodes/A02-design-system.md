@@ -13,7 +13,7 @@ screen uses.
 
 - `app/src/theme/tokens.ts` exports `color` (the golden-lily golds `gold50`…`gold700` with `gold500`
   `#DE9F1F` as the brand colour, the flag blues `blue50`…`blue900`, white, black, grays `gray50`…`gray800`,
-  success, error, warning and their backgrounds, and `heart`), `spacing` (4 to 48), `radius` (8, 14, 20,
+  success and error with their backgrounds, warning, and `heart`), `spacing` (4 to 48), `radius` (8, 14, 20,
   pill 999), `fontSize` (12 to 34), `fontWeight` (400, 600, 800), `shadow` (`card`, `raised`), and `theme`
   bundling them with its `Theme` type.
 - `app/src/components/` (re-exported by `index.ts`):
@@ -21,15 +21,15 @@ screen uses.
     (outlined) and `danger` (red); `loading` shows a spinner instead of the label; `disabled` or `loading`
     disables it and dims it; it reports `accessibilityRole="button"` and its disabled state.
   - `Card`: a white rounded view, padded and with the card shadow by default.
-  - `HeartsBar`: `maxHearts` (default 5) hearts, the first `hearts` of them filled, labelled
-    "`<n>` of `<max>` hearts remaining".
+  - `HeartsBar`: `maxHearts` (default 5) hearts, the first `hearts` of them filled, labelled "`<n>` of `<max>`
+    hearts remaining".
   - `ProgressBar`: a track with a fill whose width animates (Reanimated, 350 ms) to `progress` clamped to
     0–1, with the progressbar role and a 0–100 value.
   - `ScreenContainer`: a safe-area view (all edges by default) with a background colour and optional
     horizontal padding.
   - `TextField`: a labelled `TextInput` that shows a red border and an error text when `error` is set.
-  - `XpBadge` and `StreakBadge`: pill badges with ⚡ and the xp, 🔥 and the streak, each with an
-    accessibility label.
+  - `XpBadge` and `StreakBadge`: pill badges with ⚡ and the xp, 🔥 and the streak, each with an accessibility
+    label.
 
 ## Tests
 
@@ -53,7 +53,7 @@ none: imported
 - `TextField`'s label is `gray200`, readable only on the dark auth screens it is used on today.
 - `HeartsBar` takes `hearts` above `maxHearts` silently (it fills all of them) and builds no hearts for a
   negative `maxHearts`.
-- `danger`'s border colour `#8F332A` is the one colour not in the tokens.
+- `danger`'s border colour `#8F332A` is the one colour in these components not taken from the tokens.
 - The exercise tests press a disabled Check button, but each exercise's handler also returns early without a
   selection, so no test shows that a disabled `Button` ignores a press.
 - `fontWeight.medium` is `'600'`, not the conventional 500.

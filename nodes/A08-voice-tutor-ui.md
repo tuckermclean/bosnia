@@ -10,7 +10,8 @@
 
 Imported from the code. The app's side of the real-time voice tutor: it asks the backend for a LiveKit room
 token (B09) and joins the room, where the voice agent talks with the learner. The app never holds a LiveKit
-key, only the short-lived room token (principle 1).
+key, only the short-lived room token (principle 1). Its screens are the Tutor tab of A04's tab bar and the
+`tutor` modal of A04's root stack.
 
 - `app/app/(tabs)/tutor.tsx`: the Tutor tab's landing screen ("Talk with Ljilja", a tip about headphones
   and a Bosnian-only call) with "Start conversation", which opens `/tutor`.
@@ -36,9 +37,9 @@ key, only the short-lived room token (principle 1).
 
 ## Tests
 
-`app/src/features/tutor/__tests__/availability.test.ts`: `isVoiceTutorAvailable` in Expo Go, in a
-standalone build, and with each value of the override, `expo-constants` mocked. `level.ts`, the call screen
-and `VoiceCallLive` have no test.
+`app/src/features/tutor/__tests__/availability.test.ts`: `isVoiceTutorAvailable` in Expo Go, in a standalone
+build, and with each value of the override, `expo-constants` mocked. `level.ts`, the call screen and
+`VoiceCallLive` have no test.
 
 ## Changes
 
@@ -63,8 +64,9 @@ none: imported
   is planned work (priority 5).
 - The session's `sessionId` is not used: no session end or turns are sent (a `TODO` in `VoiceCallLive`,
   and `FOLLOWUPS.md`).
-- No code under `voice-agent/` reads the `lk.interrupt` topic; barge-in relies on the agent's own voice
-  detection.
+- No code under `voice-agent/` reads the `lk.interrupt` topic; barge-in relies on the agent's voice detection.
 - The transcript shows only the agent's turns, not the learner's.
+- End call runs `room.disconnect()` and then `onEnd`, and the room's `onDisconnected` is also `onEnd`, so the
+  screen can be asked to go back twice.
 - `deriveLearnerLevel` compares units by `orderIndex` across every course.
 - Opening the call screen again asks for a new room (`useTutorSession` caches nothing).

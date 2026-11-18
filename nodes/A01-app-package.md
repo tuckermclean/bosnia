@@ -11,15 +11,17 @@
 Imported from the code. The Expo (React Native + TypeScript) client's package. `app/` is not a member of the
 root workspace (R01): it has its own lockfile and its own `npm ci`, as CI's `app` job runs it.
 
-- `app/package.json` (name `app`, private, entry `expo-router/entry`) pins Expo SDK 57 (`expo ~57.0.2` and the
-  `expo-*` modules it uses: audio, constants, haptics, linking, router, secure-store, splash-screen,
+- `app/package.json` (name `app`, private, entry `expo-router/entry`) requires Expo SDK 57 (`expo ~57.0.2` and
+  the `expo-*` modules it declares: audio, constants, haptics, linking, router, secure-store, splash-screen,
   status-bar, system-ui), React 19.2.3, React Native 0.86.0, Reanimated 4.5.0 with react-native-worklets
   0.10.0, gesture-handler, safe-area-context, screens, TanStack Query 5, Zustand 5, and LiveKit
   (`@livekit/react-native`, `@livekit/react-native-webrtc`, `@livekit/components-react`, `livekit-client`).
   Its scripts are `start`, `android`, `ios` and `web` (each `expo start`), `typecheck` (`tsc --noEmit`) and
   `test` (`jest`). Its `jest` key sets the `jest-expo` preset, the worklets jest resolver, and a
   `transformIgnorePatterns` that lets Babel transform React Native, Expo, React Navigation and LiveKit
-  packages. Dev dependencies: jest ~29.7, jest-expo, `@testing-library/react-native` 14, TypeScript ~6.0.
+  packages. Dev dependencies: jest ~29.7, jest-expo, `babel-preset-expo`, `@react-native/jest-preset`,
+  `@testing-library/react-native` 14, `react-test-renderer`, `test-renderer`, `@types/jest`, `@types/react`
+  and TypeScript ~6.0.
 - `app/package-lock.json` (lockfile version 3) pins the tree; `app/.npmrc` sets `legacy-peer-deps=true`.
 - `app/tsconfig.json` extends `expo/tsconfig.base` (not the root `tsconfig.base.json`), turns on `strict`,
   adds the jest types, and maps the `@/*` alias to `./src/*`.

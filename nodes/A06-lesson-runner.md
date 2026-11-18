@@ -16,31 +16,30 @@ result reported to the backend (B07's lesson-complete).
   spinner meanwhile and "Couldn't load this lesson." with "Go back" when the lesson fails. The run starts
   with the server's hearts (5 when unknown). Its header has an exit (✕, back), the progress bar and the
   hearts. When the run ends, finished or out of hearts, it reports `{lessonId, correctCount, total}` once,
-  the real tally even for a failed run. The end screens:
+  the real tally even for a failed run. "Try Again" replaces the route with the same lesson. A lesson
+  without exercises shows "No exercises in this lesson yet." and never ends: nothing is reported, and only
+  the exit leaves it. The end screens:
   - out of hearts: "Out of hearts" with the tally, "Try Again" and "Back to Home";
   - finished below `PASS_RATIO` (60%): "Not quite there" with the number needed to pass, "Try Again" and
     "Back to Home";
   - finished at or above it: "Lesson complete!" with the tally and "Back to Home".
-  "Try Again" replaces the route with the same lesson; a lesson without exercises shows "No exercises in
-  this lesson yet." and counts as passed.
 - `app/src/features/lesson/useLessonRunner.ts` holds a run's local state: the current exercise and index,
   `total` (the exercise count), progress (`index / total`), correct and wrong counts, and hearts. A wrong
   answer takes one heart (not below 0); the run is finished after the last exercise, and out of hearts
   when hearts reach 0 before that.
 - `app/src/features/lesson/exercises/`: `ExerciseRenderer` picks the component by `exercise.type` and shows
-  "Unsupported exercise type" for another. Each component calls `onComplete({correct})` from its
-  "Continue" button:
+  "Unsupported exercise type" for another. Each component calls `onComplete({correct})` from its "Continue"
+  button:
   - `MultipleChoice`: pick one of `choices` (the English `promptEn` shown as a hint), "Check" (disabled
     until a choice), then "Tačno! Correct." or "Not quite. Correct answer: <answer>"; correct when the
     pick equals `answer`.
-  - `WordBank`: tap tiles from `choices` into a sentence, tap a built tile to send it back, "Check"
-    (disabled while the sentence is empty); correct when the words joined by spaces equal the trimmed
-    `answer`.
+  - `WordBank`: tap tiles from `choices` into a sentence, tap a built tile to send it back, "Check" (disabled
+    while the sentence is empty); correct when the words joined by spaces equal the trimmed `answer`.
   - `MatchPairs`: both columns of `pairs` shuffled; tap a Bosnian and an English item (either order); a
     match locks, a mismatch flashes red for 450 ms and clears. When all are matched it shows "Sve tačno!
     All matched."; correct only when there was no mismatch.
-  - `ListenChoose`: a play button for `audioUrl` (disabled, "Audio not available yet", when not
-    playable), then choices and Check as in MultipleChoice, with "Correct answer: <answer>" on a miss.
+  - `ListenChoose`: a play button for `audioUrl` (disabled, "Audio not available yet", when not playable),
+    then choices and Check as in MultipleChoice, with "Correct answer: <answer>" on a miss.
   - `Speak`: A05's `RecordExercise` for `targetPhrase`; after a result, "Continue" reports correct when the
     score is at least 60. It renders nothing when the exercise has no `targetPhrase`.
   - `types.ts`: `ExerciseResult` and the components' props.
@@ -84,4 +83,7 @@ none: imported
 - Choices are keyed by their text, so a duplicate choice collides; WordBank compares strings exactly, case
   and punctuation included.
 - The exercise payloads carry the answers (B07's risk): the client grades and the server only clamps (OD8).
-- A lesson with no exercises counts as passed on the client, while the backend never passes it (B07).
+- A lesson with no exercises never finishes on the client, so it is never reported (the backend would not
+  pass it either, B07).
+- A run that starts at 0 hearts is out of hearts at once: it shows "Out of hearts" before any exercise and
+  reports 0 of `total`, which the backend records as an attempt and counts toward the streak (B07).

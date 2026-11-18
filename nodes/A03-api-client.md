@@ -13,20 +13,20 @@ the calls per resource, the wire types, and the TanStack Query layer the screens
 to the backend (auth B05, courses and progress B07, pronunciation B08, tutor sessions B09, the error shape
 of B10) and holds no key (principle 1).
 
-- `app/src/api/config.ts`: the base URL is `EXPO_PUBLIC_API_BASE_URL`, else `expo.extra.apiBaseUrl`
-  (A01's `app.json`), else `http://localhost:3000`, with one trailing `/` stripped; `apiUrl(path)` is the
-  base, `/api`, and the path with a leading `/` added when missing.
+- `app/src/api/config.ts`: the base URL is `EXPO_PUBLIC_API_BASE_URL`, else `expo.extra.apiBaseUrl` (A01's
+  `app.json`), else `http://localhost:3000`, with one trailing `/` stripped; `apiUrl(path)` is the base,
+  `/api`, and the path with a leading `/` added when missing.
 - `app/src/api/tokenStorage.ts` keeps the access and refresh tokens in `expo-secure-store` under
   `ljiljan.accessToken` and `ljiljan.refreshToken` (save, get each, clear both).
 - `app/src/api/client.ts`:
   - `apiRequest(path, options)` sends JSON (or a given `FormData`, without a JSON content type) with
     `Authorization: Bearer <access token>` unless `skipAuth` is set or the path starts with `/auth/login`,
     `/auth/register` or `/auth/refresh`.
-  - On a 401 of an authenticated request it refreshes once and retries once with the new token. The
-    refresh posts the stored refresh token to `/auth/refresh` and saves the returned pair; concurrent
-    401s share one refresh. With no stored refresh token, or when the server rejects the refresh, it
-    clears the tokens and calls the handler registered with `registerAuthExpiredHandler` (A04's store);
-    a network error during the refresh returns no token and does neither.
+  - On a 401 of an authenticated request it refreshes once and retries once with the new token. The refresh
+    posts the stored refresh token to `/auth/refresh` and saves the returned pair; concurrent 401s share one
+    refresh. With no stored refresh token, or when the server rejects the refresh, it clears the tokens and
+    calls the handler registered with `registerAuthExpiredHandler` (A04's store); a network error during the
+    refresh returns no token and does neither.
   - A non-2xx answer throws `ApiError(status, message, body)`, the message taken from the body's `error`,
     else its `message`, else `Request failed with status <n>`. A 204 returns `undefined`; other bodies are
     parsed as JSON, or returned as text when they are not JSON.
@@ -47,8 +47,8 @@ of B10) and holds no key (principle 1).
   `useProgress` (`['progress']`), `useCompleteLesson` (invalidates `progress` and `courses` on success),
   `useSubmitPronunciation`, and `useTutorSession(level, scenario)`, a query that is never cached, never
   retried and not refetched on focus, so each mount asks for a new room.
-- `app/src/constants.ts`: `MAX_HEARTS` 5, `MAX_CROWN_LEVEL` 5 and `PASS_RATIO` 0.6, copies of the
-  backend's values in `backend/src/routes/progress.ts` (B07).
+- `app/src/constants.ts`: `MAX_HEARTS` 5, `MAX_CROWN_LEVEL` 5 and `PASS_RATIO` 0.6, copies of the backend's
+  values in `backend/src/routes/progress.ts` (B07).
 
 ## Tests
 
@@ -63,7 +63,7 @@ none: imported
 ## Gate
 
 - **A03-AC-1** — An error answer's `ApiError` message is the body's `error`, preferred over `message`, else `message`, else `Request failed with status <n>`. *Verify:* `app/src/api/__tests__/client.test.ts` ("takes ApiError.message from a `{ error }` response body, not `message`"), `app/src/api/__tests__/client.test.ts` ("falls back to `message` and then a generic status message when `error` is absent"), `app/src/api/__tests__/client.test.ts` ("prefers `error` over `message` when a body somehow has both").
-- **A03-AC-2** — A 401 on an authenticated request refreshes the token once, saves the new pair, and retries the request with the new bearer token. *Verify:* `app/src/api/__tests__/client.test.ts` ("refreshes the access token once on a 401 and retries the original request").
+- **A03-AC-2** — A 401 on an authenticated request makes one more request, saves the token pair it returns, and retries the request once with the new bearer token. *Verify:* `app/src/api/__tests__/client.test.ts` ("refreshes the access token once on a 401 and retries the original request").
 - **A03-AC-3** — With no stored refresh token, a 401 clears the tokens and calls the auth-expired handler, without a refresh request. *Verify:* `app/src/api/__tests__/client.test.ts` ("logs the user out (clears tokens + fires the auth-expired handler) when there is no refresh token").
 - **A03-AC-4** — When the server rejects the refresh token, the client clears the tokens and calls the auth-expired handler. *Verify:* `app/src/api/__tests__/client.test.ts` ("logs the user out when the stored refresh token is itself rejected by the server").
 - **A03-AC-5** — `apiUrl` puts exactly one `/` between the base URL and `/api`, with or without a trailing slash in the base. *Verify:* `app/src/api/__tests__/config.test.ts` ("produces exactly one slash between the host and /api when the base URL has no trailing slash"), `app/src/api/__tests__/config.test.ts` ("strips a trailing slash from the base URL so it does not produce a double slash").
@@ -80,10 +80,10 @@ none: imported
   match it.
 - A network error during a refresh neither logs out nor retries: the original 401 surfaces as an `ApiError`.
 - Every request without `FormData` carries `Content-Type: application/json`, a body-less POST included,
-  which Fastify answers 400 for an empty JSON body; today's calls always send a body.
+  which the backend answers 500 (B10's risk); today's calls always send a body.
 - The access token is read from SecureStore on every request.
-- `submitPronunciation` appends the audio as React Native's `{uri, name, type}` object, which a browser's
-  `FormData` does not read as a file, and labels it `audio/m4a` whatever the recorder produced: the upload
-  as written is native-only (principle 8).
+- `submitPronunciation` appends the audio as a plain `{uri, name, type}` object, which a browser's `FormData`
+  turns into the string `[object Object]`, and labels it `audio/m4a` whatever the recorder produced: the
+  upload as written is native-only (principle 8).
 - `useTutorSession`'s key includes the level, so a level change while the call screen is mounted asks for a
   second room.

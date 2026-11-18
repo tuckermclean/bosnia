@@ -23,11 +23,11 @@ the screens around the features (expo-router's file routes under `app/app/`).
   `(tabs)`, `lesson/[id]` (slides up) and `tutor` (a full-screen modal), all without headers.
 - `app/app/index.tsx`: a spinner while hydrating, then a redirect to `/(tabs)/home` when authenticated,
   else to `/(auth)/sign-in`.
-- `app/app/(auth)/`: a header-less stack of `sign-in` and `sign-up` on the dark blue background. Both
-  trim and lower-case the email before sending it, show the `ApiError` message (or a connection message
-  for another error) under the form, and link to each other. Sign in is disabled until both fields are
-  filled; sign up until the email is filled and the password has 8 characters, with "At least 8
-  characters" shown under a shorter password.
+- `app/app/(auth)/`: a header-less stack of `sign-in` and `sign-up` on the dark blue background. Both trim and
+  lower-case the email before sending it, show the `ApiError` message (or a connection message for another
+  error) above the submit button, and link to each other. Sign in is disabled until both fields are filled;
+  sign up until the email is filled and the password has 8 characters, with "At least 8 characters" shown
+  under a shorter password.
 - `app/app/(tabs)/_layout.tsx`: the tab bar, starting on `home`: Learn (🌼, `home`), Tutor (🎙️, `tutor`)
   and Profile (👤, `profile`); the screens are A07's and A08's.
 
@@ -53,5 +53,7 @@ none: imported
   stored tokens stay and are used on the next start.
 - The store's `error` field is reset but never set: the screens keep their own error state.
 - The minimum password length (8) is the client's copy of the backend's rule; nothing ties them.
+- Nothing navigates on a successful sign in or sign up: the store becomes `authenticated`, but the root layout
+  reacts only to `unauthenticated` and only `index.tsx` redirects to the tabs, so the form stays on screen.
 - Nothing here is tested; a regression in the boot redirect or the bounce to sign-in shows only in a run of
   the app.
