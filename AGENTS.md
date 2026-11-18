@@ -13,18 +13,23 @@
 - **Setup.** `npm ci` at the root (the `backend` and `content` workspaces) and `npm ci` in `app/` (its own
   lockfile, not a workspace). The voice-agent tests use the standard library only; CI also runs
   `pip install -r requirements.txt` in `voice-agent/`.
-- **Gate command.** The whole suite, run from the repository root; it runs in CI on the PR
-  (`.github/workflows/ci.yml`, one job per package):
+- **Gate command.** The whole suite, run from the repository root:
   `npm test -w @bosanski/backend; b=$?; npm run test -w @bosanski/content; c=$?; (cd app && npx jest); a=$?; (cd voice-agent && python3 -m unittest discover -s tests -t .); v=$?; exit $((b|c|a|v))`.
-  Its failure lines are vitest's ` FAIL  <file> > <test>`, jest's `  ● <suite> › <test>` and unittest's
-  `FAIL: test_…` / `ERROR: test_…`, which `gate.fail_pattern` in the graph matches. The pattern was checked
-  against scratch probe failures in each runner, including a jest test outside a `describe` (`  ● <test>`):
-  it matched all five and no summary line; it skips jest's `Test suite failed to run`, which names no test.
+  CI does not run this command itself: it runs the gate's four test steps on the PR, one job per package
+  (`.github/workflows/ci.yml`). Its failure lines are vitest's ` FAIL  <file> > <test>`, jest's
+  `  ● <suite> › <test>` and unittest's `FAIL: test_…` / `ERROR: test_…`, which `gate.fail_pattern` in the
+  graph matches. The pattern was checked against scratch probe failures in each runner, including a jest test
+  outside a `describe` (`  ● <test>`): it matched each probe's failure line and no summary line; it skips
+  jest's `Test suite failed to run`, which names no test. The pattern reads uncoloured output: with
+  `CI=1 GITHUB_ACTIONS=1` and output not to a terminal, as in CI, vitest's ` FAIL  ` and jest's `  ● ` lines
+  carry no colour codes (checked with probes); `FORCE_COLOR` would colour them, so a gate run does not set it.
 - **Quick gate.** In a session, run locally the same runners with a list of files: the red targets and the
   test files of what a change touches. They print the same failure lines.
   - backend: `npm test -w @bosanski/backend -- test/<name>.test.ts` (paths relative to `backend/`);
   - content: `npm run test -w @bosanski/content -- test/<name>.test.ts` (paths relative to `content/`);
-  - app: `(cd app && npx jest <path>)` (paths relative to `app/`);
+  - app: `(cd app && npx jest --runTestsByPath <path>)` (paths relative to `app/`; without
+    `--runTestsByPath`, jest reads the path as a regular expression, so `app/(tabs)/…` or an `[id]` route
+    matches no test);
   - voice-agent: `(cd voice-agent && python3 -m unittest tests.<module>)`.
 - **Other checks.** CI also runs, and a node keeps passing: `npm run typecheck -w @bosanski/backend`,
   `npm run typecheck -w @bosanski/content`, `(cd app && npx tsc --noEmit)` and
@@ -34,7 +39,8 @@
 - **Owns.** A node changes only the files it owns (its `owns` globs) and its direct deps' files, and places
   every file it adds in an area or in a node.
 - **Red target.** A command that exits non-zero before the node's change and 0 after, normally the quick gate
-  for the node's own test file, e.g. `npm test -w @bosanski/backend -- test/auth.test.ts`.
+  for the node's own test file, e.g. `npm test -w @bosanski/backend -- test/auth.test.ts`, or for an app test
+  `(cd app && npx jest --runTestsByPath 'app/(tabs)/__tests__/home.test.tsx')`.
 - **Tests and fixtures.** Backend tests are `backend/test/*.test.ts` with the shared `backend/test/helpers.ts`
   (vitest, PGlite, fakes for Groq and LiveKit); content tests are `content/test/*.test.ts` (vitest, a scripted
   fake LLM); app tests are `app/**/__tests__/*.test.ts(x)` (jest-expo); voice-agent tests are
