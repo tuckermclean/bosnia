@@ -25,13 +25,13 @@ the database.
   seeds, prints the counts and closes. Imported as a module, it runs nothing.
 - `backend/src/auto-seed.ts`: `maybeAutoSeed(db, log)`, which the server (B10) calls at boot by default in local dev.
   When the `courses` table already has a row it does nothing (`not-empty`); else it reads the same two files and seeds
-  them through `seedCourse`, logging the counts. A missing `course.json` (`no-course-json`) or any error (`error`) is
+  them through `seedCourse`, logging the unit and skill counts. A missing `course.json` (`no-course-json`) or any error (`error`) is
   logged and returned, never thrown, so the server boots regardless.
 
 ## Tests
 
-`backend/test/auto-seed.test.ts`: `maybeAutoSeed` seeds the committed `content/generated/course.json` into an empty
-database and logs it; it does nothing on a database that already has a course. The server's integration test (B10) seeds
+`backend/test/auto-seed.test.ts`: `maybeAutoSeed` on an empty database seeds the committed `content/generated/course.json`
+under `COURSE_ID`, returns counts of units, skills, lessons and exercises above zero, and logs it; it does nothing on a database that already has a course. The server's integration test (B10) seeds
 the same file with `seedCourse` and checks the counts it returns against it. No test covers the CLI, the manifest's
 audio URLs, `CONTENT_DIR`, re-seeding, or the `no-course-json` and `error` outcomes.
 
@@ -41,7 +41,7 @@ none: imported
 
 ## Gate
 
-- **B06-AC-1** — `maybeAutoSeed` on an empty database seeds units, skills, lessons and exercises from the committed course, under `COURSE_ID`, and logs it. *Verify:* `backend/test/auto-seed.test.ts` ("seeds the real generated course content into a fresh, empty DB").
+- **B06-AC-1** — `maybeAutoSeed` on an empty database seeds the committed course under `COURSE_ID`, returns counts of units, skills, lessons and exercises above zero, and logs it. *Verify:* `backend/test/auto-seed.test.ts` ("seeds the real generated course content into a fresh, empty DB").
 - **B06-AC-2** — `maybeAutoSeed` on a database that already has a course changes nothing and logs nothing. *Verify:* `backend/test/auto-seed.test.ts` ("no-ops when the DB already has course rows").
 - **B06-AC-3** — `seedCourse` returns counts of units, skills, lessons and exercises equal to `course.json`'s. *Verify:* `backend/test/integration.test.ts` (the `beforeAll` of "end-to-end: real seeded content through the API", which compares the counts with `course.json`).
 - **B06-AC-4** — Seeding again upserts every row by id, so a re-run after the content changes updates rows rather than failing. *Verify:* unpinned.

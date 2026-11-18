@@ -48,9 +48,10 @@ none: imported
 
 - The logger is off, so `app.log.error` in the error handler and the "listening" line log nothing: no server log
   names a missing key (principle 7) or any 500's cause.
-- Fastify's own 4xx errors fall into the error handler's 500 branch, being neither `HttpError` nor zod errors: a
-  malformed JSON body on login is answered 500 `{"error":"Internal server error"}`, and so is a request to
-  `POST /api/pronunciation` (B08) that is not multipart.
+- Fastify's own request errors (a malformed body, an unsupported content type) fall into the error handler's
+  500 branch, being neither `HttpError` nor zod errors: a malformed JSON body on login is answered 500
+  `{"error":"Internal server error"}`, and so is a request to `POST /api/pronunciation` (B08) that is not
+  multipart. An unknown route still gets Fastify's 404, since the not-found handler bypasses the error handler.
 - CORS accepts every origin (OD2, priority 3), and `trustProxy` is off, so behind the ingress `request.ip` is the
   ingress's address (OD3).
 - No handler for SIGTERM: the server neither drains requests nor closes the database on shutdown (priority 6).
