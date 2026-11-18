@@ -95,7 +95,7 @@ Each has a default that holds until the owner decides otherwise.
 
 - **OD1. Token storage on web.** `app/src/api/tokenStorage.ts` uses `expo-secure-store`, which has no web
   implementation. *Default:* on web, keep the tokens in `localStorage` behind the same `tokenStorage`
-  functions; native keeps SecureStore. *Reason:* the web build is same-origin and the access token is
+  functions; native keeps SecureStore. *Reason:* the web build will be same-origin and the access token is
   short-lived; httpOnly cookies would need a rework of the backend's auth. The real exposure is the 30-day
   refresh token (`backend/src/services/auth.ts`), which `localStorage` would also hold; rotation limits it.
 - **OD2. CORS.** `backend/src/app.ts` registers `@fastify/cors` with `origin: true` (any origin). *Default:*

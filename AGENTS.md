@@ -21,11 +21,13 @@
   graph matches. The pattern was checked against scratch probe failures in each runner, including a jest test
   outside a `describe` (`  ● <test>`): it matched each probe's failure line and no line that names no test. It
   skips two jest headers that name none: `Test suite failed to run`, and `Console`, which jest prints above a
-  test's console output in a multi-file run, even a passing one. The pattern reads uncoloured output. Jest's
-  failure lines carry no colour codes in CI, but vitest colours its output whenever `CI` is set, so in a
-  GitHub Actions log its ` FAIL  ` lines start with ANSI codes: strip them (`\x1b\[[0-9;]*m`) before matching
-  a CI log. Vitest turns colour off in an agent session (`CLAUDECODE` or `AI_AGENT` set), so a session's own
-  runs print uncoloured lines.
+  test's console output in a multi-file run, even a passing one. The pattern reads bare, uncoloured lines.
+  Jest's failure lines carry no colour codes in CI, but vitest colours its output even when it isn't writing to
+  a terminal, unless `NO_COLOR` is set or `TERM=dumb` (the latter only without `CI`). Every line of a fetched
+  GitHub Actions job log also starts with a timestamp (`2026-11-18T04:26:22.2321042Z `). So before matching a
+  CI log, strip both each line's leading timestamp (`^\S+Z `) and the ANSI codes (`\x1b\[[0-9;]*m`). Vitest
+  turns colour off in an agent session (e.g. `CLAUDECODE` or `AI_AGENT` set), so a session's own runs print
+  uncoloured lines.
 - **Quick gate.** In a session, run locally the same runners with a list of files: the red targets and the
   test files of what a change touches. They print the same failure lines.
   - backend: `npm test -w @bosanski/backend -- test/<name>.test.ts` (paths relative to `backend/`);
