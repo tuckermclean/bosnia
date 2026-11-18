@@ -1,0 +1,12 @@
+# Role guard paths for this repository. A key present here replaces that key's default,
+# so `tests` repeats the defaults and adds the test folders they miss.
+tests:
+  - "**/*.test.sh"
+  - "**/*_test.*"
+  - "**/test_*"
+  - "**/tests/**"
+  - "**/testdata/**"
+  - "**/fixtures/**"
+  - "backend/test/**"
+  - "content/test/**"
+  - "app/**/__tests__/**"
