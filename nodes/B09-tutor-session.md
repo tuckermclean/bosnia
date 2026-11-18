@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | B03, B04, B05 | B10 | S |
+| done | B03, B04, B05 | A03, B10 | S |
 
 **Owns:** `backend/src/routes/tutor.ts`, `backend/test/tutor.test.ts`
 

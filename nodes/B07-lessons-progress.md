@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | B03, B04, B05 | B10 | M |
+| done | B03, B04, B05 | A03, B10 | M |
 
 **Owns:** `backend/src/services/progression.ts`, `backend/src/routes/courses.ts`, `backend/src/routes/progress.ts`, `backend/test/progress.test.ts`
 

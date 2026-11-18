@@ -9,7 +9,6 @@ out_of_scope:
   - {glob: "app/assets/", reason: "binary icons and images, not code"}
 adoption:
   areas:
-    - {name: app, globs: ["app/*", "app/app/", "app/src/"]}
     - {name: voice-agent, globs: ["voice-agent/"]}
     - {name: deploy, globs: ["deploy/", "DEPLOY.md", ".github/"]}
 nodes:
@@ -167,3 +166,59 @@ nodes:
     status: imported
     owns: ["backend/Dockerfile"]
     summary: "The two-stage production image built from the repository root, with the curriculum baked in under CONTENT_DIR, run as the node user."
+  - id: A01
+    name: app-package
+    deps: []
+    track: done
+    status: imported
+    owns: ["app/package.json", "app/package-lock.json", "app/.npmrc", "app/tsconfig.json", "app/babel.config.js", "app/app.json", "app/.env.example", "app/.gitignore", "app/README.md", "app/LICENSE"]
+    summary: "The Expo app package outside the workspace: its dependencies, lockfile and scripts, the jest-expo config, tsconfig with the @/ alias, Babel with the worklets plugin, app.json, the public env template, ignore list, README and the Expo template's LICENSE."
+  - id: A02
+    name: design-system
+    deps: [A01]
+    track: done
+    status: imported
+    owns: ["app/src/theme/", "app/src/components/"]
+    summary: "The Ljiljan gold-and-blue design tokens and the shared components: Button, Card, HeartsBar, ProgressBar, ScreenContainer, TextField, XpBadge and StreakBadge."
+  - id: A03
+    name: api-client
+    deps: [A01, B05, B07, B08, B09, B10]
+    track: done
+    status: imported
+    owns: ["app/src/api/", "app/src/types/", "app/src/hooks/", "app/src/constants.ts"]
+    summary: "The typed backend client: base URL resolution, bearer tokens in SecureStore, one refresh-and-retry on a 401, ApiError from the { error } body, per-resource calls, the hand-kept wire types, the TanStack Query client and hooks, and the mirrored server constants."
+  - id: A04
+    name: app-shell
+    deps: [A02, A03]
+    track: done
+    status: imported
+    owns: ["app/src/state/", "app/app/_layout.tsx", "app/app/index.tsx", "app/app/(auth)/", "app/app/(tabs)/_layout.tsx"]
+    summary: "The Zustand auth store, the root layout (providers, hydration, splash, the bounce to sign-in), the index redirect, the sign-in and sign-up screens, and the Learn/Tutor/Profile tab bar."
+  - id: A05
+    name: pronunciation-ui
+    deps: [A02, A03]
+    track: done
+    status: imported
+    owns: ["app/src/features/pronunciation/", "app/src/utils/"]
+    summary: "RecordExercise: record with expo-audio, auto-submit to the pronunciation route, show the score, per-word chips and transcript; and the http(s)-only playable-audio check."
+  - id: A06
+    name: lesson-runner
+    deps: [A02, A03, A05]
+    track: done
+    status: imported
+    owns: ["app/src/features/lesson/", "app/app/lesson/"]
+    summary: "The lesson route and runner: exercise sequencing, local hearts, the pass, fail and out-of-hearts summaries, the lesson-complete report, and the five exercise components."
+  - id: A07
+    name: home-profile
+    deps: [A02, A03, A04, A06]
+    track: done
+    status: imported
+    owns: ["app/src/features/home/", "app/app/(tabs)/home.tsx", "app/app/(tabs)/profile.tsx", "app/app/(tabs)/__tests__/"]
+    summary: "The Learn tab's skill path (units, zig-zag skill nodes, locks, crowns, the unreviewed tag, empty and error states) and the Profile tab's stats and log out."
+  - id: A08
+    name: voice-tutor-ui
+    deps: [A02, A03, A04]
+    track: done
+    status: imported
+    owns: ["app/src/features/tutor/", "app/app/tutor.tsx", "app/app/(tabs)/tutor.tsx"]
+    summary: "The Tutor tab and the full-screen call: the Expo Go availability gate, the learner's CEFR level, a lazily loaded LiveKit call with status, the tutor's transcript, mute, interrupt and end call."
