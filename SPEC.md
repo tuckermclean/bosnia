@@ -82,8 +82,8 @@ the release workflow builds the backend and voice-agent images after the same ch
 The graph (`docs/graph.yaml`) holds the gate (the four test suites, and the failures they already have:
 none), the paths out of scope (`content/generated/`, `content/audio-out/`, `app/assets/`), and the adoption
 areas, mapped in this order, foundations first, so each node's deps point at areas already mapped:
-`repo-root`, `content-pipeline`, `backend`, `app`, `voice-agent`, `deploy`. It lists no node yet: the areas
-are mapped into imported nodes, and open issues become planned nodes, in later pull requests.
+`repo-root`, `content-pipeline`, `backend`, `app`, `voice-agent`, `deploy`. Each area is mapped into imported
+nodes and taken off that list in a pull request of its own; open issues then become planned nodes.
 
 ## Node spec template
 A node spec `nodes/<ID>-<name>.md` has the title `# <ID> — <name>`, the headings Purpose, Tests, Changes,

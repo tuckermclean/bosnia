@@ -9,8 +9,9 @@
 ## Purpose
 
 Imported from the code. `README.md` introduces the app (Ljiljan, for learning Bosnian), the four packages and
-what each does, a diagram of how they talk (app → backend → Groq Whisper for pronunciation; backend → LiveKit
-token → voice agent for the tutor; content → seed → Postgres), the key decisions and caveats (keys server-side,
+what each does, a diagram of how they talk (app → backend → Groq Whisper for pronunciation; the backend mints a
+LiveKit token for the app (`POST /api/tutor/session`), and the app joins the LiveKit room with the voice agent;
+content → backend seed → Postgres), the key decisions and caveats (keys server-side,
 coarse pronunciation scoring, `bs-BA` voice authenticity over latency, generated content shipped `unreviewed`),
 local development without Docker (PGlite, `npm install`, `npm test -w @bosanski/backend`,
 `npm run dev -w @bosanski/backend`), and CI/CD with a pointer to `DEPLOY.md`.
@@ -38,7 +39,7 @@ none: imported
 
 - **R02-AC-1** — `README.md` describes the four packages, how they fit together, the key decisions, local development without Docker, and CI/CD with a pointer to `DEPLOY.md`. *Verify:* unpinned.
 - **R02-AC-2** — `FOLLOWUPS.md` lists the deferred work and the known MVP limitations, and records done items under "Done". *Verify:* unpinned.
-- **R02-AC-3** — `.env.example` holds no secret value: every key is blank, and the JWT secrets have `dev-` defaults that the backend refuses outside local PGlite mode. *Verify:* unpinned.
+- **R02-AC-3** — `.env.example` holds no secret value: every value is blank except `PORT=3000` and the JWT secrets' `dev-` defaults, which the backend refuses outside local PGlite mode. *Verify:* unpinned.
 - **R02-AC-4** — `.env.example` names the backend's settings that `backend/src/env.ts` reads, other than `AUTO_SEED`. *Verify:* unpinned.
 
 ## Risks
@@ -48,8 +49,15 @@ none: imported
   repository's issue numbers.
 - `.env.example` omits settings the code reads: the backend's `AUTO_SEED`, and the voice agent's
   `BACKEND_TURNS_URL`, `BACKEND_TURNS_TOKEN`, `DEEPGRAM_API_KEY`, `LLM_PROVIDER`, `STT_PROVIDER`,
-  `GROQ_LLM_MODEL`, `GROQ_STT_MODEL`, `OPENAI_LLM_MODEL`, `TUTOR_DEFAULT_LEVEL` and `SIMULATED`; the content
-  pipeline's `CONTENT_DIR` and `CONTENT_DATA_ROOT` are not listed either.
+  `GROQ_LLM_MODEL`, `GROQ_STT_MODEL`, `OPENAI_LLM_MODEL` and `TUTOR_DEFAULT_LEVEL`. The backend's `CONTENT_DIR`
+  (`backend/src/auto-seed.ts`, `backend/scripts/seed-course.ts`, set by `backend/Dockerfile`) and the content
+  pipeline's `CONTENT_DATA_ROOT` (`content/src/paths.ts`) are not listed either.
+- `.env.example` says the AI features "degrade gracefully" without their keys, but a missing Groq or LiveKit
+  key gives a 500 (`SPEC.md`, Known gaps).
+- `.env.example` presents itself as the template for the backend, the content pipeline and the voice agent, but
+  only the backend loads the root `.env`: the content scripts run plain `tsx`, and the voice agent's `config.py`
+  reads only `os.environ` (`voice-agent/README.md`).
+- `README.md` says "The app only ever talks to `backend/`", but the app joins the LiveKit room directly.
 - The README's local-development section runs only the backend's tests and never mentions the app's own
   `npm ci` in `app/`.
 - These files describe the code but no test ties them to it, so they go stale silently when a node changes a
