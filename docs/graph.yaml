@@ -9,7 +9,6 @@ out_of_scope:
   - {glob: "app/assets/", reason: "binary icons and images, not code"}
 adoption:
   areas:
-    - {name: backend, globs: ["backend/"]}
     - {name: app, globs: ["app/*", "app/app/", "app/src/"]}
     - {name: voice-agent, globs: ["voice-agent/"]}
     - {name: deploy, globs: ["deploy/", "DEPLOY.md", ".github/"]}
@@ -91,3 +90,80 @@ nodes:
     status: imported
     owns: ["content/scripts/seed-a1.ts"]
     summary: "The one-off script that writes a hand-authored one-unit A1 course over the generated curriculum."
+  - id: B01
+    name: backend-package
+    deps: [R01]
+    track: done
+    status: imported
+    owns: ["backend/package.json", "backend/tsconfig.json", "backend/vitest.config.ts", "backend/README.md"]
+    summary: "The @bosanski/backend workspace package: its scripts (dev, build, typecheck, vitest test, seed, smoke:groq), dependencies, tsconfig, vitest config and README."
+  - id: B02
+    name: env-config
+    deps: [B01]
+    track: done
+    status: imported
+    owns: ["backend/src/env.ts"]
+    summary: "The backend's settings: best-effort .env loading, the zod-parsed env with keyless defaults, isLocalDb, and the JWT-secret boot guard."
+  - id: B03
+    name: database
+    deps: [B02]
+    track: done
+    status: imported
+    owns: ["backend/src/db/schema.ts", "backend/src/db/ddl.ts", "backend/src/db/client.ts"]
+    summary: "The Drizzle schema, the hand-kept IF NOT EXISTS DDL, and the PGlite or Postgres handle with initSchema and createTestDb."
+  - id: B04
+    name: service-adapters
+    deps: [B02, B03]
+    track: done
+    status: imported
+    owns: ["backend/src/deps.ts", "backend/src/services/groq.ts", "backend/src/services/livekit.ts", "backend/scripts/smoke-groq.ts", "backend/test/helpers.ts"]
+    summary: "The injected AppDeps, the Groq Whisper transcriber, the LiveKit room-token minter with room metadata, the opt-in Groq smoke script, and the test fakes."
+  - id: B05
+    name: auth
+    deps: [B02, B03, B04]
+    track: done
+    status: imported
+    owns: ["backend/src/services/auth.ts", "backend/src/http.ts", "backend/src/routes/auth.ts", "backend/test/auth.test.ts"]
+    summary: "Argon2 passwords, access and refresh JWTs with rotation, the register/login/refresh/me routes, HttpError and the requireAuth guard."
+  - id: B06
+    name: course-seed
+    deps: [B03, C02]
+    track: done
+    status: imported
+    owns: ["backend/scripts/seed-course.ts", "backend/src/auto-seed.ts", "backend/test/auto-seed.test.ts"]
+    summary: "seedCourse's idempotent upsert of the content's course.json and audio manifest, the seed CLI, and the local-dev auto-seed of an empty database."
+  - id: B07
+    name: lessons-progress
+    deps: [B03, B04, B05]
+    track: done
+    status: imported
+    owns: ["backend/src/services/progression.ts", "backend/src/routes/courses.ts", "backend/src/routes/progress.ts", "backend/test/progress.test.ts"]
+    summary: "The skill tree and lesson routes with server-side unlocks, and progress: xp, hearts and their regeneration, streaks, crowns and the next-skill unlock."
+  - id: B08
+    name: pronunciation
+    deps: [B03, B04, B05]
+    track: done
+    status: imported
+    owns: ["backend/src/services/scoring.ts", "backend/src/routes/pronunciation.ts", "backend/test/scoring.test.ts", "backend/test/pronunciation.test.ts"]
+    summary: "Deterministic transcript-vs-target scoring and the multipart pronunciation route: transcribe, score, save the attempt."
+  - id: B09
+    name: tutor-session
+    deps: [B03, B04, B05]
+    track: done
+    status: imported
+    owns: ["backend/src/routes/tutor.ts", "backend/test/tutor.test.ts"]
+    summary: "POST /api/tutor/session: a LiveKit room token with the CEFR level and scenario as room metadata, and the saved session row."
+  - id: B10
+    name: api-server
+    deps: [B02, B03, B04, B05, B06, B07, B08, B09]
+    track: done
+    status: imported
+    owns: ["backend/src/app.ts", "backend/src/index.ts", "backend/test/integration.test.ts"]
+    summary: "buildApp (CORS, helmet, multipart limit, error handler, /health, the routes) and the server boot: guard, schema, auto-seed, listen; with the end-to-end test over the committed curriculum."
+  - id: B11
+    name: backend-image
+    deps: [B01, B06, B10, R03]
+    track: done
+    status: imported
+    owns: ["backend/Dockerfile"]
+    summary: "The two-stage production image built from the repository root, with the curriculum baked in under CONTENT_DIR, run as the node user."

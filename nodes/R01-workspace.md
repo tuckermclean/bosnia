@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | none | C01 | S |
+| done | none | B01, C01 | S |
 
 **Owns:** `package.json`, `package-lock.json`, `tsconfig.base.json`
 

@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | C01 | C04, C05, C06, C07, C08 | S |
+| done | C01 | B06, C04, C05, C06, C07, C08 | S |
 
 **Owns:** `content/src/schema.ts`, `content/src/paths.ts`
 
