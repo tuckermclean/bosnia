@@ -5,12 +5,16 @@ Ljiljan is an app for learning Bosnian: a gamified lesson engine (skill tree, le
 pronunciation grader that scores a recorded phrase, and a real-time Bosnian voice tutor. It is a monorepo:
 
 - `app/`: the Expo (React Native + TypeScript) client;
-- `backend/`: the Fastify + Drizzle API (auth, courses, progress, pronunciation, tutor sessions), which holds
-  every AI key and proxies the AI services;
+- `backend/`: the Fastify + Drizzle API (auth, courses, progress, pronunciation, tutor sessions); it calls
+  Groq for pronunciation grading and mints the short-lived LiveKit room tokens for tutor sessions;
 - `content/`: the TypeScript curriculum pipeline (CEFR blueprint, generation, validation, `bs-BA` TTS,
   native-speaker review export and import) and the generated curriculum it commits;
-- `voice-agent/`: the Python LiveKit worker that runs the voice tutor;
+- `voice-agent/`: the Python LiveKit worker that runs the voice tutor; it holds its own LiveKit, Groq and
+  Azure keys;
 - `deploy/` and `.github/`: Kubernetes manifests, CI and the release image build.
+
+Two request paths: lessons, progress and pronunciation go app → backend; the voice tutor goes app → LiveKit →
+voice agent, with a room token the app first gets from the backend.
 
 **Scope.** The web app comes first: the Expo web build served with the backend on the same origin. Native
 builds come later; there is no app-store work. **Non-goals:** writing and reviewing the Bosnian content is the
@@ -18,8 +22,8 @@ owner's work, not nodes; nodes change the pipeline and its tooling, never the cu
 
 ## Principles
 Every change respects these.
-1. Keys stay server-side. The app talks only to the backend; the backend holds the Groq, LiveKit and Azure
-   secrets.
+1. Keys stay server-side: no key in the client. The backend and the voice agent hold the Groq, LiveKit and
+   Azure keys; the app gets only short-lived LiveKit room tokens from the backend.
 2. Azure `bs-BA` voice authenticity comes before latency.
 3. Content stays `unreviewed` until a native speaker signs off.
 4. Tests and local dev need no Docker and no keys (PGlite locally and in tests).
@@ -62,7 +66,8 @@ The app calls the backend's `/api` routes. The backend stores users, progress an
 (PGlite when `DATABASE_URL` is unset), creates its schema on boot (`initSchema()`), and seeds the course from
 `content/generated/course.json` and the audio manifest (automatically in local dev, by a Job in production).
 Pronunciation: the app uploads audio, the backend transcribes it with Groq Whisper and scores the transcript
-against the target. The tutor: the backend mints a LiveKit room token; the voice agent joins the room and runs
+against the target. The tutor: the backend mints a LiveKit room token, the app connects to LiveKit directly with it (not
+through the backend), and the voice agent joins the room and runs
 VAD, STT, an LLM and Azure `bs-BA` TTS, and logs each turn. The content pipeline runs offline under the owner's
 keys. CI runs each package's typecheck and tests; the release workflow builds the backend and voice-agent
 images after the same checks.
@@ -111,7 +116,8 @@ Each has a default that holds until the owner decides otherwise.
   browser call is a post-merge check the owner records, not a merge criterion. *Reason:* principle 4 keeps
   keys out of CI.
 - **OD8. Lesson results come from the client.** `backend/src/routes/progress.ts` accepts the app's
-  `correctCount`. *Default:* accepted as is, no server-side regrading. *Reason:* a learning app with no
+  `correctCount` and `total`. *Default:* accepted, clamped to the lesson's size (its exercise count), not
+  regraded. *Reason:* a learning app with no
   stakes; regrading would need each attempt's answers on the server.
 - **OD9. Runtime versions.** CI runs Node 22 and Python 3.11; the adoption's machine has Node 20 and
   Python 3.13; the root `package.json` allows `node >=20`. *Default:* CI's versions are authoritative; a local

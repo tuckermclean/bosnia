@@ -17,12 +17,14 @@
   (`.github/workflows/ci.yml`, one job per package):
   `npm test -w @bosanski/backend; b=$?; npm run test -w @bosanski/content; c=$?; (cd app && npx jest); a=$?; (cd voice-agent && python3 -m unittest discover -s tests -t .); v=$?; exit $((b|c|a|v))`.
   Its failure lines are vitest's ` FAIL  <file> > <test>`, jest's `  ● <suite> › <test>` and unittest's
-  `FAIL: test_…` / `ERROR: test_…`, which `gate.fail_pattern` in the graph matches.
+  `FAIL: test_…` / `ERROR: test_…`, which `gate.fail_pattern` in the graph matches. The pattern was checked
+  against scratch probe failures in each runner, including a jest test outside a `describe` (`  ● <test>`):
+  it matched all five and no summary line; it skips jest's `Test suite failed to run`, which names no test.
 - **Quick gate.** In a session, run locally the same runners with a list of files: the red targets and the
   test files of what a change touches. They print the same failure lines.
   - backend: `npm test -w @bosanski/backend -- test/<name>.test.ts` (paths relative to `backend/`);
   - content: `npm run test -w @bosanski/content -- test/<name>.test.ts` (paths relative to `content/`);
-  - app: `(cd app && npx jest <path>)`;
+  - app: `(cd app && npx jest <path>)` (paths relative to `app/`);
   - voice-agent: `(cd voice-agent && python3 -m unittest tests.<module>)`.
 - **Other checks.** CI also runs, and a node keeps passing: `npm run typecheck -w @bosanski/backend`,
   `npm run typecheck -w @bosanski/content`, `(cd app && npx tsc --noEmit)` and
