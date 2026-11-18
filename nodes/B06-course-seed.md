@@ -25,15 +25,16 @@ the database.
   seeds, prints the counts and closes. Imported as a module, it runs nothing.
 - `backend/src/auto-seed.ts`: `maybeAutoSeed(db, log)`, which the server (B10) calls at boot by default in local dev.
   When the `courses` table already has a row it does nothing (`not-empty`); else it reads the same two files and seeds
-  them through `seedCourse`, logging the unit and skill counts. A missing `course.json` (`no-course-json`) or any error (`error`) is
-  logged and returned, never thrown, so the server boots regardless.
+  them through `seedCourse`, logging the unit and skill counts. A missing `course.json` (`no-course-json`) or any error
+  (`error`) is logged and returned, never thrown, so the server boots regardless.
 
 ## Tests
 
-`backend/test/auto-seed.test.ts`: `maybeAutoSeed` on an empty database seeds the committed `content/generated/course.json`
-under `COURSE_ID`, returns counts of units, skills, lessons and exercises above zero, and logs it; it does nothing on a database that already has a course. The server's integration test (B10) seeds
-the same file with `seedCourse` and checks the counts it returns against it. No test covers the CLI, the manifest's
-audio URLs, `CONTENT_DIR`, re-seeding, or the `no-course-json` and `error` outcomes.
+`backend/test/auto-seed.test.ts`: `maybeAutoSeed` on an empty database seeds the committed
+`content/generated/course.json` under `COURSE_ID`, returns counts of units, skills, lessons and exercises above zero,
+and logs it; it does nothing on a database that already has a course. The server's integration test (B10) seeds the same
+file with `seedCourse` and checks the counts it returns against it. No test covers the CLI, the manifest's audio URLs,
+`CONTENT_DIR`, re-seeding, or the `no-course-json` and `error` outcomes.
 
 ## Changes
 
