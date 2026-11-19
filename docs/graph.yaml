@@ -312,7 +312,7 @@ nodes:
     deps: [R01, B01, D03, D04]
     track: now
     owns: ["backend/test/deploy-kustomization.test.ts"]
-    summary: "A deploy/kustomization.yaml lists the manifests and sets both images' registry, owner and tag in its images field, applied with kubectl apply -k; DEPLOY.md describes that flow and a sha tag rollout, and a backend test checks the kustomization against deploy/ with a YAML parse."
+    summary: "A deploy/kustomization.yaml lists the manifests and sets both images' registry, owner and tag in its images field, committed as this repository's GHCR images at latest and applied with kubectl apply -k; DEPLOY.md describes that flow and a sha tag rollout, and a backend test checks the kustomization against deploy/ with a YAML parse."
   - id: D06
     name: pr-image-build
     deps: [B11, V07, D02]
