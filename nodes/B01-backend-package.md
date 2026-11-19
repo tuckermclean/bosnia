@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | R01 | B02, B11, D01 | S |
+| done | R01 | B02, B11, D01, D05 | S |
 
 **Owns:** `backend/package.json`, `backend/tsconfig.json`, `backend/vitest.config.ts`, `backend/README.md`
 

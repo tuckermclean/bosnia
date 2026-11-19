@@ -295,3 +295,9 @@ nodes:
     status: imported
     owns: ["DEPLOY.md"]
     summary: "DEPLOY.md, the operator's guide from the CI-built images to a running cluster deployment: GHCR access, the manifests in order, the Secret, the seed Job, the schema on boot, the JWT boot guard and rollouts."
+  - id: D05
+    name: kustomize-images
+    deps: [R01, B01, D03, D04]
+    track: now
+    owns: ["backend/test/deploy-kustomization.test.ts"]
+    summary: "A deploy/kustomization.yaml lists the manifests and sets both images' registry, owner and tag in its images field, applied with kubectl apply -k; DEPLOY.md describes that flow and a sha tag rollout, and a backend test checks the kustomization against deploy/ with a YAML parse."

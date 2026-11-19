@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | R03, B02, B06, B10, B11, V03, V07, D02 | D04 | M |
+| done | R03, B02, B06, B10, B11, V03, V07, D02 | D04, D05 | M |
 
 **Owns:** `deploy/`
 
