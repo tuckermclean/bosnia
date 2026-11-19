@@ -164,10 +164,10 @@ nodes:
     summary: "The two-stage production image built from the repository root, with the curriculum baked in under CONTENT_DIR, run as the node user."
   - id: B12
     name: jwt-secret-guard
-    deps: [B02, D03, D04]
+    deps: [R02, B01, B02, D03, D04]
     track: now
     owns: ["backend/test/env.test.ts"]
-    summary: "The production JWT boot guard also refuses the Secret template's REPLACE_WITH placeholders and secrets under 32 characters, with tests; the Secret template lists the voice agent's optional settings and DEPLOY.md describes the guard."
+    summary: "The production JWT boot guard also refuses the Secret template's REPLACE_WITH placeholders and secrets under 32 characters, with tests; the Secret template lists the voice agent's optional settings, and DEPLOY.md, the backend README and .env.example describe the guard."
   - id: A01
     name: app-package
     deps: []
