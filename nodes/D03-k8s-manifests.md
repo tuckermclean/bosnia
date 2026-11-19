@@ -23,11 +23,12 @@ operator replaces `OWNER` by hand before applying.
   `backend-secrets`, readiness and liveness probes on `GET /health` (B10), requests 100m CPU / 128Mi and limits
   500m / 512Mi.
 - `backend-service.yaml`: the `backend` ClusterIP Service, port 80 to the `http` port.
-- `seed-job.yaml`: the one-shot `backend-seed` Job (`restartPolicy: Never`, `backoffLimit: 2`) that runs
-  `node backend/dist/scripts/seed-course.js` (B06) in the backend image with the same Secret, relying on the
-  image's `CONTENT_DIR` (B11).
+- `seed-job.yaml`: the `backend-seed` Job that runs `node backend/dist/scripts/seed-course.js` (B06) in the
+  backend image with the same Secret and pull secret, relying on the image's `CONTENT_DIR` (B11). Its pod is
+  never restarted in place (`restartPolicy: Never`); after a failure the Job starts a new pod, at most twice
+  (`backoffLimit: 2`).
 - `voice-agent-deployment.yaml`: the `voice-agent` Deployment, 1 replica, image `ljiljan-voice-agent` (V07),
-  settings from the same `backend-secrets` (V03 reads them), no port, Service or probe (it connects out to
+  pull secret `ghcr-pull-secret`, settings from the same `backend-secrets` (V03 reads them), no port, Service or probe (it connects out to
   LiveKit), requests 250m / 256Mi and limits 1 CPU / 1Gi.
 - `ingress.yaml`: an Ingress for the backend Service, entirely commented out (nginx and cert-manager as the
   example, `api.example.com`).
@@ -44,10 +45,10 @@ none: imported
 
 - **D03-AC-1** — Every manifest puts its resources in the `ljiljan` namespace that `namespace.yaml` creates. *Verify:* unpinned.
 - **D03-AC-2** — The tracked Secret is a template with placeholders only, no real key or password (principle 1); the filled-in `deploy/backend-secret.yaml` is gitignored. *Verify:* unpinned.
-- **D03-AC-3** — The backend Deployment runs 2 replicas of the backend image on port 3000, takes its settings from the `backend-secrets` Secret, and probes readiness and liveness on `GET /health`. *Verify:* unpinned.
+- **D03-AC-3** — The backend Deployment runs 2 replicas of the backend image on port 3000 with the `ghcr-pull-secret` image pull Secret, takes its settings from the `backend-secrets` Secret, and probes readiness and liveness on `GET /health`. *Verify:* unpinned.
 - **D03-AC-4** — The `backend` Service exposes the backend's `http` port as port 80 inside the cluster only (ClusterIP); the Ingress ships commented out. *Verify:* unpinned.
-- **D03-AC-5** — The seed Job runs `node backend/dist/scripts/seed-course.js` in the backend image with the same Secret, once, without restarting on failure. *Verify:* unpinned.
-- **D03-AC-6** — The voice-agent Deployment runs 1 replica of the voice-agent image with the same Secret, with no port, Service or probe. *Verify:* unpinned.
+- **D03-AC-5** — The seed Job runs `node backend/dist/scripts/seed-course.js` in the backend image with the same Secret and the `ghcr-pull-secret` image pull Secret, in a pod that is never restarted in place (`restartPolicy: Never`), retried by the Job at most twice (`backoffLimit: 2`). *Verify:* unpinned.
+- **D03-AC-6** — The voice-agent Deployment runs 1 replica of the voice-agent image with the same Secret and the `ghcr-pull-secret` image pull Secret, with no port, Service or probe. *Verify:* unpinned.
 
 ## Risks
 
@@ -64,6 +65,9 @@ none: imported
 - The JWT placeholders (`REPLACE_WITH_...`) do not start with `dev-`, so the boot guard (B02) lets a backend start
   with them if the operator forgets to replace them.
 - One Secret holds both services' keys, so the voice agent also receives `DATABASE_URL` and the JWT secrets.
+- All three workloads name the `ghcr-pull-secret` image pull Secret, which no file in `deploy/` creates:
+  `DEPLOY.md` §2 has the operator create it with `kubectl create secret docker-registry` when the GHCR packages
+  stay private (D04).
 - The seed Job has to be deleted before it can run again; the manifest says so in a comment only.
 - No manifest sets a `securityContext`; the images' own users (B11's `node`, V07's `worker`) are the only
   non-root guarantee.
