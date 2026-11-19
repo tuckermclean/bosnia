@@ -39,7 +39,7 @@ none: imported
 
 - **B01-AC-1** — `npm test -w @bosanski/backend` runs vitest over `backend/test/**/*.test.ts` with 30-second test and hook timeouts. *Verify:* unpinned (every backend test runs through it; no test reads the config).
 - **B01-AC-2** — `npm run typecheck -w @bosanski/backend` compiles `src`, `scripts` and `test` under the strict base options without emitting. *Verify:* unpinned (CI's typecheck step, not a test).
-- **B01-AC-3** — The `seed` and `smoke:groq` scripts run `scripts/seed-course.ts` and `scripts/smoke-groq.ts` with `tsx`, and `dev` runs `src/index.ts` in watch mode. *Verify:* unpinned.
+- **B01-AC-3** — The `seed` and `smoke:groq` scripts run `scripts/seed-course.ts` and `scripts/smoke-groq.ts` with `tsx`, and `dev` runs `src/index.ts` in watch mode. *Verify:* `backend/test/doc-scripts.test.ts` ("pin B01-AC-3: backend dev, seed and smoke:groq scripts"), pinned by B13.
 - **B01-AC-4** — `build` compiles with `rootDir` `.`, so the server entrypoint lands at `dist/src/index.js` and the seed script at `dist/scripts/seed-course.js`. *Verify:* unpinned.
 
 ## Risks
