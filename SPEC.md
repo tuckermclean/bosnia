@@ -64,8 +64,8 @@ nothing is known red.
 6. migrations, graceful shutdown and tests for the review tool;
 7. phoneme-level pronunciation scoring, later.
 
-The `FOLLOWUPS.md` items are part of this list. No forge issue tracks this work yet: the owner opens issues for
-what should be built, and those issues become planned nodes once the areas are mapped.
+The `FOLLOWUPS.md` items are part of this list. No forge issue tracks this work yet: the owner opens an issue
+for what should be built, and triage fits it into the graph as a planned node.
 
 ## Architecture
 The app calls the backend's `/api` routes. The backend stores users, progress and tutor sessions in Postgres
@@ -80,11 +80,11 @@ the release workflow builds the backend and voice-agent images after the same ch
 
 ## The regime
 The graph (`docs/graph.yaml`) holds the gate (the four test suites, and the failures they already have:
-none), the paths out of scope (`content/generated/`, `content/audio-out/`, `app/assets/`), the imported nodes
-mapped so far, and the adoption areas still to map. The areas are mapped in this order, foundations first, so
-each node's deps point at areas already mapped: `repo-root`, `content-pipeline`, `backend`, `app`,
-`voice-agent`, `deploy`. Each area is mapped into imported nodes and taken off that list in a pull request of
-its own; open issues then become planned nodes.
+none), the paths out of scope (`content/generated/`, `content/audio-out/`, `app/assets/`) and the nodes. The
+adoption is over: its six areas (`repo-root`, `content-pipeline`, `backend`, `app`, `voice-agent`, `deploy`)
+were mapped, foundations first, into the imported nodes R01–R03, C01–C08, B01–B11, A01–A08, V01–V07 and
+D01–D04, which own every tracked file outside the out-of-scope paths and the spec files. New work enters as a
+forge issue that triage turns into a planned node.
 
 ## Node spec template
 A node spec `nodes/<ID>-<name>.md` has the title `# <ID> — <name>`, the headings Purpose, Tests, Changes,
