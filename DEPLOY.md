@@ -148,24 +148,20 @@ Uncomment and adapt to your ingress controller and domain before applying.
 
 ## 4. Schema: how tables get created
 
-There is no separate "run migrations" step required to get a fresh Postgres
-usable — `initSchema()` (see `backend/src/db/client.ts` /
-`backend/src/db/ddl.ts`) runs a set of `CREATE TABLE IF NOT EXISTS`
+The schema comes only from `initSchema()` (see `backend/src/db/client.ts` /
+`backend/src/db/ddl.ts`). It runs a set of `CREATE TABLE IF NOT EXISTS`
 statements **on every backend boot**, for both PGlite (local/test) and real
 Postgres. That's why the Deployment above works against a brand-new database
 with zero extra steps: the first pod to start creates the schema, and every
 subsequent boot is a no-op against the existing tables.
 
-This is intentionally simple and safe (idempotent, no destructive
-statements), but it does not model column/type *changes* to existing tables
-— only initial creation. For a production-grade migration story as the
-schema evolves, switch to **drizzle-kit migrations**
-(`npm run db:generate -w @bosanski/backend` generates SQL migration files
-from `backend/src/db/schema.ts`; `npm run db:migrate -w @bosanski/backend`
-applies them) run as their own step (e.g. an init container or a pre-deploy
-Job) ahead of rolling out a new backend image, instead of relying on
-`initSchema()`. `drizzle-kit` is already a dependency; the plumbing to wire
-this up (a migrations directory + a `drizzle.config.ts`) is the main gap.
+`initSchema()` never changes an existing table. A change to a column or a
+type of an existing table therefore needs a manual step: apply the SQL by
+hand (e.g. with `psql` against `DATABASE_URL`) **before** rolling out the
+backend image that needs it.
+
+Migrations are planned (drizzle-kit migrations, each applied by its own
+step; see `SPEC.md`, OD5) and not built.
 
 ## 5. The JWT-secret boot guard
 
