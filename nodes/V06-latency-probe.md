@@ -16,8 +16,8 @@ the settings of `load_config(require_livekit=False)` (V03), so it needs no LiveK
   until the STT is closed after it.
 - LLM: the time to the first streamed chunk for the user message "Pozdrav! Kako si danas?".
 - TTS: the time to the first audio chunk for a fixed sentence.
-- `--stage stt|llm|tts` (repeatable) picks stages, all three by default. A stage that raises reports `FAILED`
-  with the error, and one that streams nothing says so; neither has a time.
+- `--stage stt|llm|tts` (repeatable) picks stages, all three by default. A stage whose request raises reports
+  `FAILED` with the error, and an LLM or TTS stream that yields nothing says so; neither has a time.
 - `--mock` makes no call and needs no key: it reports fixed figures (STT 0.30 s, LLM 0.25 s, TTS 0.20 s), each
   labelled `SIMULATED`.
 - The report has one row per stage, then, when every stage has a time, their sum in milliseconds with a verdict

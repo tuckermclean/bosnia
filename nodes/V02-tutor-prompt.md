@@ -15,8 +15,8 @@ Imported from the code. `voice-agent/prompts.py` builds the voice tutor's system
   `ValueError` unless it is A1, A2, B1 or B2.
 - The prompt is a fixed Bosnian base (the tutor "Ljiljan"; rules: speak only Bosnian and never switch to
   English, adapt to the CEFR level, correct gently, ask questions, role-play on request, keep replies short and
-  speakable), then the level's guidance, which names the level and tunes vocabulary, sentence complexity
-  and correction style.
+  speakable), then the level's guidance, which names the level and tunes vocabulary, sentence complexity and
+  correction style.
 - With a `scenario`, a role-play instruction is appended: the text for `cafe`, `directions` or `introductions`
   (case-insensitive), else a generic instruction that quotes the scenario as given.
 

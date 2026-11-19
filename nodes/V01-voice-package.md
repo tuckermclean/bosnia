@@ -46,7 +46,7 @@ none: imported
 - The README describes `BACKEND_TURNS_URL` as the backend's `tutor_turns` endpoint, which does not exist yet
   (OD6; `FOLLOWUPS.md`).
 - The README's noise-cancellation note names `RoomInputOptions`, which `agent.py` does not use.
-- The README, `prompts.py`, `agent.py`, `turn_logger.py` and `latency_probe.py` point to "the project plan"
-  for details, which is not in the repository.
+- The README, `prompts.py`, `agent.py`, `turn_logger.py` and `latency_probe.py` cite "the project plan", a
+  document the repository does not have.
 - `livekit-plugins-silero` is deprecated upstream (the file says so), and a LiveKit bump has to move all five
   pins together.

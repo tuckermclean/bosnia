@@ -8,9 +8,9 @@
 
 ## Purpose
 
-Imported from the code. `voice-agent/agent.py` is the LiveKit Agents worker that runs the voice tutor (`python
-agent.py dev` or `start`, through `cli.run_app` with `entrypoint` and `prewarm`). It reads no setting at
-import time (principle 5); the Groq, Deepgram, OpenAI and Azure plugins are imported inside the builders,
+Imported from the code. `voice-agent/agent.py` is the LiveKit Agents worker that runs the voice tutor
+(`python agent.py dev` or `start`, through `cli.run_app` with `entrypoint` and `prewarm`). It reads no setting
+at import time (principle 5); the Groq, Deepgram, OpenAI and Azure plugins are imported inside the builders,
 Silero at the top.
 
 - `build_stt(cfg)`: Groq STT (`cfg.groq_stt_model`, `language="bs"`), or Deepgram (`language="bs"`) when
@@ -47,20 +47,22 @@ none: imported
 - **V05-AC-4** — The agent's instructions are `build_system_prompt(level, scenario)`. *Verify:* unpinned.
 - **V05-AC-5** — Every user and assistant message with text is passed to the turn logger with the session's level and scenario; other items are not. *Verify:* unpinned.
 - **V05-AC-6** — Interruption, endpointing and preemptive generation use the values above, and the VAD is loaded once per process in `prewarm`. *Verify:* unpinned.
-- **V05-AC-7** — Settings are validated only when a job starts (`load_config()` in `entrypoint`), not at import. *Verify:* unpinned.
+- **V05-AC-7** — `agent.py` validates its settings only when a job starts (`load_config()` in `entrypoint`), not at import. *Verify:* unpinned.
 
 ## Risks
 
 - `py_compile` checks syntax only: it does not import the module, so principle 5 (import with zero env vars) is
   not checked by CI for this file.
-- A missing Groq or Azure key raises `ConfigError` inside each job's `entrypoint`, not at worker start: the
-  worker registers and takes jobs, and each call fails; principle 7 asks for a non-zero exit naming the key.
-  (Without the three LiveKit settings, livekit-agents itself refuses to start.)
+- A missing setting other than the three LiveKit ones raises `ConfigError` inside each job's `entrypoint`, not
+  at worker start: the worker registers and takes jobs, and each call fails; principle 7 asks for a non-zero
+  exit naming the key. (Without those three, livekit-agents itself refuses to start.)
 - A level in the metadata other than A1–B2 makes `build_system_prompt` raise, and the call fails; the backend
   checks the level (B09), but job metadata or `TUTOR_DEFAULT_LEVEL` are not checked.
+- The room metadata's shape is B04's `TutorRoomMetadata`; nothing checks that it matches what
+  `_session_metadata` reads, so a change on either side shows up only in a real call.
 - The app's interrupt button publishes `{"type":"interrupt"}` on the data topic `lk.interrupt` (A08); neither
-  this module nor the pinned `livekit-agents` 1.6.4 handles that topic, so nothing on the agent's side acts on
-  it; barge-in relies on the VAD.
+  this module nor the pinned `livekit-agents` 1.6.4 handles that topic, so the agent ignores the message;
+  speaking over the tutor still interrupts it (turn handling above).
 - `STT_PROVIDER=deepgram` fails at the import of the plugin, which `requirements.txt` does not install (V01).
 - The `turn_handling` options and event names depend on the pinned `livekit-agents` 1.6.4 API; no test pins
   them, so a version bump can break them unnoticed until a real call.
