@@ -78,7 +78,7 @@ describe("deploy/kustomization.yaml", () => {
       const m = /^ghcr\.io\/([a-z0-9-]+)\/([^/]+)$/.exec(String(matches[0].newName));
       expect(m, `${name} newName is ghcr.io/<owner>/${name}: ${matches[0].newName}`).not.toBeNull();
       expect(m![2]).toBe(name);
-      owners.push(m![1]);
+      owners.push(m![1]!);
       expect(typeof matches[0].newTag).toBe("string");
       expect(matches[0].newTag.length).toBeGreaterThan(0);
     }
