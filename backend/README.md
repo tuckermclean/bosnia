@@ -49,8 +49,8 @@ for local dev/test; the AI-backed routes degrade gracefully without keys.
 **Boot guard:** once `DATABASE_URL` is set (i.e. any non-local deployment),
 `assertProductionSecretsAreSafe()` (`src/env.ts`) refuses to start if
 `JWT_ACCESS_SECRET` or `JWT_REFRESH_SECRET` is unset, starts with `dev-`,
-contains `REPLACE_WITH`, or is shorter than 32 characters. Local/PGlite dev and CI never hit this, since
-they never set `DATABASE_URL`.
+contains `REPLACE_WITH`, or is shorter than 32 characters. Local/PGlite dev
+and CI never hit this, since they never set `DATABASE_URL`.
 
 ## Seeding the curriculum
 
