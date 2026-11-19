@@ -174,6 +174,12 @@ nodes:
     track: now
     owns: ["backend/test/doc-scripts.test.ts"]
     summary: "The dangling db:migrate and db:generate scripts are removed, DEPLOY.md's schema section says the schema comes only from initSchema() on boot, content/README.md drops npm run seed-a1, and a backend test checks that every npm run script these two docs name exists and every tsx script names a file that exists."
+  - id: B14
+    name: start-script
+    deps: [B01, B11]
+    track: now
+    owns: ["backend/test/start-script.test.ts"]
+    summary: "The backend's start script and main field point at dist/src/index.js, the entrypoint the build emits, and a backend test derives that path from tsconfig.json's outDir and rootDir and checks it against start, main and the Dockerfile's CMD."
   - id: A01
     name: app-package
     deps: []

@@ -52,6 +52,9 @@ nothing is known red.
   file that does not exist, and `db:generate`, which runs `drizzle-kit` with no `drizzle.config.ts`. B13
   removes both scripts, has §4 say the schema comes only from `initSchema()` on boot, and adds a test that
   every script `DEPLOY.md` and `content/README.md` name exists.
+- `backend/package.json`'s `start` script and `main` point at `dist/index.js`, but the build emits the server
+  entrypoint at `dist/src/index.js`, so `npm start -w @bosanski/backend` fails. B14 points both at the emitted
+  file and adds a test that checks them and the Dockerfile's `CMD` against `backend/tsconfig.json`.
 - A missing Groq or LiveKit key gives a 500 from `/api/pronunciation` and `/api/tutor/session`, not
   principle 7's 503.
 - The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse detection,
