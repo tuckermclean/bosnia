@@ -12,7 +12,6 @@ Generates the Ljiljan course as a **canonical JSON artifact** (`generated/course
 | `npm run audio` | Azure `bs-BA` TTS for every listen/speak target → `audio-out/` + `manifest.json`. Content-hashed so only new text is synthesized. **Dry-run (placeholder URLs) when `AZURE_SPEECH_KEY` is unset.** |
 | `npm run export-review` | Emit `review-export/<unit>.md` + `.csv` for the native-speaker review. |
 | `npm run apply-review` | Apply the reviewer's CSV corrections and flip items `unreviewed → reviewed`. |
-| `npm run seed-a1` | Re-emit the hand-authored A1 course (used when no LLM key is available). |
 | `npm test` / `npm run typecheck` | Offline tests (MockProvider, no network) + typecheck. |
 
 ## Generating the full course
