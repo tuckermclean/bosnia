@@ -14,8 +14,8 @@ frozen `VoiceAgentConfig` when called. An empty variable counts as unset.
 
 - Providers: `STT_PROVIDER` and `LLM_PROVIDER`, lower-cased, default `groq`.
 - Required, raising `ConfigError` (a `RuntimeError`) whose message names the missing variable: `LIVEKIT_URL`,
-  `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET` (unless `require_livekit=False`, which fills them with empty
-  strings); `GROQ_API_KEY` when either provider is `groq`; `DEEPGRAM_API_KEY` when STT is `deepgram`;
+  `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET` (with `require_livekit=False` they are read if set and left empty
+  otherwise); `GROQ_API_KEY` when either provider is `groq`; `DEEPGRAM_API_KEY` when STT is `deepgram`;
   `OPENAI_API_KEY` when the LLM is `openai`; `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` always.
 - Defaults: `AZURE_TTS_VOICE` `bs-BA-VesnaNeural` (language `bs-BA`), `GROQ_STT_MODEL`
   `whisper-large-v3-turbo`, `GROQ_LLM_MODEL` `llama-3.3-70b-versatile`, `OPENAI_LLM_MODEL` `gpt-4.1-mini`,
@@ -43,3 +43,5 @@ none: imported
 - An unknown provider name is accepted here and fails later in `build_stt`/`build_llm` (V05) with a
   `ValueError`; an unknown `TUTOR_DEFAULT_LEVEL` is accepted here and fails in `build_system_prompt` (V02).
 - The Azure settings are required even for a run that uses no TTS, such as `latency_probe.py --stage stt` (V06).
+- `ConfigError`'s message says to set the variable "in your shell or a .env file", but nothing in the package
+  loads a `.env` file.

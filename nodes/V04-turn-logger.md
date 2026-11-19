@@ -47,5 +47,5 @@ none: imported
 - A turn that fails to deliver is lost to the backend (no retry, no queue); only the log line keeps it.
 - Whether the log line reaches stdout depends on the logging set-up of the process (LiveKit's CLI in V05), not
   on this module.
-- The package's tests use the standard library only (`AGENTS.md`), so a delivery test has to stub
+- The package's tests use the standard library only (`AGENTS.md`), so a delivery test would stub
   `_get_client` rather than rely on `httpx` (V01).

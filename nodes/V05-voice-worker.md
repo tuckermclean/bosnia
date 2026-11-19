@@ -2,31 +2,32 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | V01, V02, V03, V04, B09 | V06, V07 | M |
+| done | V01, V02, V03, V04, B04, B09 | V06, V07 | M |
 
 **Owns:** `voice-agent/agent.py`
 
 ## Purpose
 
-Imported from the code. `voice-agent/agent.py` is the LiveKit Agents worker that runs the voice tutor
-(`python agent.py dev` or `start`, through `cli.run_app` with `entrypoint` and `prewarm`). It reads no setting
-at import time (principle 5); the provider plugins are imported inside the builders.
+Imported from the code. `voice-agent/agent.py` is the LiveKit Agents worker that runs the voice tutor (`python
+agent.py dev` or `start`, through `cli.run_app` with `entrypoint` and `prewarm`). It reads no setting at
+import time (principle 5); the Groq, Deepgram, OpenAI and Azure plugins are imported inside the builders,
+Silero at the top.
 
 - `build_stt(cfg)`: Groq STT (`cfg.groq_stt_model`, `language="bs"`), or Deepgram (`language="bs"`) when
   `STT_PROVIDER=deepgram`; another value raises `ValueError`.
-- `build_llm(cfg)`: Groq (`cfg.groq_llm_model`), or OpenAI when `LLM_PROVIDER=openai`; another value raises
-  `ValueError`.
+- `build_llm(cfg)`: Groq (`cfg.groq_llm_model`), or OpenAI when `LLM_PROVIDER=openai`; another value
+  raises `ValueError`.
 - `build_tts(cfg)`: Azure TTS, always, with the configured voice, language `bs-BA` and the Azure key and region
-  (principle 2: only the voice is configurable).
+  (principle 2 puts the Azure `bs-BA` voice before latency; only the voice is configurable).
 - `prewarm(proc)` loads Silero VAD once per worker process (minimum speech 0.05 s, minimum silence 0.4 s).
 - `entrypoint(ctx)` calls `load_config()` (V03), connects with audio-only subscription, and reads the job's
-  metadata, else the room's, as JSON (B09 sets `{level, scenario}`); unparsable metadata reads as empty, with a
-  warning, and non-object metadata reads as empty. The level defaults to `TUTOR_DEFAULT_LEVEL`, the scenario to none. It builds an
-  `AgentSession` with the VAD (loaded again with defaults if prewarm did not run), STT, LLM and TTS, and turn
-  handling: interruption on (minimum 0.3 s), endpointing 0.3–2.5 s, preemptive generation and TTS on. Each
-  conversation item that is a user or assistant message with text is passed to a `TurnLogger` (V04) built with
-  the room name as the session id and the backend turn settings; tool calls and empty items are skipped. The
-  agent's instructions are `build_system_prompt(level, scenario)` (V02); shutdown closes the turn logger.
+  metadata, else the room's, as JSON (B09 sets `{level, scenario}`); unparsable metadata (with a warning) and
+  non-object metadata read as empty. The level defaults to `TUTOR_DEFAULT_LEVEL`, the scenario to none. It
+  builds an `AgentSession` with the VAD (loaded again with defaults if prewarm did not run), STT, LLM and TTS,
+  and turn handling: interruption on (minimum 0.3 s), endpointing 0.3–2.5 s, preemptive generation and TTS on.
+  Each conversation item that is a user or assistant message with text is passed to a `TurnLogger` (V04) built
+  with the room name as the session id and the backend turn settings; tool calls and empty items are skipped.
+  The agent's instructions are `build_system_prompt(level, scenario)` (V02); shutdown closes the turn logger.
 
 ## Tests
 
@@ -52,12 +53,14 @@ none: imported
 
 - `py_compile` checks syntax only: it does not import the module, so principle 5 (import with zero env vars) is
   not checked by CI for this file.
-- A missing key raises `ConfigError` inside each job's `entrypoint`, not at worker start: the worker registers
-  and takes jobs without keys, and each call fails; principle 7 asks for a non-zero exit naming the key.
+- A missing Groq or Azure key raises `ConfigError` inside each job's `entrypoint`, not at worker start: the
+  worker registers and takes jobs, and each call fails; principle 7 asks for a non-zero exit naming the key.
+  (Without the three LiveKit settings, livekit-agents itself refuses to start.)
 - A level in the metadata other than A1–B2 makes `build_system_prompt` raise, and the call fails; the backend
   checks the level (B09), but job metadata or `TUTOR_DEFAULT_LEVEL` are not checked.
-- The app's interrupt button publishes `{"type":"interrupt"}` on the data topic `lk.interrupt` (A08); this
-  module registers no handler for it, so the code does not show that it interrupts the tutor.
+- The app's interrupt button publishes `{"type":"interrupt"}` on the data topic `lk.interrupt` (A08); neither
+  this module nor the pinned `livekit-agents` 1.6.4 handles that topic, so nothing on the agent's side acts on
+  it; barge-in relies on the VAD.
 - `STT_PROVIDER=deepgram` fails at the import of the plugin, which `requirements.txt` does not install (V01).
 - The `turn_handling` options and event names depend on the pinned `livekit-agents` 1.6.4 API; no test pins
   them, so a version bump can break them unnoticed until a real call.

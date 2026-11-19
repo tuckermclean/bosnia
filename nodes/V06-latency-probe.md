@@ -12,12 +12,12 @@ Imported from the code. `voice-agent/latency_probe.py` is a command-line tool th
 voice pipeline on its own, against the ~0.6–1 s reply budget. It builds the providers with V05's builders and
 the settings of `load_config(require_livekit=False)` (V03), so it needs no LiveKit room.
 
-- STT: the time of one `recognize` call on a synthetic 1.2 s, 16 kHz sine-wave frame (a timing fixture, not
-  speech).
+- STT: one `recognize` call on a synthetic 1.2 s, 16 kHz sine-wave frame (a timing fixture, not speech), timed
+  until the STT is closed after it.
 - LLM: the time to the first streamed chunk for the user message "Pozdrav! Kako si danas?".
 - TTS: the time to the first audio chunk for a fixed sentence.
-- `--stage stt|llm|tts` (repeatable) picks stages, all three by default. A stage that fails reports
-  `FAILED` with the error and no time.
+- `--stage stt|llm|tts` (repeatable) picks stages, all three by default. A stage that raises reports `FAILED`
+  with the error, and one that streams nothing says so; neither has a time.
 - `--mock` makes no call and needs no key: it reports fixed figures (STT 0.30 s, LLM 0.25 s, TTS 0.20 s), each
   labelled `SIMULATED`.
 - The report has one row per stage, then, when every stage has a time, their sum in milliseconds with a verdict
@@ -42,7 +42,9 @@ none: imported
 
 ## Risks
 
-- It imports `agent` and `livekit.rtc` at the top, so even `--mock` needs the full dependency set (V01).
+- It imports `agent` and `livekit.rtc` at the top, so even `--mock` needs `livekit-agents` and the Silero
+  plugin installed (V01).
+- The STT figure also includes closing the STT (`aclose()`), so it reads higher than the request alone.
 - The per-stage `SKIPPED` branches catch `ConfigError` from the builders, which never raise it (`load_config`
   raises first), so a missing key ends the whole run rather than skipping a stage; an unknown provider's
   `ValueError` is not caught at all.

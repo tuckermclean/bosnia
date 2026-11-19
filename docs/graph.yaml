@@ -251,7 +251,7 @@ nodes:
     summary: "TurnLogger: each tutor turn logged locally as JSON and, when BACKEND_TURNS_URL is set, posted fire-and-forget with an optional bearer token."
   - id: V05
     name: voice-worker
-    deps: [V01, V02, V03, V04, B09]
+    deps: [V01, V02, V03, V04, B04, B09]
     track: done
     status: imported
     owns: ["voice-agent/agent.py"]
