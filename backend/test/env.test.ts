@@ -367,3 +367,49 @@ describe("B12-AC-6: local mode never throws", () => {
     expect(() => mod.assertProductionSecretsAreSafe()).not.toThrow();
   });
 });
+
+// Note: the "unset" cases above (vi.stubEnv(name, undefined)) rely on there being
+// no developer .env that sets the JWT secrets, because process.loadEnvFile fills
+// an unset variable. CI has no such file.
+
+describe("B12-AC-3: a long dev- secret is refused for its prefix", () => {
+  const LONG_DEV_A = "dev-Xk7Qp2Vn9Lz4Rt8Bm3Hc6Ws1Yd5Jf0GaUe2Ro6Vi8Nt4Kh0Sb3Zl7Xq1Cd5Pw9Y";
+  const LONG_DEV_B = "dev-Mb3Tz8Kc5Wq1Vn6Rx9Ld2Hs7Yp4Gj0FeAu4Ho8Ti2Sn6Bx9Kv1Mr5Dl3Cg7Wz0P";
+  const lengths = () => {
+    expect(LONG_DEV_A.length).toBeGreaterThanOrEqual(60);
+    expect(LONG_DEV_B.length).toBeGreaterThanOrEqual(60);
+    expect(LONG_DEV_A).not.toContain("REPLACE_WITH");
+    expect(LONG_DEV_B).not.toContain("REPLACE_WITH");
+  };
+
+  it("B12-AC-3: a long dev- access secret is refused, naming access only, not echoed", async () => {
+    lengths();
+    const msg = await guardWith(LONG_DEV_A, REAL_64_B);
+    expect(msg).not.toBeNull();
+    expect(msg).toContain(ACCESS);
+    expect(msg).not.toContain(REFRESH);
+    expect(msg).not.toContain(LONG_DEV_A);
+  });
+  it("B12-AC-3: a long dev- refresh secret is refused, naming refresh only, not echoed", async () => {
+    lengths();
+    const msg = await guardWith(REAL_64_A, LONG_DEV_B);
+    expect(msg).not.toBeNull();
+    expect(msg).toContain(REFRESH);
+    expect(msg).not.toContain(ACCESS);
+    expect(msg).not.toContain(LONG_DEV_B);
+  });
+  it("B12-AC-3: two long dev- secrets name both, neither echoed", async () => {
+    lengths();
+    const msg = await guardWith(LONG_DEV_A, LONG_DEV_B);
+    expect(msg).not.toBeNull();
+    expect(msg).toContain(ACCESS);
+    expect(msg).toContain(REFRESH);
+    expect(msg).not.toContain(LONG_DEV_A);
+    expect(msg).not.toContain(LONG_DEV_B);
+  });
+  it("B12-AC-3: local mode with long dev- secrets in both does not throw", async () => {
+    lengths();
+    const mod = await loadEnv({ DATABASE_URL: "", JWT_ACCESS_SECRET: LONG_DEV_A, JWT_REFRESH_SECRET: LONG_DEV_B });
+    expect(() => mod.assertProductionSecretsAreSafe()).not.toThrow();
+  });
+});
