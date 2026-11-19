@@ -313,3 +313,9 @@ nodes:
     track: now
     owns: ["backend/test/deploy-kustomization.test.ts"]
     summary: "A deploy/kustomization.yaml lists the manifests and sets both images' registry, owner and tag in its images field, applied with kubectl apply -k; DEPLOY.md describes that flow and a sha tag rollout, and a backend test checks the kustomization against deploy/ with a YAML parse."
+  - id: D06
+    name: pr-image-build
+    deps: [B11, V07, D02]
+    track: now
+    owns: [".github/workflows/images.yml"]
+    summary: "A pull-request-only Images workflow builds the backend and voice-agent images with Release's Dockerfiles, contexts and build-cache scopes, without logging in or pushing, so a broken Dockerfile fails on the PR instead of after the merge."
