@@ -44,24 +44,41 @@ export const env = schema.parse(process.env);
 /** True when no external Postgres is configured — use PGlite locally and in tests. */
 export const isLocalDb = env.DATABASE_URL.trim().length === 0;
 
+/** Minimum length of a JWT secret in non-local mode. */
+export const MIN_JWT_SECRET_LENGTH = 32;
+
 /**
- * Boot guard: refuse to start against a real database with the world-known
- * default JWT secrets. Local/PGlite dev and the test suite never set
- * DATABASE_URL, so the `dev-*` defaults keep working there unmodified — this
- * only fires once a real deployment target is configured.
+ * Boot guard: refuse to start against a real database (DATABASE_URL set) with
+ * a JWT secret that is unset, starts with "dev-" (the world-known defaults),
+ * contains "REPLACE_WITH" (an unedited template placeholder) or is shorter
+ * than MIN_JWT_SECRET_LENGTH (32) characters. Local/PGlite dev and the test
+ * suite never set DATABASE_URL, so the `dev-*` defaults keep working there
+ * unmodified. The error names each refused variable and why, never its value.
  */
 export function assertProductionSecretsAreSafe(): void {
   if (isLocalDb) return;
 
-  const insecure = (secret: string) => !secret || secret.startsWith("dev-");
+  const reasons = (secret: string): string[] => {
+    const out: string[] = [];
+    if (!secret) out.push("unset");
+    if (secret.startsWith("dev-")) out.push('starts with "dev-"');
+    if (secret.includes("REPLACE_WITH")) out.push('contains "REPLACE_WITH"');
+    if (secret && secret.length < MIN_JWT_SECRET_LENGTH) {
+      out.push(`shorter than ${MIN_JWT_SECRET_LENGTH} characters`);
+    }
+    return out;
+  };
   const problems: string[] = [];
-  if (insecure(env.JWT_ACCESS_SECRET)) problems.push("JWT_ACCESS_SECRET");
-  if (insecure(env.JWT_REFRESH_SECRET)) problems.push("JWT_REFRESH_SECRET");
+  for (const name of ["JWT_ACCESS_SECRET", "JWT_REFRESH_SECRET"] as const) {
+    const r = reasons(env[name]);
+    if (r.length > 0) problems.push(`${name} (${r.join(", ")})`);
+  }
 
   if (problems.length > 0) {
     throw new Error(
-      `Refusing to boot: DATABASE_URL is set (non-local mode) but ${problems.join(" and ")} ` +
-        `is unset or still a "dev-" placeholder. Set real, random secrets before deploying.`,
+      `Refusing to boot: DATABASE_URL is set (non-local mode) but ${problems.join("; ")}. ` +
+        `Set real, random secrets of at least ${MIN_JWT_SECRET_LENGTH} characters ` +
+        `(e.g. \`openssl rand -base64 48\`) before deploying.`,
     );
   }
 }

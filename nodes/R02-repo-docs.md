@@ -39,8 +39,8 @@ none: imported
 
 - **R02-AC-1** — `README.md` describes the four packages, how they fit together, the key decisions, local development without Docker, and CI/CD with a pointer to `DEPLOY.md`. *Verify:* unpinned.
 - **R02-AC-2** — `FOLLOWUPS.md` lists the deferred work and the known MVP limitations, and records done items under "Done". *Verify:* unpinned.
-- **R02-AC-3** — `.env.example` holds no secret value: every value is blank except `PORT=3000` and the JWT secrets' `dev-` defaults, which the backend refuses outside local PGlite mode. *Verify:* unpinned.
-- **R02-AC-4** — `.env.example` names the backend's settings that `backend/src/env.ts` reads, other than `AUTO_SEED`. *Verify:* unpinned.
+- **R02-AC-3** — `.env.example` holds no secret value: every value is blank except `PORT=3000` and the JWT secrets' `dev-` defaults, which the backend refuses outside local PGlite mode. *Verify:* `backend/test/env.test.ts` ("pin R02-AC-3: .env.example holds no secret value"), pinned by B12.
+- **R02-AC-4** — `.env.example` names the backend's settings that `backend/src/env.ts` reads, other than `AUTO_SEED`. *Verify:* `backend/test/env.test.ts` ("pin R02-AC-4: .env.example names every setting env.ts reads"), pinned by B12.
 
 ## Risks
 
