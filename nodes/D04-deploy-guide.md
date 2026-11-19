@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | B02, B03, D02, D03 | B12 | S |
+| done | B02, B03, D02, D03 | B12, B13 | S |
 
 **Owns:** `DEPLOY.md`
 
