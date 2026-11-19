@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | none | V05, V06 | S |
+| done | none | D03, V05, V06 | S |
 
 **Owns:** `voice-agent/config.py`
 

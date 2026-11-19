@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | V01, V05 | none | S |
+| done | V01, V05 | D02, D03 | S |
 
 **Owns:** `voice-agent/Dockerfile`, `voice-agent/.dockerignore`
 

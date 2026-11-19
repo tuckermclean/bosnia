@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | R01 | C02, C03 | S |
+| done | R01 | C02, C03, D01 | S |
 
 **Owns:** `content/README.md`, `content/package.json`, `content/tsconfig.json`, `content/vitest.config.ts`
 

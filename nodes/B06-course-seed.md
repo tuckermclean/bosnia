@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | B03, C02 | B10, B11 | S |
+| done | B03, C02 | B10, B11, D03 | S |
 
 **Owns:** `backend/scripts/seed-course.ts`, `backend/src/auto-seed.ts`, `backend/test/auto-seed.test.ts`
 

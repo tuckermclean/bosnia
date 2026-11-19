@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | B02 | B04, B05, B06, B07, B08, B09, B10 | M |
+| done | B02 | B04, B05, B06, B07, B08, B09, B10, D04 | M |
 
 **Owns:** `backend/src/db/schema.ts`, `backend/src/db/ddl.ts`, `backend/src/db/client.ts`
 
