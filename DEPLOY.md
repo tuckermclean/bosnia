@@ -163,7 +163,6 @@ backend image that needs it.
 Migrations are planned (drizzle-kit migrations, each applied by its own
 step; see `SPEC.md`, OD5) and not built.
 
-
 ## 5. The JWT-secret boot guard
 
 `backend/src/env.ts`'s `assertProductionSecretsAreSafe()` runs first thing in
