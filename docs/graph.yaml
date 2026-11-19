@@ -307,3 +307,9 @@ nodes:
     status: imported
     owns: ["DEPLOY.md"]
     summary: "DEPLOY.md, the operator's guide from the CI-built images to a running cluster deployment: GHCR access, the manifests in order, the Secret, the seed Job, the schema on boot, the JWT boot guard and rollouts."
+  - id: D06
+    name: pr-image-build
+    deps: [B11, V07, D02]
+    track: now
+    owns: [".github/workflows/images.yml"]
+    summary: "A pull-request-only Images workflow builds the backend and voice-agent images with Release's Dockerfiles, contexts and build-cache scopes, without logging in or pushing, so a broken Dockerfile fails on the PR instead of after the merge."

@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | D01, B11, V07 | D03, D04 | S |
+| done | D01, B11, V07 | D03, D04, D06 | S |
 
 **Owns:** `.github/workflows/release.yml`
 
