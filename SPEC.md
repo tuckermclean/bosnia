@@ -46,10 +46,12 @@ nothing is known red.
 
 **Known gaps and stale docs** (for later nodes):
 - `content/README.md` and `FOLLOWUPS.md` still say the curriculum is "A1 only".
-- `content/README.md` documents `npm run seed-a1`, which no package script defines; a hygiene node removes
-  `content/scripts/seed-a1.ts` and that line.
-- `DEPLOY.md` documents `npm run db:migrate -w @bosanski/backend`, whose script runs `src/db/migrate.ts`, a
-  file that does not exist.
+- `content/README.md` documents `npm run seed-a1`, which no package script defines; B13 removes that line,
+  and a hygiene node is still to remove `content/scripts/seed-a1.ts`.
+- `DEPLOY.md` §4 documents `npm run db:migrate -w @bosanski/backend`, whose script runs `src/db/migrate.ts`, a
+  file that does not exist, and `db:generate`, which runs `drizzle-kit` with no `drizzle.config.ts`. B13
+  removes both scripts, has §4 say the schema comes only from `initSchema()` on boot, and adds a test that
+  every script `DEPLOY.md` and `content/README.md` name exists.
 - A missing Groq or LiveKit key gives a 500 from `/api/pronunciation` and `/api/tutor/session`, not
   principle 7's 503.
 - The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse detection,

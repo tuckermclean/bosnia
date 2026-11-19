@@ -168,6 +168,12 @@ nodes:
     track: now
     owns: ["backend/test/env.test.ts"]
     summary: "The production JWT boot guard also refuses the Secret template's REPLACE_WITH placeholders and secrets under 32 characters, with tests; the Secret template lists the voice agent's optional settings, and DEPLOY.md, the backend README and .env.example describe the guard."
+  - id: B13
+    name: doc-scripts
+    deps: [B01, C01, D04]
+    track: now
+    owns: ["backend/test/doc-scripts.test.ts"]
+    summary: "The dangling db:migrate and db:generate scripts are removed, DEPLOY.md's schema section says the schema comes only from initSchema() on boot, content/README.md drops npm run seed-a1, and a backend test checks that every npm run script these two docs name exists and every tsx script names a file that exists."
   - id: A01
     name: app-package
     deps: []
