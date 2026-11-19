@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | B01 | B03, B04, B05, B10 | S |
+| done | B01 | B03, B04, B05, B10, D03, D04 | S |
 
 **Owns:** `backend/src/env.ts`
 

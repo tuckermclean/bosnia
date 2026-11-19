@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | none | V04, V05, V06, V07 | S |
+| done | none | D01, V04, V05, V06, V07 | S |
 
 **Owns:** `voice-agent/README.md`, `voice-agent/requirements.txt`
 
