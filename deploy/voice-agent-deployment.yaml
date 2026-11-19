@@ -1,5 +1,6 @@
 # The real-time voice-tutor worker (Python + LiveKit Agents), built from
-# voice-agent/Dockerfile, published to ghcr.io/OWNER/ljiljan-voice-agent.
+# voice-agent/Dockerfile, published to GHCR. The image name below is bare: the
+# registry, owner and tag are set in deploy/kustomization.yaml.
 #
 # Optional: only needed if you're running the live voice-tutor feature.
 # Needs LiveKit (LIVEKIT_URL/API_KEY/API_SECRET), Groq (GROQ_API_KEY, default
@@ -33,7 +34,7 @@ spec:
         - name: ghcr-pull-secret
       containers:
         - name: voice-agent
-          image: ghcr.io/OWNER/ljiljan-voice-agent:latest
+          image: ljiljan-voice-agent
           envFrom:
             - secretRef:
                 name: backend-secrets

@@ -18,8 +18,8 @@ every package's tests pass** — then builds and pushes two images to GHCR:
 | `ghcr.io/OWNER/ljiljan-voice-agent` | `voice-agent/Dockerfile` | `voice-agent/` (self-contained) |
 
 (`OWNER` = your GitHub username/org, lowercased — GHCR requires a lowercase
-path. The workflow computes this itself; the manifests below need you to
-substitute it in by hand.)
+path. The workflow computes this itself; for the manifests, a fork sets its
+owner once in `deploy/kustomization.yaml` — see §3.)
 
 Each image gets tagged with: a `sha-<commit>` tag (always), `latest` (pushes
 to `main` only), and semver tags (`1.2.3` / `1.2` / `1`, only when the push is
@@ -54,11 +54,33 @@ GHCR packages default to **private** the first time they're pushed. Either:
 
 ## 3. Apply the manifests
 
-All resources live in the `ljiljan` namespace. From the repo root:
+All resources live in the `ljiljan` namespace. From the repo root, apply the
+namespace and your filled-in Secret with `kubectl apply -f`, then everything
+else with `kubectl apply -k deploy/`. Do not run `kubectl apply -f deploy/` on
+the whole folder: it would send `kustomization.yaml` to the API server.
 
 ```bash
 kubectl apply -f deploy/namespace.yaml
 ```
+
+The workload manifests carry bare image names (`ljiljan-backend`,
+`ljiljan-voice-agent`); `deploy/kustomization.yaml` sets their registry, owner
+and tag in its `images:` field. As committed it names this repository's images
+(`ghcr.io/tuckermclean/…`) at `latest`, so `kubectl apply -k deploy/` works
+as is. A fork sets its own lowercased GitHub owner, either with the standalone
+`kustomize` binary, run in `deploy/`:
+
+```bash
+cd deploy
+kustomize edit set image \
+  ljiljan-backend=ghcr.io/<owner>/ljiljan-backend:latest \
+  ljiljan-voice-agent=ghcr.io/<owner>/ljiljan-voice-agent:latest
+cd ..
+```
+
+or by editing `newName:` (and `newTag:`) under `images:` in
+`deploy/kustomization.yaml` directly. To roll out a pinned
+`sha-<short commit>` tag instead of `latest`, see §6.
 
 ### 3a. The secret — your real HA Postgres + API keys
 
@@ -92,19 +114,15 @@ kubectl apply -f deploy/backend-secret.yaml
 credentials must never be committed. Only `deploy/backend-secret.example.yaml`
 (placeholders) is tracked.
 
-**Important — replace `OWNER` in the image references** before applying the
-deployments: `deploy/backend-deployment.yaml`, `deploy/seed-job.yaml`, and
-`deploy/voice-agent-deployment.yaml` all reference
-`ghcr.io/OWNER/ljiljan-*:latest` literally — swap in your lowercased
-GitHub owner (or `sed -i "s/OWNER/your-owner/" deploy/*.yaml`).
-
 ### 3b. The backend
 
 ```bash
-kubectl apply -f deploy/backend-deployment.yaml
-kubectl apply -f deploy/backend-service.yaml
+kubectl apply -k deploy/
 kubectl rollout status -n ljiljan deployment/backend
 ```
+
+`apply -k` creates the backend Deployment and Service, and also the seed Job
+(3c) and the voice-agent Deployment (3d), since `kustomization.yaml` lists them.
 
 The Deployment has liveness + readiness probes on `GET /health` (always
 returns `{"ok": true}` once Fastify is listening — see `backend/src/app.ts`)
@@ -116,25 +134,31 @@ The backend image bakes in `content/generated/` (the CEFR curriculum JSON)
 and `content/audio-out/manifest.json` (audio URL lookups) — see
 `backend/Dockerfile`. Load them into Postgres with a one-shot Job:
 
+The `kubectl apply -k deploy/` above already created the Job `backend-seed`:
+
 ```bash
-kubectl apply -f deploy/seed-job.yaml
 kubectl logs -n ljiljan job/backend-seed -f
 ```
 
+On a fresh database a first seed attempt can fail, because the backend pods are
+creating the schema (§4) at the same moment. That is expected: the Job retries
+(`backoffLimit: 2` in `deploy/seed-job.yaml`).
+
 It's idempotent (upserts by id — see `seedCourse()` in
 `backend/scripts/seed-course.ts`), so re-run it any time a new image ships
-updated content. Delete the completed Job before re-applying it
-(`kubectl delete job -n ljiljan backend-seed`), since Jobs aren't
-auto-replaced by `kubectl apply`.
+updated content. Delete the completed Job before re-applying
+(`kubectl delete job -n ljiljan backend-seed`, then `kubectl apply -k deploy/`),
+since a Job's pod template is immutable and Jobs aren't auto-replaced by
+`kubectl apply`.
 
 ### 3d. The voice-agent worker (optional)
 
 Only needed if you're running the live voice-tutor feature (needs LiveKit +
 Groq + Azure — all pulled from the same `backend-secrets` Secret):
 
-```bash
-kubectl apply -f deploy/voice-agent-deployment.yaml
-```
+`kubectl apply -k deploy/` creates it with the rest. To leave it out, delete the
+`voice-agent-deployment.yaml` line from `resources:` in
+`deploy/kustomization.yaml` before applying.
 
 It's a worker, not a server — it registers outbound with your LiveKit
 project and receives job dispatches over that connection, so there's no
@@ -144,7 +168,9 @@ Service/Ingress/probe for it.
 
 `deploy/ingress.yaml` is a fully-commented template for exposing the backend
 Service externally (nginx-ingress + cert-manager shown as an example).
-Uncomment and adapt to your ingress controller and domain before applying.
+Uncomment and adapt it to your ingress controller and domain, and uncomment
+`- ingress.yaml` under `resources:` in `deploy/kustomization.yaml` (both
+together), then `kubectl apply -k deploy/`.
 
 ## 4. Schema: how tables get created
 
@@ -181,15 +207,28 @@ applied at all).
 
 ## 6. Updating a running deployment
 
-Since `backend-deployment.yaml` and `voice-agent-deployment.yaml` pin
-`:latest`, a rollout doesn't happen automatically when a new image is
-pushed — trigger it explicitly:
+The committed `deploy/kustomization.yaml` uses `latest`, so a rollout doesn't
+happen automatically when a new image is pushed. To roll out a specific image,
+set both images' tag in `deploy/kustomization.yaml` to `sha-<short commit>`
+(the seven-character tag `release.yml` pushes for every build) or to a semver
+tag (`1.2.3`), e.g. with `kustomize edit set image
+ljiljan-backend=ghcr.io/<owner>/ljiljan-backend:sha-abc1234` in `deploy/` (and
+likewise for `ljiljan-voice-agent`), or by editing `newTag:`. Then:
+
+```bash
+kubectl delete job -n ljiljan backend-seed --ignore-not-found
+kubectl apply -k deploy/
+kubectl rollout status -n ljiljan deployment/backend
+kubectl rollout status -n ljiljan deployment/voice-agent
+```
+
+The completed seed Job goes first because its pod template is immutable, so
+`apply -k` would fail on it; applying recreates it with the new image.
+
+A `sha-` or semver tag keeps a restarted pod on the same image. Only with
+`latest` is an explicit restart needed to pick up a new push:
 
 ```bash
 kubectl rollout restart -n ljiljan deployment/backend
 kubectl rollout restart -n ljiljan deployment/voice-agent
 ```
-
-For a more controlled/reproducible rollout, use a `sha-<commit>` or semver
-tag instead of `latest` in the manifests and bump it explicitly
-(`kubectl set image -n ljiljan deployment/backend backend=ghcr.io/OWNER/ljiljan-backend:sha-abc1234`).

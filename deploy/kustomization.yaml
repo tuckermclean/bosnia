@@ -1,0 +1,27 @@
+# Applied with: kubectl apply -k deploy/
+#
+# The workload manifests use bare image names (ljiljan-backend,
+# ljiljan-voice-agent); the images: field below sets the registry, owner and
+# tag for all of them. A fork sets its own lowercased GitHub owner here
+# (GHCR requires lowercase). A rollout sets the tag here (see DEPLOY.md §6).
+#
+# Neither Secret file is listed: apply backend-secret.yaml separately with
+# kubectl apply -f. The voice agent is optional: drop its line from resources:.
+# ingress.yaml is a commented template; to use it, uncomment its content and
+# add it to resources: together.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - backend-deployment.yaml
+  - backend-service.yaml
+  - seed-job.yaml
+  - voice-agent-deployment.yaml
+  # - ingress.yaml
+images:
+  - name: ljiljan-backend
+    newName: ghcr.io/tuckermclean/ljiljan-backend
+    newTag: latest
+  - name: ljiljan-voice-agent
+    newName: ghcr.io/tuckermclean/ljiljan-voice-agent
+    newTag: latest
