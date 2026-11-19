@@ -132,8 +132,7 @@ and modest resource requests/limits you should tune for your workload.
 
 The backend image bakes in `content/generated/` (the CEFR curriculum JSON)
 and `content/audio-out/manifest.json` (audio URL lookups) — see
-`backend/Dockerfile`. Load them into Postgres with a one-shot Job:
-
+`backend/Dockerfile`. Load them into Postgres with a one-shot Job.
 The `kubectl apply -k deploy/` above already created the Job `backend-seed`:
 
 ```bash
