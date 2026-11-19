@@ -76,7 +76,8 @@ Fill in, at minimum:
   connection-routing of its own, it just opens one `postgres://` connection
   pool (see `backend/src/db/client.ts`).
 - `JWT_ACCESS_SECRET` / `JWT_REFRESH_SECRET` — long random strings
-  (`openssl rand -base64 48`). **Do not skip this**: see the boot-guard note
+  of at least 32 characters (`openssl rand -base64 48` gives 64).
+  **Do not skip this**: see the boot-guard note
   below.
 - `GROQ_API_KEY`, `LIVEKIT_URL`/`LIVEKIT_API_KEY`/`LIVEKIT_API_SECRET`,
   `AZURE_SPEECH_KEY`/`AZURE_SPEECH_REGION` — as needed for the features you
@@ -171,9 +172,11 @@ this up (a migrations directory + a `drizzle.config.ts`) is the main gap.
 
 `backend/src/env.ts`'s `assertProductionSecretsAreSafe()` runs first thing in
 `main()` (`backend/src/index.ts`) and **refuses to start** if `DATABASE_URL`
-is set (i.e. you're not in local/PGlite mode) and either `JWT_ACCESS_SECRET`
-or `JWT_REFRESH_SECRET` is missing or still carries its `dev-`-prefixed
-placeholder value. This is deliberate: it's the one thing standing between
+is set (i.e. you're not in local/PGlite mode; with it unset the guard does
+nothing) and either `JWT_ACCESS_SECRET` or `JWT_REFRESH_SECRET` is unset,
+starts with `dev-`, contains `REPLACE_WITH`, or is shorter than 32
+characters. Set each to a long random value, e.g. `openssl rand -base64 48`.
+The error names each refused variable and the reason, never the value. This is deliberate: it's the one thing standing between
 "forgot to fill in the Secret" and shipping a production deployment with a
 world-known JWT signing key. If a pod is crash-looping right after seeing a
 real `DATABASE_URL`, check `kubectl logs` for this error first — it means
