@@ -242,6 +242,12 @@ nodes:
     status: imported
     owns: ["app/src/features/tutor/", "app/app/tutor.tsx", "app/app/(tabs)/tutor.tsx"]
     summary: "The Tutor tab and the full-screen call: the Expo Go availability gate, the learner's CEFR level, a lazily loaded LiveKit call with status, the tutor's transcript, mute, interrupt and end call."
+  - id: A09
+    name: sign-in-redirect
+    deps: [A04]
+    track: now
+    owns: ["app/__tests__/auth-navigation.test.tsx"]
+    summary: "A session that becomes authenticated on a sign-in or sign-up screen lands on the Learn tab without a restart, and an app test renders the shell's routes with expo-router's renderRouter and a mocked API client to pin that redirect, the boot redirects and the bounce to sign-in."
   - id: V01
     name: voice-package
     deps: []
