@@ -52,6 +52,9 @@ nothing is known red.
   file that does not exist, and `db:generate`, which runs `drizzle-kit` with no `drizzle.config.ts`. B13
   removes both scripts, has §4 say the schema comes only from `initSchema()` on boot, and adds a test that
   every script `DEPLOY.md` and `content/README.md` name exists.
+- Requests the client gets wrong are answered 500, not a 4xx: a malformed JSON body, an unsupported content
+  type, a `POST /api/pronunciation` that is not multipart, and the second of two concurrent sign-ups with one
+  email. B16 answers each with its 4xx and keeps every other error at 500.
 - `backend/package.json`'s `start` script and `main` point at `dist/index.js`, but the build emits the server
   entrypoint at `dist/src/index.js`, so `npm start -w @bosanski/backend` fails. B14 points both at the emitted
   file and adds a test that checks them and the Dockerfile's `CMD` against `backend/tsconfig.json`.
