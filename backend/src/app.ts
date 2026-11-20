@@ -1,3 +1,4 @@
+import { STATUS_CODES } from "node:http";
 import Fastify, { type FastifyInstance } from "fastify";
 import cors from "@fastify/cors";
 import helmet from "@fastify/helmet";
@@ -31,6 +32,11 @@ export function buildApp(deps: AppDeps): FastifyInstance {
     }
     if (error instanceof ZodError) {
       reply.status(400).send({ error: "Validation error", issues: error.issues });
+      return;
+    }
+    const status = (error as { statusCode?: unknown }).statusCode;
+    if (typeof status === "number" && status >= 400 && status <= 499) {
+      reply.status(status).send({ error: STATUS_CODES[status] ?? "Bad Request" });
       return;
     }
     app.log.error(error);
