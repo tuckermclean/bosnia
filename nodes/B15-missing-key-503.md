@@ -4,7 +4,7 @@
 |---|---|---|---|
 | now | B04, B08, B09, B10 | none | S |
 
-**Owns:** `backend/src/unavailable.ts`, `backend/test/missing-keys.test.ts`
+**Owns:** `backend/src/unavailable.ts`, `backend/test/missing-keys.test.ts`, `backend/test/dep-pins.test.ts`
 **Resolves:** #29
 
 ## Purpose
