@@ -23,11 +23,18 @@ under `app/app/` is a test file or sits in a `__tests__` folder, so a later test
 example red target in `AGENTS.md` names the old path; it gets the new one.
 
 **Owner's approval.** The home test is frozen: A07-AC-1 to A07-AC-5 and A01-AC-1 name it in their *Verify*.
-`AGENTS.md` is a file no node owns. Issue #36, written by the owner, asks for both changes: "Move the test
-to `app/__tests__/` (or another folder outside `app/app/`), keeping its cases unchanged, and update jest's
-paths or imports if needed", and "Update `AGENTS.md`'s app test command and pattern, if they name the old
-path." The node's PR quotes this as the approval for moving that frozen test and for the one-line change to
-`AGENTS.md`. Nothing else frozen changes.
+`AGENTS.md` is a file no node owns. The owner approved this change in their own words, in chat on
+2026-11-20, as relayed in the review of this node's spec PR
+(<https://github.com/tuckermclean/bosnia/pull/38#pullrequestreview-5996544436>). Asked about "A07's home
+test moves from app/app/(tabs)/__tests__/home.test.tsx to app/__tests__/home.test.tsx with a `git mv`, and
+only its screen import line changes. A07-AC-1..5 and A01-AC-1 are marked superseded by the new criteria.
+AGENTS.md's example red-target line gets the new path.", they answered: "Approve #38 (A10)". The approval
+covers three changes and nothing else:
+- the move of the home test with `git mv`, with its one changed import line;
+- the *Verify* of A07-AC-1 to A07-AC-5 and of A01-AC-1 becoming `superseded by` lines;
+- the one-line change to `AGENTS.md`'s example red target.
+
+The node's PR quotes this approval. Nothing else frozen changes.
 
 ## Tests
 
@@ -76,8 +83,11 @@ Today the routes-folder case fails, naming `(tabs)/__tests__/home.test.tsx`. The
 
 ## Risks
 
-- The test is frozen (A07, A01). The owner's approval for the move and its one import line is the issue text
-  quoted in Purpose. A reviewer who reads "frozen" as "never renamed" should find that approval in the PR.
+- The test is frozen (A07, A01). The owner's approval is the quote in Purpose ("Approve #38 (A10)"), given in
+  chat on 2026-11-20 and relayed in the review of this spec PR. It covers the move with its one import line,
+  the `superseded by` lines of A07-AC-1 to A07-AC-5 and A01-AC-1, and the one-line `AGENTS.md` change. A
+  change beyond these three needs a new approval from the owner. A reviewer who reads "frozen" as "never
+  renamed" should find that approval in the node's PR.
 - `app/tsconfig.json` sets `types: ["jest"]`, so the TypeScript check may not see Node's types for `fs`,
   `path` and `__dirname` in the routes-folder test. If `npx tsc --noEmit` rejects them, the test file adds
   `/// <reference types="node" />`. `@types/node` is in `app/package-lock.json` only as a dependency of the
