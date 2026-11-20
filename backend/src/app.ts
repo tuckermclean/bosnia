@@ -1,4 +1,4 @@
-import Fastify, { type FastifyInstance } from "fastify";
+import Fastify, { LogController, type FastifyInstance } from "fastify";
 import cors from "@fastify/cors";
 import helmet from "@fastify/helmet";
 import multipart from "@fastify/multipart";
@@ -15,15 +15,16 @@ import { tutorRoutes } from "./routes/tutor.js";
 /** Max upload size for pronunciation audio clips (see routes/pronunciation.ts). */
 export const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
 
-/** Builds the Fastify app with injected deps so tests can supply fakes. */
+/** The server process's logger options: level info, request lines off (see buildApp). */
 export const SERVER_LOGGER = { level: "info" };
 
 export interface BuildAppOptions {
   logger?: boolean | { level: string };
 }
 
+/** Builds the Fastify app with injected deps so tests can supply fakes. */
 export function buildApp(deps: AppDeps, options: BuildAppOptions = {}): FastifyInstance {
-  const app = Fastify({ logger: options.logger ?? false, disableRequestLogging: true });
+  const app = Fastify({ logger: options.logger ?? false, logController: new LogController({ disableRequestLogging: true }) });
 
   app.register(cors, { origin: true });
   app.register(helmet);
