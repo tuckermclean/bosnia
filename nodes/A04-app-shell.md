@@ -41,8 +41,8 @@ none: imported
 
 ## Gate
 
-- **A04-AC-1** — On boot the app hydrates the session with `GET /auth/me` and lands on the Learn tab when it succeeds, on sign-in otherwise. *Verify:* unpinned.
-- **A04-AC-2** — Once the session becomes unauthenticated (log out, or a rejected refresh), a screen outside the auth group is replaced by sign-in. *Verify:* unpinned.
+- **A04-AC-1** — On boot the app hydrates the session with `GET /auth/me` and lands on the Learn tab when it succeeds, on sign-in otherwise. *Verify:* `app/__tests__/auth-navigation.test.tsx` ("Boot, signed in" and "Boot, signed out"), pinned by A09.
+- **A04-AC-2** — Once the session becomes unauthenticated (log out, or a rejected refresh), a screen outside the auth group is replaced by sign-in. *Verify:* `app/__tests__/auth-navigation.test.tsx` ("Log out"), pinned by A09.
 - **A04-AC-3** — Sign in and sign up send the email trimmed and lower-cased and, on an `ApiError`, show its message. *Verify:* unpinned.
 - **A04-AC-4** — Sign up stays disabled until the password has at least 8 characters. *Verify:* unpinned.
 - **A04-AC-5** — A successful login or register saves both tokens and sets the user. *Verify:* unpinned.
