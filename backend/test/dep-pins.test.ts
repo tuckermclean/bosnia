@@ -155,9 +155,19 @@ describe("B10-AC-6: server process", () => {
   const tsx = path.resolve(backendDir, "../node_modules/.bin/tsx");
   let child: ChildProcess | undefined;
 
-  afterEach(() => {
-    child?.kill("SIGKILL");
+  // The tsx wrapper runs the real server as its own child, so each server is started detached (its own process
+  // group) and the whole group is killed: no process of the server outlives a case.
+  afterEach(async () => {
+    const c = child;
     child = undefined;
+    if (!c || c.pid === undefined) return;
+    const exited = c.exitCode !== null || c.signalCode !== null ? Promise.resolve() : new Promise<void>((r) => c.once("exit", () => r()));
+    try {
+      process.kill(-c.pid, "SIGKILL");
+    } catch {
+      // the group is already gone (ESRCH)
+    }
+    await exited;
   });
 
   function childEnv(extra: Record<string, string>): NodeJS.ProcessEnv {
@@ -192,6 +202,7 @@ describe("B10-AC-6: server process", () => {
       cwd: backendDir,
       env: childEnv({ PORT: String(port), ...extra }),
       stdio: ["ignore", "ignore", "ignore"],
+      detached: true,
     });
     let exited = false;
     child.once("exit", () => {
@@ -236,6 +247,7 @@ describe("B10-AC-6: server process", () => {
         PORT: "0",
       }),
       stdio: ["ignore", "ignore", "pipe"],
+      detached: true,
     });
     child.stderr!.on("data", (d) => {
       stderr += String(d);
