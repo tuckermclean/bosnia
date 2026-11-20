@@ -180,6 +180,12 @@ nodes:
     track: now
     owns: ["backend/test/start-script.test.ts"]
     summary: "The backend's start script and main field point at dist/src/index.js, the entrypoint the build emits, and a backend test derives that path from tsconfig.json's outDir and rootDir and checks it against start, main and the Dockerfile's CMD."
+  - id: B15
+    name: missing-key-503
+    deps: [B04, B08, B09, B10]
+    track: now
+    owns: ["backend/src/unavailable.ts", "backend/test/missing-keys.test.ts"]
+    summary: "Without its Groq or LiveKit settings, POST /api/pronunciation or POST /api/tutor/session answers 503 naming the feature, not the variable, and the server log names the missing settings; the server logs at info with Fastify's per-request lines off and no secret or token in its lines, with keyless tests of both routes and of the log."
   - id: A01
     name: app-package
     deps: []
