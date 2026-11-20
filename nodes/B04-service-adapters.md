@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | B02, B03 | B05, B07, B08, B09, B10, V05 | S |
+| done | B02, B03 | B05, B07, B08, B09, B10, B15, V05 | S |
 
 **Owns:** `backend/src/deps.ts`, `backend/src/services/groq.ts`, `backend/src/services/livekit.ts`, `backend/scripts/smoke-groq.ts`, `backend/test/helpers.ts`
 

@@ -56,7 +56,8 @@ nothing is known red.
   entrypoint at `dist/src/index.js`, so `npm start -w @bosanski/backend` fails. B14 points both at the emitted
   file and adds a test that checks them and the Dockerfile's `CMD` against `backend/tsconfig.json`.
 - A missing Groq or LiveKit key gives a 500 from `/api/pronunciation` and `/api/tutor/session`, not
-  principle 7's 503.
+  principle 7's 503, and the backend's logger is off, so no server log names the missing key or any 500's
+  cause. B15 answers 503 naming the feature, logs the missing settings, and turns the server's logger on.
 - The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse detection,
   the CORS allowlist, auth rate limiting, placeholder reference audio, coarse pronunciation scoring.
 
