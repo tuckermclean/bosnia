@@ -39,10 +39,10 @@ none: imported
 - **B10-AC-1** — Over the committed curriculum seeded into a fresh database, a registered user reads the course tree with the first skill of the first unit unlocked and that unit's other skills locked, and opens its first lesson with its six exercises. *Verify:* `backend/test/integration.test.ts` ("GET /api/courses serves the real seeded A1->B2 course with the first skill of the first unit unlocked"), `backend/test/integration.test.ts` ("GET /api/lessons/:id returns the first lesson with populated exercise payloads").
 - **B10-AC-2** — On that course, completing the first lesson with 5 of 6 correct gives 50 xp, opening a tutor session saves its row, and a pronunciation attempt on the lesson's `speak` exercise, through `processPronunciation`, is scored and saved. *Verify:* `backend/test/integration.test.ts` ("POST /api/progress/lesson-complete raises xp for the real first lesson"), `backend/test/integration.test.ts` ("POST /api/tutor/session mints a token and records a real tutor_sessions row"), `backend/test/integration.test.ts` ("processPronunciation scores a real 'speak' exercise's targetPhrase and persists the attempt").
 - **B10-AC-3** — A request that fails zod validation is answered 400, and an `HttpError` with its own status. *Verify:* `backend/test/auth.test.ts` ("rejects passwords longer than 256 characters"), `backend/test/auth.test.ts` ("rejects registering the same email twice with 409").
-- **B10-AC-4** — `GET /health` answers `{ok: true}` without authentication. *Verify:* unpinned.
-- **B10-AC-5** — Any other error is answered 500 `{error: "Internal server error"}`, without its message. *Verify:* unpinned.
+- **B10-AC-4** — `GET /health` answers `{ok: true}` without authentication. *Verify:* `backend/test/integration.test.ts` ("B10-AC-4: GET /health answers {ok: true} without authentication").
+- **B10-AC-5** — Any other error is answered 500 `{error: "Internal server error"}`, without its message. *Verify:* superseded by B16-AC-5.
 - **B10-AC-6** — The server runs the boot guard before it opens the database, creates the tables, auto-seeds as `AUTO_SEED` and `isLocalDb` decide, and listens on `0.0.0.0:PORT`; a boot failure exits 1. *Verify:* unpinned.
-- **B10-AC-7** — CORS accepts any origin, and helmet's security headers are set on every response. *Verify:* unpinned.
+- **B10-AC-7** — CORS accepts any origin, and helmet's security headers are set on every response. *Verify:* `backend/test/integration.test.ts` ("B10-AC-7: CORS accepts any origin"), `backend/test/integration.test.ts` ("B10-AC-7: helmet security headers are set on a success response"), `backend/test/integration.test.ts` ("B10-AC-7: helmet security headers are set on an error response").
 
 ## Risks
 
