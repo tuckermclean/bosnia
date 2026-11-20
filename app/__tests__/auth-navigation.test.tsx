@@ -3,6 +3,8 @@ import { Text } from 'react-native';
 import { act, renderRouter, screen, waitFor } from 'expo-router/testing-library';
 import { useAuthStore } from '@/state/authStore';
 import type { User } from '@/types/api';
+import { fireEvent } from 'expo-router/testing-library';
+import { ApiError } from '@/api/client';
 
 // expo-router's matchers (`expo-router/testing-library` registers them) ship
 // without types.
@@ -159,6 +161,67 @@ describe('auth navigation', () => {
 
       await waitFor(() => expect(app).toHavePathname('/sign-in'));
       expect(screen.getByTestId('sign-in-button')).toBeTruthy();
+      expect(screen.queryByText('Learn stub')).toBeNull();
+    });
+  });
+
+  describe('Sign in', () => {
+    it('lands on /home and drops the form after login resolves, with the email trimmed and lower-cased (A09-AC-1)', async () => {
+      mockMe.mockRejectedValue(new Error('401'));
+      mockLogin.mockResolvedValue({ accessToken: 'a', refreshToken: 'r', user });
+
+      const app = renderApp();
+      await hydrated(app);
+      await waitFor(() => expect(app).toHavePathname('/sign-in'));
+
+      await fireEvent.changeText(screen.getByTestId('email-input'), '  Ana@Example.COM ');
+      await fireEvent.changeText(screen.getByTestId('password-input'), 'secret-pass');
+      await fireEvent.press(screen.getByTestId('sign-in-button'));
+
+      await waitFor(() => expect(app).toHavePathname('/home'));
+      expect(screen.getByText('Learn stub')).toBeTruthy();
+      expect(screen.queryByTestId('sign-in-button')).toBeNull();
+      expect(mockLogin).toHaveBeenCalledWith({ email: 'ana@example.com', password: 'secret-pass' });
+    });
+  });
+
+  describe('Sign up', () => {
+    it('lands on /home after register resolves (A09-AC-2)', async () => {
+      mockMe.mockRejectedValue(new Error('401'));
+      mockRegister.mockResolvedValue({ accessToken: 'a', refreshToken: 'r', user });
+
+      const app = renderApp();
+      await hydrated(app);
+      await waitFor(() => expect(app).toHavePathname('/sign-in'));
+
+      await fireEvent.press(screen.getByText('New here? Create an account'));
+      await waitFor(() => expect(app).toHavePathname('/sign-up'));
+
+      await fireEvent.changeText(screen.getByTestId('email-input'), 'ana@example.com');
+      await fireEvent.changeText(screen.getByTestId('password-input'), '12345678');
+      await fireEvent.press(screen.getByTestId('sign-up-button'));
+
+      await waitFor(() => expect(app).toHavePathname('/home'));
+      expect(screen.getByText('Learn stub')).toBeTruthy();
+      expect(mockRegister).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Failed sign in', () => {
+    it('stays on /sign-in and shows the error when login rejects (A09-AC-3)', async () => {
+      mockMe.mockRejectedValue(new Error('401'));
+      mockLogin.mockRejectedValue(new ApiError(401, 'Invalid email or password'));
+
+      const app = renderApp();
+      await hydrated(app);
+      await waitFor(() => expect(app).toHavePathname('/sign-in'));
+
+      await fireEvent.changeText(screen.getByTestId('email-input'), 'ana@example.com');
+      await fireEvent.changeText(screen.getByTestId('password-input'), 'wrong-pass');
+      await fireEvent.press(screen.getByTestId('sign-in-button'));
+
+      await waitFor(() => expect(screen.getByText('Invalid email or password')).toBeTruthy());
+      expect(app).toHavePathname('/sign-in');
       expect(screen.queryByText('Learn stub')).toBeNull();
     });
   });
