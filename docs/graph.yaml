@@ -152,7 +152,7 @@ nodes:
     name: api-server
     deps: [B02, B03, B04, B05, B06, B07, B08, B09]
     track: done
-    status: imported
+    status: pinned
     owns: ["backend/src/app.ts", "backend/src/index.ts", "backend/test/integration.test.ts"]
     summary: "buildApp (CORS, helmet, multipart limit, error handler, /health, the routes) and the server boot: guard, schema, auto-seed, listen; with the end-to-end test over the committed curriculum."
   - id: B11
