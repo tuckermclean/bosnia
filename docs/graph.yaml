@@ -248,6 +248,12 @@ nodes:
     track: now
     owns: ["app/__tests__/auth-navigation.test.tsx"]
     summary: "A session that becomes authenticated on a sign-in or sign-up screen lands on the Learn tab without a restart, and an app test renders the shell's routes with expo-router's renderRouter and a mocked API client to pin that redirect, the boot redirects and the bounce to sign-in."
+  - id: A10
+    name: tests-out-of-routes
+    deps: [A01, A07]
+    track: now
+    owns: ["app/__tests__/home.test.tsx", "app/__tests__/routes-folder.test.ts"]
+    summary: "The home test moves out of expo-router's routes folder to app/__tests__/ with its cases unchanged, and an app test fails whenever a file under app/app/ is a test file or sits in a __tests__ folder."
   - id: V01
     name: voice-package
     deps: []

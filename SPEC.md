@@ -58,6 +58,9 @@ nothing is known red.
 - A missing Groq or LiveKit key gives a 500 from `/api/pronunciation` and `/api/tutor/session`, not
   principle 7's 503, and the backend's logger is off, so no server log names the missing key or any 500's
   cause. B15 answers 503 naming the feature, logs the missing settings, and turns the server's logger on.
+- A07's home test, `app/app/(tabs)/__tests__/home.test.tsx`, sits in expo-router's routes folder, so the route
+  context reads it as the route `(tabs)/__tests__/home.test` and the app bundles load it. A10 moves it to
+  `app/__tests__/` and adds an app test that fails when a test file lands under `app/app/`.
 - The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse detection,
   the CORS allowlist, auth rate limiting, placeholder reference audio, coarse pronunciation scoring.
 
