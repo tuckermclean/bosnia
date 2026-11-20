@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | B03, B04, B05 | A03, B10, B16 | M |
+| done | B03, B04, B05 | A03, B10, B15, B16 | M |
 
 **Owns:** `backend/src/services/scoring.ts`, `backend/src/routes/pronunciation.ts`, `backend/test/scoring.test.ts`, `backend/test/pronunciation.test.ts`
 
