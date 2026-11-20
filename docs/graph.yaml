@@ -186,6 +186,12 @@ nodes:
     track: now
     owns: ["backend/src/unavailable.ts", "backend/test/missing-keys.test.ts"]
     summary: "Without its Groq or LiveKit settings, POST /api/pronunciation or POST /api/tutor/session answers 503 naming the feature, not the variable, and the server log names the missing settings; the server logs at info with Fastify's per-request lines off and no secret or token in its lines, with keyless tests of both routes and of the log."
+  - id: B16
+    name: request-errors-4xx
+    deps: [B05, B08, B10]
+    track: now
+    owns: ["backend/test/request-errors.test.ts"]
+    summary: "The error handler answers an error that carries a 4xx statusCode (Fastify's malformed-body and unsupported-media-type errors, the multipart plugin's not-multipart error) with that status and its standard reason phrase, keeps every other unexpected error at 500 without its message, and a concurrent duplicate sign-up answers 409 like a sequential one."
   - id: B17
     name: streak-clock
     deps: [B07]
