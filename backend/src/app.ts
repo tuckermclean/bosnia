@@ -5,6 +5,7 @@ import multipart from "@fastify/multipart";
 import { ZodError } from "zod";
 import type { AppDeps } from "./deps.js";
 import { HttpError } from "./http.js";
+import { FeatureUnavailableError } from "./unavailable.js";
 import { authRoutes } from "./routes/auth.js";
 import { courseRoutes } from "./routes/courses.js";
 import { progressRoutes } from "./routes/progress.js";
@@ -15,8 +16,14 @@ import { tutorRoutes } from "./routes/tutor.js";
 export const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
 
 /** Builds the Fastify app with injected deps so tests can supply fakes. */
-export function buildApp(deps: AppDeps): FastifyInstance {
-  const app = Fastify({ logger: false });
+export const SERVER_LOGGER = { level: "info" };
+
+export interface BuildAppOptions {
+  logger?: boolean | { level: string };
+}
+
+export function buildApp(deps: AppDeps, options: BuildAppOptions = {}): FastifyInstance {
+  const app = Fastify({ logger: options.logger ?? false, disableRequestLogging: true });
 
   app.register(cors, { origin: true });
   app.register(helmet);
@@ -24,16 +31,21 @@ export function buildApp(deps: AppDeps): FastifyInstance {
     limits: { fileSize: MAX_UPLOAD_BYTES, files: 1 },
   });
 
-  app.setErrorHandler((error, _request, reply) => {
+  app.setErrorHandler((error, request, reply) => {
     if (error instanceof HttpError) {
       reply.status(error.statusCode).send({ error: error.message });
+      return;
+    }
+    if (error instanceof FeatureUnavailableError) {
+      request.log.error(`${error.feature} is unavailable: ${error.missingKeys.join(", ")} not set`);
+      reply.status(503).send({ error: error.message });
       return;
     }
     if (error instanceof ZodError) {
       reply.status(400).send({ error: "Validation error", issues: error.issues });
       return;
     }
-    app.log.error(error);
+    request.log.error(error);
     reply.status(500).send({ error: "Internal server error" });
   });
 
