@@ -1,8 +1,8 @@
 # The API server: Fastify + Drizzle, built from backend/Dockerfile, published
-# by .github/workflows/release.yml to ghcr.io/OWNER/ljiljan-backend.
+# by .github/workflows/release.yml to GHCR. The image name below is bare: the
+# registry, owner and tag are set in deploy/kustomization.yaml.
 #
-# Replace OWNER below with your (lowercased) GitHub username/org before
-# applying. See DEPLOY.md for the imagePullSecret this references
+# See DEPLOY.md for the imagePullSecret this references
 # (`ghcr-pull-secret`) if the GHCR package isn't public.
 apiVersion: apps/v1
 kind: Deployment
@@ -25,7 +25,7 @@ spec:
         - name: ghcr-pull-secret
       containers:
         - name: backend
-          image: ghcr.io/OWNER/ljiljan-backend:latest
+          image: ljiljan-backend
           ports:
             - name: http
               containerPort: 3000
