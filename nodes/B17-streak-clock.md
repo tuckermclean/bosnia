@@ -26,6 +26,14 @@ with `lastActive` just before it. A new test file checks `computeStreak` on both
 under a non-UTC time zone, where local and UTC days differ. `computeStreak`'s behaviour does not change: the node
 changes tests, plus a clock seam in the route only if the tests need one.
 
+**Owner's approval.** B07-AC-2's *Verify* names its test, so the test's lines are frozen. On 2026-11-20 the
+owner was asked about this change to it: "B07's existing test 'bumps the streak by one on a second day…' in
+backend/test/progress.test.ts runs on a fixed clock (2026-01-10T00:30Z, with lastActive 2026-01-09T23:30Z)
+instead of `Date.now() - 25h`. Its name and assertions (streak 3→4, unlockedSkillIds ['skill-2']) stay the
+same." The owner answered: "Approve #37 (B17)". The approval covers only that test's clock lines: the fixed
+instants (the route's clock and `lastActive`), the fake-timer setup and its restore. The test's name and its
+assertions stay frozen.
+
 ## Tests
 
 - `backend/test/progress.test.ts` (B07): B07-AC-2's test sets the clock that lesson-complete reads to
@@ -61,7 +69,7 @@ changes tests, plus a clock seam in the route only if the tests need one.
 - **B17-AC-1** — B07-AC-2's test runs with lesson-complete's clock fixed by the test at `2026-01-10T00:30:00Z` and `lastActive` at `2026-01-09T23:30:00Z`, expects the streak to go from 3 to 4 and `unlockedSkillIds` to be `["skill-2"]`, keeps its name, and restores the real clock after it runs; no instant in it comes from the real clock. *Verify:* `npm test -w @bosanski/backend -- test/progress.test.ts`, and the reviewer reads the test's diff.
 - **B17-AC-2** — `computeStreak` raises the streak by one from `2026-01-09T23:59:59Z` to `2026-01-10T00:00:00Z`, keeps it from `2026-01-10T00:00:00Z` to `2026-01-10T23:59:59Z`, and resets it to 1 from `2026-01-08T23:30:00Z` to `2026-01-10T00:30:00Z`. *Verify:* `npm test -w @bosanski/backend -- test/streak-utc.test.ts`.
 - **B17-AC-3** — Under the `America/Los_Angeles` time zone, which the test checks took effect, `computeStreak` gives 4 from a streak of 3 for `2026-01-09T20:00:00Z` → `2026-01-10T02:00:00Z` and 3 for `2026-01-10T01:00:00Z` → `2026-01-10T09:00:00Z`, and the time zone is restored after these cases. *Verify:* `npm test -w @bosanski/backend -- test/streak-utc.test.ts`.
-- **B17-AC-4** — The UTC-zone cases fail when `isSameCalendarDay` compares local days. *Verify:* the node's PR records the output of `npm test -w @bosanski/backend -- test/streak-utc.test.ts` with `isSameCalendarDay` changed, in a scratch copy and not committed, to use `getFullYear`, `getMonth` and `getDate`, showing both cases of B17-AC-3 failing.
+- **B17-AC-4** — B17-AC-3's Los Angeles cases fail when `isSameCalendarDay` compares local days. *Verify:* the node's PR records the output of `npm test -w @bosanski/backend -- test/streak-utc.test.ts` with `isSameCalendarDay` changed, in a scratch copy and not committed, to use `getFullYear`, `getMonth` and `getDate`, showing both cases of B17-AC-3 failing.
 - **B17-AC-5** — `computeStreak`, `isSameCalendarDay` and `applyHeartRegen` are unchanged, and `backend/src/routes/progress.ts` changes at most by a clock seam that defaults to the current time. *Verify:* the reviewer diffs `backend/src/routes/progress.ts` with `main`.
 - **B17-AC-6** — The backend suite, with every B07 test under its current name, and `npm run typecheck -w @bosanski/backend` pass. *Verify:* `npm test -w @bosanski/backend`, and CI's backend job runs the typecheck.
 
