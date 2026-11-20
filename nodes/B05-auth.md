@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | B02, B03, B04 | A03, B07, B08, B09, B10 | M |
+| done | B02, B03, B04 | A03, B07, B08, B09, B10, B16 | M |
 
 **Owns:** `backend/src/services/auth.ts`, `backend/src/http.ts`, `backend/src/routes/auth.ts`, `backend/test/auth.test.ts`
 

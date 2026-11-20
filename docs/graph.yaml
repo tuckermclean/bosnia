@@ -180,6 +180,12 @@ nodes:
     track: now
     owns: ["backend/test/start-script.test.ts"]
     summary: "The backend's start script and main field point at dist/src/index.js, the entrypoint the build emits, and a backend test derives that path from tsconfig.json's outDir and rootDir and checks it against start, main and the Dockerfile's CMD."
+  - id: B16
+    name: request-errors-4xx
+    deps: [B05, B08, B10]
+    track: now
+    owns: ["backend/test/request-errors.test.ts"]
+    summary: "The error handler answers an error that carries a 4xx statusCode (Fastify's malformed-body and unsupported-media-type errors, the multipart plugin's not-multipart error) with that status and its standard reason phrase, keeps every other unexpected error at 500 without its message, and a concurrent duplicate sign-up answers 409 like a sequential one."
   - id: A01
     name: app-package
     deps: []
