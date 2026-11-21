@@ -1,5 +1,6 @@
 import { AccessToken, RoomServiceClient } from "livekit-server-sdk";
 import { env } from "../env.js";
+import { FeatureUnavailableError, missingSettings } from "../unavailable.js";
 
 export interface TutorRoomGrant {
   token: string;
@@ -31,10 +32,15 @@ export function createLiveKitMinter(
   apiSecret = env.LIVEKIT_API_SECRET,
   url = env.LIVEKIT_URL,
 ): RoomTokenMinter {
-  const roomService = new RoomServiceClient(toHttpUrl(url), apiKey, apiSecret);
-
   return {
     async mint(identity, roomName, metadata) {
+      const missing = missingSettings({
+        LIVEKIT_URL: url,
+        LIVEKIT_API_KEY: apiKey,
+        LIVEKIT_API_SECRET: apiSecret,
+      });
+      if (missing.length > 0) throw new FeatureUnavailableError("voice tutor", missing);
+      const roomService = new RoomServiceClient(toHttpUrl(url), apiKey, apiSecret);
       if (metadata && (metadata.level || metadata.scenario)) {
         // Set the learner's CEFR level / role-play scenario as JSON room
         // metadata *before* minting the join token, so it's already present

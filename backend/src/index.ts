@@ -1,4 +1,4 @@
-import { buildApp } from "./app.js";
+import { buildApp, SERVER_LOGGER } from "./app.js";
 import { maybeAutoSeed } from "./auto-seed.js";
 import { createDbHandle } from "./db/client.js";
 import { assertProductionSecretsAreSafe, env, isLocalDb } from "./env.js";
@@ -19,11 +19,14 @@ async function main(): Promise<void> {
     await maybeAutoSeed(db);
   }
 
-  const app = buildApp({
-    db,
-    transcriber: createGroqTranscriber(),
-    minter: createLiveKitMinter(),
-  });
+  const app = buildApp(
+    {
+      db,
+      transcriber: createGroqTranscriber(),
+      minter: createLiveKitMinter(),
+    },
+    { logger: SERVER_LOGGER },
+  );
 
   await app.listen({ port: env.PORT, host: "0.0.0.0" });
   app.log.info(`Ljiljan backend listening on port ${env.PORT}`);
