@@ -29,6 +29,12 @@ nodes:
     status: imported
     owns: [".gitignore", ".dockerignore"]
     summary: "The root .gitignore (dependencies, build output, env and secret files, local databases, binary audio) and the root .dockerignore that filters the backend image's build context."
+  - id: R04
+    name: agents-doc
+    deps: [R02, B01]
+    track: now
+    owns: ["AGENTS.md", "backend/test/agents-doc.test.ts"]
+    summary: "AGENTS.md bounds the local test runs (--maxWorkers=2 in the quick-gate and red-target commands, no --no-cache, single test files locally and whole suites only in CI), has mutation and pin checks applied in a scratch copy of the worktree, and lists itself on the Spec files line; gate.command and CI are unchanged, and a backend test reads AGENTS.md."
   - id: C01
     name: content-package
     deps: [R01]
