@@ -119,6 +119,9 @@ beforeEach(() => {
 
 // --- Cases. ------------------------------------------------------------------
 
+// The first case loads and transforms the real route files, which is slow on a cold jest cache.
+jest.setTimeout(30000);
+
 describe('auth navigation', () => {
   describe('Boot, signed in', () => {
     it('lands on /home (the Learn stub) when me resolves with a user (A04-AC-1)', async () => {
