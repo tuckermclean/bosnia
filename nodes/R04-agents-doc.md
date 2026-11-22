@@ -56,6 +56,10 @@ the graph with the `yaml` package already among the backend's devDependencies.
   `npx jest`) contains `--maxWorkers=2` and names a test file: a `<…>` placeholder or a path ending in
   `.test.ts` or `.test.tsx`. No code span in these bullets contains `--no-cache`. A failure names the bullet and
   the span.
+- **Red target.** The **Red target.** bullet's code spans include exactly these two examples:
+  `npm test -w @bosanski/backend -- --maxWorkers=2 test/auth.test.ts` and
+  `(cd app && npx jest --maxWorkers=2 --runTestsByPath __tests__/home.test.tsx)`. No code span in it names
+  `app/(tabs)/__tests__/`. A failure names the missing example or the offending span.
 - **Local runs.** A **Local runs.** bullet exists and contains `--maxWorkers=2`, `--no-cache`, `gate.command` and
   `CI`.
 - **Mutation and pin checks.** A **Mutation and pin checks.** bullet exists and contains `scratch` and
@@ -65,8 +69,8 @@ the graph with the `yaml` package already among the backend's devDependencies.
 - **Gate command.** The first code span of the **Gate command.** bullet equals `gate.command` in
   `docs/graph.yaml`, and contains no `--maxWorkers`.
 
-Today the quick-gate, bounded-command, local-runs, mutation and spec-files cases fail, and the gate-command case
-passes.
+Today the quick-gate, bounded-command, red-target, local-runs, mutation and spec-files cases fail, and the
+gate-command case passes.
 
 ## Changes
 
@@ -75,7 +79,8 @@ passes.
     the `--runTestsByPath` note stay.
   - **Red target.**: the two examples become
     `npm test -w @bosanski/backend -- --maxWorkers=2 test/auth.test.ts` and
-    `(cd app && npx jest --maxWorkers=2 --runTestsByPath 'app/(tabs)/__tests__/home.test.tsx')`.
+    `(cd app && npx jest --maxWorkers=2 --runTestsByPath __tests__/home.test.tsx)`. The app example names the
+    home test where A10 moves it, so R04 adds only `--maxWorkers=2` to the line A10 sets.
   - **Local runs.** (new, after **Quick gate.**): a session runs single test files locally, the quick gate's
     red targets and the test files of what the change touches, never a package's whole suite and never
     `gate.command`. The suites run in CI, one job per package (`.github/workflows/ci.yml`), whose settings are
@@ -94,11 +99,11 @@ passes.
 ## Gate
 
 - **R04-AC-1** — The quick gate's backend command is `npm test -w @bosanski/backend -- --maxWorkers=2 test/<name>.test.ts`, its content command `npm run test -w @bosanski/content -- --maxWorkers=2 test/<name>.test.ts` and its app command `(cd app && npx jest --maxWorkers=2 --runTestsByPath <path>)`. The voice-agent command is unchanged. *Verify:* `npm test -w @bosanski/backend -- --maxWorkers=2 test/agents-doc.test.ts`.
-- **R04-AC-2** — In the **Quick gate.**, **Red target.** and **Mutation and pin checks.** bullets, every command that runs vitest or jest passes `--maxWorkers=2` and names a test file, and none passes `--no-cache`; the red-target examples are the backend and app commands with `--maxWorkers=2`. *Verify:* `npm test -w @bosanski/backend -- --maxWorkers=2 test/agents-doc.test.ts`.
+- **R04-AC-2** — In the **Quick gate.**, **Red target.** and **Mutation and pin checks.** bullets, every command that runs vitest or jest passes `--maxWorkers=2` and names a test file, and none passes `--no-cache`. The red-target examples are `npm test -w @bosanski/backend -- --maxWorkers=2 test/auth.test.ts` and `(cd app && npx jest --maxWorkers=2 --runTestsByPath __tests__/home.test.tsx)`, and no code span in the **Red target.** bullet names `app/(tabs)/__tests__/`. *Verify:* `npm test -w @bosanski/backend -- --maxWorkers=2 test/agents-doc.test.ts`.
 - **R04-AC-3** — A **Local runs.** bullet says that a session runs single test files locally, never a package's whole suite and never `gate.command`; that CI runs the suites, with its settings unchanged; that every local vitest or jest run passes `--maxWorkers=2`; and that no local run passes `--no-cache`. *Verify:* `npm test -w @bosanski/backend -- --maxWorkers=2 test/agents-doc.test.ts` checks that the bullet exists and names these, and the reviewer reads it.
 - **R04-AC-4** — A **Mutation and pin checks.** bullet says that each mutant (a pin's `out/node/<ID>/pin-<n>.patch` or any other mutation check) is applied and run only in a scratch copy of the node's worktree, outside it, never in the node's own worktree, so a killed run leaves no mutant there. It says how the copy gets the installs its tests need, that its runs use the quick gate's bounded commands, and that the copy is removed afterwards. *Verify:* `npm test -w @bosanski/backend -- --maxWorkers=2 test/agents-doc.test.ts` checks that the bullet exists; the PR records one run of the bullet's steps with a scratch mutant, after which `git status --porcelain` in the node's worktree prints nothing; and the reviewer reads the bullet.
 - **R04-AC-5** — The `**Spec files:**` line lists `SPEC.md`, `docs/graph.yaml`, `nodes/` and `AGENTS.md` on the line itself. *Verify:* `npm test -w @bosanski/backend -- --maxWorkers=2 test/agents-doc.test.ts`, and `python3 -I <plugin dir>/skills/node/check-spec-diff.py HEAD HEAD`, run on the node's head, prints `spec files: SPEC.md docs/graph.yaml nodes/ AGENTS.md`.
-- **R04-AC-6** — The **Gate command.** bullet still equals `gate.command` in `docs/graph.yaml`, and the node changes neither `docs/graph.yaml`, `.github/workflows/ci.yml` nor any package's `test` script. Apart from the bullets of R04-AC-1 to R04-AC-5, `AGENTS.md` is unchanged. *Verify:* `npm test -w @bosanski/backend -- --maxWorkers=2 test/agents-doc.test.ts`, and the reviewer runs `git diff --stat origin/main...HEAD`, which lists only `AGENTS.md` and `backend/test/agents-doc.test.ts`, and reads the `AGENTS.md` diff.
+- **R04-AC-6** — The **Gate command.** bullet still equals `gate.command` in `docs/graph.yaml`, and the node changes neither `docs/graph.yaml`, `.github/workflows/ci.yml` nor any package's `test` script. Apart from the bullets of R04-AC-1 to R04-AC-5, `AGENTS.md` is unchanged. *Verify:* `npm test -w @bosanski/backend -- --maxWorkers=2 test/agents-doc.test.ts`, and the reviewer runs `git diff --stat origin/main...HEAD`, which lists `AGENTS.md` and `backend/test/agents-doc.test.ts` and no other file outside `nodes/R04-agents-doc.md`, and reads the `AGENTS.md` diff.
 - **R04-AC-7** — The backend suite and `npm run typecheck -w @bosanski/backend` pass. *Verify:* CI's backend job on the PR's head commit.
 
 ## Risks
@@ -109,6 +114,12 @@ passes.
 - `check-spec-diff.py` reads the **Spec files:** line from the base commit, so the new entry takes effect for
   spec PRs only once R04 is on `main`. R04 itself is a node PR, built with `/node`, and needs no spec-diff
   exemption.
+- A10 tests-out-of-routes (spec PR #38, for issue #36) moves the home test and sets the same **Red target.**
+  line to `(cd app && npx jest --runTestsByPath __tests__/home.test.tsx)`, and A10-AC-5 requires that nothing in
+  `AGENTS.md` names `app/(tabs)/__tests__/`. R04's app example takes A10's path and adds `--maxWorkers=2`, so
+  R04 is built after A10. Built before it, R04's example names a test that does not exist yet, and A10's line,
+  which has no `--maxWorkers=2`, then fails R04's red-target case. A10 is not in the graph on `main` yet, so it
+  is not among R04's Deps; it joins them once it is.
 - `--maxWorkers=2` bounds each run, not the machine: several sessions can still run at once. It also makes a
   local run of many files slower than the default.
 - A scratch copy of the worktree needs the installs to run the tests: a `git worktree add` has no
