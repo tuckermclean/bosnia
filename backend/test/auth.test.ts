@@ -3,6 +3,20 @@ import type { FastifyInstance } from "fastify";
 import { buildApp } from "../src/app.js";
 import { createTestDb, type DbHandle } from "../src/db/client.js";
 import { fakeTranscriber, fakeMinter } from "./helpers.js";
+import { vi } from "vitest";
+
+// Pure passthrough: wraps the real Argon2 `verify` in a call counter (B05-AC-8 pin).
+const argonSpy = vi.hoisted(() => ({ verifyCalls: 0 }));
+vi.mock("@node-rs/argon2", async (importOriginal) => {
+  const real = await importOriginal<typeof import("@node-rs/argon2")>();
+  return {
+    ...real,
+    verify: (...args: Parameters<typeof real.verify>) => {
+      argonSpy.verifyCalls += 1;
+      return real.verify(...args);
+    },
+  };
+});
 
 describe("auth flow", () => {
   let dbHandle: DbHandle;
@@ -114,5 +128,32 @@ describe("auth flow", () => {
       payload: { email: "toolong@example.com", password: "a".repeat(257) },
     });
     expect(res.statusCode).toBe(400);
+  });
+});
+
+describe("login timing equalisation (pin B05-AC-8)", () => {
+  let dbHandle: DbHandle;
+  let app: FastifyInstance;
+
+  beforeEach(async () => {
+    dbHandle = await createTestDb();
+    app = buildApp({ db: dbHandle.db, transcriber: fakeTranscriber(""), minter: fakeMinter() });
+    await app.ready();
+  });
+
+  afterEach(async () => {
+    await app.close();
+    await dbHandle.close();
+  });
+
+  it("B05-AC-8: unknown email runs one Argon2 verify before answering 401", async () => {
+    argonSpy.verifyCalls = 0;
+    const res = await app.inject({
+      method: "POST",
+      url: "/api/auth/login",
+      payload: { email: "nobody@example.com", password: "whatever12345" },
+    });
+    expect(res.statusCode).toBe(401);
+    expect(argonSpy.verifyCalls).toBe(1);
   });
 });

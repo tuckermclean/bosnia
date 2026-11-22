@@ -44,8 +44,8 @@ none: imported
 
 - **B04-AC-1** — Routes reach the transcriber and the minter only through `AppDeps`, so a test replaces both with the fakes of `helpers.ts` and runs without a key. *Verify:* `backend/test/tutor.test.ts` ("mints a room token, returns a sessionId, and records a tutor session"), `backend/test/pronunciation.test.ts` ("scores a real multipart audio upload end-to-end").
 - **B04-AC-2** — `fakeMinter` records each `mint()` call's metadata on `.calls`. *Verify:* `backend/test/tutor.test.ts` ("forwards {level, scenario} to the LiveKit minter as room metadata, and persists level").
-- **B04-AC-3** — `createGroqTranscriber` transcribes with `whisper-large-v3`, language `bs`, temperature 0, and returns the trimmed text. *Verify:* unpinned.
-- **B04-AC-4** — `createLiveKitMinter().mint` sets the room's metadata to the JSON `{level, scenario}` before it returns the token, only when either is given, and the token grants join, publish and subscribe for that one room for one hour. *Verify:* unpinned.
+- **B04-AC-3** — `createGroqTranscriber` transcribes with `whisper-large-v3`, language `bs`, temperature 0, and returns the trimmed text. *Verify:* `backend/test/dep-pins.test.ts` ("B04-AC-3: calls whisper-large-v3 with language bs and temperature 0, returns trimmed text"), pinned by B15.
+- **B04-AC-4** — `createLiveKitMinter().mint` sets the room's metadata to the JSON `{level, scenario}` before it returns the token, only when either is given, and the token grants join, publish and subscribe for that one room for one hour. *Verify:* `backend/test/dep-pins.test.ts` ("B04-AC-4: sets room metadata {level, scenario} before the token is returned"), `backend/test/dep-pins.test.ts` ("B04-AC-4: falls back to updateRoomMetadata when createRoom fails"), `backend/test/dep-pins.test.ts` ("B04-AC-4: makes no room call when neither level nor scenario is given"), `backend/test/dep-pins.test.ts` ("B04-AC-4: token grants join/publish/subscribe for exactly that room with a 1h TTL"), pinned by B15.
 - **B04-AC-5** — `npm run smoke:groq` exits 0 without calling Groq when `GROQ_API_KEY` is unset. *Verify:* unpinned.
 
 ## Risks

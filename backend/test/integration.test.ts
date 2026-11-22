@@ -212,3 +212,47 @@ describe("end-to-end: real seeded content through the API", () => {
     expect(rows[0]?.score).toBe(expected.score);
   });
 });
+
+describe("app-level behaviour: health, CORS, helmet (pins B10-AC-4, B10-AC-7)", () => {
+  let dbHandle: DbHandle;
+  let app: FastifyInstance;
+
+  beforeAll(async () => {
+    dbHandle = await createTestDb();
+    app = buildApp({ db: dbHandle.db, transcriber: fakeTranscriber(""), minter: fakeMinter() });
+    await app.ready();
+  });
+
+  afterAll(async () => {
+    await app.close();
+    await dbHandle.close();
+  });
+
+  it("B10-AC-4: GET /health answers {ok: true} without authentication", async () => {
+    const res = await app.inject({ method: "GET", url: "/health" });
+    expect(res.statusCode).toBe(200);
+    expect(res.json()).toEqual({ ok: true });
+  });
+
+  it("B10-AC-7: CORS accepts any origin", async () => {
+    const res = await app.inject({
+      method: "GET",
+      url: "/health",
+      headers: { origin: "https://example.test" },
+    });
+    expect(res.headers["access-control-allow-origin"]).toBe("https://example.test");
+  });
+
+  it("B10-AC-7: helmet security headers are set on a success response", async () => {
+    const res = await app.inject({ method: "GET", url: "/health" });
+    expect(res.headers["x-content-type-options"]).toBe("nosniff");
+    expect(res.headers["content-security-policy"]).toBeDefined();
+  });
+
+  it("B10-AC-7: helmet security headers are set on an error response", async () => {
+    const res = await app.inject({ method: "GET", url: "/api/auth/me" });
+    expect(res.statusCode).toBe(401);
+    expect(res.headers["x-content-type-options"]).toBe("nosniff");
+    expect(res.headers["content-security-policy"]).toBeDefined();
+  });
+});
