@@ -239,7 +239,7 @@ nodes:
     deps: [A02, A03, A04, A06]
     track: done
     status: imported
-    owns: ["app/src/features/home/", "app/app/(tabs)/home.tsx", "app/app/(tabs)/profile.tsx", "app/app/(tabs)/__tests__/"]
+    owns: ["app/src/features/home/", "app/app/(tabs)/home.tsx", "app/app/(tabs)/profile.tsx"]
     summary: "The Learn tab's skill path (units, zig-zag skill nodes, locks, crowns, the unreviewed tag, empty and error states) and the Profile tab's stats and log out."
   - id: A08
     name: voice-tutor-ui
