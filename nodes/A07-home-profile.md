@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | A02, A03, A04, A06 | none | S |
+| done | A02, A03, A04, A06 | A10 | S |
 
 **Owns:** `app/src/features/home/`, `app/app/(tabs)/home.tsx`, `app/app/(tabs)/profile.tsx`, `app/app/(tabs)/__tests__/`
 
