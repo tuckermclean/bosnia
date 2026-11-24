@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | none | B12 | S |
+| done | none | B12, R04 | S |
 
 **Owns:** `README.md`, `FOLLOWUPS.md`, `.env.example`
 
