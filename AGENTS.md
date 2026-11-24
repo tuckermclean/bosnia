@@ -45,7 +45,7 @@
   every file it adds in an area or in a node.
 - **Red target.** A command that exits non-zero before the node's change and 0 after, normally the quick gate
   for the node's own test file, e.g. `npm test -w @bosanski/backend -- test/auth.test.ts`, or for an app test
-  `(cd app && npx jest --runTestsByPath 'app/(tabs)/__tests__/home.test.tsx')`.
+  `(cd app && npx jest --runTestsByPath __tests__/home.test.tsx)`.
 - **Tests and fixtures.** Backend tests are `backend/test/*.test.ts` with the shared `backend/test/helpers.ts`
   (vitest, PGlite, fakes for Groq and LiveKit); content tests are `content/test/*.test.ts` (vitest, a scripted
   fake LLM); app tests are `app/**/__tests__/*.test.ts(x)` (jest-expo); voice-agent tests are

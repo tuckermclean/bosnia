@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react-native';
-import HomeScreen from '../home';
+import HomeScreen from '../app/(tabs)/home';
 import { useCourses } from '@/hooks/useCourses';
 import { useProgress } from '@/hooks/useProgress';
 import type { Course } from '@/types/api';
