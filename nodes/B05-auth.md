@@ -51,7 +51,7 @@ none: imported
 - **B05-AC-5** — Login with a wrong password, or for an email never registered, is answered 401. *Verify:* `backend/test/auth.test.ts` ("rejects login with a wrong password with 401"), `backend/test/auth.test.ts` ("rejects login for an email that was never registered with 401 (same code path as wrong password)").
 - **B05-AC-6** — A password longer than 256 characters is answered 400. *Verify:* `backend/test/auth.test.ts` ("rejects passwords longer than 256 characters").
 - **B05-AC-7** — Access tokens expire after 15 minutes and refresh tokens after 30 days; a refresh token is not accepted as an access token, nor the reverse. *Verify:* unpinned.
-- **B05-AC-8** — Login for an unknown email runs an Argon2 verification before answering 401, so its timing matches a wrong password. *Verify:* unpinned.
+- **B05-AC-8** — Login for an unknown email runs an Argon2 verification before answering 401, so its timing matches a wrong password. *Verify:* `backend/test/auth.test.ts` ("B05-AC-8: unknown email runs one Argon2 verify before answering 401").
 
 ## Risks
 

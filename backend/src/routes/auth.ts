@@ -47,7 +47,16 @@ export function authRoutes(app: FastifyInstance, deps: AppDeps): void {
     if (existing.length > 0) throw new HttpError(409, "Email already registered");
 
     const id = randomUUID();
-    await db.insert(users).values({ id, email, passwordHash: await hashPassword(password) });
+    const passwordHash = await hashPassword(password);
+    try {
+      await db.insert(users).values({ id, email, passwordHash });
+    } catch (err) {
+      const e = err as { code?: unknown; cause?: { code?: unknown } };
+      if (e?.code === "23505" || e?.cause?.code === "23505") {
+        throw new HttpError(409, "Email already registered");
+      }
+      throw err;
+    }
     await db.insert(userStats).values({ userId: id });
 
     const tokens = await issueTokens(id);

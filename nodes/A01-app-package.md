@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | none | A02, A03, D01 | S |
+| done | none | A02, A03, A10, D01 | S |
 
 **Owns:** `app/package.json`, `app/package-lock.json`, `app/.npmrc`, `app/tsconfig.json`, `app/babel.config.js`, `app/app.json`, `app/.env.example`, `app/.gitignore`, `app/README.md`, `app/LICENSE`
 
@@ -51,7 +51,7 @@ none: imported
 
 ## Gate
 
-- **A01-AC-1** — The app's tests run under jest with the `jest-expo` preset and resolve the `@/` alias to `app/src/`. *Verify:* `app/app/(tabs)/__tests__/home.test.tsx` ("renders the skill path (not the empty state) when a course with units is returned").
+- **A01-AC-1** — The app's tests run under jest with the `jest-expo` preset and resolve the `@/` alias to `app/src/`. *Verify:* superseded by A10-AC-4.
 - **A01-AC-2** — `npx tsc --noEmit` in `app/` passes with `strict` on. *Verify:* unpinned.
 - **A01-AC-3** — `app/.env.example` holds only `EXPO_PUBLIC_*` settings and no key. *Verify:* unpinned.
 - **A01-AC-4** — `app/app.json` declares the microphone permission for iOS and Android. *Verify:* unpinned.

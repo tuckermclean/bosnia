@@ -43,14 +43,21 @@ function RootNavigator() {
     }
   }, [status]);
 
-  // Handles subsequent auth-state changes (e.g. logging out from deep inside
-  // the tabs, or a refresh-token rejection) by bouncing back to sign-in.
+  // Handles subsequent auth-state changes in both directions: logging out from
+  // deep inside the tabs, or a refresh-token rejection, bounces back to
+  // sign-in; a successful sign in or sign up (status becomes authenticated
+  // while still in the (auth) group) replaces the route with the Learn tab.
   // The initial-launch routing decision lives in `app/index.tsx` instead,
   // since the Stack (and thus navigation) is guaranteed to be mounted by then.
   useEffect(() => {
-    if (status !== 'unauthenticated') return;
-    if (segments[0] !== '(auth)') {
-      router.replace('/(auth)/sign-in');
+    if (status === 'unauthenticated') {
+      if (segments[0] !== '(auth)') {
+        router.replace('/(auth)/sign-in');
+      }
+    } else if (status === 'authenticated') {
+      if (segments[0] === '(auth)') {
+        router.replace('/(tabs)/home');
+      }
     }
   }, [status, segments, router]);
 
