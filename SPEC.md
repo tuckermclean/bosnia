@@ -64,6 +64,9 @@ nothing is known red.
 - A07's home test, `app/app/(tabs)/__tests__/home.test.tsx`, sits in expo-router's routes folder, so the route
   context reads it as the route `(tabs)/__tests__/home.test` and the app bundles load it. A10 moves it to
   `app/__tests__/` and adds an app test that fails when a test file lands under `app/app/`.
+- B07-AC-2's streak test backdates `lastActive` by 25 hours from the real clock, so it fails when the backend
+  suite runs between 00:00 and 01:00 UTC, and no test pins that streaks count UTC days rather than the host's.
+  B17 puts the streak tests on a fixed clock and adds cases across a UTC midnight and under a non-UTC time zone.
 - The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse detection,
   the CORS allowlist, auth rate limiting, placeholder reference audio, coarse pronunciation scoring.
 
