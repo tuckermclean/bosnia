@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 import type { FastifyInstance } from "fastify";
 import { eq } from "drizzle-orm";
 import { buildApp } from "../src/app.js";
@@ -93,11 +93,19 @@ describe("progress", () => {
     expect(rows[0]?.lastActive).not.toBeNull();
   });
 
+  // B17-AC-1: the test below runs on a fixed clock; restore the real one afterwards.
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   it("bumps the streak by one on a second day and unlocks/crowns the completed skill", async () => {
+    // Fixed clock (only Date), set before registering so the JWT is not issued in the future.
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date("2026-01-10T00:30:00Z"));
     const { accessToken, user } = await registerUser();
 
     // Simulate "yesterday" activity by backdating lastActive.
-    const yesterday = new Date(Date.now() - 25 * 60 * 60 * 1000);
+    const yesterday = new Date("2026-01-09T23:30:00Z");
     await dbHandle.db
       .update(userStats)
       .set({ streak: 3, lastActive: yesterday })
