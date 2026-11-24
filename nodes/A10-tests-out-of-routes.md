@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| now | A01, A07 | none | S |
+| now | A01, A07 | R04 | S |
 
 **Owns:** `app/__tests__/home.test.tsx`, `app/__tests__/routes-folder.test.ts`
 **Resolves:** #36

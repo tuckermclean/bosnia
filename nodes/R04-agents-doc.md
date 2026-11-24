@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| now | R02, B01 | none | S |
+| now | R02, B01, A10 | none | S |
 
 **Owns:** `AGENTS.md`, `backend/test/agents-doc.test.ts`
 **Resolves:** #41
@@ -80,7 +80,7 @@ gate-command case passes.
   - **Red target.**: the two examples become
     `npm test -w @bosanski/backend -- --maxWorkers=2 test/auth.test.ts` and
     `(cd app && npx jest --maxWorkers=2 --runTestsByPath __tests__/home.test.tsx)`. The app example names the
-    home test where A10 moves it, so R04 adds only `--maxWorkers=2` to the line A10 sets.
+    home test where A10 moved it, so R04 adds only `--maxWorkers=2` to the line A10 set.
   - **Local runs.** (new, after **Quick gate.**): a session runs single test files locally, the quick gate's
     red targets and the test files of what the change touches, never a package's whole suite and never
     `gate.command`. The suites run in CI, one job per package (`.github/workflows/ci.yml`), whose settings are
@@ -114,12 +114,10 @@ gate-command case passes.
 - `check-spec-diff.py` reads the **Spec files:** line from the base commit, so the new entry takes effect for
   spec PRs only once R04 is on `main`. R04 itself is a node PR, built with `/node`, and needs no spec-diff
   exemption.
-- A10 tests-out-of-routes (spec PR #38, for issue #36) moves the home test and sets the same **Red target.**
-  line to `(cd app && npx jest --runTestsByPath __tests__/home.test.tsx)`, and A10-AC-5 requires that nothing in
-  `AGENTS.md` names `app/(tabs)/__tests__/`. R04's app example takes A10's path and adds `--maxWorkers=2`, so
-  R04 is built after A10. Built before it, R04's example names a test that does not exist yet, and A10's line,
-  which has no `--maxWorkers=2`, then fails R04's red-target case. A10 is not in the graph on `main` yet, so it
-  is not among R04's Deps; it joins them once it is.
+- A10 tests-out-of-routes moved the home test and set the same **Red target.** line to
+  `(cd app && npx jest --runTestsByPath __tests__/home.test.tsx)`, and A10-AC-5 requires that nothing in
+  `AGENTS.md` names `app/(tabs)/__tests__/`. R04's app example keeps A10's path and adds only `--maxWorkers=2`,
+  and A10 is among R04's Deps, so R04 is built on A10's line and never writes back the old path.
 - `--maxWorkers=2` bounds each run, not the machine: several sessions can still run at once. It also makes a
   local run of many files slower than the default.
 - A scratch copy of the worktree needs the installs to run the tests: a `git worktree add` has no
