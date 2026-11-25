@@ -30,12 +30,26 @@
   uncoloured lines.
 - **Quick gate.** In a session, run locally the same runners with a list of files: the red targets and the
   test files of what a change touches. They print the same failure lines.
-  - backend: `npm test -w @bosanski/backend -- test/<name>.test.ts` (paths relative to `backend/`);
-  - content: `npm run test -w @bosanski/content -- test/<name>.test.ts` (paths relative to `content/`);
-  - app: `(cd app && npx jest --runTestsByPath <path>)` (paths relative to `app/`; without
+  - backend: `npm test -w @bosanski/backend -- --maxWorkers=2 test/<name>.test.ts` (paths relative to `backend/`);
+  - content: `npm run test -w @bosanski/content -- --maxWorkers=2 test/<name>.test.ts` (paths relative to `content/`);
+  - app: `(cd app && npx jest --maxWorkers=2 --runTestsByPath <path>)` (paths relative to `app/`; without
     `--runTestsByPath`, jest reads the path as a regular expression, so `app/(tabs)/…` or an `[id]` route
     matches no test);
   - voice-agent: `(cd voice-agent && python3 -m unittest tests.<module>)`.
+- **Local runs.** A session runs single test files locally (the quick gate's red targets and the test files of
+  what the change touches), never a package's whole suite and never `gate.command`. The suites run in `CI`,
+  one job per package (`.github/workflows/ci.yml`), whose settings are unchanged. Every local vitest or jest
+  run passes `--maxWorkers=2`, and no local run passes `--no-cache`, because the loop's sessions share one
+  small machine (4 CPUs) and an unbounded runner starts a worker per CPU.
+- **Mutation and pin checks.** Each mutant (a pin's `out/node/<ID>/pin-<n>.patch` or any other mutation check)
+  is applied and run only in a scratch copy of the node's worktree, outside it, never in the node's own
+  worktree, so a killed run leaves no mutant there. Make the copy with
+  `git worktree add --detach <scratch> HEAD`, then `cp -a node_modules <scratch>/node_modules` and
+  `cp -a app/node_modules <scratch>/app/node_modules` (copy, do not symlink: the workspace links in
+  `node_modules/@bosanski/` are relative and would resolve back to the node's worktree). Apply the patch in
+  `<scratch>` and run the quick gate's bounded commands there, e.g.
+  `npm test -w @bosanski/backend -- --maxWorkers=2 test/<name>.test.ts`, one run at a time. Afterwards remove
+  the copy with `git worktree remove --force <scratch>`; `git status` of the node's worktree stays clean.
 - **Other checks.** CI also runs, and a node keeps passing: `npm run typecheck -w @bosanski/backend`,
   `npm run typecheck -w @bosanski/content`, `(cd app && npx tsc --noEmit)` and
   `(cd voice-agent && python3 -m py_compile *.py)`. They name no test, so they are not in the gate.
@@ -44,8 +58,8 @@
 - **Owns.** A node changes only the files it owns (its `owns` globs) and its direct deps' files, and places
   every file it adds in an area or in a node.
 - **Red target.** A command that exits non-zero before the node's change and 0 after, normally the quick gate
-  for the node's own test file, e.g. `npm test -w @bosanski/backend -- test/auth.test.ts`, or for an app test
-  `(cd app && npx jest --runTestsByPath __tests__/home.test.tsx)`.
+  for the node's own test file, e.g. `npm test -w @bosanski/backend -- --maxWorkers=2 test/auth.test.ts`, or for an app test
+  `(cd app && npx jest --maxWorkers=2 --runTestsByPath __tests__/home.test.tsx)`.
 - **Tests and fixtures.** Backend tests are `backend/test/*.test.ts` with the shared `backend/test/helpers.ts`
   (vitest, PGlite, fakes for Groq and LiveKit); content tests are `content/test/*.test.ts` (vitest, a scripted
   fake LLM); app tests are `app/**/__tests__/*.test.ts(x)` (jest-expo); voice-agent tests are
@@ -53,7 +67,7 @@
   (principle 4). `.noodlebot/roles.yaml` adds `backend/test/**`, `content/test/**` and
   `app/**/__tests__/**` to the role guard's test paths. `content/generated/`, `content/audio-out/` and
   `app/assets/` are out of scope: a node never changes them.
-- **Spec files:** `SPEC.md`, `docs/graph.yaml`, `nodes/`
+- **Spec files:** `SPEC.md`, `docs/graph.yaml`, `nodes/`, `AGENTS.md`
   (a trailing slash marks a folder); a spec PR changes only these.
 - **Porting rules.** None.
 - **CI evidence.** In the node's PR, record the outcome of each job of the `CI` workflow run on the PR's head
