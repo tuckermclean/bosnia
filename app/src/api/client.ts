@@ -14,6 +14,17 @@ export class ApiError extends Error {
   }
 }
 
+/** A request whose `fetch` rejected: the server was never reached. */
+export class NetworkError extends Error {
+  cause: unknown;
+
+  constructor(cause: unknown) {
+    super('Network request failed');
+    this.name = 'NetworkError';
+    this.cause = cause;
+  }
+}
+
 /**
  * Registered by the auth store so the client can force a logout when the
  * refresh token itself is rejected. Avoids a circular import between
@@ -102,12 +113,16 @@ async function doFetch(path: string, options: RequestOptions, accessToken: strin
     headers.Authorization = `Bearer ${accessToken}`;
   }
 
-  return fetch(apiUrl(path), {
-    method: options.method ?? 'GET',
-    headers,
-    body: options.formData ?? (options.body !== undefined ? JSON.stringify(options.body) : undefined),
-    signal: options.signal,
-  });
+  try {
+    return await fetch(apiUrl(path), {
+      method: options.method ?? 'GET',
+      headers,
+      body: options.formData ?? (options.body !== undefined ? JSON.stringify(options.body) : undefined),
+      signal: options.signal,
+    });
+  } catch (e) {
+    throw new NetworkError(e);
+  }
 }
 
 /**

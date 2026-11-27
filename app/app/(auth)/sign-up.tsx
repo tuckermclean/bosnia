@@ -3,7 +3,7 @@ import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, View } fr
 import { Link } from 'expo-router';
 import { Button, TextField } from '@/components';
 import { useAuthStore } from '@/state/authStore';
-import { ApiError } from '@/api/client';
+import { ApiError, NetworkError } from '@/api/client';
 import { color, fontSize, fontWeight, spacing } from '@/theme/tokens';
 
 export default function SignUpScreen() {
@@ -21,7 +21,14 @@ export default function SignUpScreen() {
     try {
       await register(email.trim().toLowerCase(), password);
     } catch (e) {
-      setError(e instanceof ApiError ? e.message : 'Could not create your account. Check your connection.');
+      if (e instanceof ApiError) {
+        setError(e.message);
+      } else if (e instanceof NetworkError) {
+        setError('Could not create your account. Check your connection.');
+      } else {
+        console.error(e);
+        setError('Could not create your account: something went wrong on this device.');
+      }
     } finally {
       setLoading(false);
     }
