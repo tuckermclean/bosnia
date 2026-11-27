@@ -128,3 +128,198 @@ describe('pins: A04 sign-in and sign-up forms', () => {
     expect(screen.getByTestId('sign-up-button').props.accessibilityState.disabled).toBe(false);
   });
 });
+
+// --- A11: web token store, native token store, sign-in and sign-up errors ----------
+type TokenStore = typeof import('@/api/tokenStorage');
+
+class MemoryStorage {
+  private data = new Map<string, string>();
+  getItem = jest.fn((k: string) => (this.data.has(k) ? (this.data.get(k) as string) : null));
+  setItem = jest.fn((k: string, v: string) => {
+    this.data.set(k, String(v));
+  });
+  removeItem = jest.fn((k: string) => {
+    this.data.delete(k);
+  });
+  clear = jest.fn(() => this.data.clear());
+  key = jest.fn((i: number) => Array.from(this.data.keys())[i] ?? null);
+  get length() {
+    return this.data.size;
+  }
+  raw(k: string) {
+    return this.data.get(k);
+  }
+  keys() {
+    return Array.from(this.data.keys());
+  }
+}
+
+// Loaded inside each case, so a missing module fails that case, not the whole file.
+const loadWebStore = () => require('@/api/tokenStorage.web') as TokenStore;
+const loadNativeStore = () => require('@/api/tokenStorage.ts') as TokenStore;
+
+describe('A11: token stores', () => {
+  let storage: MemoryStorage;
+  let hadLocalStorage: boolean;
+  let originalLocalStorage: unknown;
+
+  beforeEach(() => {
+    storage = new MemoryStorage();
+    hadLocalStorage = 'localStorage' in globalThis;
+    originalLocalStorage = (globalThis as Record<string, unknown>).localStorage;
+    Object.defineProperty(globalThis, 'localStorage', {
+      value: storage,
+      configurable: true,
+      writable: true,
+    });
+  });
+
+  afterEach(() => {
+    if (hadLocalStorage) {
+      Object.defineProperty(globalThis, 'localStorage', {
+        value: originalLocalStorage,
+        configurable: true,
+        writable: true,
+      });
+    } else {
+      delete (globalThis as Record<string, unknown>).localStorage;
+    }
+  });
+
+  it('web store returns the saved pair (A11-AC-1)', async () => {
+    const web = loadWebStore();
+    await web.saveTokens({ accessToken: 'acc-1', refreshToken: 'ref-1' });
+    expect(await web.getAccessToken()).toBe('acc-1');
+    expect(await web.getRefreshToken()).toBe('ref-1');
+  });
+
+  it('web store clearTokens empties both (A11-AC-1)', async () => {
+    const web = loadWebStore();
+    await web.saveTokens({ accessToken: 'acc-1', refreshToken: 'ref-1' });
+    await web.clearTokens();
+    expect(await web.getAccessToken()).toBeNull();
+    expect(await web.getRefreshToken()).toBeNull();
+  });
+
+  it('web store is null when empty (A11-AC-1)', async () => {
+    const web = loadWebStore();
+    expect(await web.getAccessToken()).toBeNull();
+    expect(await web.getRefreshToken()).toBeNull();
+  });
+
+  it('web store keeps the pair in localStorage under the two keys (A11-AC-1)', async () => {
+    const web = loadWebStore();
+    await web.saveTokens({ accessToken: 'acc-2', refreshToken: 'ref-2' });
+    expect(storage.raw('ljiljan.accessToken')).toBe('acc-2');
+    expect(storage.raw('ljiljan.refreshToken')).toBe('ref-2');
+  });
+
+  it('web store calls no expo-secure-store function (A11-AC-1)', async () => {
+    const web = loadWebStore();
+    await web.saveTokens({ accessToken: 'acc-3', refreshToken: 'ref-3' });
+    await web.getAccessToken();
+    await web.getRefreshToken();
+    await web.clearTokens();
+    expect(SecureStore.setItemAsync).not.toHaveBeenCalled();
+    expect(SecureStore.getItemAsync).not.toHaveBeenCalled();
+    expect(SecureStore.deleteItemAsync).not.toHaveBeenCalled();
+  });
+
+  it('web and native stores export the same functions (A11-AC-1)', () => {
+    const fnNames = (m: object) =>
+      Object.entries(m)
+        .filter(([, v]) => typeof v === 'function')
+        .map(([k]) => k)
+        .sort();
+    const native = fnNames(loadNativeStore());
+    expect(native).toEqual(['clearTokens', 'getAccessToken', 'getRefreshToken', 'saveTokens']);
+    expect(fnNames(loadWebStore())).toEqual(native);
+  });
+
+  it('native store uses expo-secure-store under the two keys and no localStorage (A11-AC-2)', async () => {
+    const native = loadNativeStore();
+    SecureStore.getItemAsync.mockImplementation(async (k: string) => `v:${k}`);
+    await native.saveTokens({ accessToken: 'acc-4', refreshToken: 'ref-4' });
+    expect(SecureStore.setItemAsync).toHaveBeenCalledWith('ljiljan.accessToken', 'acc-4');
+    expect(SecureStore.setItemAsync).toHaveBeenCalledWith('ljiljan.refreshToken', 'ref-4');
+    expect(await native.getAccessToken()).toBe('v:ljiljan.accessToken');
+    expect(SecureStore.getItemAsync).toHaveBeenCalledWith('ljiljan.accessToken');
+    expect(await native.getRefreshToken()).toBe('v:ljiljan.refreshToken');
+    expect(SecureStore.getItemAsync).toHaveBeenCalledWith('ljiljan.refreshToken');
+    await native.clearTokens();
+    expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith('ljiljan.accessToken');
+    expect(SecureStore.deleteItemAsync).toHaveBeenCalledWith('ljiljan.refreshToken');
+    expect(storage.getItem).not.toHaveBeenCalled();
+    expect(storage.setItem).not.toHaveBeenCalled();
+    expect(storage.removeItem).not.toHaveBeenCalled();
+    expect(storage.keys()).toEqual([]);
+  });
+});
+
+describe('A11: sign-in and sign-up errors', () => {
+  let errorSpy: jest.SpyInstance;
+
+  beforeEach(() => {
+    errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    errorSpy.mockRestore();
+  });
+
+  function texts(): string[] {
+    const out: string[] = [];
+    const walk = (n: unknown): void => {
+      if (typeof n === 'string') out.push(n);
+      else if (Array.isArray(n)) n.forEach(walk);
+      else if (n && typeof n === 'object') walk((n as { children?: unknown }).children);
+    };
+    walk(screen.toJSON());
+    return out;
+  }
+
+  let textsBefore: string[] = [];
+
+  async function submit(screenName: 'sign-in' | 'sign-up') {
+    await renderAuth(`/${screenName}`);
+    await fireEvent.changeText(screen.getByTestId('email-input'), 'ana@example.com');
+    await fireEvent.changeText(screen.getByTestId('password-input'), 'secret-pass');
+    textsBefore = texts();
+    await fireEvent.press(screen.getByTestId(`${screenName}-button`));
+  }
+
+  const connectionMessage = {
+    'sign-in': 'Could not sign in. Check your connection.',
+    'sign-up': 'Could not create your account. Check your connection.',
+  } as const;
+
+  for (const screenName of ['sign-in', 'sign-up'] as const) {
+    const ac = screenName === 'sign-in' ? 'A11-AC-3' : 'A11-AC-4';
+    it(`${screenName}: a rejected fetch shows the connection message (${ac})`, async () => {
+      fetchMock.mockRejectedValue(new TypeError('Network request failed'));
+      await submit(screenName);
+      expect(await screen.findByText(connectionMessage[screenName])).toBeTruthy();
+    });
+
+    it(`${screenName}: a token store failure does not show the connection message (${ac})`, async () => {
+      fetchMock.mockResolvedValue(
+        jsonResponse(200, { accessToken: 'a', refreshToken: 'r', user }),
+      );
+      SecureStore.setItemAsync.mockRejectedValue(new TypeError('storage unavailable'));
+      await submit(screenName);
+
+      // Wait until some error text has rendered, then check what it says.
+      await waitFor(() =>
+        expect(texts().filter((t) => !textsBefore.includes(t) && t.trim() !== '')).not.toEqual([]),
+      );
+      expect(screen.queryByText(/connection/i)).toBeNull();
+      expect(errorSpy).toHaveBeenCalled();
+    });
+
+    it(`${screenName}: a 401 shows the server message (${ac})`, async () => {
+      fetchMock.mockResolvedValue(jsonResponse(401, { error: 'Invalid email or password' }));
+      await submit(screenName);
+      expect(await screen.findByText('Invalid email or password')).toBeTruthy();
+    });
+  }
+});
