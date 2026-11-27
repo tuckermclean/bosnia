@@ -173,6 +173,21 @@ describe('web call: Room', () => {
     expect(room).toBeTruthy();
     expect(screen.getByText('room-audio-renderer')).toBeTruthy();
   });
+
+  it("keeps the room's onError and onMediaDeviceFailure handlers across re-renders, so the room does not reconnect (A13-AC-1)", async () => {
+    const Call = loadWeb();
+    const onEnd = jest.fn();
+    const view = await render(<Call level="A1" onEnd={onEnd} />);
+    const first = lastRoomProps();
+    mockedSession.mockReturnValue({ isLoading: false, isError: false, data: { ...SESSION } });
+    await view.rerender(<Call level="A1" onEnd={onEnd} />);
+    const last = lastRoomProps();
+    expect(mockRoomProps.mock.calls.length).toBeGreaterThan(1);
+    expect(last.serverUrl).toBe(first.serverUrl);
+    expect(last.token).toBe(first.token);
+    expect(last.onError).toBe(first.onError);
+    expect(last.onMediaDeviceFailure).toBe(first.onMediaDeviceFailure);
+  });
 });
 
 // ---- Call (A13-AC-2) -----------------------------------------------------
