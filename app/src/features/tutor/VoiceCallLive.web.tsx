@@ -75,9 +75,9 @@ export default function VoiceCallLive({ level, onEnd }: VoiceCallProps) {
       audio
       onDisconnected={onEnd}
       onMediaDeviceFailure={() =>
-        setFailure("The microphone isn't available. Allow microphone access and try again.")
+        setFailure((prev) => prev ?? "The microphone isn't available. Allow microphone access and try again.")
       }
-      onError={() => setFailure("The call isn't available right now. Please try again.")}
+      onError={() => setFailure((prev) => prev ?? "The call isn't available right now. Please try again.")}
     >
       <RoomAudioRenderer />
       <CallContent onEnd={onEnd} sessionId={sessionId} />
