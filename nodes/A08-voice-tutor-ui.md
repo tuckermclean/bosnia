@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| done | A02, A03, A04 | none | M |
+| done | A02, A03, A04 | A13 | M |
 
 **Owns:** `app/src/features/tutor/`, `app/app/tutor.tsx`, `app/app/(tabs)/tutor.tsx`
 

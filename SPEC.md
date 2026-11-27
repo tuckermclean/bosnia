@@ -67,6 +67,14 @@ nothing is known red.
 - B07-AC-2's streak test backdates `lastActive` by 25 hours from the real clock, so it fails when the backend
   suite runs between 00:00 and 01:00 UTC, and no test pins that streaks count UTC days rather than the host's.
   B17 puts the streak tests on a fixed clock and adds cases across a UTC midnight and under a non-UTC time zone.
+- The app has no web build and the repository no single-host deployment. `app/package.json` lacks
+  `react-dom` and `react-native-web` and has no export script; on web, `expo-secure-store` has no
+  implementation, so storing the tokens throws and sign-in reports it as a connection problem (OD1); the
+  pronunciation upload appends React Native's `{ uri, name, type }` part, which a browser's `FormData` turns into
+  a string; and the tutor screen loads `@livekit/react-native`, which needs native WebRTC, and goes blank. A11
+  adds the web export, `localStorage` tokens on web and honest sign-in errors; A12 uploads the recording as a
+  `Blob` on web; A13 runs the tutor in the browser on `livekit-client`; D07 adds a Docker Compose stack in
+  `compose/` that serves the web build and the backend on one HTTPS origin.
 - The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse detection,
   the CORS allowlist, auth rate limiting, placeholder reference audio, coarse pronunciation scoring.
 
