@@ -1,0 +1,75 @@
+# Single-host stack: postgres, backend, voice-agent and web (Caddy + the web export).
+# Run from this folder: `docker compose up -d --build` (see README.md, "Single-host stack").
+# Settings come from compose/.env (copy .env.example). Only `web` publishes ports.
+name: bosanski
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-bosanski}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in compose/.env}
+      POSTGRES_DB: ${POSTGRES_DB:-bosanski}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-bosanski}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in compose/.env}@postgres:5432/${POSTGRES_DB:-bosanski}
+      AUTO_SEED: "true"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+    restart: unless-stopped
+
+  voice-agent:
+    build:
+      context: ../voice-agent
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ../app
+      dockerfile: ../compose/web.Dockerfile
+      args:
+        EXPO_PUBLIC_API_BASE_URL: https://${DOMAIN}
+    environment:
+      DOMAIN: ${DOMAIN}
+      BASIC_AUTH: ${BASIC_AUTH:-off}
+      BASIC_AUTH_USER: ${BASIC_AUTH_USER:-}
+      BASIC_AUTH_HASH: ${BASIC_AUTH_HASH:-}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  caddy_data:
+  caddy_config:

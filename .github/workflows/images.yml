@@ -8,6 +8,11 @@ name: Images
 # This workflow NEVER pushes: no registry login, no metadata/tags, no secrets,
 # `push: false`. A push to main still builds each image once, in release.yml.
 #
+# The compose-stack job builds and boots the single-host stack in compose/ and
+# checks it through Caddy. It has no release.yml counterpart: the web image
+# inlines the public origin (DOMAIN) at build time, so a published image would
+# serve one domain only.
+#
 # Contexts, Dockerfiles and cache scopes below are copied from release.yml and
 # must stay in step with it: change one workflow, change the other.
 on:
@@ -59,3 +64,76 @@ jobs:
           push: false
           cache-from: type=gha,scope=voice-agent
           cache-to: type=gha,mode=max,scope=voice-agent
+
+  compose-stack:
+    name: Boot compose stack
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write compose/.env
+        working-directory: compose
+        run: |
+          cp .env.example .env
+          set_var() { sed -i "s|^$1=.*|$1=$2|" .env; }
+          set_var DOMAIN localhost
+          set_var POSTGRES_PASSWORD "$(openssl rand -hex 24)"
+          set_var JWT_ACCESS_SECRET "$(openssl rand -hex 32)"
+          set_var JWT_REFRESH_SECRET "$(openssl rand -hex 32)"
+
+      - name: Build and boot postgres, backend and web
+        working-directory: compose
+        run: docker compose up -d --build --wait postgres backend web
+
+      - name: Check through Caddy
+        run: |
+          fail() { echo "::error::$*"; exit 1; }
+          ok=
+          for i in $(seq 1 60); do
+            if curl -ksf https://localhost/health >/dev/null; then ok=1; break; fi
+            sleep 2
+          done
+          [ -n "$ok" ] || fail "https://localhost/health never answered"
+          [ "$(curl -ks https://localhost/health)" = '{"ok":true}' ] || fail "/health body is not {\"ok\":true}"
+          docker compose -f compose/compose.yaml cp web:/srv/index.html /tmp/index.html
+          for path in / /sign-in; do
+            code=$(curl -ks -o /tmp/body.html -w '%{http_code}' "https://localhost$path")
+            [ "$code" = 200 ] || fail "$path answered $code"
+            cmp /tmp/body.html /tmp/index.html || fail "$path is not the export's index.html"
+          done
+          code=$(curl -ks -o /dev/null -w '%{http_code}' https://localhost/api/courses)
+          [ "$code" = 401 ] || fail "/api/courses without a token answered $code"
+
+      - name: Check basic auth
+        working-directory: compose
+        run: |
+          fail() { echo "::error::$*"; exit 1; }
+          pw=$(openssl rand -hex 12)
+          hash=$(docker run --rm caddy:2 caddy hash-password --plaintext "$pw")
+          # Values in the shell environment take precedence over .env and are not
+          # interpolated again, so the hash keeps its single `$` signs.
+          BASIC_AUTH=on BASIC_AUTH_USER=ci BASIC_AUTH_HASH="$hash" \
+            docker compose up -d --no-deps --force-recreate web
+          ok=
+          for i in $(seq 1 60); do
+            code=$(curl -ks -o /dev/null -w '%{http_code}' https://localhost/ || true)
+            if [ "$code" = 401 ]; then ok=1; break; fi
+            sleep 2
+          done
+          [ -n "$ok" ] || fail "/ without credentials never answered 401 (last: $code)"
+          code=$(curl -ks -o /dev/null -w '%{http_code}' -u "ci:$pw" https://localhost/)
+          [ "$code" = 200 ] || fail "/ with credentials answered $code"
+          code=$(curl -ks -o /dev/null -w '%{http_code}' -u "ci:wrong" https://localhost/)
+          [ "$code" = 401 ] || fail "/ with a wrong password answered $code"
+          code=$(curl -ks -o /dev/null -w '%{http_code}' https://localhost/health)
+          [ "$code" = 200 ] || fail "/health without credentials answered $code"
+
+      - name: Compose logs
+        if: failure()
+        working-directory: compose
+        run: docker compose logs --no-color
+
+      - name: Tear down
+        if: always()
+        working-directory: compose
+        run: docker compose down -v
