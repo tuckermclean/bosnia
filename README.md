@@ -83,7 +83,7 @@ production path.
 - **Update.** `git pull`, then `docker compose up -d --build`. The public
   origin is baked into the web image, so a new `DOMAIN` needs the `web` image
   rebuilt (`docker compose build web`).
-- **Basic auth.** Set `BASIC_AUTH=on`, `BASIC_AUTH_USER` and `BASIC_AUTH_HASH`
+- **Basic auth.** Set `BASIC_AUTH=on` (the value is exactly `on` or `off`), `BASIC_AUTH_USER` and `BASIC_AUTH_HASH`
   (from `docker run --rm caddy:2 caddy hash-password`, each `$` written `$$`)
   in `compose/.env`, then `docker compose up -d web`. Every path except
   `/health` then asks for the credentials.

@@ -11,7 +11,7 @@
 
 FROM node:22-slim AS build
 WORKDIR /app
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json .npmrc ./
 RUN npm ci
 COPY . .
 ARG EXPO_PUBLIC_API_BASE_URL
