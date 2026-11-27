@@ -50,10 +50,10 @@ none: imported
 - **A08-AC-1** — In Expo Go, without an override, the voice tutor is unavailable. *Verify:* `app/src/features/tutor/__tests__/availability.test.ts` ("is false when running in Expo Go (executionEnvironment === \"storeClient\")").
 - **A08-AC-2** — Outside Expo Go, without an override, the voice tutor is available. *Verify:* `app/src/features/tutor/__tests__/availability.test.ts` ("is true in a dev/standalone build (not Expo Go)").
 - **A08-AC-3** — `EXPO_PUBLIC_ENABLE_VOICE_TUTOR` set to `false` or `true` decides availability whatever the runtime. *Verify:* `app/src/features/tutor/__tests__/availability.test.ts` ("respects EXPO_PUBLIC_ENABLE_VOICE_TUTOR=\"false\" even outside Expo Go"), `app/src/features/tutor/__tests__/availability.test.ts` ("respects EXPO_PUBLIC_ENABLE_VOICE_TUTOR=\"true\" even inside Expo Go").
-- **A08-AC-4** — When the tutor is unavailable, the call screen shows the development-build message and loads no LiveKit code. *Verify:* unpinned.
-- **A08-AC-5** — The learner's level is the level of the highest-ordered unit with an unlocked skill, A1 by default. *Verify:* unpinned.
-- **A08-AC-6** — The call requests a session for that level and joins the room with the returned URL and token. *Verify:* unpinned.
-- **A08-AC-7** — End call disconnects from the room and leaves the call screen. *Verify:* unpinned.
+- **A08-AC-4** — When the tutor is unavailable, the call screen shows the development-build message and loads no LiveKit code. *Verify:* `app/src/features/tutor/__tests__/voice-tutor.test.tsx` ("shows the development-build message and a Back button (A08-AC-4)"), `app/src/features/tutor/__tests__/voice-tutor.test.tsx` ("loads no LiveKit code and never renders the call (A08-AC-4)"), pinned by A13.
+- **A08-AC-5** — The learner's level is the level of the highest-ordered unit with an unlocked skill, A1 by default. *Verify:* `app/src/features/tutor/__tests__/voice-tutor.test.tsx` ("is A1 by default: no courses, nothing unlocked (A08-AC-5)"), `app/src/features/tutor/__tests__/voice-tutor.test.tsx` ("is the level of the highest-ordered unit with an unlocked skill (A08-AC-5)"), `app/src/features/tutor/__tests__/voice-tutor.test.tsx` ("is passed by the call screen to the call (A08-AC-5)"), pinned by A13.
+- **A08-AC-6** — The call requests a session for that level and joins the room with the returned URL and token. *Verify:* `app/src/features/tutor/__tests__/voice-tutor.test.tsx` ("requests a session for the level it is given (A08-AC-6)"), `app/src/features/tutor/__tests__/voice-tutor.test.tsx` ("joins the room with the session url and token, connect and audio (A08-AC-6)"), pinned by A13.
+- **A08-AC-7** — End call disconnects from the room and leaves the call screen. *Verify:* `app/src/features/tutor/__tests__/voice-tutor.test.tsx` ("end call disconnects from the room and calls onEnd (A08-AC-7)"), pinned by A13.
 
 ## Risks
 

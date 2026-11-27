@@ -257,7 +257,7 @@ nodes:
     name: voice-tutor-ui
     deps: [A02, A03, A04]
     track: done
-    status: imported
+    status: pinned
     owns: ["app/src/features/tutor/", "app/app/tutor.tsx", "app/app/(tabs)/tutor.tsx"]
     summary: "The Tutor tab and the full-screen call: the Expo Go availability gate, the learner's CEFR level, a lazily loaded LiveKit call with status, the tutor's transcript, mute, interrupt and end call."
   - id: A09
