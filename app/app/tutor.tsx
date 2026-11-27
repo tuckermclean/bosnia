@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Component, Suspense, type ReactNode } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Button } from '@/components';
@@ -13,6 +13,30 @@ import { color, fontSize, spacing } from '@/theme/tokens';
 // build its route table. A dynamic `import()` keeps LiveKit out of that
 // eager boot bundle entirely; see `src/features/tutor/availability.ts`.
 const VoiceCallLive = React.lazy(() => import('@/features/tutor/VoiceCallLive'));
+
+// Catches an error from loading or rendering the lazily loaded call.
+class CallErrorBoundary extends Component<
+  { onBack: () => void; children?: ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  render() {
+    if (this.state.failed) {
+      return (
+        <View style={styles.center}>
+          <Text style={styles.hint}>The voice tutor couldn't start.</Text>
+          <Button label="Back" onPress={this.props.onBack} variant="ghost" />
+        </View>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 export default function TutorCallScreen() {
   const router = useRouter();
@@ -46,15 +70,17 @@ export default function TutorCallScreen() {
 
   return (
     <View style={styles.container}>
-      <Suspense
-        fallback={
-          <View style={styles.center}>
-            <ActivityIndicator color={color.gold500} size="large" />
-          </View>
-        }
-      >
-        <VoiceCallLive level={level} onEnd={() => router.back()} />
-      </Suspense>
+      <CallErrorBoundary onBack={() => router.back()}>
+        <Suspense
+          fallback={
+            <View style={styles.center}>
+              <ActivityIndicator color={color.gold500} size="large" />
+            </View>
+          }
+        >
+          <VoiceCallLive level={level} onEnd={() => router.back()} />
+        </Suspense>
+      </CallErrorBoundary>
     </View>
   );
 }

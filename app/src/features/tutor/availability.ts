@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import Constants, { ExecutionEnvironment } from 'expo-constants';
 
 /**
@@ -9,6 +10,9 @@ import Constants, { ExecutionEnvironment } from 'expo-constants';
  * The voice tutor therefore only works in a development build or a
  * standalone (store) build, both of which bundle the native module.
  *
+ * On web the tutor runs on `@livekit/components-react` (see `VoiceCallLive.web.tsx`),
+ * which needs no native module, so it is available unless the override is `'false'`.
+ *
  * Resolution order (mirrors the env/Constants pattern in `src/api/config.ts`):
  * 1. `EXPO_PUBLIC_ENABLE_VOICE_TUTOR` env var, if set, forces the answer
  *    (`'true'` → available, `'false'` → unavailable). Useful for local
@@ -19,6 +23,7 @@ import Constants, { ExecutionEnvironment } from 'expo-constants';
  */
 export function isVoiceTutorAvailable(): boolean {
   const override = process.env.EXPO_PUBLIC_ENABLE_VOICE_TUTOR;
+  if (Platform.OS === 'web') return override !== 'false';
   if (override === 'false') return false;
   if (override === 'true') return true;
 
