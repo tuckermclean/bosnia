@@ -13,6 +13,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
+import { within } from '@testing-library/react-native';
 import { useTutorSession } from '@/hooks/useTutor';
 import { useCourses } from '@/hooks/useCourses';
 import { isVoiceTutorAvailable } from '@/features/tutor/availability';
@@ -172,6 +173,13 @@ describe('web call: Room', () => {
     const room = screen.getByTestId('livekit-room');
     expect(room).toBeTruthy();
     expect(screen.getByText('room-audio-renderer')).toBeTruthy();
+  });
+
+  it("renders the tutor's audio renderer as a child of LiveKitRoom (A13-AC-1)", async () => {
+    const Call = loadWeb();
+    await render(<Call level="A1" onEnd={jest.fn()} />);
+    const room = screen.getByTestId('livekit-room');
+    expect(within(room).getByText('room-audio-renderer')).toBeTruthy();
   });
 
   it("keeps the room's onError and onMediaDeviceFailure handlers across re-renders, so the room does not reconnect (A13-AC-1)", async () => {
