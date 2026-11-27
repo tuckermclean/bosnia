@@ -43,8 +43,8 @@ none: imported
 
 - **A04-AC-1** — On boot the app hydrates the session with `GET /auth/me` and lands on the Learn tab when it succeeds, on sign-in otherwise. *Verify:* `app/__tests__/auth-navigation.test.tsx` ("Boot, signed in" and "Boot, signed out"), pinned by A09.
 - **A04-AC-2** — Once the session becomes unauthenticated (log out, or a rejected refresh), a screen outside the auth group is replaced by sign-in. *Verify:* `app/__tests__/auth-navigation.test.tsx` ("Log out"), pinned by A09.
-- **A04-AC-3** — Sign in and sign up send the email trimmed and lower-cased and, on an `ApiError`, show its message. *Verify:* unpinned.
-- **A04-AC-4** — Sign up stays disabled until the password has at least 8 characters. *Verify:* unpinned.
+- **A04-AC-3** — Sign in and sign up send the email trimmed and lower-cased and, on an `ApiError`, show its message. *Verify:* `app/__tests__/web-auth.test.tsx` ("sign in sends the email trimmed and lower-cased (A04-AC-3)", "sign in shows the ApiError message (A04-AC-3)", "sign up sends the email trimmed and lower-cased (A04-AC-3)" and "sign up shows the ApiError message (A04-AC-3)"), pinned by A11.
+- **A04-AC-4** — Sign up stays disabled until the password has at least 8 characters. *Verify:* `app/__tests__/web-auth.test.tsx` ("sign up stays disabled until the password has 8 characters (A04-AC-4)"), pinned by A11.
 - **A04-AC-5** — A successful login or register saves both tokens and sets the user. *Verify:* unpinned.
 
 ## Risks

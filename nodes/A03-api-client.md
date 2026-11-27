@@ -67,8 +67,8 @@ none: imported
 - **A03-AC-3** — With no stored refresh token, a 401 clears the tokens and calls the auth-expired handler, without a refresh request. *Verify:* `app/src/api/__tests__/client.test.ts` ("logs the user out (clears tokens + fires the auth-expired handler) when there is no refresh token").
 - **A03-AC-4** — When the server rejects the refresh token, the client clears the tokens and calls the auth-expired handler. *Verify:* `app/src/api/__tests__/client.test.ts` ("logs the user out when the stored refresh token is itself rejected by the server").
 - **A03-AC-5** — `apiUrl` puts exactly one `/` between the base URL and `/api`, with or without a trailing slash in the base. *Verify:* `app/src/api/__tests__/config.test.ts` ("produces exactly one slash between the host and /api when the base URL has no trailing slash"), `app/src/api/__tests__/config.test.ts` ("strips a trailing slash from the base URL so it does not produce a double slash").
-- **A03-AC-6** — Concurrent 401s share one refresh request. *Verify:* unpinned.
-- **A03-AC-7** — Login, register and refresh are sent without an `Authorization` header. *Verify:* unpinned.
+- **A03-AC-6** — Concurrent 401s share one refresh request. *Verify:* `app/src/api/__tests__/client.test.ts` ("shares one refresh request between concurrent 401s (A03-AC-6)"), pinned by A11.
+- **A03-AC-7** — Login, register and refresh are sent without an `Authorization` header. *Verify:* `app/src/api/__tests__/client.test.ts` ("sends %s without an Authorization header even with a stored access token (A03-AC-7)", for `/auth/login`, `/auth/register` and `/auth/refresh`), pinned by A11.
 - **A03-AC-8** — Queries are not retried after a 4xx `ApiError`; mutations are never retried. *Verify:* unpinned.
 - **A03-AC-9** — A completed lesson invalidates the cached progress and courses. *Verify:* unpinned.
 - **A03-AC-10** — A pronunciation upload is multipart with the `audio` file, `targetPhrase` and, when given, `exerciseId`. *Verify:* unpinned.
