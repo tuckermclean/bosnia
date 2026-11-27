@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { ConnectionState } from 'livekit-client';
 import {
@@ -47,6 +47,19 @@ export default function VoiceCallLive({ level, onEnd }: VoiceCallProps) {
     () => setFailure((prev) => prev ?? "The call isn't available right now. Please try again."),
     [],
   );
+  // livekit-client emits Disconnected before a failed connect rejects, so a
+  // disconnect only ends the call when the room had connected.
+  const connectedRef = useRef(false);
+  const handleConnected = useCallback(() => {
+    connectedRef.current = true;
+  }, []);
+  const handleDisconnected = useCallback(() => {
+    if (connectedRef.current) {
+      onEnd?.();
+    } else {
+      setFailure((prev) => prev ?? "The call isn't available right now. Please try again.");
+    }
+  }, [onEnd]);
 
   if (failure) {
     return (
@@ -83,7 +96,8 @@ export default function VoiceCallLive({ level, onEnd }: VoiceCallProps) {
       token={token}
       connect
       audio
-      onDisconnected={onEnd}
+      onConnected={handleConnected}
+      onDisconnected={handleDisconnected}
       onMediaDeviceFailure={handleMediaDeviceFailure}
       onError={handleError}
     >
