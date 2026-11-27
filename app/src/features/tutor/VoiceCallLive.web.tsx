@@ -37,6 +37,16 @@ export interface VoiceCallProps {
 export default function VoiceCallLive({ level, onEnd }: VoiceCallProps) {
   const sessionQuery = useTutorSession(level);
   const [failure, setFailure] = useState<string | null>(null);
+  // Stable identities: the room's connect effect depends on onError, so an inline
+  // arrow would reconnect the call on every re-render.
+  const handleMediaDeviceFailure = useCallback(
+    () => setFailure((prev) => prev ?? "The microphone isn't available. Allow microphone access and try again."),
+    [],
+  );
+  const handleError = useCallback(
+    () => setFailure((prev) => prev ?? "The call isn't available right now. Please try again."),
+    [],
+  );
 
   if (failure) {
     return (
@@ -74,10 +84,8 @@ export default function VoiceCallLive({ level, onEnd }: VoiceCallProps) {
       connect
       audio
       onDisconnected={onEnd}
-      onMediaDeviceFailure={() =>
-        setFailure((prev) => prev ?? "The microphone isn't available. Allow microphone access and try again.")
-      }
-      onError={() => setFailure((prev) => prev ?? "The call isn't available right now. Please try again.")}
+      onMediaDeviceFailure={handleMediaDeviceFailure}
+      onError={handleError}
     >
       <RoomAudioRenderer />
       <CallContent onEnd={onEnd} sessionId={sessionId} />
