@@ -1,0 +1,40 @@
+# Caddy for the single-host stack. Settings are read from the environment when
+# Caddy parses this file: DOMAIN, BASIC_AUTH (on/off), BASIC_AUTH_USER, BASIC_AUTH_HASH.
+#
+# Caddy sorts directives by its own order, not file order: basic_auth runs before
+# handle, and try_files would run before reverse_proxy. So the proxies and the
+# fallback each live in a handle block (first match wins, in file order).
+
+# BASIC_AUTH=on: basic auth on every path except /health.
+(basic_auth_on) {
+	@protected not path /health
+	basic_auth @protected {
+		{$BASIC_AUTH_USER} {$BASIC_AUTH_HASH}
+	}
+	header -Server
+}
+
+# BASIC_AUTH=off (default): no auth.
+(basic_auth_off) {
+	header -Server
+}
+
+{$DOMAIN} {
+	encode zstd gzip
+
+	import basic_auth_{$BASIC_AUTH:off}
+
+	handle /api/* {
+		reverse_proxy backend:3000
+	}
+
+	handle /health {
+		reverse_proxy backend:3000
+	}
+
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+}

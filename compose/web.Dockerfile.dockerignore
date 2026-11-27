@@ -1,0 +1,10 @@
+# BuildKit's ignore file for compose/web.Dockerfile (context: app/).
+node_modules
+**/node_modules
+dist
+.expo
+web-build
+.env
+.env.*
+**/.env
+**/.env.*
