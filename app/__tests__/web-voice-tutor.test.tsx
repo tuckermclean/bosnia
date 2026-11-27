@@ -318,6 +318,35 @@ describe('web call: Microphone', () => {
     fireEvent.press(screen.getByText('Back'));
     expect(onEnd).toHaveBeenCalledTimes(1);
   });
+
+  it('a room that disconnects before it connects shows the call message, not a silent exit (A13-AC-3)', async () => {
+    const onEnd = jest.fn();
+    const Call = loadWeb();
+    await render(<Call onEnd={onEnd} />);
+    await act(async () => {
+      lastRoomProps().onDisconnected?.('UNKNOWN_REASON');
+      lastRoomProps().onError?.(new Error('connect failed'));
+    });
+    expect(onEnd).not.toHaveBeenCalled();
+    expect(
+      screen.getAllByText(/call[^.]*(not available|n't available|unavailable)/i).length,
+    ).toBeGreaterThan(0);
+    fireEvent.press(screen.getByText('Back'));
+    expect(onEnd).toHaveBeenCalledTimes(1);
+  });
+
+  it('a disconnect after the room connected still leaves the call (A13-AC-2)', async () => {
+    const onEnd = jest.fn();
+    const Call = loadWeb();
+    await render(<Call onEnd={onEnd} />);
+    await act(async () => {
+      lastRoomProps().onConnected?.();
+    });
+    await act(async () => {
+      lastRoomProps().onDisconnected?.('CLIENT_INITIATED');
+    });
+    expect(onEnd).toHaveBeenCalled();
+  });
 });
 
 // ---- Availability (A13-AC-4) ---------------------------------------------
