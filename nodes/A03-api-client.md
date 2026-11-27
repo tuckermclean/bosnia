@@ -71,7 +71,7 @@ none: imported
 - **A03-AC-7** — Login, register and refresh are sent without an `Authorization` header. *Verify:* `app/src/api/__tests__/client.test.ts` ("sends %s without an Authorization header even with a stored access token (A03-AC-7)", for `/auth/login`, `/auth/register` and `/auth/refresh`), pinned by A11.
 - **A03-AC-8** — Queries are not retried after a 4xx `ApiError`; mutations are never retried. *Verify:* unpinned.
 - **A03-AC-9** — A completed lesson invalidates the cached progress and courses. *Verify:* unpinned.
-- **A03-AC-10** — A pronunciation upload is multipart with the `audio` file, `targetPhrase` and, when given, `exerciseId`. *Verify:* unpinned.
+- **A03-AC-10** — A pronunciation upload is multipart with the `audio` file, `targetPhrase` and, when given, `exerciseId`. *Verify:* `app/__tests__/web-pronunciation.test.ts` ("A03-AC-10 posts a FormData body to the pronunciation route"), `app/__tests__/web-pronunciation.test.ts` ("A03-AC-10 appends the audio part as { uri, name, type } with the file name and default audio/m4a"), `app/__tests__/web-pronunciation.test.ts` ("A03-AC-10 appends targetPhrase"), `app/__tests__/web-pronunciation.test.ts` ("A03-AC-10 appends exerciseId when given"), `app/__tests__/web-pronunciation.test.ts` ("A03-AC-10 does not append exerciseId when absent").
 
 ## Risks
 

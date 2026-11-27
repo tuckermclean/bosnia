@@ -1,3 +1,4 @@
+import { appendAudio } from './appendAudio';
 import { apiRequest } from './client';
 import type { PronunciationResult } from '@/types/api';
 
@@ -6,27 +7,18 @@ export interface SubmitPronunciationInput {
   audioUri: string;
   targetPhrase: string;
   exerciseId?: string;
-  /** Defaults to `audio/m4a`; override if the recorder was configured differently. */
+  /** Native defaults to `audio/m4a`, web to the recording's own type, else `audio/webm`. */
   mimeType?: string;
 }
 
-export function submitPronunciation({
+export async function submitPronunciation({
   audioUri,
   targetPhrase,
   exerciseId,
-  mimeType = 'audio/m4a',
+  mimeType,
 }: SubmitPronunciationInput): Promise<PronunciationResult> {
   const formData = new FormData();
-  const fileName = audioUri.split('/').pop() ?? 'recording.m4a';
-
-  // React Native's FormData accepts this `{ uri, name, type }` shape for file
-  // fields; it is not a spec-compliant `Blob` but is what RN's networking
-  // layer expects when multipart-encoding local files.
-  formData.append('audio', {
-    uri: audioUri,
-    name: fileName,
-    type: mimeType,
-  } as unknown as Blob);
+  await appendAudio(formData, audioUri, mimeType);
   formData.append('targetPhrase', targetPhrase);
   if (exerciseId) formData.append('exerciseId', exerciseId);
 
