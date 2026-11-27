@@ -272,6 +272,24 @@ nodes:
     track: now
     owns: ["app/__tests__/home.test.tsx", "app/__tests__/routes-folder.test.ts"]
     summary: "The home test moves out of expo-router's routes folder to app/__tests__/ with its cases unchanged, and an app test fails whenever a file under app/app/ is a test file or sits in a __tests__ folder."
+  - id: A11
+    name: web-auth
+    deps: [A01, A03, A04]
+    track: now
+    owns: ["app/__tests__/web-auth.test.tsx"]
+    summary: "The app exports for web: react-dom and react-native-web as dependencies and an export:web script; on web the tokens live in localStorage behind the same tokenStorage functions (OD1) while native keeps SecureStore, and sign-in and sign-up show the connection message only for a request that never reached the backend, with keyless app tests."
+  - id: A12
+    name: web-pronunciation-upload
+    deps: [A03]
+    track: now
+    owns: ["app/__tests__/web-pronunciation.test.ts"]
+    summary: "On web, submitPronunciation reads the recording's blob: URL and uploads it as a real Blob with the recording's own MIME type and a matching file name, while native keeps React Native's { uri, name, type } part, with keyless app tests of both."
+  - id: A13
+    name: web-voice-tutor
+    deps: [A08, A11]
+    track: now
+    owns: ["app/__tests__/web-voice-tutor.test.tsx"]
+    summary: "On web the voice tutor runs on livekit-client and @livekit/components-react through a VoiceCallLive.web.tsx that never loads @livekit/react-native and plays the tutor's audio, the tutor is available on web, and a failure to load or render the call shows a message with a way back instead of a blank page, with keyless app tests."
   - id: V01
     name: voice-package
     deps: []
@@ -361,3 +379,9 @@ nodes:
     track: now
     owns: [".github/workflows/images.yml"]
     summary: "A pull-request-only Images workflow builds the backend and voice-agent images with Release's Dockerfiles, contexts and build-cache scopes, without logging in or pushing, so a broken Dockerfile fails on the PR instead of after the merge."
+  - id: D07
+    name: compose-stack
+    deps: [A11, R02, D06]
+    track: now
+    owns: ["compose/", "backend/test/compose-stack.test.ts"]
+    summary: "A Docker Compose stack in compose/ runs postgres:16, the backend, the voice agent and a web image (the Expo web export served by Caddy with an index.html fallback, /api and /health proxied to the backend) behind one HTTPS origin, with only Caddy publishing ports, optional basic auth, an env example and a README section; a backend test checks the files, and the Images workflow builds the stack and checks it answers on a pull request."
