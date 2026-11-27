@@ -140,3 +140,71 @@ describe('apiRequest 401 handling', () => {
     registerAuthExpiredHandler(() => undefined);
   });
 });
+
+describe('pins: shared refresh and public auth paths', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('shares one refresh request between concurrent 401s (A03-AC-6)', async () => {
+    mockedTokenStorage.getAccessToken.mockResolvedValue('expired-token');
+    mockedTokenStorage.getRefreshToken.mockResolvedValue('a-refresh-token');
+    mockedTokenStorage.saveTokens.mockResolvedValue(undefined);
+
+    let refreshCalls = 0;
+    const fetchMock = jest.fn(async (url: string, init?: RequestInit) => {
+      if (String(url).endsWith('/auth/refresh')) {
+        refreshCalls += 1;
+        // Resolve late enough that both 401s are waiting on the same refresh.
+        await new Promise((r) => setTimeout(r, 20));
+        return jsonResponse(200, {
+          user: { id: 'u1', email: 'a@b.com' },
+          accessToken: 'new-token',
+          refreshToken: 'new-refresh-token',
+        });
+      }
+      const auth = (init?.headers as Record<string, string>).Authorization;
+      return auth === 'Bearer new-token' ? jsonResponse(200, { ok: true }) : jsonResponse(401, { error: 'Unauthorized' });
+    });
+    globalThis.fetch = fetchMock as unknown as typeof fetch;
+
+    const [a, b] = await Promise.all([apiRequest('/progress'), apiRequest('/courses')]);
+
+    expect(a).toEqual({ ok: true });
+    expect(b).toEqual({ ok: true });
+    expect(refreshCalls).toBe(1);
+    expect(mockedTokenStorage.saveTokens).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(['/auth/login', '/auth/register', '/auth/refresh'])(
+    'sends %s without an Authorization header even with a stored access token (A03-AC-7)',
+    async (path) => {
+      mockedTokenStorage.getAccessToken.mockResolvedValue('stored-token');
+      const fetchMock = jest.fn().mockResolvedValue(jsonResponse(200, { ok: true }));
+      globalThis.fetch = fetchMock;
+
+      await apiRequest(path, { method: 'POST', body: {} });
+
+      const headers = (fetchMock.mock.calls[0]?.[1] as RequestInit).headers as Record<string, string>;
+      expect(headers.Authorization).toBeUndefined();
+    },
+  );
+
+  it('sends the refresh request itself without an Authorization header (A03-AC-7)', async () => {
+    mockedTokenStorage.getAccessToken.mockResolvedValue('expired-token');
+    mockedTokenStorage.getRefreshToken.mockResolvedValue('a-refresh-token');
+    mockedTokenStorage.saveTokens.mockResolvedValue(undefined);
+    const fetchMock = jest
+      .fn()
+      .mockResolvedValueOnce(jsonResponse(401, { error: 'Unauthorized' }))
+      .mockResolvedValueOnce(jsonResponse(200, { user: {}, accessToken: 'n', refreshToken: 'r' }))
+      .mockResolvedValueOnce(jsonResponse(200, { ok: true }));
+    globalThis.fetch = fetchMock;
+
+    await apiRequest('/progress');
+
+    const refreshCall = fetchMock.mock.calls[1] as [string, RequestInit];
+    expect(refreshCall[0]).toMatch(/\/auth\/refresh$/);
+    expect((refreshCall[1].headers as Record<string, string>).Authorization).toBeUndefined();
+  });
+});
