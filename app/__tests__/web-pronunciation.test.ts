@@ -207,6 +207,16 @@ describe('A12 web pronunciation upload', () => {
     expect(part?.fileName).toMatch(/\.webm$/);
   });
 
+  it('A12-AC-2 web typed blob keeps its own type over the caller mimeType', async () => {
+    setBlob('audio/mp4');
+    const submit = loadWeb();
+    await submit({ audioUri: 'blob:http://localhost/own', targetPhrase: 'x', mimeType: 'audio/m4a' });
+    const part = audioPart();
+    expect(part?.value).toBe(recordingBlob);
+    expect((part?.value as Blob).type).toBe('audio/mp4');
+    expect(part?.fileName).toMatch(/\.mp4$/);
+  });
+
   it('A12-AC-3 web unreadable recording rejects and sends no pronunciation request', async () => {
     blobFetchError = new Error('blob gone');
     const submit = loadWeb();
