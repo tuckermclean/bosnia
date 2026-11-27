@@ -278,6 +278,23 @@ describe('web call: Microphone', () => {
     fireEvent.press(screen.getByText('Back'));
     expect(onEnd).toHaveBeenCalledTimes(1);
   });
+
+  it('a media-device failure followed by the room error it causes keeps the microphone message (A13-AC-3)', async () => {
+    const onEnd = jest.fn();
+    const Call = loadWeb();
+    await render(<Call onEnd={onEnd} />);
+    await act(async () => {
+      lastRoomProps().onMediaDeviceFailure?.('PermissionDenied', 'audioinput');
+    });
+    await act(async () => {
+      lastRoomProps().onError?.(new Error('Permission denied'));
+    });
+    expect(
+      screen.getAllByText(/microphone[^.]*(not available|n't available|unavailable)/i).length,
+    ).toBeGreaterThan(0);
+    fireEvent.press(screen.getByText('Back'));
+    expect(onEnd).toHaveBeenCalledTimes(1);
+  });
 });
 
 // ---- Availability (A13-AC-4) ---------------------------------------------
