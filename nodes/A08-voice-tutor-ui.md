@@ -38,8 +38,11 @@ key, only the short-lived room token (principle 1). Its screens are the Tutor ta
 ## Tests
 
 `app/src/features/tutor/__tests__/availability.test.ts`: `isVoiceTutorAvailable` in Expo Go, in a standalone
-build, and with each value of the override, `expo-constants` mocked. `level.ts`, the call screen and
-`VoiceCallLive` have no test.
+build, and with each value of the override, `expo-constants` mocked.
+`app/src/features/tutor/__tests__/voice-tutor.test.tsx` (A13's pins): the call screen when the tutor is
+unavailable (its message, no LiveKit code loaded), `deriveLearnerLevel` and the level the screen passes to the
+call, and the native `VoiceCallLive`'s session request, room join and end call, with LiveKit and
+`useTutorSession` mocked. The mute, interrupt and status display of the native call have no test.
 
 ## Changes
 
@@ -57,11 +60,10 @@ none: imported
 
 ## Risks
 
-- A real call needs LiveKit, Groq and Azure keys and a microphone, so the call is checked only by hand, after
-  merge (OD7).
-- The availability check has no case for the web: there it is true unless `expo-constants` reports Expo Go,
-  and the call screen then loads `@livekit/react-native`, a React Native WebRTC binding. The web voice tutor
-  is planned work (priority 5).
+- The call's tests mock LiveKit and the session, so they pin the wiring, not a call. A real call needs
+  LiveKit, Groq and Azure keys and a microphone, so it is checked only by hand, after merge (OD7).
+- On web the tutor is available unless the override is `false`, and the call screen loads A13's
+  `VoiceCallLive.web.tsx` in place of `VoiceCallLive.tsx`.
 - The session's `sessionId` is not used: no session end or turns are sent (a `TODO` in `VoiceCallLive`,
   and `FOLLOWUPS.md`).
 - No code under `voice-agent/` reads the `lk.interrupt` topic; barge-in relies on the agent's voice detection.

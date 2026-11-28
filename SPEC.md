@@ -75,6 +75,9 @@ nothing is known red.
   adds the web export, `localStorage` tokens on web and honest sign-in errors; A12 uploads the recording as a
   `Blob` on web; A13 runs the tutor in the browser on `livekit-client`; D07 adds a Docker Compose stack in
   `compose/` that serves the web build and the backend on one HTTPS origin.
+- `useTutorSession` (`app/src/hooks/useTutor.ts`) leaves react-query's `refetchOnReconnect` on, so when the
+  browser comes back online mid-call it requests a new tutor session, a new room and token, and the call
+  component hands the new token to `LiveKitRoom`. A14 makes the session one-shot and tests a reconnect.
 - The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse detection,
   the CORS allowlist, auth rate limiting, placeholder reference audio, coarse pronunciation scoring.
 
