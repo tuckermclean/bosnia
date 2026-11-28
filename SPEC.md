@@ -78,6 +78,11 @@ nothing is known red.
 - `useTutorSession` (`app/src/hooks/useTutor.ts`) leaves react-query's `refetchOnReconnect` on, so when the
   browser comes back online mid-call it requests a new tutor session, a new room and token, and the call
   component hands the new token to `LiveKitRoom`. A14 makes the session one-shot and tests a reconnect.
+- With `BASIC_AUTH=on`, the compose stack's Caddy asks for the basic credentials on every path but `/health`,
+  so it answers the app's Bearer API calls with its own 401 and the app stops working after sign-in, and
+  nothing stops an empty `DOMAIN`. D08 lets `/api/*` calls with a Bearer token through to the backend, keeps
+  register, login and refresh behind basic auth, guards `DOMAIN`, and has the `Images` job sign in through
+  Caddy with basic auth on.
 - The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse detection,
   the CORS allowlist, auth rate limiting, placeholder reference audio, coarse pronunciation scoring.
 
