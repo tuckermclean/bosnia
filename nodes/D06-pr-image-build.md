@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| now | B11, V07, D02 | D07 | S |
+| now | B11, V07, D02 | D07, D08 | S |
 
 **Owns:** `.github/workflows/images.yml`
 **Resolves:** #17
