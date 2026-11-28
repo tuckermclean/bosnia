@@ -2,7 +2,7 @@
 
 | Track | Deps | Unlocks | Size |
 |---|---|---|---|
-| now | A11, R02, D06 | none | M |
+| now | A11, R02, D06 | D08 | M |
 
 **Owns:** `compose/`, `backend/test/compose-stack.test.ts`
 **Resolves:** #55

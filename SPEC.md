@@ -75,6 +75,11 @@ nothing is known red.
   adds the web export, `localStorage` tokens on web and honest sign-in errors; A12 uploads the recording as a
   `Blob` on web; A13 runs the tutor in the browser on `livekit-client`; D07 adds a Docker Compose stack in
   `compose/` that serves the web build and the backend on one HTTPS origin.
+- With `BASIC_AUTH=on`, the compose stack's Caddy asks for the basic credentials on every path but `/health`,
+  so it answers the app's Bearer API calls with its own 401 and the app stops working after sign-in, and
+  nothing stops an empty `DOMAIN`. D08 lets `/api/*` calls with a Bearer token through to the backend, keeps
+  register, login and refresh behind basic auth, guards `DOMAIN`, and has the `Images` job sign in through
+  Caddy with basic auth on.
 - The deferred work in `FOLLOWUPS.md`: tutor turn persistence and session end, refresh-token reuse detection,
   the CORS allowlist, auth rate limiting, placeholder reference audio, coarse pronunciation scoring.
 

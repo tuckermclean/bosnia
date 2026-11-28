@@ -385,3 +385,9 @@ nodes:
     track: now
     owns: ["compose/", "backend/test/compose-stack.test.ts"]
     summary: "A Docker Compose stack in compose/ runs postgres:16, the backend, the voice agent and a web image (the Expo web export served by Caddy with an index.html fallback, /api and /health proxied to the backend) behind one HTTPS origin, with only Caddy publishing ports, optional basic auth, an env example and a README section; a backend test checks the files, and the Images workflow builds the stack and checks it answers on a pull request."
+  - id: D08
+    name: compose-basic-auth
+    deps: [D07, D06, R02]
+    track: now
+    owns: ["backend/test/compose-basic-auth.test.ts"]
+    summary: "With BASIC_AUTH=on the compose stack's Caddy asks for the basic credentials on every path but /health, except an /api/* request that carries a Bearer token and is not one of the token-issuing routes (register, login, refresh), so the app works after sign-in; compose refuses an empty DOMAIN; a backend test checks the Caddyfile's rule against the backend's routes, the Images job signs in through Caddy with basic auth on, and the README and env example describe the rule."
