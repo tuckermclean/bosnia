@@ -290,6 +290,12 @@ nodes:
     track: now
     owns: ["app/__tests__/web-voice-tutor.test.tsx"]
     summary: "On web the voice tutor runs on livekit-client and @livekit/components-react through a VoiceCallLive.web.tsx that never loads @livekit/react-native and plays the tutor's audio, the tutor is available on web, and a failure to load or render the call shows a message with a way back instead of a blank page, with keyless app tests."
+  - id: A14
+    name: tutor-session-one-shot
+    deps: [A03]
+    track: now
+    owns: ["app/__tests__/tutor-session.test.tsx"]
+    summary: "useTutorSession requests one tutor session per mount: a network reconnect or a window focus does not request a new room and token mid-call, a failure is not retried, and a new mount still gets a new session, with a keyless app test on react-query's online manager."
   - id: V01
     name: voice-package
     deps: []
